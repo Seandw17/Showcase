@@ -16,8 +16,9 @@ public class InteractableObjectBase : MonoBehaviour
         
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         //TODO - Add code for whatever you want the user to do once they click on an object
+        Debug.Log("InteractBase");
     }
 }

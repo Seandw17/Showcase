@@ -1,0 +1,12 @@
+﻿# the format of the CSV is as follows [identifier],[question], [response text] | [feel] | ... | [feel] | [unlock criteria]
+# new line represents a new variation of a question
+# "end" represents the end of a question set 
+#
+# so an example of a question:
+# What Do You Think of This?,I like it|CONFIDENCE|SKILL|NONE,I don't like it|SKILL|NONE
+# end
+#
+# to insert a comment, include the "#" character at a the start of a line
+# 
+START,What Do You Think of This?,I like it|CONFIDENCE|SKILL|NONE,I don't like it|SKILL|NONE
+end

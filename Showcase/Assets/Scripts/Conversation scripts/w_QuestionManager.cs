@@ -27,7 +27,7 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// How many buttons we want to load on start
     /// </summary>
-    [SerializeField] int m_buttonPoolSize = 5;
+    [SerializeField] const int m_buttonPoolSize = 5;
 
     /// <summary>
     /// How many questions we should ask in this session

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 
-public class ButtonData : MonoBehaviour
+public class ButtonData : InteractableObjectBase
 {
     /// <summary>
     /// The Text Mesh Pro of this prefab
@@ -30,12 +30,9 @@ public class ButtonData : MonoBehaviour
         m_connotation = _connotation;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    override public void Interact() 
     {
-        if (collision.collider.CompareTag("Player"))
-        {
-            m_questionManager.ProcessQuestionResult(m_textValue.text,
-                m_connotation);
-        }
+        m_questionManager.ProcessQuestionResult(m_textValue.text,
+            m_connotation);
     }
 }

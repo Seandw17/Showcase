@@ -21,6 +21,9 @@ public struct s_questionData
     public List<s_response> options;
 }
 
+/// <summary>
+/// Struct to hold final response to be passed later
+/// </summary>
 public struct s_finalResponse
 {
     // TODO implement with feedback from designer

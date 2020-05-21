@@ -10,7 +10,10 @@ public class ConversationStore : MonoBehaviour
     e_unlockFlag unlockedFlags = e_unlockFlag.NONE;
     List<s_response> m_playerResponses;
 
-    private void Start()
+    /// <summary>
+    /// Constructor for this object
+    /// </summary>
+    ConversationStore()
     {
         m_playerResponses = new List<s_response>();
     }

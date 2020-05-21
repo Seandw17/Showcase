@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 
-// struct to hold an individual response
+// Author: Alec
+
+/// <summary>
+/// Struct to hold a response
+/// </summary>
 public struct s_response
 {
     public string response;
@@ -8,7 +12,9 @@ public struct s_response
     public e_unlockFlag unlockCriteria;
 }
 
-// struct to hold a question
+/// <summary>
+/// Struct to hold a <see cref="question"/>
+/// </summary>
 public struct s_questionData
 {
     public string question;

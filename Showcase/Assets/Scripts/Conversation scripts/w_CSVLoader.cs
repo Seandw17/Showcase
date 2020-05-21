@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Author: Alec
+
 // TODO rename class once completed
 public class w_CSVLoader
 {

@@ -1,5 +1,10 @@
 ﻿using System;
 
+// Author: Alec
+
+/// <summary>
+/// Enum to show connotation
+/// </summary>
 [Flags]
 public enum e_connotes
 {
@@ -12,6 +17,9 @@ public enum e_connotes
     BOASTFUL = 1 << 6
 }
 
+/// <summary>
+/// Enum for identifier
+/// </summary>
 public enum e_identifier
 {
     START = 1,
@@ -19,6 +27,9 @@ public enum e_identifier
     END = 3
 }
 
+/// <summary>
+/// Enum to represent Unlock flag
+/// </summary>
 public enum e_unlockFlag
 {
     NONE = 0,

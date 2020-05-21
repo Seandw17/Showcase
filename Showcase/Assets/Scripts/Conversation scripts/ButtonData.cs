@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using TMPro;
 
+// Author: Alec
+
 public class ButtonData : InteractableObjectBase
 {
     /// <summary>
     /// The Text Mesh Pro of this prefab
     /// </summary>
-    [SerializeField] TextMeshPro m_textValue;
+    [SerializeField] TextMeshPro m_textValue = null;
     w_QuestionManager m_questionManager;
     e_connotes m_connotation;
 

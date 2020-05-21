@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+// Author: Alec
+
 public class w_QuestionManager : MonoBehaviour
 {
     TextMeshPro m_questionBox;
@@ -19,7 +21,7 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// The button we want to use for each options
     /// </summary>
-    [SerializeField] ButtonData m_button;
+    [SerializeField] ButtonData m_button = null;
 
     /// <summary>
     /// How many buttons we want to load on start
@@ -142,56 +144,4 @@ public class w_QuestionManager : MonoBehaviour
         // TODO pass silent value to gameManager
         LoadRandomQuestion();
     }
-
-    /*
-    /// <summary>
-    /// Load the next question list
-    /// </summary>
-    void LoadNextQuestion()
-    {
-        if (m_currentQuestion != m_questions.Count)
-        {
-            // acquire the current question
-            List<KeyValuePair<string, s_questionData>> currentQuestionVariations =
-                m_questions[m_currentQuestion];
-
-            string keyValue = "What Do You Think of This?";
-            // TODO PARSE WHAT DETAILS WE WILL NEED
-
-            s_questionData questionToDisplay = new s_questionData();
-            foreach (KeyValuePair<string, s_questionData> pair
-                in currentQuestionVariations)
-            {
-                Debug.Log(pair.Key);
-                // when we found the relevent pair
-                if (pair.Key.Equals(keyValue))
-                {
-                    questionToDisplay = pair.Value;
-                    break;
-                }
-
-                // if we have reached the end of the loop without breaking
-                throw new System.Exception
-                    ("An error has occured finding the question required");
-            }
-
-            // use values to set data
-            m_questionBox.SetText(questionToDisplay.question);
-            for (int index = 0; index < questionToDisplay.options.Count; index++)
-            {
-                m_buttonPool[index].SetValue(
-                    questionToDisplay.options[index].response,
-                    questionToDisplay.options[index].feel);
-                m_buttonPool[index].gameObject.SetActive(true);
-            }
-
-            m_currentQuestion++;
-        }
-
-        else
-        {
-            // End
-        }
-    }
-    */
 }

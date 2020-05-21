@@ -66,7 +66,12 @@ public class w_QuestionManager : MonoBehaviour
     void LoadRandomQuestion()
     {
         m_currentQuestion++;
-        if (m_currentQuestion > m_questionsToAsk) { /* end */ }
+        if (m_currentQuestion > m_questionsToAsk)
+        {
+            // TODO End the level, or something
+            throw new System.Exception("Level end reached, " +
+                "but there is nothing here");
+        }
 
         // retrieve data
         int nextQuestion = Random.Range(0, m_questions.Count - 1);

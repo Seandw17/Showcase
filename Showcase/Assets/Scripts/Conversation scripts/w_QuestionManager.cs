@@ -11,6 +11,7 @@ public class w_QuestionManager : MonoBehaviour
     List<List<KeyValuePair<e_identifier, s_questionData>>> m_questions;
     ButtonData[] m_buttonPool;
     int m_currentQuestion;
+    ConversationStore m_playerConversationStore;
 
     /// <summary>
     /// Time user has to answer a question
@@ -39,6 +40,7 @@ public class w_QuestionManager : MonoBehaviour
         // acquiring relevant data
         m_questionBox = GetComponent<TextMeshPro>();
         m_questions = new w_CSVLoader().ReadCSV("Test");
+        m_playerConversationStore = FindObjectOfType<ConversationStore>();
 
         // use values to set data
         Vector3 spawnLocation = transform.position;
@@ -92,11 +94,18 @@ public class w_QuestionManager : MonoBehaviour
         m_questionBox.SetText(questionToDisplay.question);
         for (int index = 0; index < questionToDisplay.options.Count; index++)
         {
-            // TODO Query the game manager, if we have the unlock criteria, display
-            m_buttonPool[index].SetValue(
+            if (m_playerConversationStore.CheckHasFlag(
+                questionToDisplay.options[index].unlockCriteria))
+            {
+                m_buttonPool[index].SetValue(
                 questionToDisplay.options[index].response,
                 questionToDisplay.options[index].feel);
-            m_buttonPool[index].gameObject.SetActive(true);
+                m_buttonPool[index].gameObject.SetActive(true);
+            }
+            else
+            {
+                // TODO add a lock graphic or something
+            }
         }
 
         Debug.Log("Chose Question: " + questionToDisplay.question);
@@ -134,14 +143,9 @@ public class w_QuestionManager : MonoBehaviour
             Debug.Log(m_currentTime);
         }
 
-        ProcessSilence();
+        m_playerConversationStore.PlayerWasSilent();
+        LoadRandomQuestion();
 
         yield return null;
-    }
-
-    void ProcessSilence()
-    {
-        // TODO pass silent value to gameManager
-        LoadRandomQuestion();
     }
 }

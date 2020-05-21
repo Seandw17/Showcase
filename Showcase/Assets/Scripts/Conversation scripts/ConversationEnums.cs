@@ -30,11 +30,12 @@ public enum e_identifier
 /// <summary>
 /// Enum to represent Unlock flag
 /// </summary>
+[Flags]
 public enum e_unlockFlag
 {
-    NONE = 0,
-    LAPTOP = 1,
-    BOOK = 2,
-    FLYER = 3,
-    PHONE = 4
+    NONE = 1 << 0,
+    LAPTOP = 1 << 1,
+    BOOK = 1 << 2,
+    FLYER = 1 << 3,
+    PHONE = 1 << 4
 }

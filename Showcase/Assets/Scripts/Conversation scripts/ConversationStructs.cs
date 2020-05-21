@@ -20,3 +20,8 @@ public struct s_questionData
     public string question;
     public List<s_response> options;
 }
+
+public struct s_finalResponse
+{
+    // TODO implement with feedback from designer
+}

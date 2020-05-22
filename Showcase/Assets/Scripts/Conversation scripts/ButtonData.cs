@@ -1,16 +1,17 @@
-﻿using UnityEngine;
-using TMPro;
+﻿using TMPro;
 
 // Author: Alec
 
 public class ButtonData : InteractableObjectBase
 {
-    /// <summary>
-    /// The Text Mesh Pro of this prefab
-    /// </summary>
-    [SerializeField] TextMeshPro m_textValue = null;
+    TextMeshPro m_textValue;
     w_QuestionManager m_questionManager;
     s_Questionresponse m_responseForThisButton;
+
+    private void Start()
+    {
+        m_textValue = GetComponent<TextMeshPro>();
+    }
 
     /// <summary>
     /// Function to set the manager

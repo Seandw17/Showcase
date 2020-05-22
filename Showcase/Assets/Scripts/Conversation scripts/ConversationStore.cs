@@ -69,6 +69,10 @@ public class ConversationStore : MonoBehaviour
         m_playerResponses.Add(temp);
     }
 
+    /// <summary>
+    /// Function to process the final results of the player
+    /// </summary>
+    /// <returns> A final response struct </returns>
     public s_finalResponse ProcessFinalResult()
     {
         // TODO implement

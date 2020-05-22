@@ -135,7 +135,7 @@ public class w_QuestionManager : MonoBehaviour
         {
             button.gameObject.SetActive(false);
         }
-        m_questionBox.text = "";
+        m_questionBox.SetText("");
 
         LoadRandomQuestion();
     }

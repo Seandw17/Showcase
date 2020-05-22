@@ -102,9 +102,7 @@ public class w_QuestionManager : MonoBehaviour
             if (m_playerConversationStore.CheckHasFlag(
                 questionToDisplay.options[index].unlockCriteria))
             {
-                m_buttonPool[index].SetValue(
-                questionToDisplay.options[index].response,
-                questionToDisplay.options[index].feel);
+                m_buttonPool[index].SetValue(questionToDisplay.options[index]);
                 m_buttonPool[index].gameObject.SetActive(true);
             }
             else
@@ -125,17 +123,19 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// Process the result of our question, attach this to a button
     /// </summary>
-    public void ProcessQuestionResult(string response, e_connotes feel)
+    public void ProcessQuestionResult(s_response _chosenResponse)
     {
         StopCoroutine(WaitForAnswer());
 
-        // Pass it to a game manager or something
+        m_playerConversationStore.ProcessAnswer(_chosenResponse,
+            m_questionBox.text);
 
         // Turn of buttons for now
         foreach (ButtonData button in m_buttonPool)
         {
             button.gameObject.SetActive(false);
         }
+        m_questionBox.text = "";
 
         LoadRandomQuestion();
     }
@@ -148,7 +148,7 @@ public class w_QuestionManager : MonoBehaviour
             Debug.Log(m_currentTime);
         }
 
-        m_playerConversationStore.PlayerWasSilent();
+        m_playerConversationStore.PlayerWasSilent(m_questionBox.text);
         LoadRandomQuestion();
 
         yield return null;

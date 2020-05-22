@@ -28,3 +28,12 @@ public struct s_finalResponse
 {
     // TODO implement with feedback from designer
 }
+
+/// <summary>
+/// A struct that shows a player response to a question
+/// </summary>
+public struct s_playerResponse
+{
+    public string question;
+    public s_response playerResponse;
+}

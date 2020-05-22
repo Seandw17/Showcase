@@ -140,6 +140,10 @@ public class w_QuestionManager : MonoBehaviour
         LoadRandomQuestion();
     }
 
+    /// <summary>
+    /// Start a timer that waits for an answer from player
+    /// </summary>
+    /// <returns> null upon completion </returns>
     IEnumerator WaitForAnswer()
     {
         while (m_currentTime > 0.0f)

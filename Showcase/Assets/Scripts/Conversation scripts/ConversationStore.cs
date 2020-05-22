@@ -45,8 +45,9 @@ public class ConversationStore : MonoBehaviour
     }
 
     /// <summary>
-    /// Process that the player was silent
+    /// Signals that the player was silent
     /// </summary>
+    /// <param name="_question"> the question that was active </param>
     public void PlayerWasSilent(string _question)
     {
         m_silentResponse.question = _question;
@@ -54,9 +55,10 @@ public class ConversationStore : MonoBehaviour
     }
 
     /// <summary>
-    /// Process a player resposne to a question
+    /// Processes a given answer
     /// </summary>
-    /// <param name="_Response"> the response </param>
+    /// <param name="_response"> the reponse the player chose </param>
+    /// <param name="_question"> the active question </param>
     public void ProcessAnswer(s_Questionresponse _response, string _question)
     {
         Debug.Assert(!_response.Equals(new s_Questionresponse())

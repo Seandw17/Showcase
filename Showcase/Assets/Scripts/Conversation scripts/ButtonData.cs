@@ -33,6 +33,9 @@ public class ButtonData : InteractableObjectBase
         m_responseForThisButton = _response;
     }
 
+    /// <summary>
+    /// Override of Interact, calls process result on manager
+    /// </summary>
     override public void Interact() 
     {
         m_questionManager.ProcessQuestionResult(m_responseForThisButton);

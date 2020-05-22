@@ -12,18 +12,14 @@ public class w_QuestionManager : MonoBehaviour
     ButtonData[] m_buttonPool;
     int m_currentQuestion;
     ConversationStore m_playerConversationStore;
+    ButtonData m_button;
 
     /// <summary>
     /// Time user has to answer a question
     /// </summary>
-    const float m_timeBetweenQuestions = 20.0f;
+    [SerializeField] const float m_timeBetweenQuestions = 20.0f;
     float m_currentTime = m_timeBetweenQuestions;
-
-    /// <summary>
-    /// The button we want to use for each options
-    /// </summary>
-    [SerializeField] ButtonData m_button = null;
-
+    
     /// <summary>
     /// How many buttons we want to load on start
     /// </summary>
@@ -37,6 +33,10 @@ public class w_QuestionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Loading in button prefab
+        m_button = Resources.Load<GameObject>("Prefabs/Button")
+            .GetComponent<ButtonData>();
+
         // acquiring relevant data
         m_questionBox = GetComponent<TextMeshPro>();
         m_questions = new w_CSVLoader().ReadCSV("Test");

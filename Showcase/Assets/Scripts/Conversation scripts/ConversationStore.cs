@@ -19,7 +19,7 @@ public class ConversationStore : MonoBehaviour
         m_playerResponses = new List<s_playerResponse>();
 
         m_silentResponse = new s_playerResponse();
-        s_response temp = new s_response();
+        s_Questionresponse temp = new s_Questionresponse();
         temp.response = "Silent";
         temp.feel = e_connotes.NERVOUSNESS; // TODO change this with feedback
         m_silentResponse.playerResponse = temp;
@@ -57,9 +57,9 @@ public class ConversationStore : MonoBehaviour
     /// Process a player resposne to a question
     /// </summary>
     /// <param name="_Response"> the response </param>
-    public void ProcessAnswer(s_response _response, string _question)
+    public void ProcessAnswer(s_Questionresponse _response, string _question)
     {
-        Debug.Assert(!_response.Equals(new s_response())
+        Debug.Assert(!_response.Equals(new s_Questionresponse())
             && !_question.Equals(""));
 
         s_playerResponse temp = new s_playerResponse();

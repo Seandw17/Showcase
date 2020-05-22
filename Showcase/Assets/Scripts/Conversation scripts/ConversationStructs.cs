@@ -5,7 +5,7 @@
 /// <summary>
 /// Struct to hold a response
 /// </summary>
-public struct s_response
+public struct s_Questionresponse
 {
     public string response;
     public e_connotes feel;
@@ -18,7 +18,7 @@ public struct s_response
 public struct s_questionData
 {
     public string question;
-    public List<s_response> options;
+    public List<s_Questionresponse> options;
 }
 
 /// <summary>
@@ -35,5 +35,5 @@ public struct s_finalResponse
 public struct s_playerResponse
 {
     public string question;
-    public s_response playerResponse;
+    public s_Questionresponse playerResponse;
 }

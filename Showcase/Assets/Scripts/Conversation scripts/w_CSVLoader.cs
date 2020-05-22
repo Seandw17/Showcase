@@ -69,7 +69,7 @@ public class w_CSVLoader
     {
         // creating a new question
         s_questionData question = new s_questionData();
-        question.options = new List<s_response>();
+        question.options = new List<s_Questionresponse>();
 
         // loading in the actual question
         string[] data = QuestionLine.Split(',');
@@ -79,7 +79,7 @@ public class w_CSVLoader
         for (int iterator = 2; iterator < data.Length; iterator++)
         {
             string[] optionAndFeel = data[iterator].Split('|');
-            s_response temp = new s_response();
+            s_Questionresponse temp = new s_Questionresponse();
             temp.response = optionAndFeel[0];
 
             e_connotes feel = (e_connotes) Enum.Parse(typeof(e_connotes),

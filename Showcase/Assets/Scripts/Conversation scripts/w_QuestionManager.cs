@@ -123,7 +123,7 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// Process the result of our question, attach this to a button
     /// </summary>
-    public void ProcessQuestionResult(s_response _chosenResponse)
+    public void ProcessQuestionResult(s_Questionresponse _chosenResponse)
     {
         StopCoroutine(WaitForAnswer());
 

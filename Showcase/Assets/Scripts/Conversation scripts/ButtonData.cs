@@ -10,7 +10,7 @@ public class ButtonData : InteractableObjectBase
     /// </summary>
     [SerializeField] TextMeshPro m_textValue = null;
     w_QuestionManager m_questionManager;
-    s_response m_responseForThisButton;
+    s_Questionresponse m_responseForThisButton;
 
     /// <summary>
     /// Function to set the manager
@@ -26,7 +26,7 @@ public class ButtonData : InteractableObjectBase
     /// </summary>
     /// <param name="_value"> what will be displayed in game</param>
     /// <param name="_connotation"> what feelings should be returned </param>
-    public void SetValue(s_response _response)
+    public void SetValue(s_Questionresponse _response)
     {
         m_textValue.SetText(_response.response);
         m_responseForThisButton = _response;

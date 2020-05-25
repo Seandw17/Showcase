@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     InteractableObjectBase[] ig_interactable;
 
     //Bool to handle player movement and camera
-    bool m_canmove = true;
+    public bool m_canmove = true;
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +38,8 @@ public class PlayerController : MonoBehaviour
         if (m_canmove == true)
         {
             PlayerMovement();
-            CameraMovement();
         }
+        CameraMovement();
         OnInteract();
     }
 

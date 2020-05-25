@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Test : InteractableObjectBase
+public class WardrobeObject : InteractableObjectBase
 {
     // Start is called before the first frame update
     void Start()
@@ -15,8 +15,9 @@ public class Test : InteractableObjectBase
     {
         
     }
+
     public override void Interact()
     {
-        m_gmscript.SetCurrentHUD(m_gmscript.ig_PlayerPanel);
+        m_gmscript.SetCurrentHUD(m_gmscript.ig_WardrobePanel);
     }
 }

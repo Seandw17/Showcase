@@ -18,13 +18,16 @@ public class PlayerController : MonoBehaviour
     //Interactable Object - ref
     InteractableObjectBase[] ig_interactable;
 
+    //Bool to handle player movement and camera
+    public bool m_canmove = true;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        m_camera = FindObjectOfType<Camera>();
-
+        m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player
+        
+        //Find all interactable objects in the level for the player to interact with
         ig_interactable = (InteractableObjectBase[])FindObjectsOfType(typeof(InteractableObjectBase));
         
     }
@@ -32,11 +35,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
+        if (m_canmove == true)
+        {
+            PlayerMovement();
+        }
         CameraMovement();
         OnInteract();
     }
 
+    //Seting up the player movements
     void PlayerMovement()
     {
         float m_Translation = Input.GetAxis("Vertical") * m_playerSpeed;
@@ -47,6 +54,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(m_Straffe, 0, m_Translation);
     }
 
+    //Setting up the camera movement to move with the mouse
     void CameraMovement()
     {
         var m_mouseDirection = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
@@ -61,6 +69,7 @@ public class PlayerController : MonoBehaviour
         this.transform.localRotation = Quaternion.AngleAxis(m_mouseLook.x, this.transform.up);
     }
 
+    //Setting up the interaction with left mouse button click
     void OnInteract()
     {
         if (Input.GetMouseButtonDown(0)) 
@@ -71,10 +80,13 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(m_ray, out m_hit))
             {
                 Transform m_objectHit = m_hit.transform;
+                //Run through all interactable objects within the game
                 for (int i = 0; i < ig_interactable.Length; i++)
                 {
+                    
                     if(m_objectHit.gameObject == ig_interactable[i].gameObject)
                     {
+                        //Call the specific object interact function
                         ig_interactable[i].Interact();
                     }
                 }

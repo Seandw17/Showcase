@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableObjectBase : MonoBehaviour
+public class WardrobeObject : InteractableObjectBase
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.Start();
     }
 
     // Update is called once per frame
@@ -16,9 +16,8 @@ public class InteractableObjectBase : MonoBehaviour
         
     }
 
-    public virtual void Interact()
+    public override void Interact()
     {
-        //TODO - Add code for whatever you want the user to do once they click on an object
-        Debug.Log("InteractBase");
+        m_gmscript.SetCurrentHUD(m_gmscript.ig_WardrobePanel);
     }
 }

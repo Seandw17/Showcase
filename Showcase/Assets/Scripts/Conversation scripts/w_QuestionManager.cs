@@ -43,7 +43,6 @@ public class w_QuestionManager : MonoBehaviour
         m_questions = new w_CSVLoader().ReadCSV("Test");
         m_playerConversationStore = FindObjectOfType<ConversationStore>();
 
-        Debug.Log(m_questions.Count);
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
             "There are not enough questions loaded to meet the desired" +
             " amount to be asked");

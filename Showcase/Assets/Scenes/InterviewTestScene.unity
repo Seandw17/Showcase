@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c42d20079404f66bc28e1e27cf5d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_questionsToAsk: 5
+  m_questionsToAsk: 1
 --- !u!114 &1576560098
 MonoBehaviour:
   m_ObjectHideFlags: 0

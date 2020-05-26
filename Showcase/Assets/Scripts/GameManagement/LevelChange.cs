@@ -3,10 +3,16 @@ using UnityEngine;
 
 public class LevelChange : MonoBehaviour
 {
+    [SerializeField] string forcedLevelChange;
+
     // Start is called before the first frame update
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        Debug.Assert(!forcedLevelChange.Equals(""), "Enter a level to change to");
+
+        SceneManager.LoadSceneAsync(forcedLevelChange, LoadSceneMode.Additive);
     }
 
     /// <summary>

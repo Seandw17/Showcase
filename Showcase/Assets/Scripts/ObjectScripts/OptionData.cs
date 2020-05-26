@@ -7,8 +7,9 @@ public class OptionData : InteractableObjectBase
     TextMeshPro m_textValue;
     w_QuestionManager m_questionManager;
     s_Questionresponse m_responseForThisButton;
-    
-    override void Start()
+    bool m_isInteractible;
+
+    private void Awake()
     {
         m_textValue = GetComponent<TextMeshPro>();
     }
@@ -38,7 +39,10 @@ public class OptionData : InteractableObjectBase
     /// </summary>
     override public void Interact()
     {
-        m_questionManager.ProcessQuestionResult(m_responseForThisButton);
+        if (m_isInteractible)
+        {
+            m_questionManager.ProcessQuestionResult(m_responseForThisButton);
+        }
     }
 
     /// <summary>
@@ -46,4 +50,15 @@ public class OptionData : InteractableObjectBase
     /// </summary>
     /// <returns> the text mesh pro object </returns>
     public TextMeshPro ReturnText() { return m_textValue; }
+
+    /// <summary>
+    /// Set the graphic of the option to locked
+    /// </summary>
+    /// <param name="_locked">is the object locked</param>
+    public void SetLocked(bool _locked)
+    {
+        m_isInteractible = !_locked;
+
+        // TODO graphical changes
+    }
 }

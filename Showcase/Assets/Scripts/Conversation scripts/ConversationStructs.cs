@@ -22,14 +22,6 @@ public struct s_questionData
 }
 
 /// <summary>
-/// Struct to hold final response to be passed later
-/// </summary>
-public struct s_finalResponse
-{
-    // TODO implement with feedback from designer
-}
-
-/// <summary>
 /// A struct that shows a player response to a question
 /// </summary>
 public struct s_playerResponse

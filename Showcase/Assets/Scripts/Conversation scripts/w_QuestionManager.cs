@@ -43,10 +43,11 @@ public class w_QuestionManager : MonoBehaviour
         m_questions = new w_CSVLoader().ReadCSV("Test");
         m_playerConversationStore = FindObjectOfType<ConversationStore>();
 
-        
+        /*
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
             "There are not enough questions loaded to meet the desired" +
             " amount to be asked");
+        */
 
         // use values to set data
         Vector3 spawnLocation = transform.parent.gameObject.transform.position;
@@ -55,7 +56,7 @@ public class w_QuestionManager : MonoBehaviour
         for (int index = 0; index < m_buttonPoolSize; index++)
         {
             spawnLocation = new Vector3(spawnLocation.x,
-                spawnLocation.y - 12.5f, spawnLocation.z);
+                spawnLocation.y - 9, spawnLocation.z);
             GameObject temp = Instantiate(m_option.transform.parent.gameObject,
                 spawnLocation, transform.rotation);
             m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
@@ -108,13 +109,13 @@ public class w_QuestionManager : MonoBehaviour
         {
             // Set locked graphics, values and active, then begin fade
 
+            /*
             m_buttonPool[index].SetLocked(
                 m_playerConversationStore.CheckHasFlag(
-                questionToDisplay.options[index].unlockCriteria));
+                questionToDisplay.options[index].unlockCriteria));*/
 
             m_buttonPool[index].SetValue(questionToDisplay.options[index]);
             m_buttonPool[index].transform.parent.gameObject.SetActive(true);
-            FadeInText(m_buttonPool[index].ReturnText()); 
         }
 
         Debug.Log("Chose Question: " + questionToDisplay.question);
@@ -123,7 +124,7 @@ public class w_QuestionManager : MonoBehaviour
         m_questions.RemoveAt(nextQuestion);
 
         m_currentTime = m_timeBetweenQuestions;
-        StartCoroutine(WaitForAnswer());
+        //StartCoroutine(WaitForAnswer());
     }
 
     /// <summary>
@@ -140,7 +141,6 @@ public class w_QuestionManager : MonoBehaviour
         foreach (OptionData button in m_buttonPool)
         {
             button.gameObject.SetActive(false);
-            FadeOutText(button.ReturnText());
 
         }
         m_questionBox.SetText("");
@@ -162,46 +162,6 @@ public class w_QuestionManager : MonoBehaviour
 
         m_playerConversationStore.PlayerWasSilent(m_questionBox.text);
         LoadRandomQuestion();
-
-        yield return null;
-    }
-
-    /// <summary>
-    /// Function to fade in text
-    /// </summary>
-    /// <param name="_text"> the text to fade in </param>
-    /// <returns></returns>
-    IEnumerator FadeInText(TextMeshPro _text)
-    {
-        while (_text.color.a < 255)
-        {
-            _text.color = new Color(
-                _text.color.r,
-                _text.color.g,
-                _text.color.b,
-                _text.color.a + 0.005f
-                );
-
-            yield return null;
-        }
-    }
-
-    /// <summary>
-    /// Function to fade out text
-    /// </summary>
-    /// <param name="_text"> The text to fade out </param>
-    /// <returns></returns>
-    IEnumerator FadeOutText(TextMeshPro _text)
-    {
-        while (_text.color.a > 0)
-        {
-            _text.color = new Color(
-                _text.color.r,
-                _text.color.g,
-                _text.color.b,
-                _text.color.a + 0.005f
-                );
-        }
 
         yield return null;
     }

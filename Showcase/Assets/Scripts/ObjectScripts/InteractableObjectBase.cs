@@ -12,13 +12,11 @@ public class InteractableObjectBase : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        /*
         ig_GameManager = GameObject.Find("GameManager");
         m_gmscript = ig_GameManager.GetComponent<GameManagerScript>();
 
         ig_Player = GameObject.Find("Player");
         m_playerscript = ig_Player.GetComponent<PlayerController>();
-        */
     }
 
     // Update is called once per frame

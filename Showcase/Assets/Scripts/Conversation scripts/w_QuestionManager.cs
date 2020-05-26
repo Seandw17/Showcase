@@ -43,11 +43,9 @@ public class w_QuestionManager : MonoBehaviour
         m_questions = new w_CSVLoader().ReadCSV("Test");
         m_playerConversationStore = FindObjectOfType<ConversationStore>();
 
-        /*
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
             "There are not enough questions loaded to meet the desired" +
             " amount to be asked");
-        */
 
         // use values to set data
         Vector3 spawnLocation = new Vector3(
@@ -114,11 +112,9 @@ public class w_QuestionManager : MonoBehaviour
         for (int index = 0; index < questionToDisplay.options.Count; index++)
         {
             // Set locked graphics, values and active, then begin fade
-
-            /*
             m_buttonPool[index].SetLocked(
                 m_playerConversationStore.CheckHasFlag(
-                questionToDisplay.options[index].unlockCriteria));*/
+                questionToDisplay.options[index].unlockCriteria));
 
             m_buttonPool[index].SetValue(questionToDisplay.options[index]);
             m_buttonPool[index].transform.parent.gameObject.SetActive(true);

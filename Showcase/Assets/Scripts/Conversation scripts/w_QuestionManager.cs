@@ -50,13 +50,19 @@ public class w_QuestionManager : MonoBehaviour
         */
 
         // use values to set data
-        Vector3 spawnLocation = transform.parent.gameObject.transform.position;
+        Vector3 spawnLocation = new Vector3(
+            transform.parent.gameObject.transform.position.x,
+            transform.parent.gameObject.transform.position.y - 7,
+            transform.parent.gameObject.transform.position.z);
         // pool our buttons
         m_buttonPool = new OptionData[m_buttonPoolSize];
         for (int index = 0; index < m_buttonPoolSize; index++)
         {
-            spawnLocation = new Vector3(spawnLocation.x,
-                spawnLocation.y - 9, spawnLocation.z);
+            if (index > 0)
+            {
+                spawnLocation = new Vector3(spawnLocation.x,
+                    spawnLocation.y - 5, spawnLocation.z);
+            }
             GameObject temp = Instantiate(m_option.transform.parent.gameObject,
                 spawnLocation, transform.rotation);
             m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();

@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
+// Author: Alec
+
 public class PauseMenu : MonoBehaviour
 {
     // is the game paused

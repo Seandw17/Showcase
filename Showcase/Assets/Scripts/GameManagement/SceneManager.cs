@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Author: Alec
+
 public class SceneManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -20,5 +22,6 @@ public class SceneManager : MonoBehaviour
             "All scene changes should be done using LoadSceneMode.Additive" +
             " failing to do so will delete the _preload scene");
         UnityEngine.SceneManagement.SceneManager.SetActiveScene(_scene);
+        Debug.Log("Changing to scene: " + _scene.name);
     }
 }

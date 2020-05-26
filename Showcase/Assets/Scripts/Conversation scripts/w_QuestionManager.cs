@@ -38,6 +38,8 @@ public class w_QuestionManager : MonoBehaviour
             .GetComponentInChildren<OptionData>();
         Debug.Assert(m_option, "Option was not loaded correctly");
 
+        OptionData.Register(this);
+
         // acquiring relevant data
         m_questionBox = GetComponent<TextMeshPro>();
         m_questions = new w_CSVLoader().ReadCSV("Test");
@@ -64,7 +66,6 @@ public class w_QuestionManager : MonoBehaviour
             GameObject temp = Instantiate(m_option.transform.parent.gameObject,
                 spawnLocation, transform.rotation);
             m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
-            m_buttonPool[index].Register(this);
             m_buttonPool[index].transform.parent.gameObject.SetActive(false);
         }
 

@@ -16,20 +16,22 @@ public class PlayerController : MonoBehaviour
     Camera m_camera;
 
     //Interactable Object - ref
-    InteractableObjectBase[] ig_interactable;
+    public List<InteractableObjectBase> ig_interactable;
 
     //Bool to handle player movement and camera
     public bool m_canmove = true;
+
+    //Bool to check if the player is able to interact
+    bool m_caninteract = true;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player
+
         
-        //Find all interactable objects in the level for the player to interact with
-        ig_interactable = (InteractableObjectBase[])FindObjectsOfType(typeof(InteractableObjectBase));
-        
+       
     }
 
     // Update is called once per frame
@@ -74,24 +76,36 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0)) 
         {
-            RaycastHit m_hit;
-            Ray m_ray = m_camera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(m_ray, out m_hit))
+            if (m_caninteract == true)
             {
-                Transform m_objectHit = m_hit.transform;
-                //Run through all interactable objects within the game
-                for (int i = 0; i < ig_interactable.Length; i++)
+                RaycastHit m_hit;
+                Ray m_ray = m_camera.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(m_ray, out m_hit))
                 {
-                    
-                    if(m_objectHit.gameObject == ig_interactable[i].gameObject)
+                    Transform m_objectHit = m_hit.transform;
+                    //Run through all interactable objects within the game
+                    for (int i = 0; i < ig_interactable.Count; i++)
                     {
-                        //Call the specific object interact function
-                        ig_interactable[i].Interact();
+
+                        if (m_objectHit.gameObject == ig_interactable[i].gameObject)
+                        {
+                            //Call the specific object interact function
+                            ig_interactable[i].Interact();
+                        }
                     }
                 }
             }
-           
         }
+    }
+
+   
+
+    public bool SetCanInteract(bool _canInteractbool)
+    {
+        Debug.Log("CanInteractcalled");
+        m_caninteract = _canInteractbool;
+        return m_caninteract;
+        
     }
 }

@@ -17,6 +17,13 @@ public class InteractableObjectBase : MonoBehaviour
 
         ig_Player = GameObject.Find("Player");
         m_playerscript = ig_Player.GetComponent<PlayerController>();
+
+        AddToList();
+    }
+
+    void AddToList()
+    {
+        m_playerscript.ig_interactable.Add(this);
     }
 
     // Update is called once per frame

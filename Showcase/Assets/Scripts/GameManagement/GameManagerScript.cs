@@ -6,7 +6,7 @@ public class GameManagerScript : MonoBehaviour
 {
     //All of the HUDS should be added here so that they can be accessed in the editor
     [SerializeField]
-    public GameObject ig_PlayerPanel, ig_WardrobePanel;
+    public GameObject ig_PlayerPanel, ig_WardrobePanel, ig_LaptopPanel;
 
     //This is the HUD that is displayed to the screen at all times
     GameObject ig_currenthud;
@@ -14,7 +14,7 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SetCurrentHUD(ig_PlayerPanel);
+        SetCurrentHUD(ig_PlayerPanel);
     }
 
     // Update is called once per frame

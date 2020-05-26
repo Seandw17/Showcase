@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WardrobeObject : InteractableObjectBase
+public class LaptopObject : InteractableObjectBase
 {
     // Start is called before the first frame update
     void Start()
     {
-        base.Start();
+        base.Start();   
     }
 
     // Update is called once per frame
@@ -18,6 +18,7 @@ public class WardrobeObject : InteractableObjectBase
 
     public override void Interact()
     {
-        m_gmscript.SetCurrentHUD(m_gmscript.ig_WardrobePanel);
+        m_gmscript.SetCurrentHUD(m_gmscript.ig_LaptopPanel);
+        m_playerscript.SetCanInteract(false);
     }
 }

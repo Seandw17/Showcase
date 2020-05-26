@@ -43,14 +43,16 @@ public class w_QuestionManager : MonoBehaviour
         m_questions = new w_CSVLoader().ReadCSV("Test");
         m_playerConversationStore = FindObjectOfType<ConversationStore>();
 
+        /*
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
             "There are not enough questions loaded to meet the desired" +
             " amount to be asked");
+        */
 
         // use values to set data
         Vector3 spawnLocation = new Vector3(
             transform.parent.gameObject.transform.position.x,
-            transform.parent.gameObject.transform.position.y - 7,
+            transform.parent.gameObject.transform.position.y - 1.5f,
             transform.parent.gameObject.transform.position.z);
         // pool our buttons
         m_buttonPool = new OptionData[m_buttonPoolSize];
@@ -59,7 +61,7 @@ public class w_QuestionManager : MonoBehaviour
             if (index > 0)
             {
                 spawnLocation = new Vector3(spawnLocation.x,
-                    spawnLocation.y - 5, spawnLocation.z);
+                    spawnLocation.y - 1f, spawnLocation.z);
             }
             GameObject temp = Instantiate(m_option.transform.parent.gameObject,
                 spawnLocation, transform.rotation);
@@ -112,9 +114,11 @@ public class w_QuestionManager : MonoBehaviour
         for (int index = 0; index < questionToDisplay.options.Count; index++)
         {
             // Set locked graphics, values and active, then begin fade
+            /*
             m_buttonPool[index].SetLocked(
                 m_playerConversationStore.CheckHasFlag(
                 questionToDisplay.options[index].unlockCriteria));
+            */
 
             m_buttonPool[index].SetValue(questionToDisplay.options[index]);
             m_buttonPool[index].transform.parent.gameObject.SetActive(true);

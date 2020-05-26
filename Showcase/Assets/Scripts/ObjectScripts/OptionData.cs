@@ -7,7 +7,7 @@ public class OptionData : InteractableObjectBase
     TextMeshPro m_textValue;
     w_QuestionManager m_questionManager;
     s_Questionresponse m_responseForThisButton;
-
+    
     override void Start()
     {
         m_textValue = GetComponent<TextMeshPro>();

@@ -34,7 +34,7 @@ public class w_QuestionManager : MonoBehaviour
     void Start()
     {
         // Loading in button prefab
-        m_button = Resources.Load<GameObject>("Prefabs/Button")
+        m_button = Resources.Load<GameObject>("Prefabs/Option")
             .GetComponent<OptionData>();
 
         // acquiring relevant data

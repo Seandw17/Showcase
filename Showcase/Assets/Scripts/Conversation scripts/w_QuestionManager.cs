@@ -9,10 +9,10 @@ public class w_QuestionManager : MonoBehaviour
 {
     TextMeshPro m_questionBox;
     List<List<KeyValuePair<e_identifier, s_questionData>>> m_questions;
-    ButtonData[] m_buttonPool;
+    OptionData[] m_buttonPool;
     int m_currentQuestion;
     ConversationStore m_playerConversationStore;
-    ButtonData m_button;
+    OptionData m_button;
 
     /// <summary>
     /// Time user has to answer a question
@@ -35,7 +35,7 @@ public class w_QuestionManager : MonoBehaviour
     {
         // Loading in button prefab
         m_button = Resources.Load<GameObject>("Prefabs/Button")
-            .GetComponent<ButtonData>();
+            .GetComponent<OptionData>();
 
         // acquiring relevant data
         m_questionBox = GetComponent<TextMeshPro>();
@@ -45,14 +45,14 @@ public class w_QuestionManager : MonoBehaviour
         // use values to set data
         Vector3 spawnLocation = transform.position;
         // pool our buttons
-        m_buttonPool = new ButtonData[m_buttonPoolSize];
+        m_buttonPool = new OptionData[m_buttonPoolSize];
         for (int index = 0; index < m_buttonPoolSize; index++)
         {
             spawnLocation = new Vector3(spawnLocation.x,
                 spawnLocation.y - 5, spawnLocation.z);
             GameObject temp = Instantiate(m_button.gameObject,
                 spawnLocation, transform.rotation);
-            m_buttonPool[index] = temp.GetComponent<ButtonData>();
+            m_buttonPool[index] = temp.GetComponent<OptionData>();
             m_buttonPool[index].Register(this);
             m_buttonPool[index].gameObject.SetActive(false);
         }
@@ -132,7 +132,7 @@ public class w_QuestionManager : MonoBehaviour
             m_questionBox.text);
 
         // Turn of buttons for now
-        foreach (ButtonData button in m_buttonPool)
+        foreach (OptionData button in m_buttonPool)
         {
             button.gameObject.SetActive(false);
             FadeOutText(button.ReturnText());

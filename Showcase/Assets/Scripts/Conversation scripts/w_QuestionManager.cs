@@ -104,6 +104,7 @@ public class w_QuestionManager : MonoBehaviour
             {
                 m_buttonPool[index].SetValue(questionToDisplay.options[index]);
                 m_buttonPool[index].gameObject.SetActive(true);
+                FadeInText(m_buttonPool[index].ReturnText()); 
             }
             else
             {
@@ -134,6 +135,8 @@ public class w_QuestionManager : MonoBehaviour
         foreach (ButtonData button in m_buttonPool)
         {
             button.gameObject.SetActive(false);
+            FadeOutText(button.ReturnText());
+
         }
         m_questionBox.SetText("");
 
@@ -154,6 +157,46 @@ public class w_QuestionManager : MonoBehaviour
 
         m_playerConversationStore.PlayerWasSilent(m_questionBox.text);
         LoadRandomQuestion();
+
+        yield return null;
+    }
+
+    /// <summary>
+    /// Function to fade in text
+    /// </summary>
+    /// <param name="_text"> the text to fade in </param>
+    /// <returns></returns>
+    IEnumerator FadeInText(TextMeshPro _text)
+    {
+        while (_text.color.a < 255)
+        {
+            _text.color = new Color(
+                _text.color.r,
+                _text.color.g,
+                _text.color.b,
+                _text.color.a + 0.005f
+                );
+
+            yield return null;
+        }
+    }
+
+    /// <summary>
+    /// Function to fade out text
+    /// </summary>
+    /// <param name="_text"> The text to fade out </param>
+    /// <returns></returns>
+    IEnumerator FadeOutText(TextMeshPro _text)
+    {
+        while (_text.color.a > 0)
+        {
+            _text.color = new Color(
+                _text.color.r,
+                _text.color.g,
+                _text.color.b,
+                _text.color.a + 0.005f
+                );
+        }
 
         yield return null;
     }

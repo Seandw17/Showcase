@@ -40,4 +40,10 @@ public class ButtonData : InteractableObjectBase
     {
         m_questionManager.ProcessQuestionResult(m_responseForThisButton);
     }
+
+    /// <summary>
+    /// Function to return the text of this object
+    /// </summary>
+    /// <returns> the text mesh pro object </returns>
+    public TextMeshPro ReturnText() { return m_textValue; }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 // Author: Alec
 
-// TODO add a way of determening player response 
 public class ConversationStore : MonoBehaviour
 {
     e_unlockFlag unlockedFlags = e_unlockFlag.NONE;
@@ -72,12 +71,11 @@ public class ConversationStore : MonoBehaviour
     }
 
     /// <summary>
-    /// Function to process the final results of the player
+    /// Returns the final set of chosen results
     /// </summary>
-    /// <returns> A final response struct </returns>
-    public s_finalResponse ProcessFinalResult()
+    /// <returns> the list of Player Response structs </returns>
+    public List<s_playerResponse> ReturnFinalChosenResults()
     {
-        // TODO implement
-        throw new NotImplementedException();
+        return m_playerResponses;
     }
 }

@@ -12,7 +12,7 @@ public class w_QuestionManager : MonoBehaviour
     OptionData[] m_buttonPool;
     int m_currentQuestion;
     ConversationStore m_playerConversationStore;
-    OptionData m_button;
+    OptionData m_option;
 
     /// <summary>
     /// Time user has to answer a question
@@ -34,31 +34,34 @@ public class w_QuestionManager : MonoBehaviour
     void Start()
     {
         // Loading in button prefab
-        m_button = Resources.Load<GameObject>("Prefabs/Option")
-            .GetComponent<OptionData>();
+        m_option = Resources.Load<GameObject>("Prefabs/Option")
+            .GetComponentInChildren<OptionData>();
+        Debug.Assert(m_option, "Option was not loaded correctly");
 
         // acquiring relevant data
         m_questionBox = GetComponent<TextMeshPro>();
         m_questions = new w_CSVLoader().ReadCSV("Test");
         m_playerConversationStore = FindObjectOfType<ConversationStore>();
 
+        /*
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
             "There are not enough questions loaded to meet the desired" +
             " amount to be asked");
+        */
 
         // use values to set data
-        Vector3 spawnLocation = transform.position;
+        Vector3 spawnLocation = transform.parent.gameObject.transform.position;
         // pool our buttons
         m_buttonPool = new OptionData[m_buttonPoolSize];
         for (int index = 0; index < m_buttonPoolSize; index++)
         {
             spawnLocation = new Vector3(spawnLocation.x,
-                spawnLocation.y - 5, spawnLocation.z);
-            GameObject temp = Instantiate(m_button.gameObject,
+                spawnLocation.y - 12.5f, spawnLocation.z);
+            GameObject temp = Instantiate(m_option.transform.parent.gameObject,
                 spawnLocation, transform.rotation);
-            m_buttonPool[index] = temp.GetComponent<OptionData>();
+            m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
             m_buttonPool[index].Register(this);
-            m_buttonPool[index].gameObject.SetActive(false);
+            m_buttonPool[index].transform.parent.gameObject.SetActive(false);
         }
 
         LoadRandomQuestion();
@@ -101,14 +104,19 @@ public class w_QuestionManager : MonoBehaviour
 
         // use values to set data
         m_questionBox.SetText(questionToDisplay.question);
+
         for (int index = 0; index < questionToDisplay.options.Count; index++)
         {
             // Set locked graphics, values and active, then begin fade
+
+            /*
             m_buttonPool[index].SetLocked(
                 m_playerConversationStore.CheckHasFlag(
                 questionToDisplay.options[index].unlockCriteria));
+            */
+
             m_buttonPool[index].SetValue(questionToDisplay.options[index]);
-            m_buttonPool[index].gameObject.SetActive(true);
+            m_buttonPool[index].transform.parent.gameObject.SetActive(true);
             FadeInText(m_buttonPool[index].ReturnText()); 
         }
 

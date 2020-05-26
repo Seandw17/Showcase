@@ -94,7 +94,8 @@ GameObject:
   - component: {fileID: 8619218470009976720}
   - component: {fileID: 6295790960057626405}
   - component: {fileID: 1275383165333697834}
-  - component: {fileID: 7237016200675893451}
+  - component: {fileID: 2452783022820296328}
+  - component: {fileID: 1170052894176472626}
   m_Layer: 0
   m_Name: QuestionText
   m_TagString: Untagged
@@ -110,7 +111,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3774963722553540784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.27}
+  m_LocalPosition: {x: 0, y: 0, z: -0.028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3688436569220338913}
@@ -287,7 +288,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
---- !u!114 &7237016200675893451
+--- !u!114 &2452783022820296328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,3 +300,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca9253c95f834b2e833a557a738a855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1170052894176472626
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3774963722553540784}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.6609125, y: 7.0774, z: 0.5232286}
+  m_Center: {x: 0.44527113, y: -0.031422377, z: 0.105375856}

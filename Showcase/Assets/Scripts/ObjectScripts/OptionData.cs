@@ -10,6 +10,11 @@ public class OptionData : InteractableObjectBase
     s_Questionresponse m_responseForThisButton;
     bool m_isInteractible;
 
+    private void Start()
+    {
+        base.Start();
+    }
+
     private void Awake()
     {
         m_textValue = GetComponent<TextMeshPro>();
@@ -43,6 +48,7 @@ public class OptionData : InteractableObjectBase
         if (m_isInteractible)
         {
             m_questionManager.ProcessQuestionResult(m_responseForThisButton);
+            Debug.Log("Chose " + gameObject.name);
         }
     }
 

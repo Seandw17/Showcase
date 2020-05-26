@@ -28,7 +28,7 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// How many questions we should ask in this session
     /// </summary>
-    [SerializeField] int m_questionsToAsk = 5;
+    [SerializeField] int m_questionsToAsk = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -43,11 +43,10 @@ public class w_QuestionManager : MonoBehaviour
         m_questions = new w_CSVLoader().ReadCSV("Test");
         m_playerConversationStore = FindObjectOfType<ConversationStore>();
 
-        /*
+        Debug.Log(m_questions.Count);
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
             "There are not enough questions loaded to meet the desired" +
             " amount to be asked");
-        */
 
         // use values to set data
         Vector3 spawnLocation = new Vector3(
@@ -114,12 +113,9 @@ public class w_QuestionManager : MonoBehaviour
         for (int index = 0; index < questionToDisplay.options.Count; index++)
         {
             // Set locked graphics, values and active, then begin fade
-            /*
             m_buttonPool[index].SetLocked(
                 m_playerConversationStore.CheckHasFlag(
                 questionToDisplay.options[index].unlockCriteria));
-            */
-
             m_buttonPool[index].SetValue(questionToDisplay.options[index]);
             m_buttonPool[index].transform.parent.gameObject.SetActive(true);
         }

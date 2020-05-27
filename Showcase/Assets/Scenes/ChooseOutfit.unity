@@ -246,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_playerSpeed: 10
   m_camera: {fileID: 963194227}
+  m_canmove: 1
 --- !u!1 &138202809
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ GameObject:
   - component: {fileID: 138202811}
   m_Layer: 5
   m_Name: Outfit3
-  m_TagString: Untagged
+  m_TagString: Outfit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -577,7 +578,7 @@ GameObject:
   - component: {fileID: 723640189}
   m_Layer: 5
   m_Name: Outfit1
-  m_TagString: Untagged
+  m_TagString: Outfit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -778,6 +779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1034711892}
   - component: {fileID: 1034711891}
+  - component: {fileID: 1034711893}
   m_Layer: 0
   m_Name: OutfitManager
   m_TagString: Untagged
@@ -797,7 +799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3afb55410be164da47fdaf899f4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 2800000, guid: 1128e6aa1258c024ab6bc9dbd2254cbf, type: 3}
 --- !u!4 &1034711892
 Transform:
   m_ObjectHideFlags: 0
@@ -812,6 +813,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034711893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034711890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036e0ebc12db9da46887255c577f2536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1076044508
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,12 +837,12 @@ GameObject:
   - component: {fileID: 1076044511}
   - component: {fileID: 1076044510}
   m_Layer: 5
-  m_Name: PlayerUIPanel
+  m_Name: WardrobePlayerUIPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1076044509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -902,7 +915,7 @@ GameObject:
   - component: {fileID: 1363355053}
   m_Layer: 5
   m_Name: Outfit2
-  m_TagString: Untagged
+  m_TagString: Outfit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1398,7 +1411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c54fc0cab283540bc50cbb6bca9f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ig_PlayerPanel: {fileID: 1076044508}
+  ig_PlayerPanel: {fileID: 0}
+  ig_WardrobePanel: {fileID: 1076044508}
 --- !u!4 &1932754123
 Transform:
   m_ObjectHideFlags: 0

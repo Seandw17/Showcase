@@ -23,10 +23,13 @@ public class InteractableObjectOutfit : InteractableObjectBase
         
     }
 
+    // when the player interacts with the wardrobe
     public override void Interact()
     {
-        m_gmscript.SetCurrentHUD(m_gmscript.ig_PlayerPanel);
+        m_gmscript.SetCurrentHUD(m_gmscript.ig_WardrobePanel);
         m_cmScript.EnableCursor();
 
+        // for now it just disables the playerscript. There might be a better way of doing this
+        m_playerscript.enabled = false;
     }
 }

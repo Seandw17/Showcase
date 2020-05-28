@@ -170,7 +170,6 @@ public class w_QuestionManager : MonoBehaviour
         {
             m_currentTime -= Time.deltaTime;
             m_timerText.SetText(Math.Round(m_currentTime).ToString());
-            Debug.Log(m_currentTime);
             yield return null;
         }
 

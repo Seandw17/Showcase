@@ -22,11 +22,11 @@ public class DoorObject : InteractableObjectBase
     {
         if (m_dooropen == true)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation,m_closedoorrotation , m_rotationspeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation,m_opendoorrotation , m_rotationspeed * Time.deltaTime);
         }
         else
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation,m_opendoorrotation , m_rotationspeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, m_closedoorrotation, m_rotationspeed * Time.deltaTime);
         }
     }
 

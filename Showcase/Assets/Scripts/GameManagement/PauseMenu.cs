@@ -6,7 +6,7 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     // is the game paused
-    bool isPaused;
+    static bool m_isPaused;
 
     /// <summary>
     /// The gameobject that contains the pause menu
@@ -19,10 +19,16 @@ public class PauseMenu : MonoBehaviour
         // If escape is pressed, toggle the pause meny and gametime
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused;
-            Time.timeScale = Convert.ToSingle(!isPaused);
+            m_isPaused = !m_isPaused;
+            Time.timeScale = Convert.ToSingle(!m_isPaused);
 
-            m_pauseMenuObject.SetActive(isPaused);
+            m_pauseMenuObject.SetActive(m_isPaused);
         }
     }
+
+    /// <summary>
+    /// return if the game is paused or not
+    /// </summary>
+    /// <returns> is game paused? </returns>
+    static public bool IsPaused() { return m_isPaused; }
 }

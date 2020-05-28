@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -24,25 +23,28 @@ public class PlayerController : MonoBehaviour
     //Bool to check if the player is able to interact
     bool m_caninteract = true;
 
+    // the currently selected interactible
+    InteractableObjectBase m_currentlySelected;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player
-
-        
-       
+        m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player  
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (m_canmove == true)
+        if (!PauseMenu.IsPaused())
         {
-            PlayerMovement();
+            if (m_canmove == true)
+            {
+                PlayerMovement();
+            }
+            CameraMovement();
+            OnInteract();
         }
-        CameraMovement();
-        OnInteract();
     }
 
     //Seting up the player movements
@@ -74,26 +76,37 @@ public class PlayerController : MonoBehaviour
     //Setting up the interaction with left mouse button click
     void OnInteract()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (m_caninteract == true)
         {
-            if (m_caninteract == true)
+            RaycastHit m_hit;
+            Ray m_ray = m_camera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(m_ray, out m_hit))
             {
-                RaycastHit m_hit;
-                Ray m_ray = m_camera.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(m_ray, out m_hit))
+                Transform m_objectHit = m_hit.transform;
+                //Run through all interactable objects within the game
+                for (int i = 0; i < ig_interactable.Count; i++)
                 {
-                    Transform m_objectHit = m_hit.transform;
-                    //Run through all interactable objects within the game
-                    for (int i = 0; i < ig_interactable.Count; i++)
+                    if (m_objectHit.gameObject == ig_interactable[i].gameObject)
                     {
-
-                        if (m_objectHit.gameObject == ig_interactable[i].gameObject)
+                        m_currentlySelected = ig_interactable[i];
+                        ig_interactable[i].GetObjectGlow().Glow(true);
+                        if (Input.GetMouseButtonDown(0))
                         {
                             //Call the specific object interact function
                             ig_interactable[i].Interact();
+                            ig_interactable[i].GetObjectGlow().Glow(false);
                         }
                     }
+                }
+            }
+
+            // if we hit nothing, remove the current glow
+            else
+            {
+                if (m_currentlySelected)
+                {
+                    m_currentlySelected.GetObjectGlow().Glow(false);
                 }
             }
         }

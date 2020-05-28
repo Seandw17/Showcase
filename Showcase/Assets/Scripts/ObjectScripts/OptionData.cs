@@ -6,7 +6,7 @@ using UnityEngine;
 public class OptionData : InteractableObjectBase
 {
     TextMeshPro m_textValue;
-    w_QuestionManager m_questionManager;
+    static w_QuestionManager m_questionManager;
     s_Questionresponse m_responseForThisButton;
     bool m_isInteractible;
 
@@ -24,7 +24,7 @@ public class OptionData : InteractableObjectBase
     /// Function to set the manager
     /// </summary>
     /// <param name="_questionManager"> the manager object </param>
-    public void Register(w_QuestionManager _questionManager)
+    static public void Register(w_QuestionManager _questionManager)
     {
         m_questionManager = _questionManager;
     }
@@ -45,6 +45,7 @@ public class OptionData : InteractableObjectBase
     /// </summary>
     override public void Interact()
     {
+        Debug.Log("Option Hit");
         if (m_isInteractible)
         {
             m_questionManager.ProcessQuestionResult(m_responseForThisButton);

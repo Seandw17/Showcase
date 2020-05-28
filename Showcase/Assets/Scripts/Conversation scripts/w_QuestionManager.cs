@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,11 @@ public class w_QuestionManager : MonoBehaviour
     int m_currentQuestion;
     ConversationStore m_playerConversationStore;
     OptionData m_option;
+
+    /// <summary>
+    /// The text object for the timer
+    /// </summary>
+    [SerializeField] TextMeshProUGUI m_timerText;
 
     /// <summary>
     /// Time user has to answer a question
@@ -69,6 +75,8 @@ public class w_QuestionManager : MonoBehaviour
             m_buttonPool[index].transform.parent.gameObject.SetActive(false);
         }
 
+        m_timerText.gameObject.SetActive(false);
+
         LoadRandomQuestion();
     }
 
@@ -86,7 +94,7 @@ public class w_QuestionManager : MonoBehaviour
         }
 
         // retrieve data
-        int nextQuestion = Random.Range(0, m_questions.Count - 1);
+        int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count - 1);
         s_questionData questionToDisplay = new s_questionData();
 
         // TODO have a way to parse context
@@ -126,7 +134,7 @@ public class w_QuestionManager : MonoBehaviour
         m_questions.RemoveAt(nextQuestion);
 
         m_currentTime = m_timeBetweenQuestions;
-        //StartCoroutine(WaitForAnswer());
+        StartCoroutine(WaitForAnswer());
     }
 
     /// <summary>
@@ -135,6 +143,7 @@ public class w_QuestionManager : MonoBehaviour
     public void ProcessQuestionResult(s_Questionresponse _chosenResponse)
     {
         StopCoroutine(WaitForAnswer());
+        m_timerText.gameObject.SetActive(false);
 
         m_playerConversationStore.ProcessAnswer(_chosenResponse,
             m_questionBox.text);
@@ -143,7 +152,6 @@ public class w_QuestionManager : MonoBehaviour
         foreach (OptionData button in m_buttonPool)
         {
             button.gameObject.SetActive(false);
-
         }
         m_questionBox.SetText("");
 
@@ -156,12 +164,17 @@ public class w_QuestionManager : MonoBehaviour
     /// <returns> null upon completion </returns>
     IEnumerator WaitForAnswer()
     {
+        m_timerText.gameObject.SetActive(true);
+
         while (m_currentTime > 0.0f)
         {
             m_currentTime -= Time.deltaTime;
+            m_timerText.SetText(Math.Round(m_currentTime).ToString());
             Debug.Log(m_currentTime);
+            yield return null;
         }
 
+        m_timerText.gameObject.SetActive(false);
         m_playerConversationStore.PlayerWasSilent(m_questionBox.text);
         LoadRandomQuestion();
 

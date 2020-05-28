@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -169,8 +168,7 @@ public class w_QuestionManager : MonoBehaviour
         while (m_currentTime > 0.0f)
         {
             m_currentTime -= Time.deltaTime;
-            m_timerText.SetText(Math.Round(m_currentTime).ToString());
-            Debug.Log(m_currentTime);
+            m_timerText.SetText(System.Math.Round(m_currentTime).ToString());
             yield return null;
         }
 

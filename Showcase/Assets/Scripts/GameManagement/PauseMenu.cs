@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // Author: Alec
 
@@ -29,11 +30,19 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     [SerializeField] TextMeshProUGUI m_resumeText, m_quitText;
 
+    GameObject m_playerCursorCanvas;
+
     private void Start()
     {
         m_resumeText.SetText("Press " + m_pauseButton.ToString() +
             " to resume");
         m_quitText.SetText("Press " + m_quitKey.ToString() + " to quit");
+
+        m_playerCursorCanvas = Instantiate(
+            Resources.Load<GameObject>("Prefabs/PlayerCursor"));
+        m_playerCursorCanvas.SetActive(false);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
@@ -46,6 +55,8 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = Convert.ToSingle(!m_isPaused);
 
             m_pauseMenuObject.SetActive(m_isPaused);
+
+            m_playerCursorCanvas.SetActive(!m_isPaused);
         }
         else if (m_isPaused)
         {
@@ -54,6 +65,14 @@ public class PauseMenu : MonoBehaviour
                 // TODO Stop the game or return to a main menu
                 Debug.Log("The quit button has been pressed");
             }
+        }
+    }
+
+    void OnSceneLoaded(Scene _newScene, LoadSceneMode _mode)
+    {
+        if (!_newScene.name.Equals("Menu"))
+        {
+            m_playerCursorCanvas.SetActive(true);
         }
     }
 

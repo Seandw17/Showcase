@@ -1,6 +1,4 @@
-﻿using System;
-
-// Author: Alec
+﻿// Author: Alec
 
 /// <summary>
 /// the rating of how good the response
@@ -30,12 +28,11 @@ public enum e_identifier
 /// <summary>
 /// Enum to represent Unlock flag
 /// </summary>
-[Flags]
 public enum e_unlockFlag
 {
-    NONE = 1 << 0,
-    LAPTOP = 1 << 1,
-    BOOK = 1 << 2,
-    FLYER = 1 << 3,
-    PHONE = 1 << 4
+    NONE = 0,
+    FIRST = 2,
+    SECOND = 3,
+    THIRD = 4,
+    FOURTH = 5
 }

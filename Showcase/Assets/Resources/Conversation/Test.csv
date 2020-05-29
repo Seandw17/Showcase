@@ -7,11 +7,63 @@
 # end
 #
 # to insert a comment, include the "#" character at a the start of a line
-# 
-START,What Do You Think of This?,I like it|GREAT|NONE,I don't like it|BAD|NONE
+#
+# What about this job appeals to you?
+#
+START,So What about this job appeals to you?,It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|Good|FIRST|,Your Company cares for its employees|GREAT|SECOND
+FOLLOWINGGREAT,Wow! that sounds great! moving on what about this job appeals to you?,It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|Good|FIRST|,Your Company cares for its employees|GREAT|SECOND
+FOLLOWINGGOOD, Alright then sounds good! So what about this job appeals to you then?,It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|Good|FIRST|,Your Company cares for its employees|GREAT|SECOND 
+FOLLOWINGOK, Really? ok so moving on what about the job appeals to you?,It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|Good|FIRST|,Your Company cares for its employees|GREAT|SECOND 
+FOLLOWINGBAD, Alright then what about the job appeals to you?,It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|Good|FIRST|,Your Company cares for its employees|GREAT|SECOND 
+FOLLOWINGAWFUL, Hrrmmm thats not a response we would expect but anyway what about the job appeals to you?,It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|Good|FIRST|,Your Company cares for its employees|GREAT|SECOND 
 end
-#START,What about this job appeals to you?,It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE, 
-#- “It looks like a great challenge”
-#- “It looks really easy”
-#- [unlockable answer] “Your company has a very generous prgression scheme”
-#- [unlockable answer] “Your company cares for its employees”
+#
+# How long do you see yourself staying at this job?
+#
+START,So how long do you see yourself staying at this job?,I see great opportunities to grow and progress in the job|GOOD|NONE,Until something better comes along|BAD|NONE,To be honest, I don’t know|OK|NONE,I saw your company is constantly expanding, you just opened a new location on Regent street, I’d love to be apart of this|GREAT|THIRD,I’m interested in working up into your shift manager position|GOOD|FOURTH
+FOLLOWINGGREAT,Thats Fantastic! Anwyay how long do you intend to stay here?,I see great opportunities to grow and progress in the job|GOOD|NONE,Until something better comes along|BAD|NONE,To be honest, I don’t know|OK|NONE,I saw your company is constantly expanding, you just opened a new location on Regent street, I’d love to be apart of this|GREAT|THIRD,I’m interested in working up into your shift manager position|GOOD|FOURTH
+FOLLOWINGGOOD,Sounds good! Anwyay how long do you intend to stay here?,I see great opportunities to grow and progress in the job|GOOD|NONE,Until something better comes along|BAD|NONE,To be honest, I don’t know|OK|NONE,I saw your company is constantly expanding, you just opened a new location on Regent street, I’d love to be apart of this|GREAT|THIRD,I’m interested in working up into your shift manager position|GOOD|FOURTH
+FOLLOWINGOK, Alright then so how long do you intend to stay here?,I see great opportunities to grow and progress in the job|GOOD|NONE,Until something better comes along|BAD|NONE,To be honest, I don’t know|OK|NONE,I saw your company is constantly expanding, you just opened a new location on Regent street, I’d love to be apart of this|GREAT|THIRD,I’m interested in working up into your shift manager position|GOOD|FOURTH
+FOLLOWINGBAD, Interesting so how long do you intend to stay at this job?,I see great opportunities to grow and progress in the job|GOOD|NONE,Until something better comes along|BAD|NONE,To be honest, I don’t know|OK|NONE,I saw your company is constantly expanding, you just opened a new location on Regent street, I’d love to be apart of this|GREAT|THIRD,I’m interested in working up into your shift manager position|GOOD|FOURTH
+FOLLOWINGAWFUL, Wouldn't have thought of that so how long do you intend to stay with us?,I see great opportunities to grow and progress in the job|GOOD|NONE,Until something better comes along|BAD|NONE,To be honest, I don’t know|OK|NONE,I saw your company is constantly expanding, you just opened a new location on Regent street, I’d love to be apart of this|GREAT|THIRD,I’m interested in working up into your shift manager position|GOOD|FOURTH
+end
+#
+# What Excites you about this job?
+#
+START,What Excites you about this job?,It looks like a great challenge|GOOD|NONE,I really love coffee and this would be my dream job|GOOD|NONE,Not too much, its just coffee|BAD|NONE,I really love your companies policies,It seems like a great place to work|GREAT|FIFTH,I really love the Frappe, I’d love to make them|GREAT|FIRST
+FOLLOWINGGREAT,Love it! So what excites you about the job?,It looks like a great challenge|GOOD|NONE,I really love coffee and this would be my dream job|GOOD|NONE,Not too much, its just coffee|BAD|NONE,I really love your companies policies,It seems like a great place to work|GREAT|FIFTH,I really love the Frappe, I’d love to make them|GREAT|FIRST
+FOLLOWINGGOOD,Great! So what about this job excites you?,It looks like a great challenge|GOOD|NONE,I really love coffee and this would be my dream job|GOOD|NONE,Not too much, its just coffee|BAD|NONE,I really love your companies policies,It seems like a great place to work|GREAT|FIFTH,I really love the Frappe, I’d love to make them|GREAT|FIRST
+FOLLOWINGOK,Alright then what about the job excites you?,It looks like a great challenge|GOOD|NONE,I really love coffee and this would be my dream job|GOOD|NONE,Not too much, its just coffee|BAD|NONE,I really love your companies policies,It seems like a great place to work|GREAT|FIFTH,I really love the Frappe, I’d love to make them|GREAT|FIRST
+FOLLOWINGBAD,Oh ok then what about the job excites you,It looks like a great challenge|GOOD|NONE,I really love coffee and this would be my dream job|GOOD|NONE,Not too much, its just coffee|BAD|NONE,I really love your companies policies,It seems like a great place to work|GREAT|FIFTH,I really love the Frappe, I’d love to make them|GREAT|FIRST
+FOLLOWINGAWFUL,Interesting so what about the job excites you?,It looks like a great challenge|GOOD|NONE,I really love coffee and this would be my dream job|GOOD|NONE,Not too much, its just coffee|BAD|NONE,I really love your companies policies,It seems like a great place to work|GREAT|FIFTH,I really love the Frappe, I’d love to make them|GREAT|FIRST
+end
+#
+# So why are you looking for a new job?
+#
+START,To start why are you looking for a new job?, I feel like I progressed as far as I could at my last job, I’m looking for a new challenge|GREAT|NONE,I didn’t like it|OK|NONE,I want to increase my skillset|GOOD|NONE,I see this job having great changes to progress and help me grow|GREAT|SECOND,My last job didn’t have a progression scheme like this one|GOOD|FOURTH
+FOLLOWINGGREAT,Wow thats great! So whay are you looking for a new job?, I feel like I progressed as far as I could at my last job, I’m looking for a new challenge|GREAT|NONE,I didn’t like it|OK|NONE,I want to increase my skillset|GOOD|NONE,I see this job having great changes to progress and help me grow|GREAT|SECOND,My last job didn’t have a progression scheme like this one|GOOD|FOURTH
+FOLLOWINGGOOD, Nice I like that! so why are you looking for a new job?,I feel like I progressed as far as I could at my last job, I’m looking for a new challenge|GREAT|NONE,I didn’t like it|OK|NONE,I want to increase my skillset|GOOD|NONE,I see this job having great changes to progress and help me grow|GREAT|SECOND,My last job didn’t have a progression scheme like this one|GOOD|FOURTH
+FOLLOWINGOK,Ok so why are you looking for a new job?,I feel like I progressed as far as I could at my last job, I’m looking for a new challenge|GREAT|NONE,I didn’t like it|OK|NONE,I want to increase my skillset|GOOD|NONE,I see this job having great changes to progress and help me grow|GREAT|SECOND,My last job didn’t have a progression scheme like this one|GOOD|FOURTH
+FOLLOWINGBAD,Right sounds good! So why a new job?,I feel like I progressed as far as I could at my last job, I’m looking for a new challenge|GREAT|NONE,I didn’t like it|OK|NONE,I want to increase my skillset|GOOD|NONE,I see this job having great changes to progress and help me grow|GREAT|SECOND,My last job didn’t have a progression scheme like this one|GOOD|FOURTH
+FOLLOWINGAWFUL,Alright so why are you looking for a new job?,I feel like I progressed as far as I could at my last job, I’m looking for a new challenge|GREAT|NONE,I didn’t like it|OK|NONE,I want to increase my skillset|GOOD|NONE,I see this job having great changes to progress and help me grow|GREAT|SECOND,My last job didn’t have a progression scheme like this one|GOOD|FOURTH
+end
+#
+# How do you tend to respond to criticism on the job
+#
+START,So how do you tend to respond to criticism?,I take it on respectfully and deal with it immediately|GREAT|NONE,I don’t tend to respond to it very well|BAD|NONE,I ignore it and would rather realise this issues on my own|BAD|NONE
+FOLLOWINGGREAT, Fantastic! so how do you respond to criticism on the job?,I take it on respectfully and deal with it immediately|GREAT|NONE,I don’t tend to respond to it very well|BAD|NONE,I ignore it and would rather realise this issues on my own|BAD|NONE
+FOLLOWINGGOOD, Great! so out of interest how do you deal with criticism on the job?,I take it on respectfully and deal with it immediately|GREAT|NONE,I don’t tend to respond to it very well|BAD|NONE,I ignore it and would rather realise this issues on my own|BAD|NONE
+FOLLOWINGOK,Alright so how do you deal with criticism on the job?,I take it on respectfully and deal with it immediately|GREAT|NONE,I don’t tend to respond to it very well|BAD|NONE,I ignore it and would rather realise this issues on my own|BAD|NONE
+FOLLOWINGBAD,Alright then so ciriticism on the job how do you deal with it?,I take it on respectfully and deal with it immediately|GREAT|NONE,I don’t tend to respond to it very well|BAD|NONE,I ignore it and would rather realise this issues on my own|BAD|NONE
+FOLLOWINGAWFUL, Interesting so how do you respond to criticism on the job?,,I take it on respectfully and deal with it immediately|GREAT|NONE,I don’t tend to respond to it very well|BAD|NONE,I ignore it and would rather realise this issues on my own|BAD|NONE
+end
+#
+# What do you think are your best aspects 
+#
+START,So what do you think are your best aspects?,I’m a very hard worker, I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE
+FOLLOWINGGREAT,Awesome! so what are your best aspects?,I’m a very hard worker, I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE
+FOLLOWINGGOOD,Good so what are your best aspects?,I’m a very hard worker, I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE
+FOLLOWINGOK,Ok what do you think are your best aspects?,I’m a very hard worker, I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE
+FOLLOWINGBAD,Alright then so what do you feel are your best aspects?,I’m a very hard worker, I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE
+FOLLOWINGAWFUL,Sounds good so what do you believe are your best aspects?,I’m a very hard worker, I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE
+end

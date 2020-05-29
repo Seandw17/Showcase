@@ -79,24 +79,14 @@ public class w_CSVLoader
         for (int iterator = 2; iterator < data.Length; iterator++)
         {
             string[] optionAndFeel = data[iterator].Split('|');
+
+            // parse data for each response
             s_Questionresponse temp = new s_Questionresponse();
             temp.response = optionAndFeel[0];
-
-            e_connotes feel = (e_connotes) Enum.Parse(typeof(e_connotes),
-                optionAndFeel[1]);
-
-            // loop through the remaining - 1 feels if there is any other
-            for (int index = 2; index < optionAndFeel.Length - 1; index++)
-            {
-                feel |= (e_connotes)Enum.Parse(typeof(e_connotes),
-                    optionAndFeel[index]);
-            }
-            temp.feel = feel;
-
-            // parse the unlock value
-            temp.unlockCriteria =
-                (e_unlockFlag) Enum.Parse(typeof(e_unlockFlag),
-                optionAndFeel[optionAndFeel.Length - 1]);
+            temp.rating = (e_rating) Enum.Parse(
+                typeof(e_rating),optionAndFeel[1]);
+            temp.unlockCriteria = (e_unlockFlag)Enum.Parse(
+                typeof(e_unlockFlag), optionAndFeel[2]);
             question.options.Add(temp);
         }
         

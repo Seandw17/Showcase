@@ -8,5 +8,5 @@
 #
 # to insert a comment, include the "#" character at a the start of a line
 # 
-START,What Do You Think of This?,I like it|CONFIDENCE|SKILL|NONE,I don't like it|SKILL|NONE
+START,What Do You Think of This?,I like it|GREAT|NONE,I don't like it|BAD|NONE
 end

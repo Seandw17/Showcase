@@ -18,6 +18,18 @@ public enum e_connotes
 }
 
 /// <summary>
+/// the rating of how good the response
+/// </summary>
+public enum e_rating
+{
+    GREAT = 4,
+    GOOD = 3,
+    OK = 2,
+    BAD = 1,
+    AWFUL = 0
+}
+
+/// <summary>
 /// Enum for identifier
 /// </summary>
 public enum e_identifier

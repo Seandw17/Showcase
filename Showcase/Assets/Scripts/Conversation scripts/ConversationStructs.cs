@@ -10,7 +10,7 @@
 public struct s_Questionresponse
 {
     public string response;
-    public e_connotes feel;
+    public e_rating rating;
     public e_unlockFlag unlockCriteria;
 }
 

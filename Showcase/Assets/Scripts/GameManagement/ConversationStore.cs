@@ -16,11 +16,10 @@ public class ConversationStore : MonoBehaviour
     {
         m_playerResponses = new List<s_playerResponse>();
 
+        // creating the silent player response
         m_silentResponse = new s_playerResponse();
-        s_Questionresponse temp = new s_Questionresponse();
-        temp.response = "Silent";
-        temp.feel = e_connotes.NERVOUSNESS; // TODO change this with feedback
-        m_silentResponse.playerResponse = temp;
+        m_silentResponse.playerResponse.rating = e_rating.BAD;
+        m_silentResponse.playerResponse.response = "Stayed Silent";
     }
 
     /// <summary>

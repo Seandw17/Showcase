@@ -10,3 +10,8 @@
 # 
 START,What Do You Think of This?,I like it|GREAT|NONE,I don't like it|BAD|NONE
 end
+#START,What about this job appeals to you?,It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE, 
+#- “It looks like a great challenge”
+#- “It looks really easy”
+#- [unlockable answer] “Your company has a very generous prgression scheme”
+#- [unlockable answer] “Your company cares for its employees”

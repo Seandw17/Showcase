@@ -3,21 +3,6 @@
 // Author: Alec
 
 /// <summary>
-/// Enum to show connotation
-/// </summary>
-[Flags]
-public enum e_connotes
-{
-    CONFIDENCE = 1 << 0,
-    NERVOUSNESS = 1 << 1,
-    SKILL = 1 << 2,
-    LACKKNOWLEDGE = 1 << 3,
-    HAVEKNOWLEDGE = 1 << 4,
-    UNSURE = 1 << 5,
-    BOASTFUL = 1 << 6
-}
-
-/// <summary>
 /// the rating of how good the response
 /// </summary>
 public enum e_rating
@@ -35,8 +20,11 @@ public enum e_rating
 public enum e_identifier
 {
     START = 1,
-    GOOD = 2,
-    END = 3
+    FOLLOWGREAT = 2,
+    FOLLOWGOOD = 3,
+    FOLLOWOK = 4,
+    FOLLOWBAD = 5,
+    FOLLOWAWFUL = 6
 }
 
 /// <summary>

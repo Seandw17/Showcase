@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 // Author: Alec
@@ -15,9 +16,9 @@ public class w_QuestionManager : MonoBehaviour
     OptionData m_option;
 
     /// <summary>
-    /// The text object for the timer
+    /// The timer visualisitation
     /// </summary>
-    [SerializeField] TextMeshProUGUI m_timerText;
+    [SerializeField] Slider m_timerSlider;
 
     /// <summary>
     /// Time user has to answer a question
@@ -74,7 +75,8 @@ public class w_QuestionManager : MonoBehaviour
             m_buttonPool[index].transform.parent.gameObject.SetActive(false);
         }
 
-        m_timerText.gameObject.SetActive(false);
+        m_timerSlider.maxValue = m_timeBetweenQuestions;
+        m_timerSlider.gameObject.SetActive(false);
 
         LoadRandomQuestion();
     }
@@ -142,7 +144,7 @@ public class w_QuestionManager : MonoBehaviour
     public void ProcessQuestionResult(s_Questionresponse _chosenResponse)
     {
         StopCoroutine(WaitForAnswer());
-        m_timerText.gameObject.SetActive(false);
+        m_timerSlider.gameObject.SetActive(false);
 
         m_playerConversationStore.ProcessAnswer(_chosenResponse,
             m_questionBox.text);
@@ -163,16 +165,16 @@ public class w_QuestionManager : MonoBehaviour
     /// <returns> null upon completion </returns>
     IEnumerator WaitForAnswer()
     {
-        m_timerText.gameObject.SetActive(true);
+        m_timerSlider.gameObject.SetActive(true);
 
         while (m_currentTime > 0.0f)
         {
             m_currentTime -= Time.deltaTime;
-            m_timerText.SetText(System.Math.Round(m_currentTime).ToString());
+            m_timerSlider.value = m_currentTime;
             yield return null;
         }
 
-        m_timerText.gameObject.SetActive(false);
+        m_timerSlider.gameObject.SetActive(false);
         m_playerConversationStore.PlayerWasSilent(m_questionBox.text);
         LoadRandomQuestion();
 

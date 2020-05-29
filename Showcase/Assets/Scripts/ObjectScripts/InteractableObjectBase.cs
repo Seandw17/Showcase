@@ -8,7 +8,7 @@ public class InteractableObjectBase : MonoBehaviour
     protected GameManagerScript m_gmscript;
     protected PlayerController m_playerscript;
 
-    SelectedGlow m_glow;
+    Outline m_outline;
 
     // Start is called before the first frame update
     public void Start()
@@ -25,7 +25,11 @@ public class InteractableObjectBase : MonoBehaviour
         m_gmscript = FindObjectOfType<GameManagerScript>();
         m_playerscript = FindObjectOfType<PlayerController>();
 
-        m_glow = transform.root.gameObject.AddComponent<SelectedGlow>();
+        m_outline = gameObject.transform.root.
+            gameObject.AddComponent<Outline>();
+        m_outline.OutlineColor = Color.blue;
+        m_outline.OutlineWidth = 10.0f;
+        m_outline.enabled = false;
 
         AddToList();
     }
@@ -47,8 +51,8 @@ public class InteractableObjectBase : MonoBehaviour
     }
 
     /// <summary>
-    /// Function to return the glow component
+    /// Function to return the outline component
     /// </summary>
-    /// <returns> the glow component </returns>
-    public SelectedGlow GetObjectGlow() { return m_glow; }
+    /// <returns> the outline component </returns>
+    public Outline GetObjectOutline() { return m_outline; }
 }

@@ -90,12 +90,13 @@ public class PlayerController : MonoBehaviour
                     if (m_objectHit.gameObject == ig_interactable[i].gameObject)
                     {
                         m_currentlySelected = ig_interactable[i];
-                        ig_interactable[i].GetObjectGlow().Glow(true);
+                        ig_interactable[i].GetObjectOutline().enabled = true;
                         if (Input.GetMouseButtonDown(0))
                         {
                             //Call the specific object interact function
                             ig_interactable[i].Interact();
-                            ig_interactable[i].GetObjectGlow().Glow(false);
+                            ig_interactable[i].GetObjectOutline()
+                                .enabled = false;
                         }
                     }
                 }
@@ -106,7 +107,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (m_currentlySelected)
                 {
-                    m_currentlySelected.GetObjectGlow().Glow(false);
+                    m_currentlySelected.GetObjectOutline().enabled = false;
                 }
             }
         }

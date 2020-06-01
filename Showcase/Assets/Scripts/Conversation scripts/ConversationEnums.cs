@@ -18,11 +18,11 @@ public enum e_rating
 public enum e_identifier
 {
     START = 1,
-    FOLLOWGREAT = 2,
-    FOLLOWGOOD = 3,
-    FOLLOWOK = 4,
-    FOLLOWBAD = 5,
-    FOLLOWAWFUL = 6
+    FOLLOWINGGREAT = 2,
+    FOLLOWINGGOOD = 3,
+    FOLLOWINGOK = 4,
+    FOLLOWINGBAD = 5,
+    FOLLOWINGAWFUL = 6
 }
 
 /// <summary>

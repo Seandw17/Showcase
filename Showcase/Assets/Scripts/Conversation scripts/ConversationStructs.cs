@@ -17,8 +17,14 @@ public struct s_Questionresponse
 /// </summary>
 public struct s_questionData
 {
-    public string question;
+    public List<s_questionVariations> questions;
     public List<s_Questionresponse> options;
+}
+
+public struct s_questionVariations
+{
+    public e_identifier identifier;
+    public string question;
 }
 
 /// <summary>

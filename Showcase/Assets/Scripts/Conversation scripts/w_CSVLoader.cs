@@ -7,89 +7,92 @@ using UnityEngine;
 // TODO rename class once completed
 static public class w_CSVLoader
 {
-    /// <summary>
-    /// Load A CSV containing the question data, and return
-    /// as a List
-    /// </summary>
-    /// <param name="_fileName"> the file name of the CSV </param>
-    /// <returns> A List containing sets of questions </returns>
-    static public List<List<KeyValuePair<e_identifier, s_questionData>>>
-        ReadConversationCSV(string _fileName)
+    public static List<s_questionData> LoadQuestionData(string _fileName)
     {
         Debug.Log("Starting Read of CSV: " + _fileName);
 
-        List<List<KeyValuePair<e_identifier, s_questionData>>> returnList =
-            new List<List<KeyValuePair<e_identifier, s_questionData>>>();
-
         TextAsset file = LoadInFile(_fileName);
 
-        List<KeyValuePair<e_identifier, s_questionData>> currentQuestionSet =
-            new List<KeyValuePair<e_identifier, s_questionData>>();
+        List<s_questionData> returnValue = new List<s_questionData>();
+        s_questionData temp = new s_questionData();
 
-        // parse over each line, recording data as we go
-        string[] linesInFile = file.text.Split('\n');
-        foreach (string line in linesInFile)
+        string[] lines = file.text.Split('\n');
+        foreach(string line in lines)
         {
-            // if it is not a comment
-            if (!line.ToLower()[0].Equals('#'))
+            if (!line[0].Equals('#'))
             {
-                // when we hit a end line, record it into the list and start new
                 if (line.Equals("end"))
                 {
-                    returnList.Add(currentQuestionSet);
-                    currentQuestionSet = new
-                        List<KeyValuePair<e_identifier, s_questionData>>();
-                    Debug.Log("Question set added");
+                    returnValue.Add(temp);
+                    temp = new s_questionData();
                 }
-
-                // if else, record a question set
                 else
                 {
-                    currentQuestionSet.Add(LoadQuestion(line));
+                    string[] check = line.Split('$');
+                    if (check[0].Equals("q"))
+                    {
+                        temp.questions = ReadQuestions(check[1]);
+                    }
+                    else if(check[0].Equals("r"))
+                    {
+                        temp.options = ReadOptions(check[1]);
+                    }
+                    else
+                    {
+                        throw new Exception("Illegal index: " + check[0]);
+                    }
                 }
             }
         }
 
-        Debug.Log("File Loading Complete");
+        Debug.Log("completed read of file: " + _fileName);
+
+        return returnValue;
+    }
+
+    static List<s_questionVariations> ReadQuestions(string _questions)
+    {
+        List<s_questionVariations> returnList =
+            new List<s_questionVariations>();
+
+        Debug.Log(_questions);
+
+        string[] data = _questions.Split(',');
+
+        foreach (string dataSet in data)
+        {
+            string[] brokenUp = dataSet.Split('|');
+            s_questionVariations question = new s_questionVariations();
+            Debug.Log(brokenUp[0]);
+            question.question = brokenUp[1];
+            question.identifier =
+                (e_identifier) Enum.Parse(typeof(e_identifier), brokenUp[0]);
+            returnList.Add(question);
+        }
 
         return returnList;
     }
 
-    /// <summary>
-    /// Load an individual question 
-    /// </summary>
-    /// <param name="QuestionLine"> the raw line of the question data </param>
-    /// <returns> A question data key value pair </returns>
-    static KeyValuePair<e_identifier, s_questionData>
-        LoadQuestion(string QuestionLine)
+    static List<s_Questionresponse> ReadOptions(string _responses)
     {
-        // creating a new question
-        s_questionData question = new s_questionData();
-        question.options = new List<s_Questionresponse>();
+        List<s_Questionresponse> returnList = new List<s_Questionresponse>();
 
-        // loading in the actual question
-        string[] data = QuestionLine.Split(',');
-        question.question = data[1];
+        Debug.Log(_responses);
 
-        //loading in the options
-        for (int iterator = 2; iterator < data.Length; iterator++)
+        string[] data = _responses.Split(',');
+        foreach (string dataSet in data)
         {
-            string[] optionAndFeel = data[iterator].Split('|');
-
-            // parse data for each response
+            string[] brokenUp = dataSet.Split('|');
             s_Questionresponse temp = new s_Questionresponse();
-            temp.response = optionAndFeel[0];
-            temp.rating = (e_rating) Enum.Parse(
-                typeof(e_rating),optionAndFeel[1]);
-            temp.unlockCriteria = (e_unlockFlag)Enum.Parse(
-                typeof(e_unlockFlag), optionAndFeel[2]);
-            question.options.Add(temp);
+            temp.response = brokenUp[0];
+            Debug.Log(brokenUp[0]);
+            temp.rating = (e_rating) Enum.Parse(typeof(e_rating), brokenUp[1]);
+            temp.unlockCriteria =
+                (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag), brokenUp[2]);
+            returnList.Add(temp);
         }
-        
-        // return appropriate values
-        return new KeyValuePair<e_identifier, s_questionData>
-            ((e_identifier) Enum.Parse(typeof(e_identifier),
-            data[0]),question);
+
+        return returnList;
     }
 
     /// <summary>
@@ -125,7 +128,7 @@ static public class w_CSVLoader
                     returnValue.Add(
                         new KeyValuePair<e_unlockFlag, string>
                         ((e_unlockFlag) Enum.Parse(typeof(e_unlockFlag),
-                        keyValue[0]), keyValue[1]));
+                        keyValue[1]), keyValue[0]));
                     Debug.Log("Question added");
                 }
             }

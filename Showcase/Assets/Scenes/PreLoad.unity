@@ -545,7 +545,6 @@ GameObject:
   - component: {fileID: 904260758}
   - component: {fileID: 904260759}
   - component: {fileID: 904260760}
-  - component: {fileID: 904260761}
   m_Layer: 0
   m_Name: _app
   m_TagString: Untagged
@@ -612,18 +611,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forcedLevelChange: InterviewTestScene
---- !u!114 &904260761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904260756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60362948107fb418ebc0826718bc3e3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1024005328
 GameObject:
   m_ObjectHideFlags: 0

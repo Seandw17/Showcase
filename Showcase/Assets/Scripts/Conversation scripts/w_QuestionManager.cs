@@ -9,10 +9,9 @@ using UnityEngine;
 public class w_QuestionManager : MonoBehaviour
 {
     TextMeshPro m_questionBox;
-    List<List<KeyValuePair<e_identifier, s_questionData>>> m_questions;
+    List<s_questionData> m_questions;
     OptionData[] m_buttonPool;
     int m_currentQuestion;
-    ConversationStore m_playerConversationStore;
     OptionData m_option;
     List<KeyValuePair<e_unlockFlag, string>> m_questionForJob;
     bool m_endLevel;
@@ -51,11 +50,9 @@ public class w_QuestionManager : MonoBehaviour
         // acquiring relevant data
         //questions for player
         m_questionBox = GetComponent<TextMeshPro>();
-        m_questions = w_CSVLoader.ReadConversationCSV("Test");
+        m_questions = w_CSVLoader.LoadQuestionData("IQuestions");
         // questions for job / brand
         m_questionForJob = w_CSVLoader.LoadInPlayerQuestions("PQuestions");
-
-        m_playerConversationStore = FindObjectOfType<ConversationStore>();
 
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
             "There are not enough questions loaded to meet the desired" +
@@ -105,6 +102,7 @@ public class w_QuestionManager : MonoBehaviour
         // TODO have a way to parse context
         e_identifier context = e_identifier.START;
 
+        /*
         // check through our questions, and retrieve appropriate data
         foreach (KeyValuePair<e_identifier, s_questionData> pair in
             m_questions[nextQuestion])
@@ -114,26 +112,26 @@ public class w_QuestionManager : MonoBehaviour
                 questionToDisplay = pair.Value;
                 break;
             }
-        }
+        }*/
 
         // check we have returned a value
         Debug.Assert(!questionToDisplay.Equals(new s_questionData()),
             "An error has occured finding the quesiton");
 
         // use values to set data
-        m_questionBox.SetText(questionToDisplay.question);
+        //m_questionBox.SetText(questionToDisplay.question);
 
         for (int index = 0; index < questionToDisplay.options.Count; index++)
         {
             // Set locked graphics, values and active, then begin fade
             m_buttonPool[index].SetLocked(
-                m_playerConversationStore.CheckHasFlag(
+                ConversationStore.CheckHasFlag(
                 questionToDisplay.options[index].unlockCriteria));
             m_buttonPool[index].SetValue(questionToDisplay.options[index]);
             m_buttonPool[index].transform.parent.gameObject.SetActive(true);
         }
 
-        Debug.Log("Chose Question: " + questionToDisplay.question);
+        //Debug.Log("Chose Question: " + questionToDisplay.question);
 
         // remove our question to prevent repeated valeus
         m_questions.RemoveAt(nextQuestion);
@@ -150,7 +148,7 @@ public class w_QuestionManager : MonoBehaviour
         StopCoroutine(WaitForAnswer());
         m_timerSlider.gameObject.SetActive(false);
 
-        m_playerConversationStore.ProcessAnswer(_chosenResponse,
+        ConversationStore.ProcessAnswer(_chosenResponse,
             m_questionBox.text);
 
         // Turn of buttons for now
@@ -179,13 +177,16 @@ public class w_QuestionManager : MonoBehaviour
         }
 
         m_timerSlider.gameObject.SetActive(false);
-        m_playerConversationStore.PlayerWasSilent(m_questionBox.text);
+        ConversationStore.PlayerWasSilent(m_questionBox.text);
 
         ProcessNextStep();
 
         yield return null;
     }
 
+    /// <summary>
+    /// Start question for user
+    /// </summary>
     void AskAboutJob()
     {
         m_questionBox.SetText("So do you have any questions about the job" +
@@ -193,8 +194,8 @@ public class w_QuestionManager : MonoBehaviour
 
         for (int index = 0; index < m_questionForJob.Count; index++)
         {
-            m_buttonPool[index].SetLocked(m_playerConversationStore.CheckHasFlag(
-                m_questionForJob[index].Key));
+            m_buttonPool[index].SetLocked(ConversationStore
+                .CheckHasFlag(m_questionForJob[index].Key));
             s_Questionresponse temp = new s_Questionresponse();
             temp.rating = e_rating.GREAT;
             temp.response = m_questionForJob[index].Value;
@@ -207,14 +208,20 @@ public class w_QuestionManager : MonoBehaviour
         StartCoroutine(WaitForAnswer());
     }
 
+    /// <summary>
+    /// Process whatever we do next
+    /// </summary>
     void ProcessNextStep()
     {
         if (m_endLevel)
         {
             // TODO End the level
+            Instantiate(Resources.Load<GameObject>("Prefabs/ScoreCard"));
+            Destroy(gameObject, 2.0f);
         }
         else if (m_currentQuestion > m_questionsToAsk)
         {
+            m_questions.Clear();
             AskAboutJob();
             m_endLevel = true;
         }

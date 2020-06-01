@@ -3,15 +3,12 @@ using UnityEngine;
 
 // Author: Alec
 
-public class ConversationStore : MonoBehaviour
+public class ConversationStore 
 {
-    e_unlockFlag unlockedFlags = e_unlockFlag.NONE;
-    List<s_playerResponse> m_playerResponses;
-    s_playerResponse m_silentResponse;
+    static e_unlockFlag unlockedFlags = e_unlockFlag.NONE;
+    static List<s_playerResponse> m_playerResponses;
+    static s_playerResponse m_silentResponse;
 
-    /// <summary>
-    /// Constructor for this object
-    /// </summary>
     ConversationStore()
     {
         m_playerResponses = new List<s_playerResponse>();
@@ -26,7 +23,7 @@ public class ConversationStore : MonoBehaviour
     /// Add a unlock flag to the player
     /// </summary>
     /// <param name="_flag"> the flag to add </param>
-    public void RegisterUnlockFlag(e_unlockFlag _flag)
+    static public void RegisterUnlockFlag(e_unlockFlag _flag)
     {
         unlockedFlags |= _flag;
     }
@@ -36,7 +33,7 @@ public class ConversationStore : MonoBehaviour
     /// </summary>
     /// <param name="_flag"> the flag to check </param>
     /// <returns> returns if has </returns>
-    public bool CheckHasFlag(e_unlockFlag _flag)
+    static public bool CheckHasFlag(e_unlockFlag _flag)
     {
         return unlockedFlags.HasFlag(_flag);
     }
@@ -45,7 +42,7 @@ public class ConversationStore : MonoBehaviour
     /// Signals that the player was silent
     /// </summary>
     /// <param name="_question"> the question that was active </param>
-    public void PlayerWasSilent(string _question)
+    static public void PlayerWasSilent(string _question)
     {
         m_silentResponse.question = _question;
         m_playerResponses.Add(m_silentResponse);
@@ -56,7 +53,8 @@ public class ConversationStore : MonoBehaviour
     /// </summary>
     /// <param name="_response"> the reponse the player chose </param>
     /// <param name="_question"> the active question </param>
-    public void ProcessAnswer(s_Questionresponse _response, string _question)
+    static public void ProcessAnswer(s_Questionresponse _response,
+        string _question)
     {
         Debug.Assert(!_response.Equals(new s_Questionresponse())
             && !_question.Equals(""));
@@ -72,7 +70,7 @@ public class ConversationStore : MonoBehaviour
     /// Returns the final set of chosen results
     /// </summary>
     /// <returns> the list of Player Response structs </returns>
-    public List<s_playerResponse> ReturnFinalChosenResults()
+    static public List<s_playerResponse> ReturnFinalChosenResults()
     {
         return m_playerResponses;
     }

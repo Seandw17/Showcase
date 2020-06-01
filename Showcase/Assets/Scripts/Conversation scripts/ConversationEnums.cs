@@ -17,12 +17,12 @@ public enum e_rating
 /// </summary>
 public enum e_identifier
 {
-    START = 1,
-    FOLLOWINGGREAT = 2,
-    FOLLOWINGGOOD = 3,
-    FOLLOWINGOK = 4,
-    FOLLOWINGBAD = 5,
-    FOLLOWINGAWFUL = 6
+    START = 0,
+    FOLLOWINGGREAT = 1,
+    FOLLOWINGGOOD = 2,
+    FOLLOWINGOK = 3,
+    FOLLOWINGBAD = 4,
+    FOLLOWINGAWFUL = 5
 }
 
 /// <summary>

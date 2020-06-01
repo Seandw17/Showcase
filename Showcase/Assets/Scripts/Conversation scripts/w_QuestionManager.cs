@@ -97,41 +97,34 @@ public class w_QuestionManager : MonoBehaviour
 
         // retrieve data
         int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count - 1);
-        s_questionData questionToDisplay = new s_questionData();
 
         // TODO have a way to parse context
         e_identifier context = e_identifier.START;
 
-        /*
-        // check through our questions, and retrieve appropriate data
-        foreach (KeyValuePair<e_identifier, s_questionData> pair in
-            m_questions[nextQuestion])
-        {
-            if (pair.Key == context)
-            {
-                questionToDisplay = pair.Value;
-                break;
-            }
-        }*/
+        List<s_Questionresponse> playerResponses =
+            m_questions[nextQuestion].options;
+        s_questionVariations questionToDisplay =
+            m_questions[nextQuestion].questions[(int) context];
+
 
         // check we have returned a value
         Debug.Assert(!questionToDisplay.Equals(new s_questionData()),
             "An error has occured finding the quesiton");
 
         // use values to set data
-        //m_questionBox.SetText(questionToDisplay.question);
+        m_questionBox.SetText(questionToDisplay.question);
 
-        for (int index = 0; index < questionToDisplay.options.Count; index++)
+        for (int index = 0; index < playerResponses.Count; index++)
         {
             // Set locked graphics, values and active, then begin fade
             m_buttonPool[index].SetLocked(
                 ConversationStore.CheckHasFlag(
-                questionToDisplay.options[index].unlockCriteria));
-            m_buttonPool[index].SetValue(questionToDisplay.options[index]);
+                playerResponses[index].unlockCriteria));
+            m_buttonPool[index].SetValue(playerResponses[index]);
             m_buttonPool[index].transform.parent.gameObject.SetActive(true);
         }
 
-        //Debug.Log("Chose Question: " + questionToDisplay.question);
+        Debug.Log("Chose Question: " + questionToDisplay.question);
 
         // remove our question to prevent repeated valeus
         m_questions.RemoveAt(nextQuestion);

@@ -3,14 +3,16 @@ using UnityEngine;
 
 // Author: Alec
 
-public class ConversationStore 
+static public class ConversationStore 
 {
     static e_unlockFlag unlockedFlags = e_unlockFlag.NONE;
     static List<s_playerResponse> m_playerResponses;
     static s_playerResponse m_silentResponse;
 
-    ConversationStore()
+    public static void Init()
     {
+
+        Debug.Log("Called");
         m_playerResponses = new List<s_playerResponse>();
 
         // creating the silent player response

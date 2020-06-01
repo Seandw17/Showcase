@@ -14,7 +14,8 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetCurrentHUD(ig_PlayerPanel);
+        //SetCurrentHUD(ig_PlayerPanel);
+        ConversationStore.Init();
     }
 
     // Update is called once per frame

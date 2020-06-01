@@ -15,6 +15,7 @@ public class w_QuestionManager : MonoBehaviour
     OptionData m_option;
     List<KeyValuePair<e_unlockFlag, string>> m_questionForJob;
     bool m_endLevel;
+    bool isWaitDone;
 
     /// <summary>
     /// The timer visualisitation
@@ -25,7 +26,6 @@ public class w_QuestionManager : MonoBehaviour
     /// Time user has to answer a question
     /// </summary>
     [SerializeField] const float m_timeBetweenQuestions = 20.0f;
-    float m_currentTime = m_timeBetweenQuestions;
 
     /// <summary>
     /// How many buttons we want to load on start
@@ -35,7 +35,7 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// How many questions we should ask in this session
     /// </summary>
-    [SerializeField] int m_questionsToAsk = 1;
+    [SerializeField] int m_questionsToAsk = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +51,7 @@ public class w_QuestionManager : MonoBehaviour
         //questions for player
         m_questionBox = GetComponent<TextMeshPro>();
         m_questions = w_CSVLoader.LoadQuestionData("IQuestions");
+        Debug.Log(m_questions.Count);
         // questions for job / brand
         m_questionForJob = w_CSVLoader.LoadInPlayerQuestions("PQuestions");
 
@@ -94,43 +95,47 @@ public class w_QuestionManager : MonoBehaviour
         {
             ProcessNextStep();
         }
-
-        // retrieve data
-        int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count - 1);
-
-        // TODO have a way to parse context
-        e_identifier context = e_identifier.START;
-
-        List<s_Questionresponse> playerResponses =
-            m_questions[nextQuestion].options;
-        s_questionVariations questionToDisplay =
-            m_questions[nextQuestion].questions[(int) context];
-
-
-        // check we have returned a value
-        Debug.Assert(!questionToDisplay.Equals(new s_questionData()),
-            "An error has occured finding the quesiton");
-
-        // use values to set data
-        m_questionBox.SetText(questionToDisplay.question);
-
-        for (int index = 0; index < playerResponses.Count; index++)
+        else
         {
-            // Set locked graphics, values and active, then begin fade
-            m_buttonPool[index].SetLocked(
-                ConversationStore.CheckHasFlag(
-                playerResponses[index].unlockCriteria));
-            m_buttonPool[index].SetValue(playerResponses[index]);
-            m_buttonPool[index].transform.parent.gameObject.SetActive(true);
+
+            // retrieve data
+            int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count - 1);
+
+            // TODO have a way to parse context
+            e_identifier context = e_identifier.START;
+
+            Debug.Log(nextQuestion);
+            List<s_Questionresponse> playerResponses =
+                m_questions[nextQuestion].options;
+            s_questionVariations questionToDisplay =
+                m_questions[nextQuestion].questions[(int)context];
+
+            // check we have returned a value
+            Debug.Assert(!questionToDisplay.Equals(new s_questionData()),
+                "An error has occured finding the quesiton");
+
+            // use values to set data
+            m_questionBox.SetText(questionToDisplay.question);
+
+            Debug.Log(playerResponses.Count);
+            for (int index = 0; index < playerResponses.Count; index++)
+            {
+                Debug.Log(index);
+                // Set locked graphics, values and active, then begin fade
+                m_buttonPool[index].SetLocked(
+                    ConversationStore.CheckHasFlag(
+                    playerResponses[index].unlockCriteria));
+                m_buttonPool[index].SetValue(playerResponses[index]);
+                m_buttonPool[index].transform.parent.gameObject.SetActive(true);
+            }
+
+            Debug.Log("Chose Question: " + questionToDisplay.question);
+
+            // remove our question to prevent repeated valeus
+            m_questions.RemoveAt(nextQuestion);
+
+            StartCoroutine(WaitForAnswer());
         }
-
-        Debug.Log("Chose Question: " + questionToDisplay.question);
-
-        // remove our question to prevent repeated valeus
-        m_questions.RemoveAt(nextQuestion);
-
-        m_currentTime = m_timeBetweenQuestions;
-        StartCoroutine(WaitForAnswer());
     }
 
     /// <summary>
@@ -160,21 +165,20 @@ public class w_QuestionManager : MonoBehaviour
     /// <returns> null upon completion </returns>
     IEnumerator WaitForAnswer()
     {
+        float currentTime = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(true);
 
-        while (m_currentTime > 0.0f)
+        while (currentTime > 0.0f)
         {
-            m_currentTime -= Time.deltaTime;
-            m_timerSlider.value = m_currentTime;
+            currentTime -= Time.deltaTime;
+            m_timerSlider.value = currentTime;
+            Debug.Log(currentTime);
             yield return null;
         }
 
         m_timerSlider.gameObject.SetActive(false);
         ConversationStore.PlayerWasSilent(m_questionBox.text);
-
-        ProcessNextStep();
-
-        yield return null;
+        isWaitDone = true;
     }
 
     /// <summary>
@@ -196,6 +200,7 @@ public class w_QuestionManager : MonoBehaviour
             m_buttonPool[index].gameObject.SetActive(true);
         }
 
+        m_endLevel = true;
         m_questionForJob.Clear();
 
         StartCoroutine(WaitForAnswer());
@@ -216,8 +221,17 @@ public class w_QuestionManager : MonoBehaviour
         {
             m_questions.Clear();
             AskAboutJob();
-            m_endLevel = true;
         }
         else { LoadRandomQuestion(); }
+    }
+
+    private void Update()
+    {
+        if (isWaitDone)
+        {
+            isWaitDone = false;
+            StopCoroutine(WaitForAnswer());
+            ProcessNextStep();
+        }
     }
 }

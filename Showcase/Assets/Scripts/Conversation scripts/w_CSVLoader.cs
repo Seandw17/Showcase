@@ -7,6 +7,11 @@ using UnityEngine;
 // TODO rename class once completed
 static public class w_CSVLoader
 {
+    /// <summary>
+    /// Function to load in interview questions
+    /// </summary>
+    /// <param name="_fileName">name of file</param>
+    /// <returns>list of questions</returns>
     public static List<s_questionData> LoadQuestionData(string _fileName)
     {
         Debug.Log("Starting Read of CSV: " + _fileName);
@@ -50,6 +55,11 @@ static public class w_CSVLoader
         return returnValue;
     }
 
+    /// <summary>
+    /// Parses a line of string into a set of question variations
+    /// </summary>
+    /// <param name="_questions"> the line</param>
+    /// <returns>a list of variations</returns>
     static List<s_questionVariations> ReadQuestions(string _questions)
     {
         List<s_questionVariations> returnList =
@@ -73,6 +83,11 @@ static public class w_CSVLoader
         return returnList;
     }
 
+    /// <summary>
+    /// A function to read in all the options for a question
+    /// </summary>
+    /// <param name="_responses">the string to parse</param>
+    /// <returns>a list of responses</returns>
     static List<s_Questionresponse> ReadOptions(string _responses)
     {
         List<s_Questionresponse> returnList = new List<s_Questionresponse>();

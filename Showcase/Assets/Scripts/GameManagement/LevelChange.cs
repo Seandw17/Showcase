@@ -51,6 +51,7 @@ public class LevelChange : MonoBehaviour
         }
 
         SceneManager.UnloadSceneAsync("Loading");
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(_sceneName));
         Debug.Log("Loading of Scene: " + _sceneName + " is complete");
     }
 }

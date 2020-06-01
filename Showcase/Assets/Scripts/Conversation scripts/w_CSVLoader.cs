@@ -5,28 +5,23 @@ using UnityEngine;
 // Author: Alec
 
 // TODO rename class once completed
-public class w_CSVLoader
+static public class w_CSVLoader
 {
     /// <summary>
     /// Load A CSV containing the question data, and return
     /// as a List
     /// </summary>
-    /// <param name="fileName"> the file name of the CSV </param>
+    /// <param name="_fileName"> the file name of the CSV </param>
     /// <returns> A List containing sets of questions </returns>
-    public List<List<KeyValuePair<e_identifier, s_questionData>>>
-        ReadCSV(string fileName)
+    static public List<List<KeyValuePair<e_identifier, s_questionData>>>
+        ReadConversationCSV(string _fileName)
     {
-        Debug.Log("Starting Read of CSV: " + fileName);
+        Debug.Log("Starting Read of CSV: " + _fileName);
 
         List<List<KeyValuePair<e_identifier, s_questionData>>> returnList =
             new List<List<KeyValuePair<e_identifier, s_questionData>>>();
 
-        // load the file as a text asset
-        fileName = "Conversation/" + fileName;
-        TextAsset file = Resources.Load<TextAsset>(fileName);
-
-        Debug.Assert(file, "File: " + fileName + " cannot be found");
-        Debug.Log("File: " + fileName + " Has Been found");
+        TextAsset file = LoadInFile(_fileName);
 
         List<KeyValuePair<e_identifier, s_questionData>> currentQuestionSet =
             new List<KeyValuePair<e_identifier, s_questionData>>();
@@ -65,7 +60,8 @@ public class w_CSVLoader
     /// </summary>
     /// <param name="QuestionLine"> the raw line of the question data </param>
     /// <returns> A question data key value pair </returns>
-    KeyValuePair<e_identifier, s_questionData> LoadQuestion(string QuestionLine)
+    static KeyValuePair<e_identifier, s_questionData>
+        LoadQuestion(string QuestionLine)
     {
         // creating a new question
         s_questionData question = new s_questionData();
@@ -94,5 +90,64 @@ public class w_CSVLoader
         return new KeyValuePair<e_identifier, s_questionData>
             ((e_identifier) Enum.Parse(typeof(e_identifier),
             data[0]),question);
+    }
+
+    /// <summary>
+    /// Load in the players questions for the interviewer
+    /// </summary>
+    /// <param name="_fileName">the name of the file</param>
+    /// <returns>a list of questions</returns>
+    static public List<KeyValuePair<e_unlockFlag, string>>
+        LoadInPlayerQuestions(string _fileName)
+    {
+        Debug.Log("Loading in player questions");
+
+        // instaniate appropriate lists
+        List<KeyValuePair<e_unlockFlag, string>> returnValue =
+            new List<KeyValuePair<e_unlockFlag, string>>();
+
+        TextAsset file = LoadInFile(_fileName);
+
+        // split line into files
+        string[] lines = file.text.Split('\n');
+        foreach(string data in lines)
+        {
+            // if not a comment
+            if (!data[0].Equals('#'))
+            {
+                // split by comma
+                string[] responses = data.Split(',');
+                foreach(string response in responses)
+                {
+                    // split by | character
+                    string[] keyValue = response.Split('|');
+                    // load in
+                    returnValue.Add(
+                        new KeyValuePair<e_unlockFlag, string>
+                        ((e_unlockFlag) Enum.Parse(typeof(e_unlockFlag),
+                        keyValue[0]), keyValue[1]));
+                    Debug.Log("Question added");
+                }
+            }
+        }
+
+        Debug.Log("Player question files loaded in");
+        return returnValue;
+    }
+
+    /// <summary>
+    /// Load in file as a text asset
+    /// </summary>
+    /// <param name="_name">name of file in "/Resources"</param>
+    /// <returns>TextAsset of file</returns>
+    static TextAsset LoadInFile(string _name)
+    {
+        _name = "Conversation/" + _name;
+        TextAsset file = Resources.Load<TextAsset>(_name);
+
+        Debug.Assert(file, "File: " + _name + " cannot be found");
+        Debug.Log("File: " + _name + " Has Been found");
+
+        return file;
     }
 }

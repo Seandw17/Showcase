@@ -2,8 +2,6 @@
 
 // Author: Alec
 
-// TODO comply to whatever response system we end up using
-
 /// <summary>
 /// Struct to hold a response
 /// </summary>

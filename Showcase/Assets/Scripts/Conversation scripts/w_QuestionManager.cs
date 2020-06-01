@@ -14,6 +14,8 @@ public class w_QuestionManager : MonoBehaviour
     int m_currentQuestion;
     ConversationStore m_playerConversationStore;
     OptionData m_option;
+    List<KeyValuePair<e_unlockFlag, string>> m_questionForJob;
+    bool m_endLevel;
 
     /// <summary>
     /// The timer visualisitation
@@ -25,7 +27,7 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     [SerializeField] const float m_timeBetweenQuestions = 20.0f;
     float m_currentTime = m_timeBetweenQuestions;
-    
+
     /// <summary>
     /// How many buttons we want to load on start
     /// </summary>
@@ -47,8 +49,12 @@ public class w_QuestionManager : MonoBehaviour
         OptionData.Register(this);
 
         // acquiring relevant data
+        //questions for player
         m_questionBox = GetComponent<TextMeshPro>();
-        m_questions = new w_CSVLoader().ReadCSV("Test");
+        m_questions = w_CSVLoader.ReadConversationCSV("Test");
+        // questions for job / brand
+        m_questionForJob = w_CSVLoader.LoadInPlayerQuestions("PQuestions");
+
         m_playerConversationStore = FindObjectOfType<ConversationStore>();
 
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
@@ -78,7 +84,7 @@ public class w_QuestionManager : MonoBehaviour
         m_timerSlider.maxValue = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(false);
 
-        LoadRandomQuestion();
+        ProcessNextStep();
     }
 
     /// <summary>
@@ -89,9 +95,7 @@ public class w_QuestionManager : MonoBehaviour
         m_currentQuestion++;
         if (m_currentQuestion > m_questionsToAsk)
         {
-            // TODO End the level, or something
-            throw new System.Exception("Level end reached, " +
-                "but there is nothing here");
+            ProcessNextStep();
         }
 
         // retrieve data
@@ -156,7 +160,7 @@ public class w_QuestionManager : MonoBehaviour
         }
         m_questionBox.SetText("");
 
-        LoadRandomQuestion();
+        ProcessNextStep();
     }
 
     /// <summary>
@@ -176,8 +180,44 @@ public class w_QuestionManager : MonoBehaviour
 
         m_timerSlider.gameObject.SetActive(false);
         m_playerConversationStore.PlayerWasSilent(m_questionBox.text);
-        LoadRandomQuestion();
+
+        ProcessNextStep();
 
         yield return null;
+    }
+
+    void AskAboutJob()
+    {
+        m_questionBox.SetText("So do you have any questions about the job" +
+            "itself?");
+
+        for (int index = 0; index < m_questionForJob.Count; index++)
+        {
+            m_buttonPool[index].SetLocked(m_playerConversationStore.CheckHasFlag(
+                m_questionForJob[index].Key));
+            s_Questionresponse temp = new s_Questionresponse();
+            temp.rating = e_rating.GREAT;
+            temp.response = m_questionForJob[index].Value;
+            m_buttonPool[index].SetValue(temp);
+            m_buttonPool[index].gameObject.SetActive(true);
+        }
+
+        m_questionForJob.Clear();
+
+        StartCoroutine(WaitForAnswer());
+    }
+
+    void ProcessNextStep()
+    {
+        if (m_endLevel)
+        {
+            // TODO End the level
+        }
+        else if (m_currentQuestion > m_questionsToAsk)
+        {
+            AskAboutJob();
+            m_endLevel = true;
+        }
+        else { LoadRandomQuestion(); }
     }
 }

@@ -1,31 +1,56 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Collections;
 
 public class LevelChange : MonoBehaviour
 {
     [SerializeField] string forcedLevelChange;
 
+    static LevelChange instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        Debug.Assert(!forcedLevelChange.Equals(""),
+            "Enter a level to change to");
 
-        Debug.Assert(!forcedLevelChange.Equals(""), "Enter a level to change to");
-
-        SceneManager.LoadSceneAsync(forcedLevelChange, LoadSceneMode.Additive);
+        ChangeLevel(forcedLevelChange);
     }
 
     /// <summary>
-    /// Sets the current active scene to the 
+    /// Change the level to the string name of the scene
     /// </summary>
-    /// <param name="scene"> Scene we are changing to </param>
-    /// <param name="mode"> the change most we are using</param>
-    void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)
+    /// <param name="_sceneName"> name of the scene </param>
+    public static void ChangeLevel(string _sceneName)
     {
-        Debug.Assert(_mode == LoadSceneMode.Additive,
-            "All scene changes should be done using LoadSceneMode.Additive" +
-            " failing to do so will delete the _preload scene");
-        SceneManager.SetActiveScene(_scene);
-        Debug.Log("Changing to scene: " + _scene.name);
+        Debug.Log("Changing to scene: " + _sceneName);
+        SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
+        instance.StartCoroutine(instance.LoadLevel(_sceneName));
+    }
+
+    /// <summary>
+    /// Couroutine to load a scene
+    /// </summary>
+    /// <param name="_sceneName">name of scene</param>
+    /// <returns>yield command</returns>
+    public IEnumerator LoadLevel(string _sceneName)
+    {
+        yield return new WaitForSeconds(1);
+
+        AsyncOperation async = SceneManager.
+            LoadSceneAsync(_sceneName, LoadSceneMode.Additive);
+
+        while (!async.isDone)
+        {
+            yield return null;
+        }
+
+        SceneManager.UnloadSceneAsync("Loading");
+        Debug.Log("Loading of Scene: " + _sceneName + " is complete");
     }
 }

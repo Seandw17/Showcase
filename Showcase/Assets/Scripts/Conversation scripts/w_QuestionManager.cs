@@ -217,7 +217,9 @@ public class w_QuestionManager : MonoBehaviour
         if (m_endLevel)
         {
             // TODO End the level
-            Instantiate(Resources.Load<GameObject>("Prefabs/ScoreCard"));
+            Instantiate(Resources.Load<GameObject>("Prefabs/ScoreCard"),
+                transform.position, transform.rotation);
+            Destroy(m_timerSlider.gameObject, 2.0f);
             Destroy(gameObject, 2.0f);
         }
         else if (m_currentQuestion > m_questionsToAsk)

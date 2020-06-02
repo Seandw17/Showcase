@@ -76,4 +76,14 @@ static public class ConversationStore
     {
         return m_playerResponses;
     }
+
+    // TESTING FUNCTION, TO REMOVE
+    static public List<s_playerResponse> ReturnTestData()
+    {
+        for (int index = 0; index < 10; index++)
+        {
+            m_playerResponses.Add(m_silentResponse);
+        }
+        return m_playerResponses;
+    }
 }

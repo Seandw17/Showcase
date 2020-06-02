@@ -14,7 +14,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/FMOD/showcase_fmod/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637267003272915616
+  lastModified: 637267166229694270
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 752
+  Exists: 1
+--- !u!114 &-7221910090360971774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/showcase_fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637267169235983498
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-5086016889756846089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/showcase_fmod/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637267193677683207
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -37,7 +75,7 @@ MonoBehaviour:
   lastModified: 637267003272885477
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,17 +89,53 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -8475046165493713111}
-  - {fileID: -2162023822184984027}
+  - {fileID: -5086016889756846089}
+  - {fileID: 1242519272542157276}
   EditorEvents:
-  - {fileID: 1880511900456628946}
+  - {fileID: 3158891352345442446}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2162023822184984027}
+  - {fileID: 1242519272542157276}
   StringsBanks:
-  - {fileID: -8475046165493713111}
-  stringsBankWriteTime: 637267003272915616
+  - {fileID: -5086016889756846089}
+  stringsBankWriteTime: 637267193677683207
   cacheVersion: 3
+--- !u!114 &281099297902031326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/showcase_fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637267166229674308
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1242519272542157276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/showcase_fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637267193677663013
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &1880511900456628946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +151,7 @@ MonoBehaviour:
   Path: event:/Test/test_audio
   guid: 93695e9b2904aa42b4acebdb3e22ac71
   Banks:
-  - {fileID: -2162023822184984027}
+  - {fileID: 281099297902031326}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -85,3 +159,44 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &3158891352345442446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Test/test_audio
+  m_EditorClassIdentifier: 
+  Path: event:/Test/test_audio
+  guid: 93695e9b2904aa42b4acebdb3e22ac71
+  Banks:
+  - {fileID: 1242519272542157276}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &8574371790423012443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/showcase_fmod/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637267164007592121
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0

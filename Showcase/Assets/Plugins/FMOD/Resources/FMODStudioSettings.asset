@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 0
-  HasPlatforms: 0
+  HasSourceProject: 1
+  HasPlatforms: 1
   sourceProjectPath: Assets/FMOD/showcase_fmod/showcase_fmod.fspro
-  sourceBankPath: Assets/StreamingAssets
+  sourceBankPath: Assets\FMOD\showcase_fmod\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 0
   BankLoadType: 0

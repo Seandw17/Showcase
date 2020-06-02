@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections;
 
+//TODO implement waiting text
+
 public class ScoreCard : MonoBehaviour
 {
     List<s_playerResponse> m_responses;
@@ -33,7 +35,6 @@ public class ScoreCard : MonoBehaviour
     { 
         //m_watitingText.SetActive(true);
 
-        // TODO make left and right buttons
         m_rgtButton = Instantiate(Resources.Load<GameObject>
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
         m_rgtButton.Set(PageMoveObject.e_direction.RIGHT);
@@ -44,12 +45,11 @@ public class ScoreCard : MonoBehaviour
         m_lftButton.transform.position = new Vector3(-20, 0, 0);
         m_rgtButton.transform.position = new Vector3(20, 0, 0);
 
-        //m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
-
         // Load in pages
         s_playerResponse[] TempResponses = new s_playerResponse[5];
         int externalIndexer = 0;
         int finalScore = 0;
+
         foreach (s_playerResponse response in m_responses)
         {
             // add response to the array
@@ -64,11 +64,14 @@ public class ScoreCard : MonoBehaviour
             }
             // add to final score
             finalScore += (int)response.playerResponse.rating;
+            if(Equals(response, m_responses[m_responses.Count - 1])
+                && externalIndexer != 4)
+            {
+                GenerateAnswerPage(TempResponses);
+            }
             yield return null;
         }
 
-        // TODO deal with left over results
-        
         GenerateResultPage(finalScore);
 
         m_responses.Clear();
@@ -84,7 +87,7 @@ public class ScoreCard : MonoBehaviour
     {
         FinalResult finalResultPage = Instantiate(Resources.Load<GameObject>
             ("Prefabs/FinalResultPage").GetComponent<FinalResult>());
-        finalResultPage.SetValue(_finalScore);
+        finalResultPage.SetValue(_finalScore, m_responses.Count);
         finalResultPage.gameObject.transform.parent = transform;
         //m_pages.Add(finalResultPage);
         m_pages.Insert(0, finalResultPage);

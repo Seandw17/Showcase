@@ -16,7 +16,7 @@ public class FinalResult : Page
     /// <summary>
     /// How Many the user needs to pass the interview
     /// </summary>
-    [SerializeField] int m_amountNeededToPass = 37;
+    [SerializeField] int m_amountNeededToPassPercent = 75;
 
     protected override void Init()
     {
@@ -27,11 +27,13 @@ public class FinalResult : Page
     /// set the value of the page
     /// </summary>
     /// <param name="_score">the players score</param>
-    public void SetValue(int _score)
+    public void SetValue(int _score, int questionsAsked)
     {
+        float amountNeededToPass = (questionsAsked * 5) * 0.75f;
+
         m_finalScore.SetText(_score.ToString());
 
-        if (_score >= m_amountNeededToPass)
+        if (_score >= amountNeededToPass)
         {
             m_outcomeText.SetText("Congratulations you've passed!");
         }

@@ -7,18 +7,10 @@ static public class ConversationStore
 {
     static e_unlockFlag unlockedFlags = e_unlockFlag.NONE;
     static List<s_playerResponse> m_playerResponses;
-    static s_playerResponse m_silentResponse;
 
     public static void Init()
     {
-
-        Debug.Log("Called");
         m_playerResponses = new List<s_playerResponse>();
-
-        // creating the silent player response
-        m_silentResponse = new s_playerResponse();
-        m_silentResponse.playerResponse.rating = e_rating.BAD;
-        m_silentResponse.playerResponse.response = "Stayed Silent";
     }
 
     /// <summary>
@@ -46,8 +38,11 @@ static public class ConversationStore
     /// <param name="_question"> the question that was active </param>
     static public void PlayerWasSilent(string _question)
     {
-        m_silentResponse.question = _question;
-        m_playerResponses.Add(m_silentResponse);
+        s_playerResponse silentResponse = new s_playerResponse();
+        silentResponse.playerResponse.rating = e_rating.BAD;
+        silentResponse.playerResponse.response = "Stayed Silent";
+        silentResponse.question = _question;
+        m_playerResponses.Add(silentResponse);
     }
 
     /// <summary>
@@ -80,10 +75,13 @@ static public class ConversationStore
     // TESTING FUNCTION, TO REMOVE
     static public List<s_playerResponse> ReturnTestData()
     {
-        for (int index = 0; index < 10; index++)
-        {
-            m_playerResponses.Add(m_silentResponse);
-        }
+        PlayerWasSilent("Test 1");
+        PlayerWasSilent("Test 2");
+        PlayerWasSilent("Test 3");
+        PlayerWasSilent("Test 4");
+        PlayerWasSilent("Test 5");
+        PlayerWasSilent("Test 6");
+
         return m_playerResponses;
     }
 }

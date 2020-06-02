@@ -79,9 +79,8 @@ MonoBehaviour:
     Value: 32
   Plugins: []
   MasterBanks:
-  - Showcase Bank
-  Banks:
   - Master
+  Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0

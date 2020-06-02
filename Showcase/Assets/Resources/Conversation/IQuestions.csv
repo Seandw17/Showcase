@@ -34,3 +34,27 @@ end
 q$START|So what do you think are your best aspects?,FOLLOWINGGREAT|Awesome! so what are your best aspects?,FOLLOWINGGOOD|Good so what are your best aspects?,FOLLOWINGOK|Ok what do you think are your best aspects?,FOLLOWINGBAD|Alright then so what do you feel are your best aspects?,FOLLOWINGAWFUL|Sounds good so what do you believe are your best aspects?
 r$I’m a very hard worker! I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE
 end
+#
+# Where do you see yourself in a few years time?
+#
+q$START|So Where do you see yourself in a few years time?,FOLLOWINGGREAT|Awesome! Where do you see yourself in a few years time?,FOLLOWINGGOOD|Great! Where do you see yourself in a few years time?,FOLLOWINGOK|Alright where do you see yourself in a few years time?,FOLLOWINGBAD|Well then where do you see yourself in a few years time?,FOLLOWINGAWFUL|Ok then where do you see yourself in a few years time?
+r$I hope to have improved my skills and confidence to take on new projects and responsibilities|GREAT|NONE,I don’t know, I haven’t really thought about it|BAD|NONE,I hope to do something I really want to do as soon as possible|OK|NONE,I’d like to be working in something related to my interests, though I know I will have to work hard towards it|GOOD|FIRST,I hope to be able to support myself without worries|GOOD|NONE
+end
+#
+# Out of everyone, why should we hire you?
+#
+q$START|Out of everyone why should we hire you?,FOLLOWINGGREAT|Great!Out of everyone why should we hire you?,FOLLOWINGGOOD|Ok out of everyone why should we hire you?,FOLLOWINGOK|So out of everyone why should we hire you?,FOLLOWINGBAD| Alright out of everyone why should we hire you?, FOLLOWINGAWFUL|Alright Out of everyone why should we hire you?
+r$I believe that my CV shows I am suited to work in this line of work, and I am willing to learn new skills to cover my weaker areas|GREAT|NONE,Obviously, I’m the best out of everyone|AWFUL|NONE,I hope that talking with you has shown that I would be a great choice for you and your company|OK|NONE,This would provide me a great opportunity to develop myself and work in a company I enjoy|GOOD|FIRST,Out of the people I’ve seen, I believe I would fit into this environment a lot better|BAD|FIRST
+end
+#
+# How did you find out about this job?
+#
+q$START|How did you find out about this job?,FOLLOWINGGREAT|Ok then how did you find out about this job?,FOLLOWINGGOOD|Alright! How did you find out about this job?,FOLLOWINGOK|Ok how did you find out about this job?,FOLLOWINGBAD|So then how did you find out about this job?,FOLLOWINGAWFUL|So how did you find out about this job?
+r$I saw a post online advertising the job, and it seemed like something I would enjoy|GREAT|NONE,A friend told me about it|OK|NONE,I saw a flyer on your window when I was walking by|GOOD|NONE,I saw a post online advertising the job, and it seemed like something I would enjoy when I researched your company|GREAT|FIRST,I noticed you were advertising the job when I came in with my friend|OK|FIRST
+end
+#
+# A customer complains to you about their coffee being cold. What do you do?
+#
+q$START|Ok a customer complains to you about their coffee being cold. What do you do?,FOLLOWINGGREAT|Great a customer complains to you about their coffee being cold. What do you do?,FOLLOWINGGOOD|Ok so a customer complains to you about their coffee being cold. What do you do?,FOLLOWINGOK|Alright so a customer complains to you about their coffee being cold. What do you do?,FOLLOWINGBAD|Hrrrmm ok a customer complains to you about their coffee being cold. What do you do?,FOLLOWINGAWFUL|Thats interesting so a customer complains to you about their coffee being cold. What do you do?
+r$I would apologise and ask to know more about the situation so I can determine what the context is around the order|OK|NONE,I would promise to get them a new coffee|GOOD|NONE,I would find my supervisor and see how they would handle it|BAD|NONE,I would apologise first and ask if it was cold when they received it. I would then ask the barista if there was anything wrong with the machine or any other orders|OK|FIRST,I would take the coffee and see if it is actually cold|AWFUL|FIRST
+end

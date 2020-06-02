@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 // Author: Alec
 
@@ -15,7 +16,8 @@ public class w_QuestionManager : MonoBehaviour
     OptionData m_option;
     List<KeyValuePair<e_unlockFlag, string>> m_questionForJob;
     bool m_endLevel;
-    bool isWaitDone;
+
+    UnityEvent m_processNextStep;
 
     /// <summary>
     /// The timer visualisitation
@@ -25,12 +27,12 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// Time user has to answer a question
     /// </summary>
-    [SerializeField] const float m_timeBetweenQuestions = 20.0f;
+    [SerializeField] float m_timeBetweenQuestions = 20.0f;
 
     /// <summary>
     /// How many buttons we want to load on start
     /// </summary>
-    [SerializeField] const int m_buttonPoolSize = 5;
+    [SerializeField] int m_buttonPoolSize = 5;
 
     /// <summary>
     /// How many questions we should ask in this session
@@ -82,6 +84,9 @@ public class w_QuestionManager : MonoBehaviour
         m_timerSlider.maxValue = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(false);
 
+        m_processNextStep = new UnityEvent();
+        m_processNextStep.AddListener(ProcessNextStep);
+
         ProcessNextStep();
     }
 
@@ -97,7 +102,6 @@ public class w_QuestionManager : MonoBehaviour
         }
         else
         {
-
             // retrieve data
             int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count - 1);
 
@@ -172,13 +176,12 @@ public class w_QuestionManager : MonoBehaviour
         {
             currentTime -= Time.deltaTime;
             m_timerSlider.value = currentTime;
-            Debug.Log(currentTime);
             yield return null;
         }
 
         m_timerSlider.gameObject.SetActive(false);
         ConversationStore.PlayerWasSilent(m_questionBox.text);
-        isWaitDone = true;
+        m_processNextStep.Invoke();
     }
 
     /// <summary>
@@ -223,15 +226,5 @@ public class w_QuestionManager : MonoBehaviour
             AskAboutJob();
         }
         else { LoadRandomQuestion(); }
-    }
-
-    private void Update()
-    {
-        if (isWaitDone)
-        {
-            isWaitDone = false;
-            StopCoroutine(WaitForAnswer());
-            ProcessNextStep();
-        }
     }
 }

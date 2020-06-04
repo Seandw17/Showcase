@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9138330607798584009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Master.bank
+  SubDir: 
+  lastModified: 637268597580000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-8381811943465030388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,16 +69,16 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -2041042658757128090}
-  - {fileID: 4968615104426358840}
+  - {fileID: 571821994781988258}
+  - {fileID: -9138330607798584009}
   EditorEvents:
   - {fileID: 3880511425784501490}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 4968615104426358840}
+  - {fileID: -9138330607798584009}
   StringsBanks:
-  - {fileID: -2041042658757128090}
-  stringsBankWriteTime: 637267269043414673
+  - {fileID: 571821994781988258}
+  stringsBankWriteTime: 637268597580000000
   cacheVersion: 3
 --- !u!114 &118057815104409085
 MonoBehaviour:
@@ -80,6 +98,26 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &571821994781988258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Master.strings.bank
+  SubDir: 
+  lastModified: 637268597580000000
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 738
+  Exists: 1
 --- !u!114 &3880511425784501490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +133,7 @@ MonoBehaviour:
   Path: event:/german_folk_m
   guid: 43d811513e680b4a85a16a31c5b8781b
   Banks:
-  - {fileID: 4968615104426358840}
+  - {fileID: -9138330607798584009}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0

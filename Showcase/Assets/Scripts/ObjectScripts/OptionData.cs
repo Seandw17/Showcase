@@ -41,10 +41,10 @@ public class OptionData : InteractableObjectBase
     override public void Interact()
     {
         Debug.Log("Option: " + m_textValue.text + "Hit");
-        //if (m_isInteractible)
-        //{
+        if (m_isInteractible)
+        {
             m_questionManager.ProcessQuestionResult(m_responseForThisButton);
-        //}
+        }
     }
 
     /// <summary>

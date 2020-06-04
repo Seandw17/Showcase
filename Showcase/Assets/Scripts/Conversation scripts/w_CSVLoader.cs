@@ -73,10 +73,9 @@ static public class w_CSVLoader
         {
             string[] brokenUp = dataSet.Split('|');
             s_questionVariations question = new s_questionVariations();
-            Debug.Log(brokenUp[0]);
             question.question = brokenUp[1];
             question.identifier =
-                (e_identifier) Enum.Parse(typeof(e_identifier), brokenUp[0]);
+                (e_rating) Enum.Parse(typeof(e_rating), brokenUp[0]);
             returnList.Add(question);
         }
 
@@ -92,15 +91,14 @@ static public class w_CSVLoader
     {
         List<s_Questionresponse> returnList = new List<s_Questionresponse>();
 
-        Debug.Log(_responses);
-
         string[] data = _responses.Split(',');
         foreach (string dataSet in data)
         {
             string[] brokenUp = dataSet.Split('|');
             s_Questionresponse temp = new s_Questionresponse();
-            temp.response = brokenUp[0];
+            Debug.Log(dataSet);
             Debug.Log(brokenUp[0]);
+            temp.response = brokenUp[0];
             temp.rating = (e_rating) Enum.Parse(typeof(e_rating), brokenUp[1]);
             temp.unlockCriteria =
                 (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag), brokenUp[2]);
@@ -167,5 +165,20 @@ static public class w_CSVLoader
         Debug.Log("File: " + _name + " Has Been found");
 
         return file;
+    }
+
+    public static List<string> LoadInFillerText()
+    {
+        List<string> returnList = new List<string>();
+
+        TextAsset file = LoadInFile("FillerText");
+        string[] lines = file.text.Split('\n');
+
+        foreach (string line in lines)
+        {
+            returnList.Add(line);
+        }
+
+        return returnList;
     }
 }

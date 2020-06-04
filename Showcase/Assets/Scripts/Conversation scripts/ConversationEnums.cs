@@ -9,20 +9,8 @@ public enum e_rating
     GOOD = 3,
     OK = 2,
     BAD = 1,
-    AWFUL = 0
-}
-
-/// <summary>
-/// Enum for identifier
-/// </summary>
-public enum e_identifier
-{
-    START = 0,
-    FOLLOWINGGREAT = 1,
-    FOLLOWINGGOOD = 2,
-    FOLLOWINGOK = 3,
-    FOLLOWINGBAD = 4,
-    FOLLOWINGAWFUL = 5
+    AWFUL = 0,
+    NONE
 }
 
 /// <summary>

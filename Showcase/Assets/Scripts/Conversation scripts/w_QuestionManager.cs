@@ -10,14 +10,23 @@ using UnityEngine.UI;
 public class w_QuestionManager : MonoBehaviour
 {
     TextMeshPro m_questionBox;
+
     List<s_questionData> m_questions;
-    OptionData[] m_buttonPool;
-    int m_currentQuestion;
-    OptionData m_option;
     List<KeyValuePair<e_unlockFlag, string>> m_questionForJob;
+
+    OptionData[] m_buttonPool;
+    OptionData m_option;
+    
     bool m_endLevel;
 
     UnityEvent m_processNextStep;
+    UnityEvent m_randomQuestion;
+
+    int m_currentQuestion;
+
+    FillerText m_fillerText;
+
+    e_rating m_previous = e_rating.NONE;
 
     /// <summary>
     /// The timer visualisitation
@@ -64,7 +73,7 @@ public class w_QuestionManager : MonoBehaviour
         // use values to set data
         Vector3 spawnLocation = new Vector3(
             transform.parent.gameObject.transform.position.x,
-            transform.parent.gameObject.transform.position.y - 1.5f,
+            transform.parent.gameObject.transform.position.y - 0.25f,
             transform.parent.gameObject.transform.position.z);
         // pool our buttons
         m_buttonPool = new OptionData[m_buttonPoolSize];
@@ -73,12 +82,13 @@ public class w_QuestionManager : MonoBehaviour
             if (index > 0)
             {
                 spawnLocation = new Vector3(spawnLocation.x,
-                    spawnLocation.y - 1f, spawnLocation.z);
+                    spawnLocation.y - 0.25f, spawnLocation.z);
             }
-            GameObject temp = Instantiate(m_option.transform.parent.gameObject,
-                spawnLocation, transform.rotation);
+            GameObject temp = Instantiate(m_option.transform.parent.gameObject);
+            temp.transform.root.gameObject.SetActive(false);
+            //temp.transform.parent = transform.root;
+            temp.transform.position = spawnLocation;
             m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
-            m_buttonPool[index].transform.parent.gameObject.SetActive(false);
         }
 
         m_timerSlider.maxValue = m_timeBetweenQuestions;
@@ -86,6 +96,11 @@ public class w_QuestionManager : MonoBehaviour
 
         m_processNextStep = new UnityEvent();
         m_processNextStep.AddListener(ProcessNextStep);
+
+        m_randomQuestion = new UnityEvent();
+        m_randomQuestion.AddListener(LoadRandomQuestion);
+
+        m_fillerText = new FillerText();
 
         ProcessNextStep();
     }
@@ -105,14 +120,11 @@ public class w_QuestionManager : MonoBehaviour
             // retrieve data
             int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count - 1);
 
-            // TODO have a way to parse context
-            e_identifier context = e_identifier.START;
-
             Debug.Log(nextQuestion);
             List<s_Questionresponse> playerResponses =
                 m_questions[nextQuestion].options;
             s_questionVariations questionToDisplay =
-                m_questions[nextQuestion].questions[(int)context];
+                m_questions[nextQuestion].questions[(int)m_previous];
 
             // check we have returned a value
             Debug.Assert(!questionToDisplay.Equals(new s_questionData()),
@@ -152,6 +164,8 @@ public class w_QuestionManager : MonoBehaviour
 
         ConversationStore.ProcessAnswer(_chosenResponse,
             m_questionBox.text);
+
+        m_previous = _chosenResponse.rating;
 
         // Turn of buttons for now
         foreach (OptionData button in m_buttonPool)
@@ -216,7 +230,6 @@ public class w_QuestionManager : MonoBehaviour
     {
         if (m_endLevel)
         {
-            // TODO End the level
             Instantiate(Resources.Load<GameObject>("Prefabs/ScoreCard"),
                 transform.position, transform.rotation);
             Destroy(m_timerSlider.gameObject, 2.0f);
@@ -227,6 +240,14 @@ public class w_QuestionManager : MonoBehaviour
             m_questions.Clear();
             AskAboutJob();
         }
-        else { LoadRandomQuestion(); }
+        else { StartCoroutine(FillInTime(m_fillerText.ReturnFillerText())); }
+    }
+
+    IEnumerator FillInTime(string _fillInText)
+    {
+        m_questionBox.SetText(_fillInText);
+        yield return new WaitForSeconds(2);
+
+        m_randomQuestion.Invoke();
     }
 }

@@ -23,7 +23,7 @@ public struct s_questionData
 
 public struct s_questionVariations
 {
-    public e_identifier identifier;
+    public e_rating identifier;
     public string question;
 }
 

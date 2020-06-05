@@ -4,16 +4,25 @@ public class AnswerPage : Page
 {
     ResponseDisplay[] m_reponses;
 
+    /// <summary>
+    /// Create the page with relevant GameObjects
+    /// </summary>
     protected override void Init()
     {
-        m_reponses = new ResponseDisplay[5];
+        m_reponses = new ResponseDisplay[3];
+        Vector3 newPos = Vector3.zero;
         for (int index = 0; index < m_reponses.Length; index++)
         {
             ResponseDisplay temp = Instantiate(Resources.Load<GameObject>
                 ("Prefabs/ResponseDisplay")).GetComponent<ResponseDisplay>();
             m_reponses[index] = temp;
             m_reponses[index].transform.SetParent(transform);
-            // TODO set position
+
+            if (index > 0)
+            {
+                newPos.y -= 0.3f;
+                m_reponses[index].transform.position = newPos;
+            }
         }
     }
 
@@ -25,7 +34,7 @@ public class AnswerPage : Page
     {
         Init();
 
-        Debug.Assert(_reponses.Length < 6, "Too many values passed to " +
+        Debug.Assert(_reponses.Length < 4, "Too many values passed to " +
             "'set value' of Answer page'");
 
         for (int index = 0; index < _reponses.Length; index++)

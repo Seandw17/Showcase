@@ -42,11 +42,13 @@ public class ScoreCard : MonoBehaviour
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
         m_lftButton.Set(PageMoveObject.e_direction.LEFT);
 
-        m_lftButton.transform.position = new Vector3(-20, 0, 0);
-        m_rgtButton.transform.position = new Vector3(20, 0, 0);
+        m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
+
+        m_lftButton.transform.position = new Vector3(-0.9f, 0, 0);
+        m_rgtButton.transform.position = new Vector3(0.9f, 0, 0);
 
         // Load in pages
-        s_playerResponse[] TempResponses = new s_playerResponse[5];
+        s_playerResponse[] TempResponses = new s_playerResponse[3];
         int externalIndexer = 0;
         int finalScore = 0;
 
@@ -56,16 +58,16 @@ public class ScoreCard : MonoBehaviour
             TempResponses[externalIndexer] = response;
             externalIndexer++;
             // if we've hit the limit, make a page
-            if (externalIndexer == 4)
+            if (externalIndexer == 2)
             {
                 GenerateAnswerPage(TempResponses);
-                TempResponses = new s_playerResponse[5];
+                TempResponses = new s_playerResponse[3];
                 externalIndexer = 0;
             }
             // add to final score
             finalScore += (int)response.playerResponse.rating;
             if(Equals(response, m_responses[m_responses.Count - 1])
-                && externalIndexer != 4)
+                && externalIndexer != 2)
             {
                 GenerateAnswerPage(TempResponses);
             }

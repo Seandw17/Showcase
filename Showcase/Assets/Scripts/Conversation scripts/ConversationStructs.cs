@@ -35,3 +35,10 @@ public struct s_playerResponse
     public string question;
     public s_Questionresponse playerResponse;
 }
+
+public struct s_playerQuestion
+{
+    public string question;
+    public string response;
+    public e_unlockFlag flag;
+}

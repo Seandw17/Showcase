@@ -12,7 +12,7 @@ public class w_QuestionManager : MonoBehaviour
     TextMeshPro m_questionBox;
 
     List<s_questionData> m_questions;
-    List<KeyValuePair<e_unlockFlag, string>> m_questionForJob;
+    List<s_playerQuestion> m_questionForJob;
 
     OptionData[] m_buttonPool;
     OptionData m_option;
@@ -64,7 +64,8 @@ public class w_QuestionManager : MonoBehaviour
         m_questions = w_CSVLoader.LoadQuestionData("IQuestions");
         Debug.Log(m_questions.Count);
         // questions for job / brand
-        m_questionForJob = w_CSVLoader.LoadInPlayerQuestions("PQuestions");
+        w_CSVLoader.LoadInPlayerQuestions("PQuestions",
+            out m_questionForJob);
 
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
             "There are not enough questions loaded to meet the desired" +
@@ -209,10 +210,12 @@ public class w_QuestionManager : MonoBehaviour
         for (int index = 0; index < m_questionForJob.Count; index++)
         {
             m_buttonPool[index].SetLocked(ConversationStore
-                .CheckHasFlag(m_questionForJob[index].Key));
-            s_Questionresponse temp = new s_Questionresponse();
-            temp.rating = e_rating.GREAT;
-            temp.response = m_questionForJob[index].Value;
+                .CheckHasFlag(m_questionForJob[index].flag));
+            s_Questionresponse temp = new s_Questionresponse
+            {
+                rating = e_rating.GREAT,
+                response = m_questionForJob[index].question
+            };
             m_buttonPool[index].SetValue(temp);
             m_buttonPool[index].gameObject.SetActive(true);
         }
@@ -230,10 +233,7 @@ public class w_QuestionManager : MonoBehaviour
     {
         if (m_endLevel)
         {
-            Instantiate(Resources.Load<GameObject>("Prefabs/ScoreCard"),
-                transform.position, transform.rotation);
-            Destroy(m_timerSlider.gameObject, 2.0f);
-            Destroy(gameObject, 2.0f);
+            StartCoroutine(EndLevel());
         }
         else if (m_currentQuestion > m_questionsToAsk)
         {
@@ -243,11 +243,46 @@ public class w_QuestionManager : MonoBehaviour
         else { StartCoroutine(FillInTime(m_fillerText.ReturnFillerText())); }
     }
 
+    /// <summary>
+    /// Function to display some filler text
+    /// </summary>
+    /// <param name="_fillInText">the filler text</param>
+    /// <returns> waits for 2 seconds</returns>
     IEnumerator FillInTime(string _fillInText)
     {
         m_questionBox.SetText(_fillInText);
         yield return new WaitForSeconds(2);
 
         m_randomQuestion.Invoke();
+    }
+
+    /// <summary>
+    /// The couroutine to end the level
+    /// </summary>
+    /// <returns>yield for 2 seconds</returns>
+    IEnumerator EndLevel()
+    {
+        string finalChoice = ConversationStore.ReturnFinalChosenResults()
+            [ConversationStore.ReturnFinalChosenResults().Count - 1]
+            .playerResponse.response;
+
+        string response = "Nothing? Ok then...";
+
+        foreach(s_playerQuestion question in m_questionForJob)
+        {
+            if (finalChoice.Equals(question.question))
+            {
+                response = question.response;
+            }
+        }
+
+        m_questionBox.SetText(response);
+
+        yield return new WaitForSeconds(2);
+
+        Instantiate(Resources.Load<GameObject>("Prefabs/ScoreCard"),
+                transform.position, transform.rotation);
+        Destroy(m_timerSlider.gameObject, 2.0f);
+        Destroy(gameObject, 2.0f);
     }
 }

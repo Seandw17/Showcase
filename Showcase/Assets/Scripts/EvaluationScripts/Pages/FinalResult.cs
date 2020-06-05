@@ -1,6 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
 
+// Author: Alec
+
 public class FinalResult : Page
 {
     /// <summary>

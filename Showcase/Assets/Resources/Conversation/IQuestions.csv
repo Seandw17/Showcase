@@ -1,7 +1,7 @@
 ﻿#
 # What about this job appeals to you?
 #
-q$NONE|So what about this job appeals to you?,GREAT|Wow! that sounds great! moving on what about this job appeals to you?,GOOD| Alright then sounds good! So what about this job appeals to you then?, OK|Really? ok so moving on what about the job appeals to you?,BAD| Alright then what about the job appeals to you?,AWFUL| Hrrmmm thats not a response we would expect but anyway what about the job appeals to you?
+q$NONE|So what about this job appeals to you?,GREAT|Anyway moving on what about this job appeals to you?,GOOD| Alright then sounds good! So what about this job appeals to you then?, OK|Really? ok so moving on what about the job appeals to you?,BAD| Alright then what about the job appeals to you?,AWFUL| Hrrmmm thats not a response we would expect but anyway what about the job appeals to you?
 r$It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|GOOD|FIRST|,Your Company cares for its employees|GREAT|SECOND
 end
 #

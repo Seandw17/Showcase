@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// Author: Alec
+
 public class AnswerPage : Page
 {
     ResponseDisplay[] m_reponses;

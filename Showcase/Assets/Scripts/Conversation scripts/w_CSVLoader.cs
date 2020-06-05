@@ -109,23 +109,24 @@ static public class w_CSVLoader
     }
 
     /// <summary>
-    /// Load in the players questions for the interviewer
+    /// Loads player questions
     /// </summary>
-    /// <param name="_fileName">the name of the file</param>
-    /// <returns>a list of questions</returns>
-    static public List<KeyValuePair<e_unlockFlag, string>>
-        LoadInPlayerQuestions(string _fileName)
+    /// <param name="_fileName">name of file</param>
+    /// <param name="_replies">list of replies to the questions</param>
+    /// <param name="_questions">List of questions the player can ask</param>
+    public static void LoadInPlayerQuestions(string _fileName,
+        out List<s_playerQuestion> _list)
     {
         Debug.Log("Loading in player questions");
 
-        // instaniate appropriate lists
-        List<KeyValuePair<e_unlockFlag, string>> returnValue =
-            new List<KeyValuePair<e_unlockFlag, string>>();
-
         TextAsset file = LoadInFile(_fileName);
 
-        // split line into files
+        _list = new List<s_playerQuestion>();
+
         string[] lines = file.text.Split('\n');
+
+        // split line into files
+
         foreach(string data in lines)
         {
             // if not a comment
@@ -138,17 +139,18 @@ static public class w_CSVLoader
                     // split by | character
                     string[] keyValue = response.Split('|');
                     // load in
-                    returnValue.Add(
-                        new KeyValuePair<e_unlockFlag, string>
-                        ((e_unlockFlag) Enum.Parse(typeof(e_unlockFlag),
-                        keyValue[1]), keyValue[0]));
-                    Debug.Log("Question added");
+                    s_playerQuestion temp = new s_playerQuestion();
+                    temp.question = keyValue[0];
+                    temp.response = keyValue[2];
+                    temp.flag = (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag),
+                        keyValue[1]);
+                    _list.Add(temp);
+                    Debug.Log("Player Question added");
                 }
             }
         }
 
         Debug.Log("Player question files loaded in");
-        return returnValue;
     }
 
     /// <summary>

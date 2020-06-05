@@ -1,6 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
 
+// Author: Alec
+
 public class ResponseDisplay : MonoBehaviour
 {
     public void SetValue(string _question, string _response, e_rating score)

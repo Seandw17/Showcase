@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static FadeIn;
 
 // Author: Alec
 
@@ -102,6 +103,11 @@ public class w_QuestionManager : MonoBehaviour
 
         m_fillerText = new FillerText();
 
+        SetAlphaToZero(GetComponent<Renderer>().material);
+        SetAlphaToZero(m_questionBox);
+
+        StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
+
         ProcessNextStep();
     }
 
@@ -132,6 +138,7 @@ public class w_QuestionManager : MonoBehaviour
 
             // use values to set data
             m_questionBox.SetText(questionToDisplay.question);
+            StartCoroutine(FadeAsset(m_questionBox, 0.5f, true));
 
             Debug.Log(playerResponses.Count);
             for (int index = 0; index < playerResponses.Count; index++)
@@ -194,6 +201,10 @@ public class w_QuestionManager : MonoBehaviour
         m_processNextStep.Invoke();
     }
 
+    /// <summary>
+    /// Fade Out the buttons, turn off the timer and set the text for the
+    /// question box to blank
+    /// </summary>
     void TurnOffButtons()
     {
         // Turn of buttons for now
@@ -201,7 +212,7 @@ public class w_QuestionManager : MonoBehaviour
         {
             StartCoroutine(button.setInactive());
         }
-        m_questionBox.SetText("");
+        StartCoroutine(FadeAsset(m_questionBox, 0.5f, false));
         m_timerSlider.gameObject.SetActive(false);
     }
 

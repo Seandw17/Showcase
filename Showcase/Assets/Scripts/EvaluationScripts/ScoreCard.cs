@@ -76,6 +76,30 @@ public class ScoreCard : MonoBehaviour
 
         GenerateResultPage(finalScore);
 
+        // creating the tips
+        List<string> tips = TipParser.GenerateTips();
+        string[] tipsToPass = new string[3];
+        externalIndexer = 0;
+        foreach(string tip in tips)
+        {
+            tipsToPass[externalIndexer] = tip;
+            externalIndexer++;
+
+            if (externalIndexer == 3)
+            {
+                GenerateTipsPage(tipsToPass);
+                tipsToPass = new string[3];
+                externalIndexer = 0;
+            }
+
+            // if any fall out of the loop at the end
+            if (Equals(tip, tips[tips.Count - 1]) && externalIndexer != 2){
+                GenerateTipsPage(tipsToPass);
+            }
+
+            yield return null;
+        }
+
         m_responses.Clear();
         //Destroy(m_watitingText);
         yield return null;
@@ -107,6 +131,16 @@ public class ScoreCard : MonoBehaviour
         answerPage.gameObject.transform.parent = transform;
         answerPage.gameObject.SetActive(false);
         m_pages.Add(answerPage);
+    }
+
+    void GenerateTipsPage(string[] _tips)
+    {
+        TipsPages tipsPage = Instantiate(Resources.Load<GameObject>
+            ("Prefabs/TipsPage").GetComponent<TipsPages>());
+        tipsPage.SetValue(_tips);
+        tipsPage.gameObject.transform.parent = transform;
+        tipsPage.gameObject.SetActive(false);
+        m_pages.Add(tipsPage);
     }
 
     /// <summary>

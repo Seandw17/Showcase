@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using static FadeIn;
 
 // Author: Alec
 
@@ -23,6 +24,19 @@ public class FinalResult : Page
     protected override void Init()
     {
         throw new System.NotImplementedException();
+    }
+
+    private void Start()
+    {
+        // fade in assets
+        SetAlphaToZero(GetComponent<Renderer>().material);
+        StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
+
+        foreach(TextMeshPro child in GetComponentsInChildren<TextMeshPro>())
+        {
+            SetAlphaToZero(child);
+            StartCoroutine(FadeAsset(child, 0.5f, true));
+        }
     }
 
     /// <summary>

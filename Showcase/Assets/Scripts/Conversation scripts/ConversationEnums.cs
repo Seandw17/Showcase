@@ -1,4 +1,5 @@
-﻿// Author: Alec
+﻿using System;
+// Author: Alec
 
 /// <summary>
 /// the rating of how good the response
@@ -23,4 +24,11 @@ public enum e_unlockFlag
     SECOND = 3,
     THIRD = 4,
     FOURTH = 5
+}
+
+//TODO figure out what my tip categories are
+[Flags]
+public enum e_tipCategories
+{
+    NONE
 }

@@ -183,4 +183,19 @@ static public class w_CSVLoader
 
         return returnList;
     }
+
+    public static void LoadTips(out Dictionary<e_tipCategories, string> _list)
+    {
+        _list = new Dictionary<e_tipCategories, string>();
+
+        TextAsset file = LoadInFile("Tips");
+        string[] lines = file.text.Split('\n');
+
+        foreach (string line in lines)
+        {
+            string[] data = line.Split(',');
+            _list.Add((e_tipCategories)Enum.Parse(typeof(e_tipCategories),
+                data[0]), data[1]);
+        }
+    }
 }

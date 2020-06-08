@@ -17,6 +17,8 @@ public class OptionData : InteractableObjectBase
     {
         m_textValue = GetComponent<TextMeshPro>();
         m_renderer = GetComponent<Renderer>();
+        SetAlphaToZero(m_renderer.material);
+        SetAlphaToZero(m_textValue);
     }
 
     /// <summary>
@@ -38,6 +40,7 @@ public class OptionData : InteractableObjectBase
         m_textValue.SetText(_response.response);
         m_responseForThisButton = _response;
         StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
+        StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
     }
 
     /// <summary>

@@ -13,6 +13,8 @@ public class OutfitManager : MonoBehaviour
     GameObject[] ig_Outfit;
     GameObject ig_Player;
 
+    public Material[] m_outfitMats;
+
     protected PlayerController m_playerscript;
     CursorController m_cmScript;
 
@@ -48,9 +50,10 @@ public class OutfitManager : MonoBehaviour
     {
         m_selectedOutfit = (e_Outfits)buttonNo;
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
+        CheckSelectedModel();
         m_playerscript.enabled = true;
         m_cmScript.DisableCursor();
-
+        
         Debug.Log("Selected outfit is " + m_selectedOutfit);
     }
 
@@ -59,5 +62,28 @@ public class OutfitManager : MonoBehaviour
     void RenablePlayerMovement()
     {
         Debug.Log(m_selectedOutfit);
+    }
+
+    // temporally made it so that the players camera is higher up in the scene
+    // this is also temp code for changing the material of the player to simulate the changing of the outfits and will be changed when we have more assets
+    void CheckSelectedModel()
+    {
+        if (m_selectedOutfit == e_Outfits.OUTFIT1)
+        {
+            ChangeSelectedModel(m_outfitMats[0]);
+        }
+        if (m_selectedOutfit == e_Outfits.OUTFIT2)
+        {
+            ChangeSelectedModel(m_outfitMats[1]);
+        }
+        if (m_selectedOutfit == e_Outfits.OUTFIT3)
+        {
+            ChangeSelectedModel(m_outfitMats[2]);
+        }
+    }
+
+    void ChangeSelectedModel(Material mat)
+    {
+        ig_Player.GetComponent<MeshRenderer>().material = mat;
     }
 }

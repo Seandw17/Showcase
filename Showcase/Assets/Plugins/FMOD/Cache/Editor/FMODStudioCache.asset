@@ -70,15 +70,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 571821994781988258}
-  - {fileID: 6056644798027584350}
+  - {fileID: 1020800734323799110}
   EditorEvents:
   - {fileID: 3880511425784501490}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 6056644798027584350}
+  - {fileID: 1020800734323799110}
   StringsBanks:
   - {fileID: 571821994781988258}
-  stringsBankWriteTime: 637272195635688826
+  stringsBankWriteTime: 637267961219082557
   cacheVersion: 3
 --- !u!114 &118057815104409085
 MonoBehaviour:
@@ -112,11 +112,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Master.strings.bank
   SubDir: 
-  lastModified: 637272195635688826
+  lastModified: 637267961219082557
   LoadResult: 0
   FileSizes:
   - Name: 
     Value: 738
+  Exists: 1
+--- !u!114 &1020800734323799110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Master.bank
+  SubDir: 
+  lastModified: 637267961219062542
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
 --- !u!114 &3880511425784501490
 MonoBehaviour:
@@ -133,7 +151,7 @@ MonoBehaviour:
   Path: event:/german_folk_m
   guid: 43d811513e680b4a85a16a31c5b8781b
   Banks:
-  - {fileID: 6056644798027584350}
+  - {fileID: 1020800734323799110}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0

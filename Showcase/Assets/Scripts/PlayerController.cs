@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player  
+        //m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player 
+        m_camera = this.gameObject.GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame

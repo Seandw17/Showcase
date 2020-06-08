@@ -1,5 +1,7 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
+using static FadeIn;
 
 // Author: Alec
 
@@ -9,10 +11,12 @@ public class OptionData : InteractableObjectBase
     static w_QuestionManager m_questionManager;
     s_Questionresponse m_responseForThisButton;
     bool m_isInteractible;
+    Renderer m_renderer;
 
     private void Awake()
     {
         m_textValue = GetComponent<TextMeshPro>();
+        m_renderer = GetComponent<Renderer>();
     }
 
     /// <summary>
@@ -33,6 +37,7 @@ public class OptionData : InteractableObjectBase
     {
         m_textValue.SetText(_response.response);
         m_responseForThisButton = _response;
+        StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
     }
 
     /// <summary>
@@ -48,12 +53,6 @@ public class OptionData : InteractableObjectBase
     }
 
     /// <summary>
-    /// Function to return the text of this object
-    /// </summary>
-    /// <returns> the text mesh pro object </returns>
-    public TextMeshPro ReturnText() { return m_textValue; }
-
-    /// <summary>
     /// Set the graphic of the option to locked
     /// </summary>
     /// <param name="_locked">is the object locked</param>
@@ -62,5 +61,13 @@ public class OptionData : InteractableObjectBase
         m_isInteractible = !_locked;
 
         // TODO graphical changes
+    }
+
+    public IEnumerator setInactive()
+    {
+        float fadeOutTime = 0.5f;
+        StartCoroutine(FadeAsset(m_renderer, fadeOutTime, false));
+        yield return new WaitForSeconds(fadeOutTime + 1);
+        gameObject.SetActive(false);
     }
 }

@@ -51,8 +51,8 @@ static public class FadeIn
     /// <param name="_in">is it fading in?</param>
     /// <param name="_time">how long should it take to complete</param>
     /// <returns></returns>
-    static public IEnumerator FadeAsset(TextMeshProUGUI _tmp, bool _in,
-        float _time)
+    static public IEnumerator FadeAsset(TextMeshProUGUI _tmp, float _time,
+        bool _in)
     {
         Color newColour = new Color(
             _tmp.color.r,

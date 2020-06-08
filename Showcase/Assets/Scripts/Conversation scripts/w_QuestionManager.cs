@@ -87,7 +87,6 @@ public class w_QuestionManager : MonoBehaviour
             }
             GameObject temp = Instantiate(m_option.transform.parent.gameObject);
             temp.transform.root.gameObject.SetActive(false);
-            //temp.transform.parent = transform.root;
             temp.transform.position = spawnLocation;
             m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
         }
@@ -168,12 +167,7 @@ public class w_QuestionManager : MonoBehaviour
 
         m_previous = _chosenResponse.rating;
 
-        // Turn of buttons for now
-        foreach (OptionData button in m_buttonPool)
-        {
-            button.gameObject.SetActive(false);
-        }
-        m_questionBox.SetText("");
+        TurnOffButtons();
 
         ProcessNextStep();
     }
@@ -194,9 +188,21 @@ public class w_QuestionManager : MonoBehaviour
             yield return null;
         }
 
-        m_timerSlider.gameObject.SetActive(false);
+        TurnOffButtons();
+
         ConversationStore.PlayerWasSilent(m_questionBox.text);
         m_processNextStep.Invoke();
+    }
+
+    void TurnOffButtons()
+    {
+        // Turn of buttons for now
+        foreach (OptionData button in m_buttonPool)
+        {
+            StartCoroutine(button.setInactive());
+        }
+        m_questionBox.SetText("");
+        m_timerSlider.gameObject.SetActive(false);
     }
 
     /// <summary>

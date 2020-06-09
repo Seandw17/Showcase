@@ -32,7 +32,7 @@ public class ChairObject : InteractableObjectBase
                 }
             case 2:
                 {
-                    m_playerscript.m_canmove = false;
+                   
                     //TODO - Set player Position to be facing the interviewer
                     break;
                 }

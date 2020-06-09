@@ -26,6 +26,9 @@ public enum e_unlockFlag
     FOURTH = 5
 }
 
+/// <summary>
+/// The categories of tips
+/// </summary>
 [Flags]
 public enum e_tipCategories
 {

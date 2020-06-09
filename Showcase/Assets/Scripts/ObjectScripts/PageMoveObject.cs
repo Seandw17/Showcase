@@ -20,7 +20,7 @@ public class PageMoveObject : InteractableObjectBase
     /// <param name="_card">the cart that will act as a parent</param>
     static public void Register(ScoreCard _card)
     {
-        m_card = _card;   
+        m_card = _card; 
     }
 
     private void OnEnable()

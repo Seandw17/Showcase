@@ -41,6 +41,7 @@ static public class ConversationStore
         silentResponse.playerResponse.rating = e_rating.BAD;
         silentResponse.playerResponse.response = "Stayed Silent";
         silentResponse.question = _question;
+        ConversationStore.AddTip(e_tipCategories.NOTASKING);
         m_playerResponses.Add(silentResponse);
     }
 
@@ -59,8 +60,13 @@ static public class ConversationStore
         temp.playerResponse = _response;
         temp.question = _question;
 
-        TipParser.ParseTip(_question, _response.rating);
-
+        // TODO change to add tip category
+        if (_response.rating.Equals(e_rating.AWFUL) ||
+            _response.rating.Equals(e_rating.BAD))
+        {
+            AddTip(_response.tip);
+        }
+        
         m_playerResponses.Add(temp);
     }
 
@@ -86,7 +92,13 @@ static public class ConversationStore
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void AddTip(e_tipCategories _tip) => m_tips |= _tip;
+    public static void AddTip(e_tipCategories _tip)
+    {
+        if (!m_tips.HasFlag(_tip))
+        {
+            m_tips |= _tip;
+        }
+    }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static e_tipCategories GetPlayerTips() => m_tips;

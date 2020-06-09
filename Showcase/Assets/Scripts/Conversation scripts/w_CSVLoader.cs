@@ -33,18 +33,22 @@ static public class w_CSVLoader
                 }
                 else
                 {
+                    
                     string[] check = line.Split('$');
-                    if (check[0].Equals("q"))
+                    switch (check[0])
                     {
-                        temp.questions = ReadQuestions(check[1]);
-                    }
-                    else if(check[0].Equals("r"))
-                    {
-                        temp.options = ReadOptions(check[1]);
-                    }
-                    else
-                    {
-                        throw new Exception("Illegal index: " + check[0]);
+                        case "q":
+                            temp.questions = ReadQuestions(check[1]);
+                            break;
+                        case "r":
+                            temp.options = ReadOptions(check[1]);
+                            break;
+                        case "f":
+                            temp.tip = (e_tipCategories)Enum.Parse(
+                            typeof(e_tipCategories), check[1]);
+                            break;
+                        case "":
+                            throw new Exception("Illegal index: " + check[0]);
                     }
                 }
             }
@@ -64,8 +68,6 @@ static public class w_CSVLoader
     {
         List<s_questionVariations> returnList =
             new List<s_questionVariations>();
-
-        Debug.Log(_questions);
 
         string[] data = _questions.Split(',');
 
@@ -96,8 +98,6 @@ static public class w_CSVLoader
         {
             string[] brokenUp = dataSet.Split('|');
             s_Questionresponse temp = new s_Questionresponse();
-            Debug.Log(dataSet);
-            Debug.Log(brokenUp[0]);
             temp.response = brokenUp[0];
             temp.rating = (e_rating) Enum.Parse(typeof(e_rating), brokenUp[1]);
             temp.unlockCriteria =
@@ -193,9 +193,12 @@ static public class w_CSVLoader
 
         foreach (string line in lines)
         {
-            string[] data = line.Split(',');
-            _list.Add((e_tipCategories)Enum.Parse(typeof(e_tipCategories),
-                data[0]), data[1]);
+            if (!line[0].Equals('#'))
+            {
+                string[] data = line.Split(',');
+                _list.Add((e_tipCategories)Enum.Parse(typeof(e_tipCategories),
+                    data[0]), data[1]);
+            }
         }
     }
 }

@@ -103,10 +103,11 @@ public class w_QuestionManager : MonoBehaviour
 
         m_fillerText = new FillerText();
 
-        SetAlphaToZero(GetComponent<Renderer>().material);
+        SetAlphaToZero(transform.parent.GetComponent<Renderer>().material);
         SetAlphaToZero(m_questionBox);
 
-        StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
+        StartCoroutine(FadeAsset(transform.parent.GetComponent<Renderer>(),
+           0.5f, true));
 
         ProcessNextStep();
     }
@@ -124,7 +125,8 @@ public class w_QuestionManager : MonoBehaviour
         else
         {
             // retrieve data
-            int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count - 1);
+            int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count
+                - 1);
 
             Debug.Log(nextQuestion);
             List<s_Questionresponse> playerResponses =
@@ -140,7 +142,6 @@ public class w_QuestionManager : MonoBehaviour
             m_questionBox.SetText(questionToDisplay.question);
             StartCoroutine(FadeAsset(m_questionBox, 0.5f, true));
 
-            Debug.Log(playerResponses.Count);
             for (int index = 0; index < playerResponses.Count; index++)
             {
                 Debug.Log(index);
@@ -148,7 +149,8 @@ public class w_QuestionManager : MonoBehaviour
                 m_buttonPool[index].SetLocked(
                     ConversationStore.CheckHasFlag(
                     playerResponses[index].unlockCriteria));
-                m_buttonPool[index].SetValue(playerResponses[index]);
+                m_buttonPool[index].SetValue(playerResponses[index],
+                    m_questions[nextQuestion].tip);
                 m_buttonPool[index].transform.parent.gameObject.SetActive(true);
             }
 
@@ -171,6 +173,8 @@ public class w_QuestionManager : MonoBehaviour
 
         ConversationStore.ProcessAnswer(_chosenResponse,
             m_questionBox.text);
+
+        ConversationStore.AddTip(_chosenResponse.tip);
 
         m_previous = _chosenResponse.rating;
 
@@ -212,7 +216,7 @@ public class w_QuestionManager : MonoBehaviour
         {
             StartCoroutine(button.setInactive());
         }
-        StartCoroutine(FadeAsset(m_questionBox, 0.5f, false));
+        //StartCoroutine(FadeAsset(m_questionBox, 0.5f, false));
         m_timerSlider.gameObject.SetActive(false);
     }
 
@@ -233,7 +237,7 @@ public class w_QuestionManager : MonoBehaviour
                 rating = e_rating.GREAT,
                 response = m_questionForJob[index].question
             };
-            m_buttonPool[index].SetValue(temp);
+            m_buttonPool[index].SetValue(temp, e_tipCategories.NOTASKING);
             m_buttonPool[index].gameObject.SetActive(true);
         }
 

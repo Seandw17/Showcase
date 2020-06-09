@@ -26,9 +26,17 @@ public enum e_unlockFlag
     FOURTH = 5
 }
 
-//TODO figure out what my tip categories are
 [Flags]
 public enum e_tipCategories
 {
-    NONE
+    NONE = 1 << 1,
+    NOTASKING = 1 << 2,
+    UNDEMANDING = 1 << 3,
+    SOMETHINGBETTER = 1 << 4,
+    ENTHUSIASM = 1 << 5,
+    CRITICISM = 1 << 6,
+    HARDWORK = 1 << 7,
+    FORWARD = 1 << 8,
+    UNIQUE = 1 << 9,
+    PROBLEM = 1 << 10,
 }

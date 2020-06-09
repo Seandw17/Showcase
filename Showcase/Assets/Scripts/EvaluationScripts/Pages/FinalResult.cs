@@ -21,6 +21,11 @@ public class FinalResult : Page
     /// </summary>
     [SerializeField] int m_amountNeededToPassPercent = 75;
 
+    /// <summary>
+    /// Text for final percent
+    /// </summary>
+    [SerializeField] TextMeshPro m_finalPercentText;
+
     protected override void Init()
     {
         throw new System.NotImplementedException();
@@ -46,8 +51,9 @@ public class FinalResult : Page
     public void SetValue(int _score, int questionsAsked)
     {
         float amountNeededToPass = (questionsAsked * 5) * 0.75f;
+        m_finalPercentText.SetText(amountNeededToPass + "%");
 
-        m_finalScore.SetText(_score.ToString());
+        m_finalScore.SetText("Final Score: " + _score.ToString());
 
         if (_score >= amountNeededToPass)
         {

@@ -16,15 +16,12 @@ static public class TipParser
 
         foreach(e_tipCategories indvTips in Enum.GetValues(tips.GetType()))
         {
-            returnList.Add(tipsList[indvTips]);
+            if (tips.HasFlag(indvTips) && indvTips != e_tipCategories.NONE)
+            {
+                returnList.Add(tipsList[indvTips]);
+            }
         }
 
         return returnList;
-    }
-
-    static public e_tipCategories ParseTip(string _question, e_rating _rating)
-    {
-        // TODO this beast
-        return e_tipCategories.NONE;
     }
 }

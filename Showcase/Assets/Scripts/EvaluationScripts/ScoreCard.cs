@@ -42,8 +42,6 @@ public class ScoreCard : MonoBehaviour
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
         m_lftButton.Set(PageMoveObject.e_direction.LEFT);
 
-        m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
-
         m_lftButton.transform.position = new Vector3(-0.9f, 0, 0);
         m_rgtButton.transform.position = new Vector3(0.9f, 0, 0);
 
@@ -101,6 +99,7 @@ public class ScoreCard : MonoBehaviour
         }
 
         m_responses.Clear();
+        m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
         //Destroy(m_watitingText);
         yield return null;
     }

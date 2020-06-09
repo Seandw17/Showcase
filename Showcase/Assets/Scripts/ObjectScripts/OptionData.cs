@@ -16,7 +16,7 @@ public class OptionData : InteractableObjectBase
     private void Awake()
     {
         m_textValue = GetComponent<TextMeshPro>();
-        m_renderer = GetComponent<Renderer>();
+        m_renderer = transform.parent.GetComponent<Renderer>();
         SetAlphaToZero(m_renderer.material);
         SetAlphaToZero(m_textValue);
     }
@@ -35,10 +35,12 @@ public class OptionData : InteractableObjectBase
     /// </summary>
     /// <param name="_value"> what will be displayed in game</param>
     /// <param name="_connotation"> what feelings should be returned </param>
-    public void SetValue(s_Questionresponse _response)
+    public void SetValue(s_Questionresponse _response, e_tipCategories _tip)
     {
+        transform.parent.gameObject.SetActive(true);
         m_textValue.SetText(_response.response);
         m_responseForThisButton = _response;
+        m_responseForThisButton.tip = _tip;
         StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
         StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
     }

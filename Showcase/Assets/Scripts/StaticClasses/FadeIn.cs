@@ -24,19 +24,10 @@ static public class FadeIn
             material.color.b,
             material.color.a);
 
-        bool goal;
-        float fade = 0.02f * _time;
-        if (_in)
-        {
-            goal = material.color.a <= 1;
-        }
-        else
-        {
-            goal = material.color.a >= 0;
-            fade *= -1;
-        }
+        float fade = (0.4f * _time) * Time.deltaTime;
+        if (!_in) { fade *= -1; }
 
-        while (goal)
+        while (CheckAlpha(_in, newColour.a))
         {
             newColour.a += fade;
             material.color = newColour;
@@ -61,20 +52,12 @@ static public class FadeIn
             _tmp.color.a
             );
 
-        bool goal;
-        float fade = 0.02f * _time;
-        if (_in)
-        {
-            goal = newColour.a <= 1;
-        }
-        else
-        {
-            goal = newColour.a <= 0;
-            fade *= -1;
-        }
+        float fade = (0.02f * _time) * Time.deltaTime;
+        if (!_in) { fade *= -1; }
 
-        while (goal)
+        while (CheckAlpha(_in, newColour.a))
         {
+            Debug.Log(newColour.a);
             newColour.a += fade;
             _tmp.color = newColour;
             yield return null;
@@ -98,26 +81,30 @@ static public class FadeIn
             _tmp.color.a
             );
 
-        bool goal;
         float fade = 0.02f * _time;
-        if (_in)
-        {
-            goal = newColour.a <= 1;
-        }
-        else
-        {
-            goal = newColour.a <= 0;
-            fade *= -1;
-        }
+        if (!_in){ fade *= -1; }
 
-        while (goal)
+        while (CheckAlpha(_in, newColour.a))
         {
+            
             newColour.a += fade;
             _tmp.color = newColour;
+            
             yield return null;
         }
     }
 
+    /// <summary>
+    /// Function to check if alpha value falls within certain bounds
+    /// </summary>
+    /// <param name="_up"> is alpha going up</param>
+    /// <param name="_currentAlpha"> the current alpha</param>
+    /// <returns></returns>
+    static bool CheckAlpha(bool _up, float _currentAlpha)
+    {
+        if (_up) { return _currentAlpha <= 1; }
+        else { return _currentAlpha >= 0; }
+    }
 
     /// <summary>
     /// force alpha of a material to 0

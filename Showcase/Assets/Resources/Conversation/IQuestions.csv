@@ -3,58 +3,68 @@
 #
 q$NONE|So what about this job appeals to you?,GREAT|Anyway moving on what about this job appeals to you?,GOOD| Alright then sounds good! So what about this job appeals to you then?, OK|Really? ok so moving on what about the job appeals to you?,BAD| Alright then what about the job appeals to you?,AWFUL| Hrrmmm thats not a response we would expect but anyway what about the job appeals to you?
 r$It seems like it won't be very demanding|AWFUL|NONE,It looks like a great challenge|GOOD|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|GOOD|FIRST|,Your Company cares for its employees|GREAT|SECOND
+f$UNDEMANDING
 end
 #
 # How long do you see yourself staying at this job?
 #
 q$NONE|So how long do you see yourself staying at this job?,GREAT|Thats Fantastic! Anwyay how long do you intend to stay here?,GOOD|Sounds good! Anwyay how long do you intend to stay here?,OK| Alright then so how long do you intend to stay here?,BAD| Interesting so how long do you intend to stay at this job?,AWFUL|Wouldn't have thought of that so how long do you intend to stay with us?
 r$I see great opportunities to grow and progress in the job|GOOD|NONE,Until something better comes along|BAD|NONE,To be honest I don’t know|OK|NONE,I want to grow with your company|GREAT|THIRD,I’m interested in working up into your shift manager position|GOOD|FOURTH
+f$SOMETHINGBETTER
 end
 #
 # What Excites you about this job?
 #
 q$NONE|What Excites you about this job?,GREAT|Love it! So what excites you about the job?,GOOD|Great! So what about this job excites you?,OK|Alright then what about the job excites you?,BAD|Oh ok then what about the job excites you,AWFUL|Interesting so what about the job excites you?
 r$It looks like a great challenge|GOOD|NONE,I really love coffee and this would be my dream job|GOOD|NONE,Not too much! its just coffee|BAD|NONE,I really love your companies policies!|GREAT|FOURTH,I really love the Frappe! I’d love to make them|GREAT|FIRST
+f$ENTHUSIASM
 end
 #
 # So why are you looking for a new job?
 #
 q$NONE|To start why are you looking for a new job?,GREAT|Wow thats great! So whay are you looking for a new job?,GOOD| Nice I like that! so why are you looking for a new job?,OK|Ok so why are you looking for a new job?,BAD|Right sounds good! So why a new job?,AWFUL|Alright so why are you looking for a new job?
 r$I feel like I progressed as far as I could at my last job! I’m looking for a new challenge|GREAT|NONE,I didn’t like it|OK|NONE,I want to increase my skillset|GOOD|NONE,I see this job having great changes to progress and help me grow|GREAT|SECOND,My last job didn’t have a progression scheme like this one|GOOD|FOURTH
+f$ENTHUSIASM
 end
 #
 # How do you tend to respond to criticism on the job
 #
 q$NONE|So how do you tend to respond to criticism?,GREAT|Fantastic! so how do you respond to criticism on the job?,GOOD|Great! so out of interest how do you deal with criticism on the job?,OK|Alright so how do you deal with criticism on the job?,BAD|Alright then so ciriticism on the job how do you deal with it?,AWFUL|Interesting so how do you respond to criticism on the job?
 r$I take it on respectfully and deal with it immediately|GREAT|NONE,I don’t tend to respond to it very well|BAD|NONE,I ignore it and would rather realise this issues on my own|BAD|NONE
+f$CRITICISM
 end
 #
 # What do you think are your best aspects 
 #
 q$NONE|So what do you think are your best aspects?,GREAT|Awesome! so what are your best aspects?,GOOD|Good so what are your best aspects?,OK|Ok what do you think are your best aspects?,BAD|Alright then so what do you feel are your best aspects?,AWFUL|Sounds good so what do you believe are your best aspects?
 r$I’m a very hard worker! I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE
+f$HARDWORK
 end
 #
 # Where do you see yourself in a few years time?
 #
 q$NONE|So Where do you see yourself in a few years time?,GREAT|Awesome! Where do you see yourself in a few years time?,GOOD|Great! Where do you see yourself in a few years time?,OK|Alright where do you see yourself in a few years time?,BAD|Well then where do you see yourself in a few years time?,AWFUL|Ok then where do you see yourself in a few years time?
 r$I hope to have improved my skills and confidence to take on new projects and responsibilities|GREAT|NONE,I don’t know! I haven’t really thought about it|BAD|NONE,I hope to do something I really want to do as soon as possible|OK|NONE,I’d like to be working in something related to my interests! though I know I will have to work hard towards it|GOOD|FIRST,I hope to be able to support myself without worries|GOOD|NONE
+f$FORWARD
 end
 #
 # Out of everyone, why should we hire you?
 #
 q$NONE|Out of everyone why should we hire you?,GREAT|Great!Out of everyone why should we hire you?,GOOD|Ok out of everyone why should we hire you?,OK|So out of everyone why should we hire you?,BAD| Alright out of everyone why should we hire you?, AWFUL|Alright Out of everyone why should we hire you?
 r$I believe that my CV shows I am suited to work in this line of work!|GREAT|NONE,Obviously I’m the best out of everyone|AWFUL|NONE,I hope that talking with you has shown that I would be a great choice for you and your company|OK|NONE,This would provide me a great opportunity to develop myself and work in a company I enjoy|GOOD|FIRST,Out of the people I’ve seen I believe I would fit into this environment a lot better|BAD|FIRST
+f$UNIQUE
 end
 #
 # How did you find out about this job?
 #
 q$NONE|How did you find out about this job?,GREAT|Ok then how did you find out about this job?,GOOD|Alright! How did you find out about this job?,OK|Ok how did you find out about this job?,BAD|So then how did you find out about this job?,AWFUL|So how did you find out about this job?
 r$I saw a post online advertising the job and it seemed like something I would enjoy|GREAT|NONE,A friend told me about it|OK|NONE,I saw a flyer on your window when I was walking by|GOOD|NONE,I saw a post online advertising the job|GREAT|FIRST,I noticed you were advertising the job when I came in with my friend|OK|FIRST
+f$ENTHUSIASM
 end
 #
 # A customer complains to you about their coffee being cold. What do you do?
 #
 q$NONE|Ok a customer complains to you about their coffee being cold. What do you do?,GREAT|Great a customer complains to you about their coffee being cold. What do you do?,GOOD|Ok so a customer complains to you about their coffee being cold. What do you do?,OK|Alright so a customer complains to you about their coffee being cold. What do you do?,BAD|Hrrrmm ok a customer complains to you about their coffee being cold. What do you do?,AWFUL|Thats interesting so a customer complains to you about their coffee being cold. What do you do?
 r$I would apologise and ask to know more about the situation so I can determine what the context is around the order|OK|NONE,I would promise to get them a new coffee|GOOD|NONE,I would find my supervisor and see how they would handle it|BAD|NONE,I would apologise first and ask if it was cold when they received it. I would then ask the barista if there was anything wrong with the machine or any other orders|OK|FIRST,I would take the coffee and see if it is actually cold|AWFUL|FIRST
+f$PROBLEM
 end

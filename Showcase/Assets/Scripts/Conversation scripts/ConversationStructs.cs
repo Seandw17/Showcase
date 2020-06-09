@@ -10,6 +10,7 @@ public struct s_Questionresponse
     public string response;
     public e_rating rating;
     public e_unlockFlag unlockCriteria;
+    public e_tipCategories tip;
 }
 
 /// <summary>
@@ -19,6 +20,7 @@ public struct s_questionData
 {
     public List<s_questionVariations> questions;
     public List<s_Questionresponse> options;
+    public e_tipCategories tip;
 }
 
 public struct s_questionVariations

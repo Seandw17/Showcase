@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static FadeIn;
 
 // Author: Alec
 
@@ -87,7 +88,6 @@ public class w_QuestionManager : MonoBehaviour
             }
             GameObject temp = Instantiate(m_option.transform.parent.gameObject);
             temp.transform.root.gameObject.SetActive(false);
-            //temp.transform.parent = transform.root;
             temp.transform.position = spawnLocation;
             m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
         }
@@ -102,6 +102,12 @@ public class w_QuestionManager : MonoBehaviour
         m_randomQuestion.AddListener(LoadRandomQuestion);
 
         m_fillerText = new FillerText();
+
+        SetAlphaToZero(transform.parent.GetComponent<Renderer>().material);
+        SetAlphaToZero(m_questionBox);
+
+        StartCoroutine(FadeAsset(transform.parent.GetComponent<Renderer>(),
+           0.5f, true));
 
         ProcessNextStep();
     }
@@ -119,7 +125,8 @@ public class w_QuestionManager : MonoBehaviour
         else
         {
             // retrieve data
-            int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count - 1);
+            int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count
+                - 1);
 
             Debug.Log(nextQuestion);
             List<s_Questionresponse> playerResponses =
@@ -133,8 +140,8 @@ public class w_QuestionManager : MonoBehaviour
 
             // use values to set data
             m_questionBox.SetText(questionToDisplay.question);
+            StartCoroutine(FadeAsset(m_questionBox, 0.5f, true));
 
-            Debug.Log(playerResponses.Count);
             for (int index = 0; index < playerResponses.Count; index++)
             {
                 Debug.Log(index);
@@ -142,7 +149,8 @@ public class w_QuestionManager : MonoBehaviour
                 m_buttonPool[index].SetLocked(
                     ConversationStore.CheckHasFlag(
                     playerResponses[index].unlockCriteria));
-                m_buttonPool[index].SetValue(playerResponses[index]);
+                m_buttonPool[index].SetValue(playerResponses[index],
+                    m_questions[nextQuestion].tip);
                 m_buttonPool[index].transform.parent.gameObject.SetActive(true);
             }
 
@@ -166,14 +174,11 @@ public class w_QuestionManager : MonoBehaviour
         ConversationStore.ProcessAnswer(_chosenResponse,
             m_questionBox.text);
 
+        ConversationStore.AddTip(_chosenResponse.tip);
+
         m_previous = _chosenResponse.rating;
 
-        // Turn of buttons for now
-        foreach (OptionData button in m_buttonPool)
-        {
-            button.gameObject.SetActive(false);
-        }
-        m_questionBox.SetText("");
+        TurnOffButtons();
 
         ProcessNextStep();
     }
@@ -194,9 +199,25 @@ public class w_QuestionManager : MonoBehaviour
             yield return null;
         }
 
-        m_timerSlider.gameObject.SetActive(false);
+        TurnOffButtons();
+
         ConversationStore.PlayerWasSilent(m_questionBox.text);
         m_processNextStep.Invoke();
+    }
+
+    /// <summary>
+    /// Fade Out the buttons, turn off the timer and set the text for the
+    /// question box to blank
+    /// </summary>
+    void TurnOffButtons()
+    {
+        // Turn of buttons for now
+        foreach (OptionData button in m_buttonPool)
+        {
+            StartCoroutine(button.setInactive());
+        }
+        //StartCoroutine(FadeAsset(m_questionBox, 0.5f, false));
+        m_timerSlider.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -216,7 +237,7 @@ public class w_QuestionManager : MonoBehaviour
                 rating = e_rating.GREAT,
                 response = m_questionForJob[index].question
             };
-            m_buttonPool[index].SetValue(temp);
+            m_buttonPool[index].SetValue(temp, e_tipCategories.NOTASKING);
             m_buttonPool[index].gameObject.SetActive(true);
         }
 

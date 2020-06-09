@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 5414165350526059799}
   - component: {fileID: 5414165350526059796}
   m_Layer: 0
-  m_Name: FinalResultsPage
+  m_Name: FinalResultPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -918,3 +918,4 @@ MonoBehaviour:
   m_finalScore: {fileID: 5414165350444152861}
   m_outcomeText: {fileID: 5414165350053165353}
   m_amountNeededToPassPercent: 75
+  m_finalPercentText: {fileID: 5414165349880242640}

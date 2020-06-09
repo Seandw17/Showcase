@@ -13,4 +13,9 @@ public class ResponseDisplay : MonoBehaviour
             + "This is a: " + score.ToString()
             + " reponse, worth " + ((int) score).ToString() + " points");
     }
+
+    public void SetValue(string _tip)
+    {
+        GetComponent<TextMeshPro>().SetText(_tip);
+    }
 }

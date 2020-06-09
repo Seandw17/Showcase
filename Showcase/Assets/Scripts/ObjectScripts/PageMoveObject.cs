@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
+using static FadeIn;
 
 public class PageMoveObject : InteractableObjectBase
 {
-    [SerializeField]
     public enum e_direction
     {
         LEFT = 90,
@@ -20,7 +20,13 @@ public class PageMoveObject : InteractableObjectBase
     /// <param name="_card">the cart that will act as a parent</param>
     static public void Register(ScoreCard _card)
     {
-        m_card = _card;   
+        m_card = _card; 
+    }
+
+    private void OnEnable()
+    {
+        SetAlphaToZero(GetComponent<Renderer>().material);
+        StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
     }
 
     /// <summary>

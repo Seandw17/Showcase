@@ -42,8 +42,6 @@ public class ScoreCard : MonoBehaviour
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
         m_lftButton.Set(PageMoveObject.e_direction.LEFT);
 
-        m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
-
         m_lftButton.transform.position = new Vector3(-0.9f, 0, 0);
         m_rgtButton.transform.position = new Vector3(0.9f, 0, 0);
 
@@ -76,7 +74,32 @@ public class ScoreCard : MonoBehaviour
 
         GenerateResultPage(finalScore);
 
+        // creating the tips
+        List<string> tips = TipParser.GenerateTips();
+        string[] tipsToPass = new string[3];
+        externalIndexer = 0;
+        foreach(string tip in tips)
+        {
+            tipsToPass[externalIndexer] = tip;
+            externalIndexer++;
+
+            if (externalIndexer == 3)
+            {
+                GenerateTipsPage(tipsToPass);
+                tipsToPass = new string[3];
+                externalIndexer = 0;
+            }
+
+            // if any fall out of the loop at the end
+            if (Equals(tip, tips[tips.Count - 1]) && externalIndexer != 2){
+                GenerateTipsPage(tipsToPass);
+            }
+
+            yield return null;
+        }
+
         m_responses.Clear();
+        m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
         //Destroy(m_watitingText);
         yield return null;
     }
@@ -107,6 +130,16 @@ public class ScoreCard : MonoBehaviour
         answerPage.gameObject.transform.parent = transform;
         answerPage.gameObject.SetActive(false);
         m_pages.Add(answerPage);
+    }
+
+    void GenerateTipsPage(string[] _tips)
+    {
+        TipsPages tipsPage = Instantiate(Resources.Load<GameObject>
+            ("Prefabs/TipsPage").GetComponent<TipsPages>());
+        tipsPage.SetValue(_tips);
+        tipsPage.gameObject.transform.parent = transform;
+        tipsPage.gameObject.SetActive(false);
+        m_pages.Add(tipsPage);
     }
 
     /// <summary>

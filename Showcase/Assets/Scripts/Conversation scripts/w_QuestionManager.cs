@@ -111,10 +111,6 @@ public class w_QuestionManager : MonoBehaviour
 
         SetAlphaToZero(transform.parent.GetComponent<Renderer>().material);
         SetAlphaToZero(m_questionBox);
-
-        StartCoroutine(FadeAsset(transform.parent.GetComponent<Renderer>(),
-           0.5f, true));
-
         StartCoroutine(StartInterview());
     }
 
@@ -306,9 +302,33 @@ public class w_QuestionManager : MonoBehaviour
         Destroy(gameObject, 2.0f);
     }
 
+    /// <summary>
+    /// coroutine to run through the introduction to the questions
+    /// </summary>
+    /// <returns>1.5 second wait</returns>
     IEnumerator StartInterview()
     {
-        throw new System.NotImplementedException();
+        m_questionBox.SetText("Hi! nice to meet you");
+
+        WaitForSeconds waitFor = new WaitForSeconds(1.5f);
+
+        StartCoroutine(FadeAsset(transform.parent.GetComponent<Renderer>(),
+           0.5f, true));
+
+        yield return waitFor;
+
+        m_questionBox.SetText("I'm just going to ask you some questions,"
+            + " this is just so I can get to know you a bit better");
+
+        yield return waitFor;
+
+        m_questionBox.SetText("So please don't feel nervous or anything!");
+
+        yield return waitFor;
+
+        m_questionBox.SetText("Anyway, to start...");
+
+        yield return waitFor;
 
         m_processNextStep.Invoke();
     }

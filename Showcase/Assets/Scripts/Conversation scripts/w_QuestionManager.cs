@@ -336,9 +336,15 @@ public class w_QuestionManager : MonoBehaviour
 
     IEnumerator EndInterview(GameObject _card)
     {
-        throw new System.NotImplementedException();
+        WaitForSeconds waitFor = new WaitForSeconds(1.5f);
 
-        //TODO put ending text here
+        m_questionBox.SetText("Ok then, if thats all, I'll " +
+            "just write a little down");
+
+        yield return waitFor;
+
+        m_questionBox.SetText("Right this all sounds great!, We'll get back " +
+            "to you ASAP!");
 
         _card.SetActive(true);
         Destroy(gameObject);

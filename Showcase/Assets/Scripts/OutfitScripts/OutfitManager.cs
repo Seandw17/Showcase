@@ -8,7 +8,7 @@ public class OutfitManager : MonoBehaviour
     // temp names for the outfits as well as a temp amount of outfits
     enum e_Outfits { CASUAL, SMART_CASUAL, SMART };
     e_Outfits m_selectedOutfit;
-    int m_selectedOutfitScore;
+    static int m_selectedOutfitScore;
 
     GameObject[] ig_Outfit;
     GameObject ig_Player;
@@ -68,7 +68,7 @@ public class OutfitManager : MonoBehaviour
         
     }
 
-    // when an outfity is clicked, debug.log what one was clicked and save it as the selected outfit
+    // when an outfit on the UI is clicked
     void OutfitClicked(int buttonNo)
     {
         m_selectedOutfit = (e_Outfits)buttonNo;
@@ -79,14 +79,7 @@ public class OutfitManager : MonoBehaviour
         m_cmScript.DisableCursor();    
     }
 
-
-    // call the stuff needed to re-enable movement and remove the outfit selectino from the hud
-    //void RenablePlayerMovement()
-    //{
-    //    //Debug.Log(m_selectedOutfit);
-    //}
-
-    // temporally made it so that the players camera is higher up in the scene
+    // temporally made it so that the players camera is higher up in the scene (not via code)
     // this is also temp code for changing the material of the player to simulate the changing of the outfits and will be changed when we have more assets
     void CheckSelectedModel()
     {
@@ -95,12 +88,12 @@ public class OutfitManager : MonoBehaviour
             ChangeSelectedModel(m_outfitMats[0]);
             m_selectedOutfitScore = 1;
         }
-        if (m_selectedOutfit == e_Outfits.SMART_CASUAL)
+        else if (m_selectedOutfit == e_Outfits.SMART_CASUAL)
         {
             ChangeSelectedModel(m_outfitMats[1]);
             m_selectedOutfitScore = 3;
         }
-        if (m_selectedOutfit == e_Outfits.SMART)
+        else if (m_selectedOutfit == e_Outfits.SMART)
         {
             ChangeSelectedModel(m_outfitMats[2]);
             m_selectedOutfitScore = 2;
@@ -109,8 +102,15 @@ public class OutfitManager : MonoBehaviour
         Debug.Log("Selected outfit score is " + m_selectedOutfitScore);
     }
 
+    // will be changed to change the model/texture when the assets are created
     void ChangeSelectedModel(Material mat)
     {
         ig_Player.GetComponent<MeshRenderer>().material = mat;
+    }
+
+    // returns the score given to the outfit to future scenes
+    static int GetOutfitScore()
+    {
+        return m_selectedOutfitScore;
     }
 }

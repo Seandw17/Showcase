@@ -60,6 +60,8 @@ public class ScoreCard : MonoBehaviour
             {
                 GenerateAnswerPage(TempResponses);
             }
+
+            gameObject.SetActive(false);
             yield return null;
         }
 

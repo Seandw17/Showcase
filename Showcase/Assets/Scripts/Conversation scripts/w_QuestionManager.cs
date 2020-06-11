@@ -296,10 +296,11 @@ public class w_QuestionManager : MonoBehaviour
 
         m_questionBox.SetText(response);
         yield return new WaitForSeconds(2);
-        Instantiate(Resources.Load<GameObject>("Prefabs/ScoreCard"),
-                transform.position, transform.rotation);
-        Destroy(m_timerSlider.gameObject, 2.0f);
-        Destroy(gameObject, 2.0f);
+        GameObject card = Instantiate(Resources.Load<GameObject>
+            ("Prefabs/ScoreCard"),
+            transform.position, transform.rotation);
+        StartCoroutine(EndInterview(card));
+        Destroy(m_timerSlider.gameObject);
     }
 
     /// <summary>
@@ -331,5 +332,16 @@ public class w_QuestionManager : MonoBehaviour
         yield return waitFor;
 
         m_processNextStep.Invoke();
+    }
+
+    IEnumerator EndInterview(GameObject _card)
+    {
+        throw new System.NotImplementedException();
+
+        //TODO put ending text here
+
+        _card.SetActive(true);
+        Destroy(gameObject);
+
     }
 }

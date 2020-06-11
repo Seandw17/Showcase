@@ -63,21 +63,18 @@ static public class w_CSVLoader
     /// </summary>
     /// <param name="_questions"> the line</param>
     /// <returns>a list of variations</returns>
-    static List<s_questionVariations> ReadQuestions(string _questions)
+    static Dictionary<e_rating, string> ReadQuestions(string _questions)
     {
-        List<s_questionVariations> returnList =
-            new List<s_questionVariations>();
+        Dictionary<e_rating, string> returnList =
+            new Dictionary<e_rating, string>();
 
         string[] data = _questions.Split(',');
 
         foreach (string dataSet in data)
         {
             string[] brokenUp = dataSet.Split('|');
-            s_questionVariations question = new s_questionVariations();
-            question.question = brokenUp[1];
-            question.identifier =
-                (e_rating) Enum.Parse(typeof(e_rating), brokenUp[0]);
-            returnList.Add(question);
+            returnList.Add((e_rating)Enum.Parse(typeof(e_rating),
+                brokenUp[0]), brokenUp[1]);
         }
 
         return returnList;

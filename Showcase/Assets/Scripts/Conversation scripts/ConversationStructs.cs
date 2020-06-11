@@ -18,18 +18,9 @@ public struct s_Questionresponse
 /// </summary>
 public struct s_questionData
 {
-    public List<s_questionVariations> questions;
+    public Dictionary<e_rating, string> questions;
     public List<s_Questionresponse> options;
     public e_tipCategories tip;
-}
-
-/// <summary>
-/// Struct to contain variations of the question
-/// </summary>
-public struct s_questionVariations
-{
-    public e_rating identifier;
-    public string question;
 }
 
 /// <summary>

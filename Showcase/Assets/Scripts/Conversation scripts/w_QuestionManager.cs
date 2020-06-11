@@ -133,29 +133,29 @@ public class w_QuestionManager : MonoBehaviour
             Debug.Log(nextQuestion);
             List<s_Questionresponse> playerResponses =
                 m_questions[nextQuestion].options;
-            s_questionVariations questionToDisplay =
-                m_questions[nextQuestion].questions[(int)m_previous];
+            string questionToDisplay =
+                m_questions[nextQuestion].questions[m_previous];
 
             // check we have returned a value
             Debug.Assert(!questionToDisplay.Equals(new s_questionData()),
                 "An error has occured finding the quesiton");
 
             // use values to set data
-            m_questionBox.SetText(questionToDisplay.question);
+            m_questionBox.SetText(questionToDisplay);
             StartCoroutine(FadeAsset(m_questionBox, 0.5f, true));
 
             for (int index = 0; index < playerResponses.Count; index++)
             {
                 // Set locked graphics, values and active, then begin fade
                 m_buttonPool[index].SetLocked(
-                    ConversationStore.CheckHasFlag(
+                    CheckHasFlag(
                     playerResponses[index].unlockCriteria));
                 m_buttonPool[index].SetValue(playerResponses[index],
                     m_questions[nextQuestion].tip);
                 m_buttonPool[index].transform.parent.gameObject.SetActive(true);
             }
 
-            Debug.Log("Chose Question: " + questionToDisplay.question);
+            Debug.Log("Chose Question: " + questionToDisplay);
 
             // remove our question to prevent repeated valeus
             m_questions.RemoveAt(nextQuestion);
@@ -225,8 +225,8 @@ public class w_QuestionManager : MonoBehaviour
 
         for (int index = 0; index < m_questionForJob.Count; index++)
         {
-            m_buttonPool[index].SetLocked(ConversationStore
-                .CheckHasFlag(m_questionForJob[index].flag));
+            m_buttonPool[index].SetLocked( CheckHasFlag(m_questionForJob[index]
+                .flag));
             s_Questionresponse temp = new s_Questionresponse
             {
                 rating = e_rating.GREAT,
@@ -277,8 +277,8 @@ public class w_QuestionManager : MonoBehaviour
     /// <returns>yield for 2 seconds</returns>
     IEnumerator EndLevel()
     {
-        string finalChoice = ConversationStore.ReturnFinalChosenResults()
-            [ConversationStore.ReturnFinalChosenResults().Count - 1]
+        string finalChoice = ReturnFinalChosenResults()
+            [ReturnFinalChosenResults().Count - 1]
             .playerResponse.response;
 
         string response = "Nothing? Ok then...";

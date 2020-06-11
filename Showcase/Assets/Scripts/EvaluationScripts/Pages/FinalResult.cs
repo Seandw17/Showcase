@@ -26,10 +26,15 @@ public class FinalResult : Page
     /// </summary>
     [SerializeField] TextMeshPro m_finalPercentText;
 
-    protected override void Init()
-    {
-        throw new System.NotImplementedException();
-    }
+    /// <summary>
+    /// Text that will displayed when pass occurs
+    /// </summary>
+    [SerializeField] string m_passText;
+
+    /// <summary>
+    /// Text that will be displayed when fail occurs
+    /// </summary>
+    [SerializeField] string m_failText;
 
     private void Start()
     {
@@ -55,13 +60,7 @@ public class FinalResult : Page
 
         m_finalScore.SetText("Final Score: " + _score.ToString());
 
-        if (_score >= amountNeededToPass)
-        {
-            m_outcomeText.SetText("Congratulations you've passed!");
-        }
-        else
-        {
-            m_outcomeText.SetText("I'm sorry you've failed");
-        }
+        if (_score >= amountNeededToPass) { m_outcomeText.SetText(m_passText); }
+        else { m_outcomeText.SetText(m_failText); }
     }
 }

@@ -33,7 +33,6 @@ static public class w_CSVLoader
                 }
                 else
                 {
-                    
                     string[] check = line.Split('$');
                     switch (check[0])
                     {
@@ -169,6 +168,10 @@ static public class w_CSVLoader
         return file;
     }
 
+    /// <summary>
+    /// Function to load in the filler text
+    /// </summary>
+    /// <returns>List of filler text string</returns>
     public static List<string> LoadInFillerText()
     {
         List<string> returnList = new List<string>();
@@ -184,6 +187,10 @@ static public class w_CSVLoader
         return returnList;
     }
 
+    /// <summary>
+    /// Function to load in tips from a text file
+    /// </summary>
+    /// <param name="_list">Dictionary you want to load the tips into</param>
     public static void LoadTips(out Dictionary<e_tipCategories, string> _list)
     {
         _list = new Dictionary<e_tipCategories, string>();

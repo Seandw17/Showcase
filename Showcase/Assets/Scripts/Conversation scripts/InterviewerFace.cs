@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System;
 
+/// <summary>
+/// Incomplete class to manage interviewer face changes
+/// </summary>
 public class InterviewerFace : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -9,6 +12,10 @@ public class InterviewerFace : MonoBehaviour
         throw new NotImplementedException("The interviewer does not yet exist");
     }
 
+    /// <summary>
+    /// Function to change the expression
+    /// </summary>
+    /// <param name="_rating">the rating of the answer just given</param>
     public static void Expression(e_rating _rating)
     {
         // TODO actually change the expressions

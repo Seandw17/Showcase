@@ -2,18 +2,11 @@
 using System.Collections.Generic;
 using System.Collections;
 
-//TODO implement waiting text
-
 public class ScoreCard : MonoBehaviour
 {
     List<s_playerResponse> m_responses;
     int m_currentPage;
     List<Page> m_pages;
-
-    /// <summary>
-    /// GameObject of waiting text
-    /// </summary>
-    [SerializeField] GameObject m_watitingText;
 
     PageMoveObject m_lftButton, m_rgtButton;
 
@@ -33,8 +26,6 @@ public class ScoreCard : MonoBehaviour
     /// <returns></returns>
     IEnumerator CalculateResult()
     { 
-        //m_watitingText.SetActive(true);
-
         m_rgtButton = Instantiate(Resources.Load<GameObject>
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
         m_rgtButton.Set(PageMoveObject.e_direction.RIGHT);
@@ -100,7 +91,6 @@ public class ScoreCard : MonoBehaviour
 
         m_responses.Clear();
         m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
-        //Destroy(m_watitingText);
         yield return null;
     }
 
@@ -114,7 +104,6 @@ public class ScoreCard : MonoBehaviour
             ("Prefabs/FinalResultPage").GetComponent<FinalResult>());
         finalResultPage.SetValue(_finalScore, m_responses.Count);
         finalResultPage.gameObject.transform.parent = transform;
-        //m_pages.Add(finalResultPage);
         m_pages.Insert(0, finalResultPage);
     }
 

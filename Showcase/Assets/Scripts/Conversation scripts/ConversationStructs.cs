@@ -23,6 +23,9 @@ public struct s_questionData
     public e_tipCategories tip;
 }
 
+/// <summary>
+/// Struct to contain variations of the question
+/// </summary>
 public struct s_questionVariations
 {
     public e_rating identifier;
@@ -38,6 +41,9 @@ public struct s_playerResponse
     public s_Questionresponse playerResponse;
 }
 
+/// <summary>
+/// Struct to contain player question
+/// </summary>
 public struct s_playerQuestion
 {
     public string question;

@@ -5,9 +5,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using static FadeIn;
+using static w_CSVLoader;
+using static ConversationStore;
 
 // Author: Alec
 
+/// <summary>
+/// Class to manage the gameloop of the question stage of the interviewer stage
+/// </summary>
 public class w_QuestionManager : MonoBehaviour
 {
     TextMeshPro m_questionBox;
@@ -62,10 +67,10 @@ public class w_QuestionManager : MonoBehaviour
         // acquiring relevant data
         //questions for player
         m_questionBox = GetComponent<TextMeshPro>();
-        m_questions = w_CSVLoader.LoadQuestionData("IQuestions");
+        m_questions = LoadQuestionData("IQuestions");
         Debug.Log(m_questions.Count);
         // questions for job / brand
-        w_CSVLoader.LoadInPlayerQuestions("PQuestions",
+        LoadInPlayerQuestions("PQuestions",
             out m_questionForJob);
 
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
@@ -92,12 +97,13 @@ public class w_QuestionManager : MonoBehaviour
             m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
         }
 
+        // set timerslider
         m_timerSlider.maxValue = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(false);
 
+        // set up events 
         m_processNextStep = new UnityEvent();
         m_processNextStep.AddListener(ProcessNextStep);
-
         m_randomQuestion = new UnityEvent();
         m_randomQuestion.AddListener(LoadRandomQuestion);
 
@@ -109,7 +115,7 @@ public class w_QuestionManager : MonoBehaviour
         StartCoroutine(FadeAsset(transform.parent.GetComponent<Renderer>(),
            0.5f, true));
 
-        ProcessNextStep();
+        StartCoroutine(StartInterview());
     }
 
     /// <summary>
@@ -120,7 +126,7 @@ public class w_QuestionManager : MonoBehaviour
         m_currentQuestion++;
         if (m_currentQuestion > m_questionsToAsk)
         {
-            ProcessNextStep();
+            m_processNextStep.Invoke();
         }
         else
         {
@@ -144,7 +150,6 @@ public class w_QuestionManager : MonoBehaviour
 
             for (int index = 0; index < playerResponses.Count; index++)
             {
-                Debug.Log(index);
                 // Set locked graphics, values and active, then begin fade
                 m_buttonPool[index].SetLocked(
                     ConversationStore.CheckHasFlag(
@@ -170,17 +175,12 @@ public class w_QuestionManager : MonoBehaviour
     {
         StopCoroutine(WaitForAnswer());
         m_timerSlider.gameObject.SetActive(false);
-
-        ConversationStore.ProcessAnswer(_chosenResponse,
+        ProcessAnswer(_chosenResponse,
             m_questionBox.text);
-
-        ConversationStore.AddTip(_chosenResponse.tip);
-
+        AddTip(_chosenResponse.tip);
         m_previous = _chosenResponse.rating;
-
         TurnOffButtons();
-
-        ProcessNextStep();
+        m_processNextStep.Invoke();
     }
 
     /// <summary>
@@ -200,8 +200,7 @@ public class w_QuestionManager : MonoBehaviour
         }
 
         TurnOffButtons();
-
-        ConversationStore.PlayerWasSilent(m_questionBox.text);
+        PlayerWasSilent(m_questionBox.text);
         m_processNextStep.Invoke();
     }
 
@@ -273,7 +272,6 @@ public class w_QuestionManager : MonoBehaviour
     {
         m_questionBox.SetText(_fillInText);
         yield return new WaitForSeconds(2);
-
         m_randomQuestion.Invoke();
     }
 
@@ -294,16 +292,24 @@ public class w_QuestionManager : MonoBehaviour
             if (finalChoice.Equals(question.question))
             {
                 response = question.response;
+                break;
             }
         }
 
+        //TODO push that player was silent on asking there own question
+
         m_questionBox.SetText(response);
-
         yield return new WaitForSeconds(2);
-
         Instantiate(Resources.Load<GameObject>("Prefabs/ScoreCard"),
                 transform.position, transform.rotation);
         Destroy(m_timerSlider.gameObject, 2.0f);
         Destroy(gameObject, 2.0f);
+    }
+
+    IEnumerator StartInterview()
+    {
+        throw new System.NotImplementedException();
+
+        m_processNextStep.Invoke();
     }
 }

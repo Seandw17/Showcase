@@ -4,12 +4,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    float m_playerSpeed = 10.0f;
+    float m_playerSpeed = 5.0f;
 
     //Camera Variables
     Vector2 m_mouseLook;
     Vector2 m_smoothV;
-    float m_mouseSensitivity = 5.0f;
+    float m_mouseSensitivity = 2.0f;
     float m_smoothing = 2.0f;
     [SerializeField]
     Camera m_camera;

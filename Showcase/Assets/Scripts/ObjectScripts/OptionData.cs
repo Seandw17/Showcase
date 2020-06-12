@@ -20,6 +20,7 @@ public class OptionData : InteractableObjectBase
         m_renderer = transform.parent.GetComponent<Renderer>();
         SetAlphaToZero(m_renderer.material);
         SetAlphaToZero(m_textValue);
+        SetShouldGlow(false);
     }
 
     /// <summary>
@@ -45,6 +46,7 @@ public class OptionData : InteractableObjectBase
         gameObject.SetActive(true);
         m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
         m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
+        SetShouldGlow(true);
     }
 
     /// <summary>
@@ -66,6 +68,10 @@ public class OptionData : InteractableObjectBase
     public void SetLocked(bool _locked)
     {
         m_isInteractible = !_locked;
+        if (!_locked)
+        {
+            SetShouldGlow(true);
+        }
 
         // TODO graphical changes
     }
@@ -74,6 +80,7 @@ public class OptionData : InteractableObjectBase
     {
         gameObject.SetActive(true);
         float fadeOutTime = 0.5f;
+        SetShouldGlow(false);
         StopCoroutine(m_fadeRenderer);
         StopCoroutine(m_fadeText);
         StartCoroutine(FadeAsset(m_renderer, fadeOutTime, false));

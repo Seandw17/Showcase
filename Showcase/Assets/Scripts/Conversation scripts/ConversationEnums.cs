@@ -17,13 +17,14 @@ public enum e_rating
 /// <summary>
 /// Enum to represent Unlock flag
 /// </summary>
+[Flags]
 public enum e_unlockFlag
 {
-    NONE = 0,
-    FIRST = 2,
-    SECOND = 3,
-    THIRD = 4,
-    FOURTH = 5
+    NONE = 1 << 1,
+    FIRST = 1 << 2,
+    SECOND = 1 << 3,
+    THIRD = 1 << 4,
+    FOURTH = 1 << 5
 }
 
 /// <summary>

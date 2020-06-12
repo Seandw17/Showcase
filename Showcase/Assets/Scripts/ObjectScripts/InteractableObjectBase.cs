@@ -10,6 +10,8 @@ public class InteractableObjectBase : MonoBehaviour
 
     Outline m_outline;
 
+    bool m_shouldGlow = true;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -54,5 +56,9 @@ public class InteractableObjectBase : MonoBehaviour
     /// Function to return the outline component
     /// </summary>
     /// <returns> the outline component </returns>
-    public Outline GetObjectOutline() { return m_outline; }
+    public Outline GetObjectOutline() => m_outline;
+
+    public void SetShouldGlow(bool _newValue) => m_shouldGlow = _newValue;
+
+    public bool GetShouldGlow() => m_shouldGlow;
 }

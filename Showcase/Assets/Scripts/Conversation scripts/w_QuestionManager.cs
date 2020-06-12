@@ -98,7 +98,6 @@ public class w_QuestionManager : MonoBehaviour
                     spawnLocation.y - 0.25f, spawnLocation.z);
             }
             GameObject temp = Instantiate(m_option.transform.parent.gameObject);
-            temp.transform.root.gameObject.SetActive(false);
             temp.transform.position = spawnLocation;
             m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
         }
@@ -136,7 +135,6 @@ public class w_QuestionManager : MonoBehaviour
             int nextQuestion = Random.Range(0, m_questions.Count
                 - 1);
 
-            Debug.Log(nextQuestion);
             List<s_Questionresponse> playerResponses =
                 m_questions[nextQuestion].options;
             string questionToDisplay =
@@ -205,6 +203,8 @@ public class w_QuestionManager : MonoBehaviour
         }
 
         TurnOffButtons();
+        FillerText.Silent();
+        m_previous = e_rating.AWFUL;
         PlayerWasSilent(m_questionBox.text);
         m_processNextStep.Invoke();
     }
@@ -233,6 +233,7 @@ public class w_QuestionManager : MonoBehaviour
     {
         m_questionBox.SetText("So do you have any questions about the job" +
             "itself?");
+        m_fadeText = StartCoroutine(FadeAsset(m_questionBox, 0.75f, true));
 
         for (int index = 0; index < m_questionForJob.Count; index++)
         {
@@ -248,7 +249,6 @@ public class w_QuestionManager : MonoBehaviour
         }
 
         m_endLevel = true;
-        m_questionForJob.Clear();
 
         StartCoroutine(WaitForAnswer());
     }
@@ -296,14 +296,20 @@ public class w_QuestionManager : MonoBehaviour
     IEnumerator EndLevel()
     {
         FadeOutQuestionText();
+
+        yield return new WaitForSecondsRealtime(2);
+
         string finalChoice = ReturnFinalChosenResults()
             [ReturnFinalChosenResults().Count - 1]
             .playerResponse.response;
+
+        Debug.Log(finalChoice);
 
         string response = "Nothing? Ok then...";
 
         foreach(s_playerQuestion question in m_questionForJob)
         {
+            Debug.Log(question.response);
             if (finalChoice.Equals(question.question))
             {
                 response = question.response;
@@ -311,12 +317,14 @@ public class w_QuestionManager : MonoBehaviour
             }
         }
 
+        m_questionForJob.Clear();
+
         //TODO push that player was silent on asking there own question
 
         m_questionBox.SetText(response);
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
             true));
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSecondsRealtime(3);
         GameObject card = Instantiate(Resources.Load<GameObject>
             ("Prefabs/ScoreCard"),
             transform.position, transform.rotation);
@@ -356,18 +364,24 @@ public class w_QuestionManager : MonoBehaviour
     {
         WaitForSeconds waitFor = new WaitForSeconds(1.5f);
 
+        StartCoroutine(DeleteButtons());
+
         string[] outroText = LoadOutroText();
         foreach(string line in outroText)
         {
+            FadeOutQuestionText();
+            yield return waitFor;
             m_questionBox.SetText(line);
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
                 true));
             yield return waitFor;
-            FadeOutQuestionText();
-            yield return waitFor;
         }
-        _card.SetActive(true);
-        Destroy(gameObject);
+        _card.GetComponentInChildren<FinalResult>().Display();
+
+        FadeOutQuestionText();
+        yield return waitFor;
+
+        Destroy(transform.parent.gameObject);
     }
 
     /// <summary>
@@ -375,8 +389,24 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     void FadeOutQuestionText()
     {
-        StopCoroutine(m_fadeText);
+        if (m_fadeText != null)
+        {
+            StopCoroutine(m_fadeText);
+        }
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
             m_fadeInSpeed, false));
+    }
+
+    /// <summary>
+    /// Coroutine to clear all buttons
+    /// </summary>
+    /// <returns>yield return null</returns>
+    IEnumerator DeleteButtons()
+    {
+        for (int index = 0; index < m_buttonPool.Length; index++)
+        {
+            Destroy(m_buttonPool[index].transform.root.gameObject);
+            yield return null;
+        }
     }
 }

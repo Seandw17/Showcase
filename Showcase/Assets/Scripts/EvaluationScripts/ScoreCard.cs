@@ -14,6 +14,7 @@ public class ScoreCard : MonoBehaviour
     {
         //m_responses = ConversationStore.ReturnFinalChosenResults();
         m_responses = ConversationStore.ReturnTestData();
+        Debug.Log(m_responses.Count);
         m_pages = new List<Page>();
         PageMoveObject.Register(this);
 
@@ -25,7 +26,7 @@ public class ScoreCard : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator CalculateResult()
-    { 
+    {
         m_rgtButton = Instantiate(Resources.Load<GameObject>
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
         m_rgtButton.Set(PageMoveObject.e_direction.RIGHT);
@@ -61,7 +62,6 @@ public class ScoreCard : MonoBehaviour
                 GenerateAnswerPage(TempResponses);
             }
 
-            gameObject.SetActive(false);
             yield return null;
         }
 

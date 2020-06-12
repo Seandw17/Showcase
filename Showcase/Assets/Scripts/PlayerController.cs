@@ -97,7 +97,10 @@ public class PlayerController : MonoBehaviour
                     if (m_objectHit.gameObject == ig_interactable[i].gameObject)
                     {
                         m_currentlySelected = ig_interactable[i];
-                        ig_interactable[i].GetObjectOutline().enabled = true;
+                        if (ig_interactable[i].GetShouldGlow())
+                        {
+                            ig_interactable[i].GetObjectOutline().enabled = true;
+                        }
                         if (Input.GetMouseButtonDown(0))
                         {
                             //Call the specific object interact function

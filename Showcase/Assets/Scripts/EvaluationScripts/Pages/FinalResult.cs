@@ -40,12 +40,10 @@ public class FinalResult : Page
     {
         // fade in assets
         SetAlphaToZero(GetComponent<Renderer>().material);
-        StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
 
         foreach(TextMeshPro child in GetComponentsInChildren<TextMeshPro>())
         {
             SetAlphaToZero(child);
-            StartCoroutine(FadeAsset(child, 0.5f, true));
         }
     }
 
@@ -62,5 +60,18 @@ public class FinalResult : Page
 
         if (_score >= amountNeededToPass) { m_outcomeText.SetText(m_passText); }
         else { m_outcomeText.SetText(m_failText); }
+    }
+
+    /// <summary>
+    /// function to display this card
+    /// </summary>
+    public void Display()
+    {
+        StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
+
+        foreach (TextMeshPro child in GetComponentsInChildren<TextMeshPro>())
+        {
+            StartCoroutine(FadeAsset(child, 0.5f, true));
+        }
     }
 }

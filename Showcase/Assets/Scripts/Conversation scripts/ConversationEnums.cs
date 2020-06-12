@@ -11,7 +11,7 @@ public enum e_rating
     OK = 2,
     BAD = 1,
     AWFUL = 0,
-    NONE
+    NONE = 5
 }
 
 /// <summary>

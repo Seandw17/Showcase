@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 // Author: Alec
@@ -205,4 +206,22 @@ static public class w_CSVLoader
             }
         }
     }
+
+    /// <summary>
+    /// function to get intro text document
+    /// </summary>
+    /// <returns>string array</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static string[] LoadIntroText() => LoadInFile("intro")
+        .text.Split('\n');
+
+    /// <summary>
+    /// function to get outro text document
+    /// </summary>
+    /// <returns>string array of outro text</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static string[] LoadOutroText() => LoadInFile("outro")
+        .text.Split('\n');
+
+
 }

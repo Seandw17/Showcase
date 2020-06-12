@@ -7,7 +7,7 @@
 #
 # What about this job appeals to you?
 #
-q$NONE|So what about this job appeals to you?,GREAT|Anyway moving on what about this job appeals to you?,GOOD| Alright then sounds good! So what about this job appeals to you then?, OK|Really? ok so moving on what about the job appeals to you?,BAD| Alright then what about the job appeals to you?,AWFUL| Hrrmmm thats not a response we would expect but anyway what about the job appeals to you?
+q$NONE|So what about this job appeals to you?,GREAT|Anyway moving on what about this job appeals to you?,GOOD|Alright then sounds good! So what about this job appeals to you then?,OK|Really? ok so moving on what about the job appeals to you?,BAD|Alright then what about the job appeals to you?,AWFUL|Thats not a response we would expect but anyway what about the job appeals to you?
 r$It seems like it won't be very demanding|AWFUL|NONE,It looks fun|OK|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|GOOD|FIRST|,Your Company cares for its employees|GREAT|SECOND
 f$UNDEMANDING
 end
@@ -15,7 +15,7 @@ end
 # How long do you see yourself staying at this job?
 #
 q$NONE|So how long do you see yourself staying at this job?,GREAT|Thats Fantastic! Anwyay how long do you intend to stay here?,GOOD|Sounds good! Anwyay how long do you intend to stay here?,OK| Alright then so how long do you intend to stay here?,BAD| Interesting so how long do you intend to stay at this job?,AWFUL|Wouldn't have thought of that so how long do you intend to stay with us?
-r$Until I find something better|AFWUL|NONE,Until something better comes along|BAD|NONE,To be honest I don’t know|OK|NONE,I want to grow with your company|GREAT|THIRD,I’m interested in working up into your shift manager position|GOOD|FOURTH
+r$Until I find something better|AWFUL|NONE,Until something better comes along|BAD|NONE,To be honest I don’t know|OK|NONE,I want to grow with your company|GREAT|THIRD,I’m interested in working up into your shift manager position|GOOD|FOURTH
 f$SOMETHINGBETTER
 end
 #

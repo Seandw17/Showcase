@@ -54,6 +54,13 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     [SerializeField] int m_questionsToAsk = 5;
 
+    /// <summary>
+    /// how fast the text should fade in
+    /// </summary>
+    [SerializeField] float m_fadeInSpeed = 0.75f;
+
+    Coroutine m_waitForAnswer, m_fadeText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +75,6 @@ public class w_QuestionManager : MonoBehaviour
         //questions for player
         m_questionBox = GetComponent<TextMeshPro>();
         m_questions = LoadQuestionData("IQuestions");
-        Debug.Log(m_questions.Count);
         // questions for job / brand
         LoadInPlayerQuestions("PQuestions",
             out m_questionForJob);
@@ -127,7 +133,7 @@ public class w_QuestionManager : MonoBehaviour
         else
         {
             // retrieve data
-            int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count
+            int nextQuestion = Random.Range(0, m_questions.Count
                 - 1);
 
             Debug.Log(nextQuestion);
@@ -142,17 +148,18 @@ public class w_QuestionManager : MonoBehaviour
 
             // use values to set data
             m_questionBox.SetText(questionToDisplay);
-            StartCoroutine(FadeAsset(m_questionBox, 0.5f, true));
+            m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
+                m_fadeInSpeed, true));
 
             for (int index = 0; index < playerResponses.Count; index++)
             {
                 // Set locked graphics, values and active, then begin fade
                 m_buttonPool[index].SetLocked(
-                    CheckHasFlag(
+                    !CheckHasFlag(
                     playerResponses[index].unlockCriteria));
                 m_buttonPool[index].SetValue(playerResponses[index],
                     m_questions[nextQuestion].tip);
-                m_buttonPool[index].transform.parent.gameObject.SetActive(true);
+                //m_buttonPool[index].transform.parent.gameObject.SetActive(true);
             }
 
             Debug.Log("Chose Question: " + questionToDisplay);
@@ -160,7 +167,7 @@ public class w_QuestionManager : MonoBehaviour
             // remove our question to prevent repeated valeus
             m_questions.RemoveAt(nextQuestion);
 
-            StartCoroutine(WaitForAnswer());
+            m_waitForAnswer = StartCoroutine(WaitForAnswer());
         }
     }
 
@@ -169,13 +176,14 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     public void ProcessQuestionResult(s_Questionresponse _chosenResponse)
     {
-        StopCoroutine(WaitForAnswer());
+        StopCoroutine(m_waitForAnswer);
         m_timerSlider.gameObject.SetActive(false);
         ProcessAnswer(_chosenResponse,
             m_questionBox.text);
         AddTip(_chosenResponse.tip);
         m_previous = _chosenResponse.rating;
         TurnOffButtons();
+        FadeOutQuestionText();
         m_processNextStep.Invoke();
     }
 
@@ -187,6 +195,7 @@ public class w_QuestionManager : MonoBehaviour
     {
         float currentTime = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(true);
+        m_timerSlider.value = currentTime;
 
         while (currentTime > 0.0f)
         {
@@ -209,9 +218,11 @@ public class w_QuestionManager : MonoBehaviour
         // Turn of buttons for now
         foreach (OptionData button in m_buttonPool)
         {
-            StartCoroutine(button.setInactive());
+            if (button.enabled)
+            {
+                StartCoroutine(button.setInactive());
+            }
         }
-        //StartCoroutine(FadeAsset(m_questionBox, 0.5f, false));
         m_timerSlider.gameObject.SetActive(false);
     }
 
@@ -247,6 +258,7 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     void ProcessNextStep()
     {
+        FadeOutQuestionText();
         if (m_endLevel)
         {
             StartCoroutine(EndLevel());
@@ -266,8 +278,14 @@ public class w_QuestionManager : MonoBehaviour
     /// <returns> waits for 2 seconds</returns>
     IEnumerator FillInTime(string _fillInText)
     {
+        FadeOutQuestionText();
+        yield return new WaitForSecondsRealtime(2);
         m_questionBox.SetText(_fillInText);
-        yield return new WaitForSeconds(2);
+        m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
+            true));
+        yield return new WaitForSecondsRealtime(2);
+        FadeOutQuestionText();
+        yield return new WaitForSecondsRealtime(2);
         m_randomQuestion.Invoke();
     }
 
@@ -277,6 +295,7 @@ public class w_QuestionManager : MonoBehaviour
     /// <returns>yield for 2 seconds</returns>
     IEnumerator EndLevel()
     {
+        FadeOutQuestionText();
         string finalChoice = ReturnFinalChosenResults()
             [ReturnFinalChosenResults().Count - 1]
             .playerResponse.response;
@@ -295,6 +314,8 @@ public class w_QuestionManager : MonoBehaviour
         //TODO push that player was silent on asking there own question
 
         m_questionBox.SetText(response);
+        m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
+            true));
         yield return new WaitForSeconds(2);
         GameObject card = Instantiate(Resources.Load<GameObject>
             ("Prefabs/ScoreCard"),
@@ -309,45 +330,53 @@ public class w_QuestionManager : MonoBehaviour
     /// <returns>1.5 second wait</returns>
     IEnumerator StartInterview()
     {
-        m_questionBox.SetText("Hi! nice to meet you");
-
+        StartCoroutine(FadeAsset(transform.parent.GetComponent<Renderer>(),
+            m_fadeInSpeed, true));
+        string[] introText = LoadIntroText();
         WaitForSeconds waitFor = new WaitForSeconds(1.5f);
 
-        StartCoroutine(FadeAsset(transform.parent.GetComponent<Renderer>(),
-           0.5f, true));
-
-        yield return waitFor;
-
-        m_questionBox.SetText("I'm just going to ask you some questions,"
-            + " this is just so I can get to know you a bit better");
-
-        yield return waitFor;
-
-        m_questionBox.SetText("So please don't feel nervous or anything!");
-
-        yield return waitFor;
-
-        m_questionBox.SetText("Anyway, to start...");
-
-        yield return waitFor;
-
-        m_processNextStep.Invoke();
+        foreach (string line in introText)
+        {
+            m_questionBox.SetText(line);
+            m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
+                m_fadeInSpeed, true));
+            yield return waitFor;
+            FadeOutQuestionText();
+            yield return waitFor;
+        }
+        m_randomQuestion.Invoke();
     }
 
+    /// <summary>
+    /// function to end the interview
+    /// </summary>
+    /// <param name="_card">the card to fade in</param>
+    /// <returns>1.5 second wait</returns>
     IEnumerator EndInterview(GameObject _card)
     {
         WaitForSeconds waitFor = new WaitForSeconds(1.5f);
 
-        m_questionBox.SetText("Ok then, if thats all, I'll " +
-            "just write a little down");
-
-        yield return waitFor;
-
-        m_questionBox.SetText("Right this all sounds great!, We'll get back " +
-            "to you ASAP!");
-
+        string[] outroText = LoadOutroText();
+        foreach(string line in outroText)
+        {
+            m_questionBox.SetText(line);
+            m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
+                true));
+            yield return waitFor;
+            FadeOutQuestionText();
+            yield return waitFor;
+        }
         _card.SetActive(true);
         Destroy(gameObject);
+    }
 
+    /// <summary>
+    /// Funtion to call coroutine to fade out question text
+    /// </summary>
+    void FadeOutQuestionText()
+    {
+        StopCoroutine(m_fadeText);
+        m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
+            m_fadeInSpeed, false));
     }
 }

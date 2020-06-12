@@ -17,8 +17,11 @@ public class PlayerController : MonoBehaviour
     //Interactable Object - ref
     public List<InteractableObjectBase> ig_interactable;
 
-    //Bool to handle player movement and camera
-    public bool m_canmove = true;
+    //Bool to handle player movement
+    bool m_canmove = true;
+
+    //Bool to hangle player camera movement
+    bool m_cancameramove = true;
 
     //Bool to check if the player is able to interact
     bool m_caninteract = true;
@@ -30,7 +33,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player  
+        //m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player 
+        m_camera = this.gameObject.GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame
@@ -69,8 +73,11 @@ public class PlayerController : MonoBehaviour
         m_mouseLook += m_smoothV;
         m_mouseLook.y = Mathf.Clamp(m_mouseLook.y, -90.0f, 90.0f);
 
-        m_camera.transform.localRotation = Quaternion.AngleAxis(-m_mouseLook.y, Vector3.right);
-        this.transform.localRotation = Quaternion.AngleAxis(m_mouseLook.x, this.transform.up);
+        if (m_cancameramove == true)
+        {
+            m_camera.transform.localRotation = Quaternion.AngleAxis(-m_mouseLook.y, Vector3.right);
+            this.transform.localRotation = Quaternion.AngleAxis(m_mouseLook.x, this.transform.up);
+        }
     }
 
     //Setting up the interaction with left mouse button click
@@ -122,4 +129,17 @@ public class PlayerController : MonoBehaviour
         return m_caninteract;
         
     }
+
+    public bool SetCanCameraMove(bool _canCamerabool)
+    {
+        m_cancameramove = _canCamerabool;
+        return m_cancameramove;
+    }
+
+    public bool SetCanPlayerMove(bool _canPlayerbool)
+    {
+        m_canmove = _canPlayerbool;
+        return m_canmove;
+    }
+
 }

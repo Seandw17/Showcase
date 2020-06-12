@@ -39,7 +39,7 @@ public class ScoreCard : MonoBehaviour
         // Load in pages
         s_playerResponse[] TempResponses = new s_playerResponse[3];
         int externalIndexer = 0;
-        int finalScore = 0;
+        int finalScore = OutfitManager.GetOutfitScore();
 
         foreach (s_playerResponse response in m_responses)
         {

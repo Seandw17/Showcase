@@ -4,12 +4,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    float m_playerSpeed = 5.0f;
+    float m_playerSpeed = 10.0f;
 
     //Camera Variables
     Vector2 m_mouseLook;
     Vector2 m_smoothV;
-    float m_mouseSensitivity = 2.0f;
+    float m_mouseSensitivity = 5.0f;
     float m_smoothing = 2.0f;
     [SerializeField]
     Camera m_camera;
@@ -17,11 +17,8 @@ public class PlayerController : MonoBehaviour
     //Interactable Object - ref
     public List<InteractableObjectBase> ig_interactable;
 
-    //Bool to handle player movement
-    bool m_canmove = true;
-
-    //Bool to hangle player camera movement
-    bool m_cancameramove = true;
+    //Bool to handle player movement and camera
+    public bool m_canmove = true;
 
     //Bool to check if the player is able to interact
     bool m_caninteract = true;
@@ -33,8 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        //m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player 
-        m_camera = this.gameObject.GetComponentInChildren<Camera>();
+        m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player  
     }
 
     // Update is called once per frame
@@ -73,11 +69,8 @@ public class PlayerController : MonoBehaviour
         m_mouseLook += m_smoothV;
         m_mouseLook.y = Mathf.Clamp(m_mouseLook.y, -90.0f, 90.0f);
 
-        if (m_cancameramove == true)
-        {
-            m_camera.transform.localRotation = Quaternion.AngleAxis(-m_mouseLook.y, Vector3.right);
-            this.transform.localRotation = Quaternion.AngleAxis(m_mouseLook.x, this.transform.up);
-        }
+        m_camera.transform.localRotation = Quaternion.AngleAxis(-m_mouseLook.y, Vector3.right);
+        this.transform.localRotation = Quaternion.AngleAxis(m_mouseLook.x, this.transform.up);
     }
 
     //Setting up the interaction with left mouse button click
@@ -97,10 +90,7 @@ public class PlayerController : MonoBehaviour
                     if (m_objectHit.gameObject == ig_interactable[i].gameObject)
                     {
                         m_currentlySelected = ig_interactable[i];
-                        if (ig_interactable[i].GetShouldGlow())
-                        {
-                            ig_interactable[i].GetObjectOutline().enabled = true;
-                        }
+                        ig_interactable[i].GetObjectOutline().enabled = true;
                         if (Input.GetMouseButtonDown(0))
                         {
                             //Call the specific object interact function
@@ -132,17 +122,4 @@ public class PlayerController : MonoBehaviour
         return m_caninteract;
         
     }
-
-    public bool SetCanCameraMove(bool _canCamerabool)
-    {
-        m_cancameramove = _canCamerabool;
-        return m_cancameramove;
-    }
-
-    public bool SetCanPlayerMove(bool _canPlayerbool)
-    {
-        m_canmove = _canPlayerbool;
-        return m_canmove;
-    }
-
 }

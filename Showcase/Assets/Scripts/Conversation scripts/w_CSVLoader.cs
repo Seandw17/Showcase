@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 // Author: Alec
@@ -35,20 +34,17 @@ static public class w_CSVLoader
                 else
                 {
                     string[] check = line.Split('$');
-                    switch (check[0])
+                    if (check[0].Equals("q"))
                     {
-                        case "q":
-                            temp.questions = ReadQuestions(check[1]);
-                            break;
-                        case "r":
-                            temp.options = ReadOptions(check[1]);
-                            break;
-                        case "f":
-                            temp.tip = (e_tipCategories)Enum.Parse(
-                            typeof(e_tipCategories), check[1]);
-                            break;
-                        case "":
-                            throw new Exception("Illegal index: " + check[0]);
+                        temp.questions = ReadQuestions(check[1]);
+                    }
+                    else if(check[0].Equals("r"))
+                    {
+                        temp.options = ReadOptions(check[1]);
+                    }
+                    else
+                    {
+                        throw new Exception("Illegal index: " + check[0]);
                     }
                 }
             }
@@ -64,18 +60,24 @@ static public class w_CSVLoader
     /// </summary>
     /// <param name="_questions"> the line</param>
     /// <returns>a list of variations</returns>
-    static Dictionary<e_rating, string> ReadQuestions(string _questions)
+    static List<s_questionVariations> ReadQuestions(string _questions)
     {
-        Dictionary<e_rating, string> returnList =
-            new Dictionary<e_rating, string>();
+        List<s_questionVariations> returnList =
+            new List<s_questionVariations>();
+
+        Debug.Log(_questions);
 
         string[] data = _questions.Split(',');
 
         foreach (string dataSet in data)
         {
             string[] brokenUp = dataSet.Split('|');
-            returnList.Add((e_rating)Enum.Parse(typeof(e_rating),
-                brokenUp[0]), brokenUp[1]);
+            s_questionVariations question = new s_questionVariations();
+            Debug.Log(brokenUp[0]);
+            question.question = brokenUp[1];
+            question.identifier =
+                (e_identifier) Enum.Parse(typeof(e_identifier), brokenUp[0]);
+            returnList.Add(question);
         }
 
         return returnList;
@@ -90,12 +92,15 @@ static public class w_CSVLoader
     {
         List<s_Questionresponse> returnList = new List<s_Questionresponse>();
 
+        Debug.Log(_responses);
+
         string[] data = _responses.Split(',');
         foreach (string dataSet in data)
         {
             string[] brokenUp = dataSet.Split('|');
             s_Questionresponse temp = new s_Questionresponse();
             temp.response = brokenUp[0];
+            Debug.Log(brokenUp[0]);
             temp.rating = (e_rating) Enum.Parse(typeof(e_rating), brokenUp[1]);
             temp.unlockCriteria =
                 (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag), brokenUp[2]);
@@ -106,24 +111,23 @@ static public class w_CSVLoader
     }
 
     /// <summary>
-    /// Loads player questions
+    /// Load in the players questions for the interviewer
     /// </summary>
-    /// <param name="_fileName">name of file</param>
-    /// <param name="_replies">list of replies to the questions</param>
-    /// <param name="_questions">List of questions the player can ask</param>
-    public static void LoadInPlayerQuestions(string _fileName,
-        out List<s_playerQuestion> _list)
+    /// <param name="_fileName">the name of the file</param>
+    /// <returns>a list of questions</returns>
+    static public List<KeyValuePair<e_unlockFlag, string>>
+        LoadInPlayerQuestions(string _fileName)
     {
         Debug.Log("Loading in player questions");
 
+        // instaniate appropriate lists
+        List<KeyValuePair<e_unlockFlag, string>> returnValue =
+            new List<KeyValuePair<e_unlockFlag, string>>();
+
         TextAsset file = LoadInFile(_fileName);
 
-        _list = new List<s_playerQuestion>();
-
-        string[] lines = file.text.Split('\n');
-
         // split line into files
-
+        string[] lines = file.text.Split('\n');
         foreach(string data in lines)
         {
             // if not a comment
@@ -136,18 +140,17 @@ static public class w_CSVLoader
                     // split by | character
                     string[] keyValue = response.Split('|');
                     // load in
-                    s_playerQuestion temp = new s_playerQuestion();
-                    temp.question = keyValue[0];
-                    temp.response = keyValue[2];
-                    temp.flag = (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag),
-                        keyValue[1]);
-                    _list.Add(temp);
-                    Debug.Log("Player Question added");
+                    returnValue.Add(
+                        new KeyValuePair<e_unlockFlag, string>
+                        ((e_unlockFlag) Enum.Parse(typeof(e_unlockFlag),
+                        keyValue[1]), keyValue[0]));
+                    Debug.Log("Question added");
                 }
             }
         }
 
         Debug.Log("Player question files loaded in");
+        return returnValue;
     }
 
     /// <summary>
@@ -165,63 +168,4 @@ static public class w_CSVLoader
 
         return file;
     }
-
-    /// <summary>
-    /// Function to load in the filler text
-    /// </summary>
-    /// <returns>List of filler text string</returns>
-    public static List<string> LoadInFillerText()
-    {
-        List<string> returnList = new List<string>();
-
-        TextAsset file = LoadInFile("FillerText");
-        string[] lines = file.text.Split('\n');
-
-        foreach (string line in lines)
-        {
-            returnList.Add(line);
-        }
-
-        return returnList;
-    }
-
-    /// <summary>
-    /// Function to load in tips from a text file
-    /// </summary>
-    /// <param name="_list">Dictionary you want to load the tips into</param>
-    public static void LoadTips(out Dictionary<e_tipCategories, string> _list)
-    {
-        _list = new Dictionary<e_tipCategories, string>();
-
-        TextAsset file = LoadInFile("Tips");
-        string[] lines = file.text.Split('\n');
-
-        foreach (string line in lines)
-        {
-            if (!line[0].Equals('#'))
-            {
-                string[] data = line.Split(',');
-                _list.Add((e_tipCategories)Enum.Parse(typeof(e_tipCategories),
-                    data[0]), data[1]);
-            }
-        }
-    }
-
-    /// <summary>
-    /// function to get intro text document
-    /// </summary>
-    /// <returns>string array</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string[] LoadIntroText() => LoadInFile("intro")
-        .text.Split('\n');
-
-    /// <summary>
-    /// function to get outro text document
-    /// </summary>
-    /// <returns>string array of outro text</returns>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string[] LoadOutroText() => LoadInFile("outro")
-        .text.Split('\n');
-
-
 }

@@ -11,15 +11,11 @@ public class GameManagerScript : MonoBehaviour
     //This is the HUD that is displayed to the screen at all times
     GameObject ig_currenthud;
 
-    
-    public CursorController m_cmScript;
-
     // Start is called before the first frame update
     void Start()
     {
         //SetCurrentHUD(ig_PlayerPanel);
         ConversationStore.Init();
-        m_cmScript = GetComponent<CursorController>();
     }
 
     // Update is called once per frame

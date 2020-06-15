@@ -42,12 +42,6 @@ public class PauseMenu : MonoBehaviour
             Resources.Load<GameObject>("Prefabs/PlayerCursor"));
         m_playerCursorCanvas.SetActive(false);
 
-        // Create the FPS counter if in editor
-        if (Application.isEditor)
-        {
-            Instantiate(Resources.Load<GameObject>("Prefabs/FPSCounter"));
-        }
-
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 

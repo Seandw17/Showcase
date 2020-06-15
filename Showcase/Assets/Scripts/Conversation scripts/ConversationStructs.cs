@@ -10,7 +10,6 @@ public struct s_Questionresponse
     public string response;
     public e_rating rating;
     public e_unlockFlag unlockCriteria;
-    public e_tipCategories tip;
 }
 
 /// <summary>
@@ -18,9 +17,14 @@ public struct s_Questionresponse
 /// </summary>
 public struct s_questionData
 {
-    public Dictionary<e_rating, string> questions;
+    public List<s_questionVariations> questions;
     public List<s_Questionresponse> options;
-    public e_tipCategories tip;
+}
+
+public struct s_questionVariations
+{
+    public e_identifier identifier;
+    public string question;
 }
 
 /// <summary>
@@ -30,14 +34,4 @@ public struct s_playerResponse
 {
     public string question;
     public s_Questionresponse playerResponse;
-}
-
-/// <summary>
-/// Struct to contain player question
-/// </summary>
-public struct s_playerQuestion
-{
-    public string question;
-    public string response;
-    public e_unlockFlag flag;
 }

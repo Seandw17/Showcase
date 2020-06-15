@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class LaptopObject : InteractableObjectBase
 {
-    [SerializeField]
-    Button ig_unlock1Button, ig_unlock2Button, ig_unlock3Button, ig_unlock4Button, ig_returnButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,41 +20,5 @@ public class LaptopObject : InteractableObjectBase
     {
         m_gmscript.SetCurrentHUD(m_gmscript.ig_LaptopPanel);
         m_playerscript.SetCanInteract(false);
-        m_playerscript.SetCanCameraMove(false);
-        m_playerscript.SetCanPlayerMove(false);
-        m_gmscript.m_cmScript.EnableCursor();
-    }
-
-    public void ReturnToPlayer()
-    {
-        m_gmscript.SetCurrentHUD(m_gmscript.ig_PlayerPanel);
-        m_playerscript.SetCanInteract(true);
-        m_playerscript.SetCanCameraMove(true);
-        m_playerscript.SetCanPlayerMove(true);
-        m_gmscript.m_cmScript.DisableCursor();
-    }
-
-    public void Unlock1()
-    {
-        ConversationStore.RegisterUnlockFlag(e_unlockFlag.FIRST);
-        ig_unlock1Button.enabled = false;
-    }
-
-    public void Unlock2()
-    {
-        ConversationStore.RegisterUnlockFlag(e_unlockFlag.SECOND);
-        ig_unlock2Button.enabled = false;
-    }
-
-    public void Unlock3()
-    {
-        ConversationStore.RegisterUnlockFlag(e_unlockFlag.THIRD);
-        ig_unlock3Button.enabled = false;
-    }
-
-    public void Unlock4()
-    {
-        ConversationStore.RegisterUnlockFlag(e_unlockFlag.FOURTH);
-        ig_unlock4Button.enabled = false;
     }
 }

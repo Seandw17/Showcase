@@ -8,6 +8,8 @@ public class LevelChange : MonoBehaviour
 
     static LevelChange instance;
 
+    static LoadingManage m_loadingManager;
+
     private void Awake()
     {
         instance = this;
@@ -18,7 +20,7 @@ public class LevelChange : MonoBehaviour
     {
         Debug.Assert(!forcedLevelChange.Equals(""),
             "Enter a level to change to");
-
+        //ChangeLevel("TitleScreen");
         ChangeLevel(forcedLevelChange);
     }
 
@@ -47,11 +49,22 @@ public class LevelChange : MonoBehaviour
 
         while (!async.isDone)
         {
+            Debug.Log("Loading scene " + _sceneName + " " + async.progress +
+                "%");
             yield return null;
         }
 
-        SceneManager.UnloadSceneAsync("Loading");
+        Debug.Assert(m_loadingManager, "No loading manager was set!");
+        m_loadingManager.FadeOut();
+
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(_sceneName));
         Debug.Log("Loading of Scene: " + _sceneName + " is complete");
     }
+
+    /// <summary>
+    /// overwrite the loading manager
+    /// </summary>
+    /// <param name="_new">the new loading manager</param>
+    public static void SetLoadingManager(LoadingManage _new) =>
+        m_loadingManager = _new;
 }

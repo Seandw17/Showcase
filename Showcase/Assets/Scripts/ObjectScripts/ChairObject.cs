@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ChairObject : InteractableObjectBase
 {
+    [SerializeField]
+    GameObject ig_playerObject, ig_sitpositionObject;
+
 
     int m_chairchoice = 0;
    
@@ -11,6 +14,7 @@ public class ChairObject : InteractableObjectBase
     void Start()
     {
         base.Start();
+        
     }
 
     // Update is called once per frame
@@ -32,7 +36,9 @@ public class ChairObject : InteractableObjectBase
                 }
             case 2:
                 {
-                    m_playerscript.m_canmove = false;
+                    ig_playerObject.transform.position = ig_sitpositionObject.transform.position;
+                    m_playerscript.SetCanPlayerMove(false);
+
                     //TODO - Set player Position to be facing the interviewer
                     break;
                 }

@@ -1,21 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using static FadeIn;
+using static w_CSVLoader;
+using static ConversationStore;
 
 // Author: Alec
 
+/// <summary>
+/// Class to manage the gameloop of the question stage of the interviewer stage
+/// </summary>
 public class w_QuestionManager : MonoBehaviour
 {
     TextMeshPro m_questionBox;
+
     List<s_questionData> m_questions;
-    OptionData[] m_buttonPool;
-    int m_currentQuestion;
-    OptionData m_option;
-    List<KeyValuePair<e_unlockFlag, string>> m_questionForJob;
+    List<s_playerQuestion> m_questionForJob;
+    
     bool m_endLevel;
-    bool isWaitDone;
+
+    UnityEvent m_processNextStep;
+    UnityEvent m_randomQuestion;
+
+    int m_currentQuestion;
+
+    FillerText m_fillerText;
+
+    e_rating m_previous = e_rating.NONE;
+
+    OptionPool m_optionPool;
 
     /// <summary>
     /// The timer visualisitation
@@ -25,35 +41,35 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// Time user has to answer a question
     /// </summary>
-    [SerializeField] const float m_timeBetweenQuestions = 20.0f;
+    [SerializeField] float m_timeBetweenQuestions = 20.0f;
 
     /// <summary>
     /// How many buttons we want to load on start
     /// </summary>
-    [SerializeField] const int m_buttonPoolSize = 5;
+    [SerializeField] int m_buttonPoolSize = 5;
 
     /// <summary>
     /// How many questions we should ask in this session
     /// </summary>
     [SerializeField] int m_questionsToAsk = 5;
 
+    /// <summary>
+    /// how fast the text should fade in
+    /// </summary>
+    [SerializeField] float m_fadeInSpeed = 0.75f;
+
+    Coroutine m_waitForAnswer, m_fadeText;
+
     // Start is called before the first frame update
     void Start()
     {
-        // Loading in button prefab
-        m_option = Resources.Load<GameObject>("Prefabs/Option")
-            .GetComponentInChildren<OptionData>();
-        Debug.Assert(m_option, "Option was not loaded correctly");
-
-        OptionData.Register(this);
-
         // acquiring relevant data
         //questions for player
         m_questionBox = GetComponent<TextMeshPro>();
-        m_questions = w_CSVLoader.LoadQuestionData("IQuestions");
-        Debug.Log(m_questions.Count);
+        m_questions = LoadQuestionData("IQuestions");
         // questions for job / brand
-        m_questionForJob = w_CSVLoader.LoadInPlayerQuestions("PQuestions");
+        LoadInPlayerQuestions("PQuestions",
+            out m_questionForJob);
 
         Debug.Assert(m_questions.Count >= m_questionsToAsk,
             "There are not enough questions loaded to meet the desired" +
@@ -62,27 +78,26 @@ public class w_QuestionManager : MonoBehaviour
         // use values to set data
         Vector3 spawnLocation = new Vector3(
             transform.parent.gameObject.transform.position.x,
-            transform.parent.gameObject.transform.position.y - 1.5f,
+            transform.parent.gameObject.transform.position.y - 0.25f,
             transform.parent.gameObject.transform.position.z);
-        // pool our buttons
-        m_buttonPool = new OptionData[m_buttonPoolSize];
-        for (int index = 0; index < m_buttonPoolSize; index++)
-        {
-            if (index > 0)
-            {
-                spawnLocation = new Vector3(spawnLocation.x,
-                    spawnLocation.y - 1f, spawnLocation.z);
-            }
-            GameObject temp = Instantiate(m_option.transform.parent.gameObject,
-                spawnLocation, transform.rotation);
-            m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
-            m_buttonPool[index].transform.parent.gameObject.SetActive(false);
-        }
 
+        m_optionPool = new OptionPool(m_buttonPoolSize, spawnLocation, this);
+
+        // set timerslider
         m_timerSlider.maxValue = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(false);
 
-        ProcessNextStep();
+        // set up events 
+        m_processNextStep = new UnityEvent();
+        m_processNextStep.AddListener(ProcessNextStep);
+        m_randomQuestion = new UnityEvent();
+        m_randomQuestion.AddListener(LoadRandomQuestion);
+
+        m_fillerText = new FillerText();
+
+        SetAlphaToZero(transform.parent.GetComponent<Renderer>().material);
+        SetAlphaToZero(m_questionBox);
+        StartCoroutine(StartInterview());
     }
 
     /// <summary>
@@ -93,48 +108,36 @@ public class w_QuestionManager : MonoBehaviour
         m_currentQuestion++;
         if (m_currentQuestion > m_questionsToAsk)
         {
-            ProcessNextStep();
+            m_processNextStep.Invoke();
         }
         else
         {
-
             // retrieve data
-            int nextQuestion = UnityEngine.Random.Range(0, m_questions.Count - 1);
+            int nextQuestion = Random.Range(0, m_questions.Count
+                - 1);
 
-            // TODO have a way to parse context
-            e_identifier context = e_identifier.START;
-
-            Debug.Log(nextQuestion);
             List<s_Questionresponse> playerResponses =
                 m_questions[nextQuestion].options;
-            s_questionVariations questionToDisplay =
-                m_questions[nextQuestion].questions[(int)context];
+            string questionToDisplay =
+                m_questions[nextQuestion].questions[m_previous];
 
             // check we have returned a value
             Debug.Assert(!questionToDisplay.Equals(new s_questionData()),
                 "An error has occured finding the quesiton");
 
             // use values to set data
-            m_questionBox.SetText(questionToDisplay.question);
+            m_questionBox.SetText(questionToDisplay);
+            m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
+                m_fadeInSpeed, true));
 
-            Debug.Log(playerResponses.Count);
-            for (int index = 0; index < playerResponses.Count; index++)
-            {
-                Debug.Log(index);
-                // Set locked graphics, values and active, then begin fade
-                m_buttonPool[index].SetLocked(
-                    ConversationStore.CheckHasFlag(
-                    playerResponses[index].unlockCriteria));
-                m_buttonPool[index].SetValue(playerResponses[index]);
-                m_buttonPool[index].transform.parent.gameObject.SetActive(true);
-            }
+            m_optionPool.Set(playerResponses, m_questions[nextQuestion]);
 
-            Debug.Log("Chose Question: " + questionToDisplay.question);
+            Debug.Log("Chose Question: " + questionToDisplay);
 
             // remove our question to prevent repeated valeus
             m_questions.RemoveAt(nextQuestion);
 
-            StartCoroutine(WaitForAnswer());
+            m_waitForAnswer = StartCoroutine(WaitForAnswer());
         }
     }
 
@@ -143,20 +146,15 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     public void ProcessQuestionResult(s_Questionresponse _chosenResponse)
     {
-        StopCoroutine(WaitForAnswer());
+        StopCoroutine(m_waitForAnswer);
         m_timerSlider.gameObject.SetActive(false);
-
-        ConversationStore.ProcessAnswer(_chosenResponse,
+        ProcessAnswer(_chosenResponse,
             m_questionBox.text);
-
-        // Turn of buttons for now
-        foreach (OptionData button in m_buttonPool)
-        {
-            button.gameObject.SetActive(false);
-        }
-        m_questionBox.SetText("");
-
-        ProcessNextStep();
+        AddTip(_chosenResponse.tip);
+        m_previous = _chosenResponse.rating;
+        TurnOffOptions();
+        FadeOutQuestionText();
+        m_processNextStep.Invoke();
     }
 
     /// <summary>
@@ -167,18 +165,33 @@ public class w_QuestionManager : MonoBehaviour
     {
         float currentTime = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(true);
+        m_timerSlider.value = currentTime;
 
         while (currentTime > 0.0f)
         {
-            currentTime -= Time.deltaTime;
-            m_timerSlider.value = currentTime;
-            Debug.Log(currentTime);
+            if (!PauseMenu.IsPaused())
+            {
+                currentTime -= Time.deltaTime;
+                m_timerSlider.value = currentTime;
+            }
             yield return null;
         }
 
+        TurnOffOptions();
+        FillerText.Silent();
+        m_previous = e_rating.AWFUL;
+        PlayerWasSilent(m_questionBox.text);
+        m_processNextStep.Invoke();
+    }
+
+    /// <summary>
+    /// Fade Out the buttons, turn off the timer and set the text for the
+    /// question box to blank
+    /// </summary>
+    void TurnOffOptions()
+    {
+        m_optionPool.TurnOffOptions();
         m_timerSlider.gameObject.SetActive(false);
-        ConversationStore.PlayerWasSilent(m_questionBox.text);
-        isWaitDone = true;
     }
 
     /// <summary>
@@ -188,20 +201,11 @@ public class w_QuestionManager : MonoBehaviour
     {
         m_questionBox.SetText("So do you have any questions about the job" +
             "itself?");
+        m_fadeText = StartCoroutine(FadeAsset(m_questionBox, 0.75f, true));
 
-        for (int index = 0; index < m_questionForJob.Count; index++)
-        {
-            m_buttonPool[index].SetLocked(ConversationStore
-                .CheckHasFlag(m_questionForJob[index].Key));
-            s_Questionresponse temp = new s_Questionresponse();
-            temp.rating = e_rating.GREAT;
-            temp.response = m_questionForJob[index].Value;
-            m_buttonPool[index].SetValue(temp);
-            m_buttonPool[index].gameObject.SetActive(true);
-        }
+        m_optionPool.Set(m_questionForJob);
 
         m_endLevel = true;
-        m_questionForJob.Clear();
 
         StartCoroutine(WaitForAnswer());
     }
@@ -211,27 +215,142 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     void ProcessNextStep()
     {
+        FadeOutQuestionText();
         if (m_endLevel)
         {
-            // TODO End the level
-            Instantiate(Resources.Load<GameObject>("Prefabs/ScoreCard"));
-            Destroy(gameObject, 2.0f);
+            StartCoroutine(EndLevel());
         }
         else if (m_currentQuestion > m_questionsToAsk)
         {
             m_questions.Clear();
             AskAboutJob();
         }
-        else { LoadRandomQuestion(); }
+        else { StartCoroutine(FillInTime(m_fillerText.ReturnFillerText())); }
     }
 
-    private void Update()
+    /// <summary>
+    /// Function to display some filler text
+    /// </summary>
+    /// <param name="_fillInText">the filler text</param>
+    /// <returns> waits for 2 seconds</returns>
+    IEnumerator FillInTime(string _fillInText)
     {
-        if (isWaitDone)
+        FadeOutQuestionText();
+        yield return new WaitForSecondsRealtime(2);
+        m_questionBox.SetText(_fillInText);
+        m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
+            true));
+        yield return new WaitForSecondsRealtime(2);
+        FadeOutQuestionText();
+        yield return new WaitForSecondsRealtime(2);
+        m_randomQuestion.Invoke();
+    }
+
+    /// <summary>
+    /// The couroutine to end the level
+    /// </summary>
+    /// <returns>yield for 2 seconds</returns>
+    IEnumerator EndLevel()
+    {
+        FadeOutQuestionText();
+
+        yield return new WaitForSecondsRealtime(2);
+
+        string finalChoice = ReturnFinalChosenResults()
+            [ReturnFinalChosenResults().Count - 1]
+            .playerResponse.response;
+
+        Debug.Log(finalChoice);
+
+        string response = "Nothing? Ok then...";
+
+        foreach(s_playerQuestion question in m_questionForJob)
         {
-            isWaitDone = false;
-            StopCoroutine(WaitForAnswer());
-            ProcessNextStep();
+            Debug.Log(question.response);
+            if (finalChoice.Equals(question.question))
+            {
+                response = question.response;
+                break;
+            }
         }
+
+        m_questionForJob.Clear();
+
+        //TODO push that player was silent on asking there own question
+
+        m_questionBox.SetText(response);
+        m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
+            true));
+        yield return new WaitForSecondsRealtime(3);
+        GameObject card = Instantiate(Resources.Load<GameObject>
+            ("Prefabs/ScoreCard"),
+            transform.position, transform.rotation);
+        StartCoroutine(EndInterview(card));
+        Destroy(m_timerSlider.gameObject);
+    }
+
+    /// <summary>
+    /// coroutine to run through the introduction to the questions
+    /// </summary>
+    /// <returns>1.5 second wait</returns>
+    IEnumerator StartInterview()
+    {
+        StartCoroutine(FadeAsset(transform.parent.GetComponent<Renderer>(),
+            m_fadeInSpeed, true));
+        string[] introText = LoadIntroText();
+        WaitForSeconds waitFor = new WaitForSeconds(1.5f);
+
+        foreach (string line in introText)
+        {
+            m_questionBox.SetText(line);
+            m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
+                m_fadeInSpeed, true));
+            yield return waitFor;
+            FadeOutQuestionText();
+            yield return waitFor;
+        }
+        m_randomQuestion.Invoke();
+    }
+
+    /// <summary>
+    /// function to end the interview
+    /// </summary>
+    /// <param name="_card">the card to fade in</param>
+    /// <returns>1.5 second wait</returns>
+    IEnumerator EndInterview(GameObject _card)
+    {
+        WaitForSeconds waitFor = new WaitForSeconds(1.5f);
+
+        StartCoroutine(m_optionPool.Clear());
+
+        string[] outroText = LoadOutroText();
+        foreach(string line in outroText)
+        {
+            FadeOutQuestionText();
+            yield return waitFor;
+            m_questionBox.SetText(line);
+            m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
+                true));
+            yield return waitFor;
+        }
+        _card.GetComponentInChildren<FinalResult>().Display();
+
+        FadeOutQuestionText();
+        yield return waitFor;
+
+        Destroy(transform.parent.gameObject);
+    }
+
+    /// <summary>
+    /// Funtion to call coroutine to fade out question text
+    /// </summary>
+    void FadeOutQuestionText()
+    {
+        if (m_fadeText != null)
+        {
+            StopCoroutine(m_fadeText);
+        }
+        m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
+            m_fadeInSpeed, false));
     }
 }

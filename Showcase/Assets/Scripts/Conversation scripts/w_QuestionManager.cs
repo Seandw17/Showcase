@@ -169,8 +169,11 @@ public class w_QuestionManager : MonoBehaviour
 
         while (currentTime > 0.0f)
         {
-            currentTime -= Time.deltaTime;
-            m_timerSlider.value = currentTime;
+            if (!PauseMenu.IsPaused())
+            {
+                currentTime -= Time.deltaTime;
+                m_timerSlider.value = currentTime;
+            }
             yield return null;
         }
 

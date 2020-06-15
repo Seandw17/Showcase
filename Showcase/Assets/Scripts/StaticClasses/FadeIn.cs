@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static PauseMenu;
 
 /// <summary>
 /// Class to manage fading in/out assets
@@ -29,8 +32,11 @@ static public class FadeIn
 
         while (CheckAlpha(_in, newColour.a))
         {
-            newColour.a += fade;
-            material.color = newColour;
+            if (!IsPaused())
+            {
+                newColour.a += fade;
+                material.color = newColour;
+            }
             yield return null;
         }
     }
@@ -52,14 +58,17 @@ static public class FadeIn
             _tmp.color.a
             );
 
-        float fade = (0.02f * _time) * Time.deltaTime;
+        float fade = (0.4f * _time) * Time.deltaTime;
         if (!_in) { fade *= -1; }
 
         while (CheckAlpha(_in, newColour.a))
         {
-            Debug.Log(newColour.a);
-            newColour.a += fade;
-            _tmp.color = newColour;
+            if (!IsPaused())
+            {
+                Debug.Log(newColour.a);
+                newColour.a += fade;
+                _tmp.color = newColour;
+            }
             yield return null;
         }
     }
@@ -81,15 +90,77 @@ static public class FadeIn
             _tmp.color.a
             );
 
-        float fade = 0.02f * _time;
+        float fade = (0.4f * _time) * Time.deltaTime;
         if (!_in){ fade *= -1; }
 
         while (CheckAlpha(_in, newColour.a))
         {
-            
-            newColour.a += fade;
-            _tmp.color = newColour;
-            
+            if (!IsPaused())
+            {
+                newColour.a += fade;
+                _tmp.color = newColour;
+            }
+            yield return null;
+        }
+    }
+
+    /// <summary>
+    /// Function to fade out a sprite
+    /// </summary>
+    /// <param name="_spriteRenderer">the rendrer</param>
+    /// <param name="_time">time to fade out</param>
+    /// <param name="_in">fade in?</param>
+    /// <returns></returns>
+    static public IEnumerator FadeAsset(SpriteRenderer _spriteRenderer,
+        float _time, bool _in)
+    {
+        Color newColour = new Color(
+            _spriteRenderer.color.r,
+            _spriteRenderer.color.g,
+            _spriteRenderer.color.b,
+            _spriteRenderer.color.a
+            );
+
+        float fade = 0.02f * _time;
+        if (!_in) { fade *= -1; }
+
+        while (CheckAlpha(_in, newColour.a))
+        {
+            if (!IsPaused())
+            {
+                newColour.a += fade;
+                _spriteRenderer.color = newColour;
+            }
+            yield return null;
+        }
+    }
+
+    /// <summary>
+    /// Fade out image asset
+    /// </summary>
+    /// <param name="_image">the image</param>
+    /// <param name="_time">time to fade out completly</param>
+    /// <param name="_in">fade in?</param>
+    /// <returns></returns>
+    static public IEnumerator FadeAsset(Image _image, float _time, bool _in)
+    {
+        Color newColour = new Color(
+            _image.color.r,
+            _image.color.g,
+            _image.color.b,
+            _image.color.a
+            );
+
+        float fade = 0.02f * _time;
+        if (!_in) { fade *= -1; }
+
+        while (CheckAlpha(_in, newColour.a))
+        {
+            if (!IsPaused())
+            {
+                newColour.a += fade;
+                _image.color = newColour;
+            }
             yield return null;
         }
     }
@@ -143,5 +214,58 @@ static public class FadeIn
             _tmp.color.g,
             _tmp.color.b,
             0);
+    }
+
+    /// <summary>
+    /// Function to set sprite alpha to 0
+    /// </summary>
+    /// <param name="_spriteRenderer">the sprite renderer</param>
+    static public void SetAlphaToZero(SpriteRenderer _spriteRenderer)
+    {
+        _spriteRenderer.color = new Color(
+            _spriteRenderer.color.r,
+            _spriteRenderer.color.g,
+            _spriteRenderer.color.b,
+            0);
+    }
+
+    /// <summary>
+    /// Set image alpha to 0
+    /// </summary>
+    /// <param name="_image">the image to set</param>
+    static public void SetAlphaToZero(Image _image)
+    {
+        _image.color = new Color(
+           _image.color.r,
+           _image.color.g,
+           _image.color.b,
+           0);
+    }
+
+    /// <summary>
+    /// Fade out the screen and unload the scene
+    /// </summary>
+    /// <param name="_image">the image to load out</param>
+    /// <returns>yield return null</returns>
+    static public IEnumerator FadeOutLoadingScreen(Image
+        _image)
+    {
+        Color newColour = new Color(
+            _image.color.r,
+            _image.color.g,
+            _image.color.b,
+            _image.color.a
+            );
+
+        float fade = -0.02f;
+
+        while (CheckAlpha(false, newColour.a))
+        {
+            newColour.a += fade;
+            _image.color = newColour;
+            yield return null;
+        }
+
+        SceneManager.UnloadSceneAsync("Loading");
     }
 }

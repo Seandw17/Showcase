@@ -36,7 +36,7 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
---- !u!114 &-2360292259659641145
+--- !u!114 &-6016941484265989723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Master.bank
   SubDir: 
-  lastModified: 637273154470000000
+  lastModified: 637267961219062542
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -88,15 +88,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 571821994781988258}
-  - {fileID: 3225542465223310677}
+  - {fileID: -6016941484265989723}
   EditorEvents:
   - {fileID: 3880511425784501490}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 3225542465223310677}
+  - {fileID: -6016941484265989723}
   StringsBanks:
   - {fileID: 571821994781988258}
-  stringsBankWriteTime: 637275659530000000
+  stringsBankWriteTime: 637267961219082557
   cacheVersion: 3
 --- !u!114 &118057815104409085
 MonoBehaviour:
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Master.strings.bank
   SubDir: 
-  lastModified: 637275659530000000
+  lastModified: 637267961219082557
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -154,24 +154,6 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
---- !u!114 &3225542465223310677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/StreamingAssets/Master.bank
-  SubDir: 
-  lastModified: 637275659530000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
 --- !u!114 &3880511425784501490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +169,7 @@ MonoBehaviour:
   Path: event:/german_folk_m
   guid: 43d811513e680b4a85a16a31c5b8781b
   Banks:
-  - {fileID: 3225542465223310677}
+  - {fileID: -6016941484265989723}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0

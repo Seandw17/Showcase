@@ -19,9 +19,6 @@ public class w_QuestionManager : MonoBehaviour
 
     List<s_questionData> m_questions;
     List<s_playerQuestion> m_questionForJob;
-
-    OptionData[] m_buttonPool;
-    OptionData m_option;
     
     bool m_endLevel;
 
@@ -33,6 +30,8 @@ public class w_QuestionManager : MonoBehaviour
     FillerText m_fillerText;
 
     e_rating m_previous = e_rating.NONE;
+
+    OptionPool m_optionPool;
 
     /// <summary>
     /// The timer visualisitation
@@ -64,13 +63,6 @@ public class w_QuestionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Loading in button prefab
-        m_option = Resources.Load<GameObject>("Prefabs/Option")
-            .GetComponentInChildren<OptionData>();
-        Debug.Assert(m_option, "Option was not loaded correctly");
-
-        OptionData.Register(this);
-
         // acquiring relevant data
         //questions for player
         m_questionBox = GetComponent<TextMeshPro>();
@@ -88,19 +80,8 @@ public class w_QuestionManager : MonoBehaviour
             transform.parent.gameObject.transform.position.x,
             transform.parent.gameObject.transform.position.y - 0.25f,
             transform.parent.gameObject.transform.position.z);
-        // pool our buttons
-        m_buttonPool = new OptionData[m_buttonPoolSize];
-        for (int index = 0; index < m_buttonPoolSize; index++)
-        {
-            if (index > 0)
-            {
-                spawnLocation = new Vector3(spawnLocation.x,
-                    spawnLocation.y - 0.25f, spawnLocation.z);
-            }
-            GameObject temp = Instantiate(m_option.transform.parent.gameObject);
-            temp.transform.position = spawnLocation;
-            m_buttonPool[index] = temp.GetComponentInChildren<OptionData>();
-        }
+
+        m_optionPool = new OptionPool(m_buttonPoolSize, spawnLocation, this);
 
         // set timerslider
         m_timerSlider.maxValue = m_timeBetweenQuestions;
@@ -149,16 +130,7 @@ public class w_QuestionManager : MonoBehaviour
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
                 m_fadeInSpeed, true));
 
-            for (int index = 0; index < playerResponses.Count; index++)
-            {
-                // Set locked graphics, values and active, then begin fade
-                m_buttonPool[index].SetLocked(
-                    !CheckHasFlag(
-                    playerResponses[index].unlockCriteria));
-                m_buttonPool[index].SetValue(playerResponses[index],
-                    m_questions[nextQuestion].tip);
-                //m_buttonPool[index].transform.parent.gameObject.SetActive(true);
-            }
+            m_optionPool.Set(playerResponses, m_questions[nextQuestion]);
 
             Debug.Log("Chose Question: " + questionToDisplay);
 
@@ -180,7 +152,7 @@ public class w_QuestionManager : MonoBehaviour
             m_questionBox.text);
         AddTip(_chosenResponse.tip);
         m_previous = _chosenResponse.rating;
-        TurnOffButtons();
+        TurnOffOptions();
         FadeOutQuestionText();
         m_processNextStep.Invoke();
     }
@@ -202,7 +174,7 @@ public class w_QuestionManager : MonoBehaviour
             yield return null;
         }
 
-        TurnOffButtons();
+        TurnOffOptions();
         FillerText.Silent();
         m_previous = e_rating.AWFUL;
         PlayerWasSilent(m_questionBox.text);
@@ -213,16 +185,9 @@ public class w_QuestionManager : MonoBehaviour
     /// Fade Out the buttons, turn off the timer and set the text for the
     /// question box to blank
     /// </summary>
-    void TurnOffButtons()
+    void TurnOffOptions()
     {
-        // Turn of buttons for now
-        foreach (OptionData button in m_buttonPool)
-        {
-            if (button.enabled)
-            {
-                StartCoroutine(button.setInactive());
-            }
-        }
+        m_optionPool.TurnOffOptions();
         m_timerSlider.gameObject.SetActive(false);
     }
 
@@ -235,18 +200,7 @@ public class w_QuestionManager : MonoBehaviour
             "itself?");
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox, 0.75f, true));
 
-        for (int index = 0; index < m_questionForJob.Count; index++)
-        {
-            m_buttonPool[index].SetLocked( CheckHasFlag(m_questionForJob[index]
-                .flag));
-            s_Questionresponse temp = new s_Questionresponse
-            {
-                rating = e_rating.GREAT,
-                response = m_questionForJob[index].question
-            };
-            m_buttonPool[index].SetValue(temp, e_tipCategories.NOTASKING);
-            m_buttonPool[index].gameObject.SetActive(true);
-        }
+        m_optionPool.Set(m_questionForJob);
 
         m_endLevel = true;
 
@@ -364,7 +318,7 @@ public class w_QuestionManager : MonoBehaviour
     {
         WaitForSeconds waitFor = new WaitForSeconds(1.5f);
 
-        StartCoroutine(DeleteButtons());
+        StartCoroutine(m_optionPool.Clear());
 
         string[] outroText = LoadOutroText();
         foreach(string line in outroText)
@@ -395,18 +349,5 @@ public class w_QuestionManager : MonoBehaviour
         }
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
             m_fadeInSpeed, false));
-    }
-
-    /// <summary>
-    /// Coroutine to clear all buttons
-    /// </summary>
-    /// <returns>yield return null</returns>
-    IEnumerator DeleteButtons()
-    {
-        for (int index = 0; index < m_buttonPool.Length; index++)
-        {
-            Destroy(m_buttonPool[index].transform.root.gameObject);
-            yield return null;
-        }
     }
 }

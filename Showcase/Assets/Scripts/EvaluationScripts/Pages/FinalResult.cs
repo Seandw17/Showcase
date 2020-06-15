@@ -45,6 +45,17 @@ public class FinalResult : Page
         {
             SetAlphaToZero(child);
         }
+
+        // instaniating the end button
+        GameObject button = Instantiate
+            (Resources.Load<GameObject>("Prefabs/EndButton"));
+        SetAlphaToZero(button.GetComponent<Renderer>().material);
+        StartCoroutine(FadeAsset(button.GetComponent<Renderer>(), 0.5f, true));
+        button.transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y - 1,
+            transform.position.z);
+
     }
 
     /// <summary>

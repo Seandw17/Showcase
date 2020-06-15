@@ -18,7 +18,7 @@ public class LevelChange : MonoBehaviour
     {
         Debug.Assert(!forcedLevelChange.Equals(""),
             "Enter a level to change to");
-
+        //ChangeLevel("TitleScreen");
         ChangeLevel(forcedLevelChange);
     }
 

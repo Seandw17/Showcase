@@ -6,15 +6,40 @@ using UnityEngine.UI;
 public class OutfitManager : MonoBehaviour
 {
     // temp names for the outfits as well as a temp amount of outfits
-    [SerializeField]
-    enum e_Outfits { OUTFIT1, OUTFIT2 , OUTFIT3 };
+    enum e_Outfits { CASUAL, SMART_CASUAL, SMART };
     e_Outfits m_selectedOutfit;
+    static int m_selectedOutfitScore;
 
     GameObject[] ig_Outfit;
     GameObject ig_Player;
 
+    [SerializeField]
+    Material[] m_outfitMats;
+
     protected PlayerController m_playerscript;
     CursorController m_cmScript;
+
+    // tried creating a struct which would hold the name of the outfit, the score given to it and the model/material which it applies to
+    //struct S_OutfitStruct
+    //{
+    //    string m_outfitName;
+    //    int m_appliedOutfitScore;
+    //    material m_outfitMaterial;
+    //
+    //    public S_OutfitStruct(string name, int score, material mat)
+    //    {
+    //        m_outfitName = name;
+    //        m_appliedOutfitScore = score;
+    //        m_outfitMaterial = mat; 
+    //    }
+    //}
+
+    // S_OutfitStruct[] s_Outfit = new S_OutfitStruct[]
+    //{
+    //    new S_OutfitStruct ("CASUAL", 1, m_outfitMats[0]),
+    //    new S_OutfitStruct ("SMART_CASUAL", 3, m_outfitMats[1]),
+    //    new S_OutfitStruct ("SMART", 2, m_outfitMats[2])
+    //};
 
 
     // Start is called before the first frame update
@@ -40,24 +65,52 @@ public class OutfitManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+        
     }
 
-    // when an outfity is clicked, debug.log what one was clicked and save it as the selected outfit
+    // when an outfit on the UI is clicked
     void OutfitClicked(int buttonNo)
     {
         m_selectedOutfit = (e_Outfits)buttonNo;
+        
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
+        CheckSelectedModel();
         m_playerscript.enabled = true;
-        m_cmScript.DisableCursor();
-
-        Debug.Log("Selected outfit is " + m_selectedOutfit);
+        m_cmScript.DisableCursor();    
     }
 
-
-    // call the stuff needed to re-enable movement and remove the outfit selectino from the hud
-    void RenablePlayerMovement()
+    // temporally made it so that the players camera is higher up in the scene (not via code)
+    // this is also temp code for changing the material of the player to simulate the changing of the outfits and will be changed when we have more assets
+    void CheckSelectedModel()
     {
-        Debug.Log(m_selectedOutfit);
+        if (m_selectedOutfit == e_Outfits.CASUAL)
+        {
+            ChangeSelectedModel(m_outfitMats[0]);
+            m_selectedOutfitScore = 1;
+        }
+        else if (m_selectedOutfit == e_Outfits.SMART_CASUAL)
+        {
+            ChangeSelectedModel(m_outfitMats[1]);
+            m_selectedOutfitScore = 3;
+        }
+        else if (m_selectedOutfit == e_Outfits.SMART)
+        {
+            ChangeSelectedModel(m_outfitMats[2]);
+            m_selectedOutfitScore = 2;
+        }
+        Debug.Log("Selected outfit is " + m_selectedOutfit);
+        Debug.Log("Selected outfit score is " + m_selectedOutfitScore);
+    }
+
+    // will be changed to change the model/texture when the assets are created
+    void ChangeSelectedModel(Material mat)
+    {
+        ig_Player.GetComponent<MeshRenderer>().material = mat;
+    }
+
+    // returns the score given to the outfit to future scenes
+    public static int GetOutfitScore()
+    {
+        return m_selectedOutfitScore;
     }
 }

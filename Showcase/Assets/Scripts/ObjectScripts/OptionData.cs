@@ -1,5 +1,7 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
+using static FadeIn;
 
 // Author: Alec
 
@@ -9,10 +11,16 @@ public class OptionData : InteractableObjectBase
     static w_QuestionManager m_questionManager;
     s_Questionresponse m_responseForThisButton;
     bool m_isInteractible;
+    Renderer m_renderer;
+    Coroutine m_fadeText, m_fadeRenderer;
 
     private void Awake()
     {
         m_textValue = GetComponent<TextMeshPro>();
+        m_renderer = transform.parent.GetComponent<Renderer>();
+        SetAlphaToZero(m_renderer.material);
+        SetAlphaToZero(m_textValue);
+        SetShouldGlow(false);
     }
 
     /// <summary>
@@ -29,10 +37,16 @@ public class OptionData : InteractableObjectBase
     /// </summary>
     /// <param name="_value"> what will be displayed in game</param>
     /// <param name="_connotation"> what feelings should be returned </param>
-    public void SetValue(s_Questionresponse _response)
+    public void SetValue(s_Questionresponse _response, e_tipCategories _tip)
     {
+        transform.parent.gameObject.SetActive(true);
         m_textValue.SetText(_response.response);
         m_responseForThisButton = _response;
+        m_responseForThisButton.tip = _tip;
+        gameObject.SetActive(true);
+        m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
+        m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
+        SetShouldGlow(true);
     }
 
     /// <summary>
@@ -41,17 +55,11 @@ public class OptionData : InteractableObjectBase
     override public void Interact()
     {
         Debug.Log("Option: " + m_textValue.text + "Hit");
-        //if (m_isInteractible)
-        //{
+        if (m_isInteractible)
+        {   
             m_questionManager.ProcessQuestionResult(m_responseForThisButton);
-        //}
+        }
     }
-
-    /// <summary>
-    /// Function to return the text of this object
-    /// </summary>
-    /// <returns> the text mesh pro object </returns>
-    public TextMeshPro ReturnText() { return m_textValue; }
 
     /// <summary>
     /// Set the graphic of the option to locked
@@ -60,7 +68,24 @@ public class OptionData : InteractableObjectBase
     public void SetLocked(bool _locked)
     {
         m_isInteractible = !_locked;
+        if (!_locked)
+        {
+            SetShouldGlow(true);
+        }
 
         // TODO graphical changes
+    }
+
+    public IEnumerator setInactive()
+    {
+        gameObject.SetActive(true);
+        float fadeOutTime = 0.5f;
+        SetShouldGlow(false);
+        StopCoroutine(m_fadeRenderer);
+        StopCoroutine(m_fadeText);
+        StartCoroutine(FadeAsset(m_renderer, fadeOutTime, false));
+        StartCoroutine(FadeAsset(m_textValue, fadeOutTime, false));
+        yield return new WaitForSeconds(fadeOutTime + 1);
+        m_isInteractible = false;
     }
 }

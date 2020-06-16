@@ -12,6 +12,7 @@ public class OptionData : InteractableObjectBase
     s_Questionresponse m_responseForThisButton;
     bool m_isInteractible;
     Renderer m_renderer;
+    Coroutine m_fadeText, m_fadeRenderer;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class OptionData : InteractableObjectBase
         m_renderer = transform.parent.GetComponent<Renderer>();
         SetAlphaToZero(m_renderer.material);
         SetAlphaToZero(m_textValue);
+        SetShouldGlow(false);
     }
 
     /// <summary>
@@ -41,8 +43,10 @@ public class OptionData : InteractableObjectBase
         m_textValue.SetText(_response.response);
         m_responseForThisButton = _response;
         m_responseForThisButton.tip = _tip;
-        StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
-        StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
+        gameObject.SetActive(true);
+        m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
+        m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
+        SetShouldGlow(true);
     }
 
     /// <summary>
@@ -52,7 +56,7 @@ public class OptionData : InteractableObjectBase
     {
         Debug.Log("Option: " + m_textValue.text + "Hit");
         if (m_isInteractible)
-        {
+        {   
             m_questionManager.ProcessQuestionResult(m_responseForThisButton);
         }
     }
@@ -64,15 +68,24 @@ public class OptionData : InteractableObjectBase
     public void SetLocked(bool _locked)
     {
         m_isInteractible = !_locked;
+        if (!_locked)
+        {
+            SetShouldGlow(true);
+        }
 
         // TODO graphical changes
     }
 
     public IEnumerator setInactive()
     {
+        gameObject.SetActive(true);
         float fadeOutTime = 0.5f;
+        SetShouldGlow(false);
+        StopCoroutine(m_fadeRenderer);
+        StopCoroutine(m_fadeText);
         StartCoroutine(FadeAsset(m_renderer, fadeOutTime, false));
+        StartCoroutine(FadeAsset(m_textValue, fadeOutTime, false));
         yield return new WaitForSeconds(fadeOutTime + 1);
-        gameObject.SetActive(false);
+        m_isInteractible = false;
     }
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    float m_playerSpeed = 10.0f;
+    float m_playerSpeed = 5.0f;
 
     //Camera Variables
     Vector2 m_mouseLook;
     Vector2 m_smoothV;
-    float m_mouseSensitivity = 5.0f;
+    float m_mouseSensitivity = 2.0f;
     float m_smoothing = 2.0f;
     [SerializeField]
     Camera m_camera;
@@ -97,7 +97,10 @@ public class PlayerController : MonoBehaviour
                     if (m_objectHit.gameObject == ig_interactable[i].gameObject)
                     {
                         m_currentlySelected = ig_interactable[i];
-                        ig_interactable[i].GetObjectOutline().enabled = true;
+                        if (ig_interactable[i].GetShouldGlow())
+                        {
+                            ig_interactable[i].GetObjectOutline().enabled = true;
+                        }
                         if (Input.GetMouseButtonDown(0))
                         {
                             //Call the specific object interact function

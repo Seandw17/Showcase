@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 // Author: Alec
@@ -16,7 +17,7 @@ static public class w_CSVLoader
     {
         Debug.Log("Starting Read of CSV: " + _fileName);
 
-        TextAsset file = LoadInFile(_fileName);
+        TextAsset file = LoadInFile("Conversation/" +_fileName);
 
         List<s_questionData> returnValue = new List<s_questionData>();
         s_questionData temp = new s_questionData();
@@ -33,7 +34,6 @@ static public class w_CSVLoader
                 }
                 else
                 {
-                    
                     string[] check = line.Split('$');
                     switch (check[0])
                     {
@@ -64,21 +64,18 @@ static public class w_CSVLoader
     /// </summary>
     /// <param name="_questions"> the line</param>
     /// <returns>a list of variations</returns>
-    static List<s_questionVariations> ReadQuestions(string _questions)
+    static Dictionary<e_rating, string> ReadQuestions(string _questions)
     {
-        List<s_questionVariations> returnList =
-            new List<s_questionVariations>();
+        Dictionary<e_rating, string> returnList =
+            new Dictionary<e_rating, string>();
 
         string[] data = _questions.Split(',');
 
         foreach (string dataSet in data)
         {
             string[] brokenUp = dataSet.Split('|');
-            s_questionVariations question = new s_questionVariations();
-            question.question = brokenUp[1];
-            question.identifier =
-                (e_rating) Enum.Parse(typeof(e_rating), brokenUp[0]);
-            returnList.Add(question);
+            returnList.Add((e_rating)Enum.Parse(typeof(e_rating),
+                brokenUp[0]), brokenUp[1]);
         }
 
         return returnList;
@@ -119,7 +116,7 @@ static public class w_CSVLoader
     {
         Debug.Log("Loading in player questions");
 
-        TextAsset file = LoadInFile(_fileName);
+        TextAsset file = LoadInFile("Conversation/" + _fileName);
 
         _list = new List<s_playerQuestion>();
 
@@ -160,7 +157,6 @@ static public class w_CSVLoader
     /// <returns>TextAsset of file</returns>
     static TextAsset LoadInFile(string _name)
     {
-        _name = "Conversation/" + _name;
         TextAsset file = Resources.Load<TextAsset>(_name);
 
         Debug.Assert(file, "File: " + _name + " cannot be found");
@@ -169,11 +165,15 @@ static public class w_CSVLoader
         return file;
     }
 
+    /// <summary>
+    /// Function to load in the filler text
+    /// </summary>
+    /// <returns>List of filler text string</returns>
     public static List<string> LoadInFillerText()
     {
         List<string> returnList = new List<string>();
 
-        TextAsset file = LoadInFile("FillerText");
+        TextAsset file = LoadInFile("Conversation/FillerText");
         string[] lines = file.text.Split('\n');
 
         foreach (string line in lines)
@@ -184,11 +184,15 @@ static public class w_CSVLoader
         return returnList;
     }
 
+    /// <summary>
+    /// Function to load in tips from a text file
+    /// </summary>
+    /// <param name="_list">Dictionary you want to load the tips into</param>
     public static void LoadTips(out Dictionary<e_tipCategories, string> _list)
     {
         _list = new Dictionary<e_tipCategories, string>();
 
-        TextAsset file = LoadInFile("Tips");
+        TextAsset file = LoadInFile("Conversation/Tips");
         string[] lines = file.text.Split('\n');
 
         foreach (string line in lines)
@@ -200,5 +204,101 @@ static public class w_CSVLoader
                     data[0]), data[1]);
             }
         }
+    }
+
+    /// <summary>
+    /// function to get intro text document
+    /// </summary>
+    /// <returns>string array</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static string[] LoadIntroText() => LoadInFile("Conversation/intro")
+        .text.Split('\n');
+
+    /// <summary>
+    /// function to get outro text document
+    /// </summary>
+    /// <returns>string array of outro text</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static string[] LoadOutroText() => LoadInFile("Conversation/outro")
+        .text.Split('\n');
+
+    /// <summary>
+    /// Load in title screen positon file
+    /// </summary>
+    /// <returns>Array of lists of camera pan positions</returns>
+    public static List<s_cameraPan>[] LoadTitleScreenPositions()
+    {
+        string file = LoadInFile("Title/Positions").text;
+        string[] models = file.Split(';');
+
+        Debug.Log("Starting reading Position document");
+
+        List<s_cameraPan>[] returnList = new List<s_cameraPan>[models.Length];
+
+        for(int index = 0; index < models.Length; index++)
+        {
+            returnList[index] = new List<s_cameraPan>();
+            string[] dataSet = models[index].Split('\n');
+
+            foreach (string transformLine in dataSet)
+            {
+                if (!transformLine.Equals(""))
+                {
+                    if (!transformLine[0].Equals('#'))
+                    {
+                        returnList[index].Add
+                        (ParseTransform(transformLine.Split(',')));
+                    }
+                }
+            }
+        }
+
+        Debug.Log("Completed reading positon document");
+
+        return returnList;
+    }
+
+    /// <summary>
+    /// Parse a location and rotation from string
+    /// </summary>
+    /// <param name="_data">the string line that is parsed</param>
+    /// <returns>an object of the s_cameraPan struct</returns>
+    static s_cameraPan ParseTransform(string[] _data)
+    {
+        Vector3 pos = new Vector3();
+        Vector3 rot = new Vector3();
+
+        for (int index = 0; index < _data.Length; index++)
+        {
+            switch (index)
+            {
+                case 0:
+                    pos.x = float.Parse(_data[index]);
+                    break;
+                case 1:
+                    pos.y = float.Parse(_data[index]);
+                    break;
+                case 2:
+                    pos.z = float.Parse(_data[index]);
+                    break;
+                case 3:
+                    rot.x = float.Parse(_data[index]);
+                    break;
+                case 4:
+                    rot.y = float.Parse(_data[index]);
+                    break;
+                case 5:
+                    rot.z = float.Parse(_data[index]);
+                    break;
+            }
+        }
+
+        Debug.Log("Read Line " + pos.x + "," + pos.y + "," + pos.z);
+
+        return new s_cameraPan
+        {
+            position = pos,
+            rotation = rot
+        };
     }
 }

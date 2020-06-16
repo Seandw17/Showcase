@@ -2,18 +2,11 @@
 using System.Collections.Generic;
 using System.Collections;
 
-//TODO implement waiting text
-
 public class ScoreCard : MonoBehaviour
 {
     List<s_playerResponse> m_responses;
     int m_currentPage;
     List<Page> m_pages;
-
-    /// <summary>
-    /// GameObject of waiting text
-    /// </summary>
-    [SerializeField] GameObject m_watitingText;
 
     PageMoveObject m_lftButton, m_rgtButton;
 
@@ -21,6 +14,7 @@ public class ScoreCard : MonoBehaviour
     {
         //m_responses = ConversationStore.ReturnFinalChosenResults();
         m_responses = ConversationStore.ReturnTestData();
+        Debug.Log(m_responses.Count);
         m_pages = new List<Page>();
         PageMoveObject.Register(this);
 
@@ -32,9 +26,7 @@ public class ScoreCard : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     IEnumerator CalculateResult()
-    { 
-        //m_watitingText.SetActive(true);
-
+    {
         m_rgtButton = Instantiate(Resources.Load<GameObject>
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
         m_rgtButton.Set(PageMoveObject.e_direction.RIGHT);
@@ -48,7 +40,7 @@ public class ScoreCard : MonoBehaviour
         // Load in pages
         s_playerResponse[] TempResponses = new s_playerResponse[3];
         int externalIndexer = 0;
-        int finalScore = 0;
+        int finalScore = OutfitManager.GetOutfitScore();
 
         foreach (s_playerResponse response in m_responses)
         {
@@ -69,6 +61,7 @@ public class ScoreCard : MonoBehaviour
             {
                 GenerateAnswerPage(TempResponses);
             }
+
             yield return null;
         }
 
@@ -100,7 +93,6 @@ public class ScoreCard : MonoBehaviour
 
         m_responses.Clear();
         m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
-        //Destroy(m_watitingText);
         yield return null;
     }
 
@@ -114,7 +106,6 @@ public class ScoreCard : MonoBehaviour
             ("Prefabs/FinalResultPage").GetComponent<FinalResult>());
         finalResultPage.SetValue(_finalScore, m_responses.Count);
         finalResultPage.gameObject.transform.parent = transform;
-        //m_pages.Add(finalResultPage);
         m_pages.Insert(0, finalResultPage);
     }
 

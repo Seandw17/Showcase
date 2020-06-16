@@ -31,6 +31,7 @@ static public class ConversationStore
     static public bool CheckHasFlag(e_unlockFlag _flag) =>
         unlockedFlags.HasFlag(_flag);
 
+
     /// <summary>
     /// Signals that the player was silent
     /// </summary>
@@ -38,7 +39,7 @@ static public class ConversationStore
     static public void PlayerWasSilent(string _question)
     {
         s_playerResponse silentResponse = new s_playerResponse();
-        silentResponse.playerResponse.rating = e_rating.BAD;
+        silentResponse.playerResponse.rating = e_rating.AWFUL;
         silentResponse.playerResponse.response = "Stayed Silent";
         silentResponse.question = _question;
         ConversationStore.AddTip(e_tipCategories.NOTASKING);
@@ -60,7 +61,9 @@ static public class ConversationStore
         temp.playerResponse = _response;
         temp.question = _question;
 
-        // TODO change to add tip category
+        //TODO finish and allow
+        //InterviewerFace.Expression(_response.rating);
+
         if (_response.rating.Equals(e_rating.AWFUL) ||
             _response.rating.Equals(e_rating.BAD))
         {

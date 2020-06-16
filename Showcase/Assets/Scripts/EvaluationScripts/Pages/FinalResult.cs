@@ -26,22 +26,36 @@ public class FinalResult : Page
     /// </summary>
     [SerializeField] TextMeshPro m_finalPercentText;
 
-    protected override void Init()
-    {
-        throw new System.NotImplementedException();
-    }
+    /// <summary>
+    /// Text that will displayed when pass occurs
+    /// </summary>
+    [SerializeField] string m_passText;
+
+    /// <summary>
+    /// Text that will be displayed when fail occurs
+    /// </summary>
+    [SerializeField] string m_failText;
 
     private void Start()
     {
         // fade in assets
         SetAlphaToZero(GetComponent<Renderer>().material);
-        StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
 
         foreach(TextMeshPro child in GetComponentsInChildren<TextMeshPro>())
         {
             SetAlphaToZero(child);
-            StartCoroutine(FadeAsset(child, 0.5f, true));
         }
+
+        // instaniating the end button
+        GameObject button = Instantiate
+            (Resources.Load<GameObject>("Prefabs/EndButton"));
+        SetAlphaToZero(button.GetComponent<Renderer>().material);
+        StartCoroutine(FadeAsset(button.GetComponent<Renderer>(), 0.5f, true));
+        button.transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y - 1,
+            transform.position.z);
+
     }
 
     /// <summary>
@@ -55,13 +69,20 @@ public class FinalResult : Page
 
         m_finalScore.SetText("Final Score: " + _score.ToString());
 
-        if (_score >= amountNeededToPass)
+        if (_score >= amountNeededToPass) { m_outcomeText.SetText(m_passText); }
+        else { m_outcomeText.SetText(m_failText); }
+    }
+
+    /// <summary>
+    /// function to display this card
+    /// </summary>
+    public void Display()
+    {
+        StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
+
+        foreach (TextMeshPro child in GetComponentsInChildren<TextMeshPro>())
         {
-            m_outcomeText.SetText("Congratulations you've passed!");
-        }
-        else
-        {
-            m_outcomeText.SetText("I'm sorry you've failed");
+            StartCoroutine(FadeAsset(child, 0.5f, true));
         }
     }
 }

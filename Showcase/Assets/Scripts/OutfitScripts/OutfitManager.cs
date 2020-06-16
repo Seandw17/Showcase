@@ -109,7 +109,7 @@ public class OutfitManager : MonoBehaviour
     }
 
     // returns the score given to the outfit to future scenes
-    static int GetOutfitScore()
+    public static int GetOutfitScore()
     {
         return m_selectedOutfitScore;
     }

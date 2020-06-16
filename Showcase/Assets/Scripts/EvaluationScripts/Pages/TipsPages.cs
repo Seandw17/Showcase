@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class to generate a tips page
+/// </summary>
 public class TipsPages : Page
 {
     ResponseDisplay[] m_responseDisplays;
@@ -28,9 +31,6 @@ public class TipsPages : Page
             m_responseDisplays[index].transform.localPosition = newPos;
         }
     }
-
-    protected override void Init() =>
-        throw new System.NotImplementedException();
 
     public void SetValue(string[] _tips)
     {

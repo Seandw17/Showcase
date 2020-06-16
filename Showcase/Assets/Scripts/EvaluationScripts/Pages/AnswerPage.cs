@@ -6,10 +6,7 @@ public class AnswerPage : Page
 {
     ResponseDisplay[] m_reponses;
 
-    /// <summary>
-    /// Create the page with relevant GameObjects
-    /// </summary>
-    protected override void Init()
+    private void Awake()
     {
         m_reponses = new ResponseDisplay[3];
         Vector3 newPos = Vector3.zero;
@@ -34,8 +31,6 @@ public class AnswerPage : Page
     /// <param name="_reponses"> the reponses to this </param>
     public void SetValue(s_playerResponse[] _reponses)
     {
-        Init();
-
         Debug.Assert(_reponses.Length < 4, "Too many values passed to " +
             "'set value' of Answer page'");
 

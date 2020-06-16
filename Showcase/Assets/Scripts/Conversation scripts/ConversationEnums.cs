@@ -11,21 +11,25 @@ public enum e_rating
     OK = 2,
     BAD = 1,
     AWFUL = 0,
-    NONE
+    NONE = 5
 }
 
 /// <summary>
 /// Enum to represent Unlock flag
 /// </summary>
+[Flags]
 public enum e_unlockFlag
 {
-    NONE = 0,
-    FIRST = 2,
-    SECOND = 3,
-    THIRD = 4,
-    FOURTH = 5
+    NONE = 1 << 1,
+    FIRST = 1 << 2,
+    SECOND = 1 << 3,
+    THIRD = 1 << 4,
+    FOURTH = 1 << 5
 }
 
+/// <summary>
+/// The categories of tips
+/// </summary>
 [Flags]
 public enum e_tipCategories
 {

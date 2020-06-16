@@ -2,8 +2,15 @@
 using System;
 using static w_CSVLoader;
 
+/// <summary>
+/// Class to parse and load tips 
+/// </summary>
 static public class TipParser 
 {
+    /// <summary>
+    /// function generate tips taht the user has gotten
+    /// </summary>
+    /// <returns>list of tips as string</returns>
     static public List<string> GenerateTips()
     {
         e_tipCategories tips = ConversationStore.GetPlayerTips();

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,6 +42,7 @@ public class LaptopObject : InteractableObjectBase
     {
         ConversationStore.RegisterUnlockFlag(e_unlockFlag.FIRST);
         ig_unlock1Button.enabled = false;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
     }
 
     public void Unlock2()

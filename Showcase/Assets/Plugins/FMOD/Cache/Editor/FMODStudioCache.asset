@@ -36,6 +36,30 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-6717898627536092172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/tasklist_close
+  m_EditorClassIdentifier: 
+  Path: event:/UI/tasklist_close
+  guid: 615362ad83d60f4f9168b3f3361de8e5
+  Banks:
+  - {fileID: 8318033225796177097}
+  - {fileID: 4447901369490843365}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 478
 --- !u!114 &-6016941484265989723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +115,7 @@ MonoBehaviour:
   lastModified: 637275659530000000
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,17 +129,47 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 571821994781988258}
-  - {fileID: -1658256771586154242}
+  - {fileID: 7604106224521538586}
+  - {fileID: 8318033225796177097}
+  - {fileID: 4447901369490843365}
   EditorEvents:
-  - {fileID: 3880511425784501490}
+  - {fileID: 5909902980897448765}
+  - {fileID: 11867730222310922}
+  - {fileID: 3648173017009462897}
+  - {fileID: -6717898627536092172}
+  - {fileID: 1070717198328665357}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -1658256771586154242}
+  - {fileID: 8318033225796177097}
+  - {fileID: 4447901369490843365}
   StringsBanks:
-  - {fileID: 571821994781988258}
-  stringsBankWriteTime: 637275659530000000
+  - {fileID: 7604106224521538586}
+  stringsBankWriteTime: 637279284316696152
   cacheVersion: 3
+--- !u!114 &11867730222310922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/tasklist_open
+  m_EditorClassIdentifier: 
+  Path: event:/UI/tasklist_open
+  guid: 40d27f8354294148bcac3a6f78d0be54
+  Banks:
+  - {fileID: 8318033225796177097}
+  - {fileID: 4447901369490843365}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 695
 --- !u!114 &118057815104409085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,7 +207,7 @@ MonoBehaviour:
   FileSizes:
   - Name: 
     Value: 738
-  Exists: 1
+  Exists: 0
 --- !u!114 &1020800734323799110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +226,54 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &1070717198328665357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/mouse_click
+  m_EditorClassIdentifier: 
+  Path: event:/UI/mouse_click
+  guid: 7129eaf6e8e6cf45ad86638734f7ff70
+  Banks:
+  - {fileID: 8318033225796177097}
+  - {fileID: 4447901369490843365}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 130
+--- !u!114 &3648173017009462897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/german_folk_m
+  m_EditorClassIdentifier: 
+  Path: event:/Music/german_folk_m
+  guid: 43d811513e680b4a85a16a31c5b8781b
+  Banks:
+  - {fileID: 8318033225796177097}
+  - {fileID: 4447901369490843365}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 18830
 --- !u!114 &3880511425784501490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,8 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/german_folk_m
   guid: 43d811513e680b4a85a16a31c5b8781b
-  Banks:
-  - {fileID: -1658256771586154242}
+  Banks: []
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -195,6 +296,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 18830
+--- !u!114 &4447901369490843365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/fmod_audio/Build/Desktop/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637279284316626341
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &4968615104426358840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +332,30 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &5909902980897448765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/clue_found
+  m_EditorClassIdentifier: 
+  Path: event:/UI/clue_found
+  guid: 3b4029f65c08664f875193342dee2edf
+  Banks:
+  - {fileID: 8318033225796177097}
+  - {fileID: 4447901369490843365}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1400
 --- !u!114 &6056644798027584350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +389,44 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Master.bank
   SubDir: 
   lastModified: 637272195635688826
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &7604106224521538586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/fmod_audio/Build/Desktop/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637279284316696152
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 946
+  Exists: 1
+--- !u!114 &8318033225796177097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/fmod_audio/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637279273080412845
   LoadResult: 0
   FileSizes: []
   Exists: 1

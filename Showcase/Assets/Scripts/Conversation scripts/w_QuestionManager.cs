@@ -58,6 +58,11 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     [SerializeField] float m_fadeInSpeed = 0.75f;
 
+    /// <summary>
+    /// Interviewer
+    /// </summary>
+    [SerializeField] InterviewerFace m_interviewer;
+
     Coroutine m_waitForAnswer, m_fadeText;
 
     // Start is called before the first frame update
@@ -152,6 +157,7 @@ public class w_QuestionManager : MonoBehaviour
             m_questionBox.text);
         AddTip(_chosenResponse.tip);
         m_previous = _chosenResponse.rating;
+        m_interviewer.Expression(_chosenResponse.rating);
         TurnOffOptions();
         FadeOutQuestionText();
         m_processNextStep.Invoke();

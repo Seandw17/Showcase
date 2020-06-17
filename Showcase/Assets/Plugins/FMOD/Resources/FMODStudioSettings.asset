@@ -16,7 +16,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: FMOD/fmod_audio/fmod_audio.fspro
-  sourceBankPath: FMOD/fmod_audio/Build/Desktop/Desktop
+  sourceBankPath: Assets/StreamingAssets/Desktop
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0

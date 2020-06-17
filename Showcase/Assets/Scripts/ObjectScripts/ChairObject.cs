@@ -7,6 +7,7 @@ public class ChairObject : InteractableObjectBase
     [SerializeField]
     GameObject ig_playerObject, ig_sitpositionObject;
 
+   
 
     int m_chairchoice = 0;
    
@@ -14,7 +15,7 @@ public class ChairObject : InteractableObjectBase
     void Start()
     {
         base.Start();
-        
+       
     }
 
     // Update is called once per frame
@@ -38,7 +39,9 @@ public class ChairObject : InteractableObjectBase
                 {
                     ig_playerObject.transform.position = ig_sitpositionObject.transform.position;
                     m_playerscript.SetCanPlayerMove(false);
+                    m_playerscript.SetIsInInterview(true);
 
+                   
                     //TODO - Set player Position to be facing the interviewer
                     break;
                 }

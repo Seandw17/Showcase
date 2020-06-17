@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     //Bool to check if the player is able to interact
     bool m_caninteract = true;
 
+    //Bool to check if the player is in the interview
+    bool m_isininterview = false;
+
     // the currently selected interactible
     InteractableObjectBase m_currentlySelected;
 
@@ -71,13 +74,25 @@ public class PlayerController : MonoBehaviour
         m_smoothV.x = Mathf.Lerp(m_smoothV.x, m_mouseDirection.x, 1f / m_smoothing);
         m_smoothV.y = Mathf.Lerp(m_smoothV.y, m_mouseDirection.y, 1f / m_smoothing);
         m_mouseLook += m_smoothV;
-        m_mouseLook.y = Mathf.Clamp(m_mouseLook.y, -90.0f, 90.0f);
-
+        if (m_isininterview == true)
+        {
+            m_mouseLook.x = Mathf.Clamp(m_mouseLook.x, -90.0f, 90.0f);
+            m_mouseLook.y = Mathf.Clamp(m_mouseLook.y, -45.0f, 90.0f);
+        }
+        else
+        {
+            m_mouseLook.y = Mathf.Clamp(m_mouseLook.y, -90.0f, 90.0f);
+        }
         if (m_cancameramove == true)
         {
             m_camera.transform.localRotation = Quaternion.AngleAxis(-m_mouseLook.y, Vector3.right);
             this.transform.localRotation = Quaternion.AngleAxis(m_mouseLook.x, this.transform.up);
         }
+        else
+        {
+            this.transform.localRotation = Quaternion.AngleAxis(m_mouseLook.x, Vector3.zero);
+        }
+        
     }
 
     //Setting up the interaction with left mouse button click
@@ -145,4 +160,9 @@ public class PlayerController : MonoBehaviour
         return m_canmove;
     }
 
+    public bool SetIsInInterview(bool _isininterview)
+    {
+        m_isininterview = _isininterview;
+        return m_isininterview;
+    }
 }

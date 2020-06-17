@@ -36,6 +36,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-7966243317039953148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/fmod_audio/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637279273080412845
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-6717898627536092172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,8 +69,8 @@ MonoBehaviour:
   Path: event:/UI/tasklist_close
   guid: 615362ad83d60f4f9168b3f3361de8e5
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -7966243317039953148}
+  - {fileID: -3857816483291286636}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -75,6 +93,24 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Master.bank
   SubDir: 
   lastModified: 637267961219062542
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-3857816483291286636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/fmod_audio/Build/Desktop/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637279334829197780
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -130,8 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 7604106224521538586}
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -7966243317039953148}
+  - {fileID: -3857816483291286636}
   EditorEvents:
   - {fileID: 5909902980897448765}
   - {fileID: 11867730222310922}
@@ -140,11 +176,11 @@ MonoBehaviour:
   - {fileID: 1070717198328665357}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -7966243317039953148}
+  - {fileID: -3857816483291286636}
   StringsBanks:
   - {fileID: 7604106224521538586}
-  stringsBankWriteTime: 637279284316696152
+  stringsBankWriteTime: 637279334829287526
   cacheVersion: 3
 --- !u!114 &11867730222310922
 MonoBehaviour:
@@ -161,8 +197,8 @@ MonoBehaviour:
   Path: event:/UI/tasklist_open
   guid: 40d27f8354294148bcac3a6f78d0be54
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -7966243317039953148}
+  - {fileID: -3857816483291286636}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -241,8 +277,8 @@ MonoBehaviour:
   Path: event:/UI/mouse_click
   guid: 7129eaf6e8e6cf45ad86638734f7ff70
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -7966243317039953148}
+  - {fileID: -3857816483291286636}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -265,8 +301,8 @@ MonoBehaviour:
   Path: event:/Music/german_folk_m
   guid: 43d811513e680b4a85a16a31c5b8781b
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -7966243317039953148}
+  - {fileID: -3857816483291286636}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -313,7 +349,7 @@ MonoBehaviour:
   lastModified: 637279284316626341
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &4968615104426358840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,8 +383,8 @@ MonoBehaviour:
   Path: event:/UI/clue_found
   guid: 3b4029f65c08664f875193342dee2edf
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -7966243317039953148}
+  - {fileID: -3857816483291286636}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -406,10 +442,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/fmod_audio/Build/Desktop/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637279284316696152
+  lastModified: 637279334829287526
   LoadResult: 0
   FileSizes:
-  - Name: Desktop
+  - Name: 
     Value: 946
   Exists: 1
 --- !u!114 &8318033225796177097
@@ -429,4 +465,4 @@ MonoBehaviour:
   lastModified: 637279273080412845
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0

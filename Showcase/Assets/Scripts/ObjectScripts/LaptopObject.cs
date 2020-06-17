@@ -27,6 +27,7 @@ public class LaptopObject : InteractableObjectBase
         m_playerscript.SetCanCameraMove(false);
         m_playerscript.SetCanPlayerMove(false);
         m_gmscript.m_cmScript.EnableCursor();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/tasklist_open", GetComponent<Transform>().position);
     }
 
     public void ReturnToPlayer()
@@ -36,6 +37,7 @@ public class LaptopObject : InteractableObjectBase
         m_playerscript.SetCanCameraMove(true);
         m_playerscript.SetCanPlayerMove(true);
         m_gmscript.m_cmScript.DisableCursor();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/tasklist_close", GetComponent<Transform>().position);
     }
 
     public void Unlock1()
@@ -49,17 +51,20 @@ public class LaptopObject : InteractableObjectBase
     {
         ConversationStore.RegisterUnlockFlag(e_unlockFlag.SECOND);
         ig_unlock2Button.enabled = false;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
     }
 
     public void Unlock3()
     {
         ConversationStore.RegisterUnlockFlag(e_unlockFlag.THIRD);
         ig_unlock3Button.enabled = false;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
     }
 
     public void Unlock4()
     {
         ConversationStore.RegisterUnlockFlag(e_unlockFlag.FOURTH);
         ig_unlock4Button.enabled = false;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
     }
 }

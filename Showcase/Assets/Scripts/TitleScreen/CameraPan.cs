@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using static FadeIn;
+using System.Linq;
 
 // Author: Alec Lauder
 
@@ -20,18 +21,12 @@ public struct s_cameraPan
 public class CameraPan : MonoBehaviour
 {
     /// <summary>
-    /// Models will be panning through
-    /// </summary>
-    [SerializeField] GameObject m_coffeeShopModel,
-        m_officeModel, m_bedroomModel;
-
-    /// <summary>
     /// How fast the camera should move
     /// </summary>
     [SerializeField] float m_cameraMoveSpeed = 0.05f;
 
     /// <summary>
-    /// 
+    /// the cover up sprite for this level
     /// </summary>
     [SerializeField] Image m_coverupSprite;
 
@@ -40,27 +35,26 @@ public class CameraPan : MonoBehaviour
 
     GameObject[] m_models;
 
-    List<s_cameraPan>[] m_targetPositions;
+    //List<s_cameraPan>[] m_targetPositions;
+    Dictionary<string, List<s_cameraPan>> m_targetPositions;
     List<s_cameraPan> m_currentTargetPositions;
 
     // Start is called before the first frame update
     void Start()
     {
-        //TODO possible change, load in models from resources?
-
-        // assigning arrays
-        m_models = new GameObject[3];
-        m_models[0] = m_coffeeShopModel;
-
-        m_models[1] = m_officeModel;
-        m_models[1].SetActive(false);
-
-        m_models[2] = m_bedroomModel;
-        m_models[2].SetActive(false);
+        //Load all models and set all but first index 
+        m_models = Resources.LoadAll("Models/Title", typeof(GameObject))
+            .Cast<GameObject>().ToArray();
+        foreach(GameObject model in m_models)
+        {
+            Instantiate(model);
+            model.SetActive(false);
+        }
+        m_models[0].SetActive(true);
 
         // getting positions
-        m_targetPositions = w_CSVLoader.LoadTitleScreenPositions();
-        m_currentTargetPositions = m_targetPositions[0];
+        m_targetPositions = w_CSVLoader.LoadTitlePositions();
+        m_currentTargetPositions = m_targetPositions[m_models[0].name];
         transform.position = m_currentTargetPositions[0].position;
         transform.eulerAngles = m_currentTargetPositions[0].rotation;
         SetAlphaToZero(m_coverupSprite);
@@ -98,7 +92,7 @@ public class CameraPan : MonoBehaviour
     /// </summary>
     void ChangeModel()
     {
-        //StartCoroutine(FadeAsset(m_coverupSprite, 0.1f, true));
+        StartCoroutine(FadeAsset(m_coverupSprite, 0.1f, true));
 
         m_models[m_activeModel].SetActive(false);
 
@@ -106,12 +100,13 @@ public class CameraPan : MonoBehaviour
 
         if (m_activeModel >= m_models.Length) { m_activeModel = 0; }
 
-        m_currentTargetPositions = m_targetPositions[m_activeModel];
+        m_currentTargetPositions =
+            m_targetPositions[m_models[m_activeModel].name];
         transform.position = m_currentTargetPositions[0].position;
         transform.eulerAngles = m_currentTargetPositions[0].rotation;
         m_models[m_activeModel].SetActive(true);
         m_currentGoalpos = 1;
 
-        //StartCoroutine(FadeAsset(m_coverupSprite, 0.1f, false));
+        StartCoroutine(FadeAsset(m_coverupSprite, 0.1f, false));
     }
 }

@@ -223,39 +223,34 @@ static public class w_CSVLoader
         .text.Split('\n');
 
     /// <summary>
-    /// Load in title screen positon file
+    /// Function to load in title positions files
     /// </summary>
-    /// <returns>Array of lists of camera pan positions</returns>
-    public static List<s_cameraPan>[] LoadTitleScreenPositions()
+    /// <returns>dictionary of a list of camera pan positions</returns>
+    public static Dictionary<string, List<s_cameraPan>> LoadTitlePositions()
     {
-        string file = LoadInFile("Title/Positions").text;
-        string[] models = file.Split(';');
+        TextAsset[] files = Resources.LoadAll<TextAsset>("Title");
+        Dictionary<string, List<s_cameraPan>> returnList =
+            new Dictionary<string, List<s_cameraPan>>();
 
-        Debug.Log("Starting reading Position document");
-
-        List<s_cameraPan>[] returnList = new List<s_cameraPan>[models.Length];
-
-        for(int index = 0; index < models.Length; index++)
+        foreach (TextAsset file in files)
         {
-            returnList[index] = new List<s_cameraPan>();
-            string[] dataSet = models[index].Split('\n');
+            List<s_cameraPan> cameraPans = new List<s_cameraPan>();
+            string[] rawTextLines = file.text.Split('\n');
 
-            foreach (string transformLine in dataSet)
+            foreach(string line in rawTextLines)
             {
-                if (!transformLine.Equals(""))
+                if (!line.Equals("") && !line[0].Equals('#'))
                 {
-                    if (!transformLine[0].Equals('#'))
-                    {
-                        returnList[index].Add
-                        (ParseTransform(transformLine.Split(',')));
-                    }
+                    cameraPans.Add(ParseTransform(line.Split(',')));
                 }
             }
+
+            returnList.Add(file.name, cameraPans);
+            Debug.Log("Added File" + file.name);
         }
 
-        Debug.Log("Completed reading positon document");
-
         return returnList;
+
     }
 
     /// <summary>

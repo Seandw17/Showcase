@@ -1,0 +1,6 @@
+# This file specifies positions for the main menus office
+#format:
+# [x pos],[y pos],[z pos],[x rotation],[y rotation],[z rotation]/n....[x pos],[y pos],[z pos],[x rotation],[y rotation],[z rotation]/n (end lines with semi colon)
+# NOTE: first value represents the starting position
+1.28,1.21,5.66,0,176,0
+1.28,1.21,0.2,0,209,0

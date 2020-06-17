@@ -54,22 +54,26 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // If escape is pressed, toggle the pause meny and gametime
-        if (Input.GetKeyDown(m_pauseButton))
+        // if the active scene is not the title screen
+        if (!SceneManager.GetActiveScene().name.Equals("TitleScreen"))
         {
-            m_isPaused = !m_isPaused;
-            Time.timeScale = Convert.ToSingle(!m_isPaused);
-
-            m_pauseMenuObject.SetActive(m_isPaused);
-
-            m_playerCursorCanvas.SetActive(!m_isPaused);
-        }
-        else if (m_isPaused)
-        {
-            if (Input.GetKeyDown(m_quitKey))
+            // If escape is pressed, toggle the pause meny and gametime
+            if (Input.GetKeyDown(m_pauseButton))
             {
-                // TODO Stop the game or return to a main menu
-                Debug.Log("The quit button has been pressed");
+                m_isPaused = !m_isPaused;
+                Time.timeScale = Convert.ToSingle(!m_isPaused);
+
+                m_pauseMenuObject.SetActive(m_isPaused);
+
+                m_playerCursorCanvas.SetActive(!m_isPaused);
+            }
+            else if (m_isPaused)
+            {
+                if (Input.GetKeyDown(m_quitKey))
+                {
+                    // if quit key is pressed, quit application
+                    Application.Quit();
+                }
             }
         }
     }

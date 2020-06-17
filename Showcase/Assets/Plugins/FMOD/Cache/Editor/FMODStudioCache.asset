@@ -18,6 +18,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-8821700406393941888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/tasklist_close
+  m_EditorClassIdentifier: 
+  Path: event:/UI/tasklist_close
+  guid: 615362ad83d60f4f9168b3f3361de8e5
+  Banks:
+  - {fileID: 5210596739513984196}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 478
 --- !u!114 &-8381811943465030388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,8 +74,8 @@ MonoBehaviour:
   Path: event:/UI/tasklist_close
   guid: 615362ad83d60f4f9168b3f3361de8e5
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -6206395643655018113}
+  - {fileID: 5628408123477987876}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -60,6 +83,44 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 478
+--- !u!114 &-6483137220166895259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/fmod_audio/Build/Desktop/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637279334829287526
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 946
+  Exists: 1
+--- !u!114 &-6206395643655018113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/fmod_audio/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637279273080412845
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-6016941484265989723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,22 +190,20 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 7604106224521538586}
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -6483137220166895259}
+  - {fileID: 5210596739513984196}
   EditorEvents:
-  - {fileID: 5909902980897448765}
-  - {fileID: 11867730222310922}
-  - {fileID: 3648173017009462897}
-  - {fileID: -6717898627536092172}
-  - {fileID: 1070717198328665357}
+  - {fileID: 1780115402532591631}
+  - {fileID: 6299934516555497571}
+  - {fileID: 2193345202728619249}
+  - {fileID: -8821700406393941888}
+  - {fileID: 2876162055724848111}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: 5210596739513984196}
   StringsBanks:
-  - {fileID: 7604106224521538586}
-  stringsBankWriteTime: 637279284316696152
+  - {fileID: -6483137220166895259}
+  stringsBankWriteTime: 637279334829287526
   cacheVersion: 3
 --- !u!114 &11867730222310922
 MonoBehaviour:
@@ -161,8 +220,8 @@ MonoBehaviour:
   Path: event:/UI/tasklist_open
   guid: 40d27f8354294148bcac3a6f78d0be54
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -6206395643655018113}
+  - {fileID: 5628408123477987876}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -241,8 +300,77 @@ MonoBehaviour:
   Path: event:/UI/mouse_click
   guid: 7129eaf6e8e6cf45ad86638734f7ff70
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -6206395643655018113}
+  - {fileID: 5628408123477987876}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 130
+--- !u!114 &1780115402532591631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/clue_found
+  m_EditorClassIdentifier: 
+  Path: event:/UI/clue_found
+  guid: 3b4029f65c08664f875193342dee2edf
+  Banks:
+  - {fileID: 5210596739513984196}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1400
+--- !u!114 &2193345202728619249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/german_folk_m
+  m_EditorClassIdentifier: 
+  Path: event:/Music/german_folk_m
+  guid: 43d811513e680b4a85a16a31c5b8781b
+  Banks:
+  - {fileID: 5210596739513984196}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 18830
+--- !u!114 &2876162055724848111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/mouse_click
+  m_EditorClassIdentifier: 
+  Path: event:/UI/mouse_click
+  guid: 7129eaf6e8e6cf45ad86638734f7ff70
+  Banks:
+  - {fileID: 5210596739513984196}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -265,8 +393,8 @@ MonoBehaviour:
   Path: event:/Music/german_folk_m
   guid: 43d811513e680b4a85a16a31c5b8781b
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -6206395643655018113}
+  - {fileID: 5628408123477987876}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -332,6 +460,42 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &5210596739513984196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/fmod_audio/Build/Desktop/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637279334829197780
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &5628408123477987876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/fmod_audio/Build/Desktop/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637279334829197780
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5909902980897448765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,8 +511,8 @@ MonoBehaviour:
   Path: event:/UI/clue_found
   guid: 3b4029f65c08664f875193342dee2edf
   Banks:
-  - {fileID: 8318033225796177097}
-  - {fileID: 4447901369490843365}
+  - {fileID: -6206395643655018113}
+  - {fileID: 5628408123477987876}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -374,6 +538,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &6299934516555497571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/tasklist_open
+  m_EditorClassIdentifier: 
+  Path: event:/UI/tasklist_open
+  guid: 40d27f8354294148bcac3a6f78d0be54
+  Banks:
+  - {fileID: 5210596739513984196}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 695
 --- !u!114 &7277491087753339276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,10 +593,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/fmod_audio/Build/Desktop/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637279284316696152
+  lastModified: 637279334829287526
   LoadResult: 0
   FileSizes:
-  - Name: Desktop
+  - Name: 
     Value: 946
   Exists: 1
 --- !u!114 &8318033225796177097

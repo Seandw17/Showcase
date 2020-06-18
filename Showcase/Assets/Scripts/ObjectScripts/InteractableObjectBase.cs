@@ -12,6 +12,11 @@ public class InteractableObjectBase : MonoBehaviour
 
     bool m_shouldGlow = true;
 
+    /// <summary>
+    /// if the 
+    /// </summary>
+    [SerializeField] MeshRenderer m_alternateGlowObject;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -27,8 +32,17 @@ public class InteractableObjectBase : MonoBehaviour
         m_gmscript = FindObjectOfType<GameManagerScript>();
         m_playerscript = FindObjectOfType<PlayerController>();
 
-        m_outline = gameObject.transform.root.
-            gameObject.AddComponent<Outline>();
+        if (GetComponent<MeshRenderer>())
+        {
+            m_outline = gameObject.AddComponent<Outline>();
+        }
+        else
+        {
+            m_outline = m_alternateGlowObject.gameObject.AddComponent<Outline>();
+        }
+
+        //m_outline = gameObject.transform.parent.
+          //  gameObject.AddComponent<Outline>();
         m_outline.OutlineColor = Color.blue;
         m_outline.OutlineWidth = 10.0f;
         m_outline.enabled = false;

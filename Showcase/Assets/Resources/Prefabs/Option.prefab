@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca9253c95f834b2e833a557a738a855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_alternateGlowObject: {fileID: 3783219231548716059}
 --- !u!33 &3783219231897602788
 MeshFilter:
   m_ObjectHideFlags: 0

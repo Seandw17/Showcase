@@ -35,7 +35,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
-  - {fileID: 8695626926642418914}
+  - {fileID: -3457221345456393371}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -105,6 +105,29 @@ MonoBehaviour:
   - Name: 
     Value: 946
   Exists: 0
+--- !u!114 &-6414750585056338030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Coffee Shop/amb_coffee
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Coffee Shop/amb_coffee
+  guid: 40846e08d3779c46a09e0a571026e021
+  Banks:
+  - {fileID: -3457221345456393371}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8000
 --- !u!114 &-6206395643655018113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +200,47 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-3457221345456393371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637280888006747104
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-2868314080039960213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Coffee Shop/amb_coffee_bar
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Coffee Shop/amb_coffee_bar
+  guid: 98920a41e3bd414283bdaacc3987c067
+  Banks:
+  - {fileID: -3457221345456393371}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 27999
 --- !u!114 &-2041042658757128090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,19 +293,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 2061836392448175845}
-  - {fileID: 8695626926642418914}
+  - {fileID: -3457221345456393371}
   EditorEvents:
   - {fileID: 1780115402532591631}
   - {fileID: 6299934516555497571}
   - {fileID: 2193345202728619249}
   - {fileID: -8821700406393941888}
   - {fileID: 2876162055724848111}
+  - {fileID: -6414750585056338030}
+  - {fileID: 5239114831511549372}
+  - {fileID: -2868314080039960213}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8695626926642418914}
+  - {fileID: -3457221345456393371}
   StringsBanks:
   - {fileID: 2061836392448175845}
-  stringsBankWriteTime: 637280702890000000
+  stringsBankWriteTime: 637280888006767048
   cacheVersion: 3
 --- !u!114 &11867730222310922
 MonoBehaviour:
@@ -400,7 +467,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
-  - {fileID: 8695626926642418914}
+  - {fileID: -3457221345456393371}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -422,11 +489,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637280702890000000
+  lastModified: 637280888006767048
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 946
+    Value: 1160
   Exists: 1
 --- !u!114 &2193345202728619249
 MonoBehaviour:
@@ -445,7 +512,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
-  - {fileID: 8695626926642418914}
+  - {fileID: -3457221345456393371}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -470,7 +537,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
-  - {fileID: 8695626926642418914}
+  - {fileID: -3457221345456393371}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -598,6 +665,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &5239114831511549372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/Bedroom/amb_bedroom
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/Bedroom/amb_bedroom
+  guid: 5d24b2fd1165ba45b5ffce96caa10bf6
+  Banks:
+  - {fileID: -3457221345456393371}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 13969
 --- !u!114 &5628408123477987876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,7 +783,7 @@ MonoBehaviour:
   Banks:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
-  - {fileID: 8695626926642418914}
+  - {fileID: -3457221345456393371}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -774,4 +864,4 @@ MonoBehaviour:
   lastModified: 637280702890000000
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0

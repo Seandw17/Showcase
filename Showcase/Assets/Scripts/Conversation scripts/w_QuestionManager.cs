@@ -58,6 +58,7 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     [SerializeField] float m_fadeInSpeed = 0.75f;
 
+    //TODO remove once I've got more than 1
     /// <summary>
     /// Interviewer
     /// </summary>
@@ -358,5 +359,14 @@ public class w_QuestionManager : MonoBehaviour
         }
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
             m_fadeInSpeed, false));
+    }
+
+    /// <summary>
+    /// Set the interviewer for this scene
+    /// </summary>
+    /// <param name="_new">new interviewer</param>
+    void SetInterviewer(InterviewerFace _new)
+    {
+        m_interviewer = _new;
     }
 }

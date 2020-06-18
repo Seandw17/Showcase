@@ -581,6 +581,7 @@ MonoBehaviour:
   ig_PlayerPanel: {fileID: 0}
   ig_WardrobePanel: {fileID: 0}
   ig_LaptopPanel: {fileID: 0}
+  m_cmScript: {fileID: 0}
 --- !u!114 &904260759
 MonoBehaviour:
   m_ObjectHideFlags: 0

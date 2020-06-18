@@ -272,13 +272,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930252835}
-  m_LocalRotation: {x: -0, y: 0.94505984, z: -0, w: 0.3268975}
-  m_LocalPosition: {x: -1.041, y: 1.21, z: 1.757}
+  m_LocalRotation: {x: 0, y: 0.77494454, z: -0, w: -0.63202924}
+  m_LocalPosition: {x: -6.922, y: -0.444, z: -2.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 141.839, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 258.4, z: 0}
 --- !u!114 &930252839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,9 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f60749463464440d9c0e844ed06259f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_coffeeShopModel: {fileID: 0}
-  m_officeModel: {fileID: 0}
-  m_bedroomModel: {fileID: 0}
   m_cameraMoveSpeed: 0.1
   m_coverupSprite: {fileID: 694847747}
 --- !u!1 &1315027537

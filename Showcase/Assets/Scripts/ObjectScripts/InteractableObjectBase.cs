@@ -41,8 +41,10 @@ public class InteractableObjectBase : MonoBehaviour
             m_outline = m_alternateGlowObject.gameObject.AddComponent<Outline>();
         }
 
-        //m_outline = gameObject.transform.parent.
-          //  gameObject.AddComponent<Outline>();
+        Debug.Assert(!m_outline.Equals(null), "object: " + gameObject.name +
+            " does not have a specified reference for the object " +
+            "to attach the outline object to, provide a reference to the " +
+            "'m_alternateGlowObject' variable in the editor");
         m_outline.OutlineColor = Color.blue;
         m_outline.OutlineWidth = 10.0f;
         m_outline.enabled = false;

@@ -17,9 +17,9 @@ public class w_QuestionManager : MonoBehaviour
 {
     TextMeshPro m_questionBox;
 
-    List<s_questionData> m_questions;
+    List<QuestionData> m_questions;
     List<s_playerQuestion> m_questionForJob;
-    
+
     bool m_endLevel;
 
     UnityEvent m_processNextStep;
@@ -122,13 +122,13 @@ public class w_QuestionManager : MonoBehaviour
             int nextQuestion = Random.Range(0, m_questions.Count
                 - 1);
 
-            List<s_Questionresponse> playerResponses =
+            List<Questionresponse> playerResponses =
                 m_questions[nextQuestion].options;
             string questionToDisplay =
                 m_questions[nextQuestion].questions[m_previous];
 
             // check we have returned a value
-            Debug.Assert(!questionToDisplay.Equals(new s_questionData()),
+            Debug.Assert(!questionToDisplay.Equals(new QuestionData()),
                 "An error has occured finding the quesiton");
 
             // use values to set data
@@ -150,7 +150,7 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// Process the result of our question, attach this to a button
     /// </summary>
-    public void ProcessQuestionResult(s_Questionresponse _chosenResponse)
+    public void ProcessQuestionResult(Questionresponse _chosenResponse)
     {
         StopCoroutine(m_waitForAnswer);
         m_timerSlider.gameObject.SetActive(false);
@@ -271,7 +271,7 @@ public class w_QuestionManager : MonoBehaviour
 
         string response = "Nothing? Ok then...";
 
-        foreach(s_playerQuestion question in m_questionForJob)
+        foreach (s_playerQuestion question in m_questionForJob)
         {
             Debug.Log(question.response);
             if (finalChoice.Equals(question.question))
@@ -331,7 +331,7 @@ public class w_QuestionManager : MonoBehaviour
         StartCoroutine(m_optionPool.Clear());
 
         string[] outroText = LoadOutroText();
-        foreach(string line in outroText)
+        foreach (string line in outroText)
         {
             FadeOutQuestionText();
             yield return waitFor;

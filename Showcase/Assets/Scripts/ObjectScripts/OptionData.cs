@@ -9,7 +9,7 @@ public class OptionData : InteractableObjectBase
 {
     TextMeshPro m_textValue;
     static w_QuestionManager m_questionManager;
-    s_Questionresponse m_responseForThisButton;
+    Questionresponse m_responseForThisButton;
     bool m_isInteractible;
     Renderer m_renderer;
     Coroutine m_fadeText, m_fadeRenderer;
@@ -37,7 +37,7 @@ public class OptionData : InteractableObjectBase
     /// </summary>
     /// <param name="_value"> what will be displayed in game</param>
     /// <param name="_connotation"> what feelings should be returned </param>
-    public void SetValue(s_Questionresponse _response, e_tipCategories _tip)
+    public void SetValue(Questionresponse _response, e_tipCategories _tip)
     {
         transform.parent.gameObject.SetActive(true);
         m_textValue.SetText(_response.response);

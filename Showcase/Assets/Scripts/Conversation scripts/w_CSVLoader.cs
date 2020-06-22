@@ -13,24 +13,24 @@ static public class w_CSVLoader
     /// </summary>
     /// <param name="_fileName">name of file</param>
     /// <returns>list of questions</returns>
-    public static List<s_questionData> LoadQuestionData(string _fileName)
+    public static List<QuestionData> LoadQuestionData(string _fileName)
     {
         Debug.Log("Starting Read of CSV: " + _fileName);
 
-        TextAsset file = LoadInFile("Conversation/" +_fileName);
+        TextAsset file = LoadInFile("Conversation/" + _fileName);
 
-        List<s_questionData> returnValue = new List<s_questionData>();
-        s_questionData temp = new s_questionData();
+        List<QuestionData> returnValue = new List<QuestionData>();
+        QuestionData temp = new QuestionData();
 
         string[] lines = file.text.Split('\n');
-        foreach(string line in lines)
+        foreach (string line in lines)
         {
             if (!line[0].Equals('#'))
             {
                 if (line.Equals("end"))
                 {
                     returnValue.Add(temp);
-                    temp = new s_questionData();
+                    temp = new QuestionData();
                 }
                 else
                 {
@@ -86,17 +86,17 @@ static public class w_CSVLoader
     /// </summary>
     /// <param name="_responses">the string to parse</param>
     /// <returns>a list of responses</returns>
-    static List<s_Questionresponse> ReadOptions(string _responses)
+    static List<Questionresponse> ReadOptions(string _responses)
     {
-        List<s_Questionresponse> returnList = new List<s_Questionresponse>();
+        List<Questionresponse> returnList = new List<Questionresponse>();
 
         string[] data = _responses.Split(',');
         foreach (string dataSet in data)
         {
             string[] brokenUp = dataSet.Split('|');
-            s_Questionresponse temp = new s_Questionresponse();
+            Questionresponse temp = new Questionresponse();
             temp.response = brokenUp[0];
-            temp.rating = (e_rating) Enum.Parse(typeof(e_rating), brokenUp[1]);
+            temp.rating = (e_rating)Enum.Parse(typeof(e_rating), brokenUp[1]);
             temp.unlockCriteria =
                 (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag), brokenUp[2]);
             returnList.Add(temp);
@@ -124,14 +124,14 @@ static public class w_CSVLoader
 
         // split line into files
 
-        foreach(string data in lines)
+        foreach (string data in lines)
         {
             // if not a comment
             if (!data[0].Equals('#'))
             {
                 // split by comma
                 string[] responses = data.Split(',');
-                foreach(string response in responses)
+                foreach (string response in responses)
                 {
                     // split by | character
                     string[] keyValue = response.Split('|');

@@ -51,10 +51,10 @@ static public class ConversationStore
     /// </summary>
     /// <param name="_response"> the reponse the player chose </param>
     /// <param name="_question"> the active question </param>
-    static public void ProcessAnswer(s_Questionresponse _response,
+    static public void ProcessAnswer(Questionresponse _response,
         string _question)
     {
-        Debug.Assert(!_response.Equals(new s_Questionresponse())
+        Debug.Assert(!_response.Equals(new Questionresponse())
             && !_question.Equals(""));
 
         s_playerResponse temp = new s_playerResponse();

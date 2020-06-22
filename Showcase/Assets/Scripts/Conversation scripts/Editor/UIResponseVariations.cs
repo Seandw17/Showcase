@@ -6,7 +6,6 @@ public class UIResponseVariations : EditorWindow
 {
     static public void Display(List<Questionresponse> _val)
     {
-        // TODO foldout, add more options
         for (int index = 0; index < _val.Count; index++)
         {
             // reponse
@@ -19,6 +18,16 @@ public class UIResponseVariations : EditorWindow
             _val[index].unlockCriteria =
                 (e_unlockFlag)EditorGUILayout.EnumPopup
                 ("Unlock Flag: ", _val[index].unlockCriteria);
+
+            if (GUILayout.Button("Delete Response"))
+            {
+                DeleteResponse(index);
+            }
         }
+    }
+
+    static void DeleteResponse(int _toDelete)
+    {
+        // TODO delete response
     }
 }

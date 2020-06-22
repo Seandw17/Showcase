@@ -18,7 +18,7 @@ public class w_QuestionManager : MonoBehaviour
     TextMeshPro m_questionBox;
 
     List<QuestionData> m_questions;
-    List<s_playerQuestion> m_questionForJob;
+    List<PlayerQuestion> m_questionForJob;
 
     bool m_endLevel;
 
@@ -271,7 +271,7 @@ public class w_QuestionManager : MonoBehaviour
 
         string response = "Nothing? Ok then...";
 
-        foreach (s_playerQuestion question in m_questionForJob)
+        foreach (PlayerQuestion question in m_questionForJob)
         {
             Debug.Log(question.response);
             if (finalChoice.Equals(question.question))

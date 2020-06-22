@@ -112,13 +112,13 @@ static public class w_CSVLoader
     /// <param name="_replies">list of replies to the questions</param>
     /// <param name="_questions">List of questions the player can ask</param>
     public static void LoadInPlayerQuestions(string _fileName,
-        out List<s_playerQuestion> _list)
+        out List<PlayerQuestion> _list)
     {
         Debug.Log("Loading in player questions");
 
         TextAsset file = LoadInFile("Conversation/" + _fileName);
 
-        _list = new List<s_playerQuestion>();
+        _list = new List<PlayerQuestion>();
 
         string[] lines = file.text.Split('\n');
 
@@ -136,7 +136,7 @@ static public class w_CSVLoader
                     // split by | character
                     string[] keyValue = response.Split('|');
                     // load in
-                    s_playerQuestion temp = new s_playerQuestion();
+                    PlayerQuestion temp = new PlayerQuestion();
                     temp.question = keyValue[0];
                     temp.response = keyValue[2];
                     temp.flag = (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag),

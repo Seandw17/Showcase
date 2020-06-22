@@ -58,7 +58,7 @@ public class OptionPool
     /// Set the details of the options
     /// </summary>
     /// <param name="_questions">questions player can ask</param>
-    public void Set(List<s_playerQuestion> _questions)
+    public void Set(List<PlayerQuestion> _questions)
     {
         for(int index = 0; index < m_options.Length; index++)
         {

@@ -1,8 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
-using System;
-using System.Linq;
 
 // Author: Alec
 
@@ -19,10 +17,9 @@ public class InterviewQuestionWindow : EditorWindow
     /// <summary>
     /// Display the window
     /// </summary>
-    [MenuItem("InterviewSettings/Interviewer Questions")]
+    [MenuItem("Interview Settings/Interviewer Questions")]
     public static void Init()
     {
-        //GetWindow<InterviewQuestionWindow>("Interviewer Questions");
         InterviewQuestionWindow window =
             (InterviewQuestionWindow)GetWindow(typeof(InterviewQuestionWindow));
 
@@ -71,6 +68,11 @@ public class InterviewQuestionWindow : EditorWindow
             
             m_questions[index].tip = (e_tipCategories)EditorGUILayout.
                 EnumPopup("Tip to display: ", m_questions[index].tip);
+
+            if (GUILayout.Button("Delete Question"))
+            {
+                DeleteQuestion(index);
+            }
         }
 
         GUILayout.EndScrollView();
@@ -102,5 +104,10 @@ public class InterviewQuestionWindow : EditorWindow
     void AddResponse()
     {
         //TODO add new response
+    }
+
+    void DeleteQuestion(int _toDelete)
+    {
+        // TODO delete question
     }
 }

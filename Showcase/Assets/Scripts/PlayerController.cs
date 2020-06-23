@@ -9,10 +9,14 @@ public class PlayerController : MonoBehaviour
     //Camera Variables
     Vector2 m_mouseLook;
     Vector2 m_smoothV;
+    Vector3 m_campos;
     float m_mouseSensitivity = 2.0f;
     float m_smoothing = 2.0f;
-    [SerializeField]
-    Camera m_camera;
+    public float m_Translation;
+    public float m_Straffe;
+
+
+    public Camera m_camera;
 
     //Interactable Object - ref
     public List<InteractableObjectBase> ig_interactable;
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         //m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player 
         m_camera = this.gameObject.GetComponentInChildren<Camera>();
+        m_campos = m_camera.transform.position;
     }
 
     // Update is called once per frame
@@ -57,8 +62,8 @@ public class PlayerController : MonoBehaviour
     //Seting up the player movements
     void PlayerMovement()
     {
-        float m_Translation = Input.GetAxis("Vertical") * m_playerSpeed;
-        float m_Straffe = Input.GetAxis("Horizontal") * m_playerSpeed;
+        m_Translation = Input.GetAxis("Vertical") * m_playerSpeed;
+        m_Straffe = Input.GetAxis("Horizontal") * m_playerSpeed;
         m_Translation *= Time.deltaTime;
         m_Straffe *= Time.deltaTime;
 
@@ -78,6 +83,7 @@ public class PlayerController : MonoBehaviour
         {
             m_mouseLook.x = Mathf.Clamp(m_mouseLook.x, -90.0f, 90.0f);
             m_mouseLook.y = Mathf.Clamp(m_mouseLook.y, -45.0f, 90.0f);
+           
         }
         else
         {

@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 // Author: Alec
 
@@ -9,8 +10,8 @@ using System.Collections.Generic;
 /// </summary>
 public class InterviewQuestionWindow : EditorWindow
 {
-    static bool[] displayQuestionVariations;
-    static bool[] displayResponseVariations;
+    static List<bool> m_displayQuestionVariations;
+    static List<bool> m_displayResponseVariations;
     static List<QuestionData> m_questions;
     Vector2 m_scrollPos = Vector2.zero;
 
@@ -24,8 +25,15 @@ public class InterviewQuestionWindow : EditorWindow
             (InterviewQuestionWindow)GetWindow(typeof(InterviewQuestionWindow));
 
         m_questions = w_CSVLoader.LoadQuestionData("IQuestions");
-        displayQuestionVariations = new bool[m_questions.Count];
-        displayResponseVariations = new bool[m_questions.Count];
+        m_displayQuestionVariations = new List<bool>();
+        m_displayResponseVariations = new List<bool>();
+
+        foreach (QuestionData question in m_questions)
+        {
+            m_displayQuestionVariations.Add(false);
+            m_displayResponseVariations.Add(false);
+        }
+
         window.Show();
 
     }
@@ -37,33 +45,39 @@ public class InterviewQuestionWindow : EditorWindow
     {
         m_scrollPos = GUILayout.BeginScrollView(m_scrollPos, false, true);
 
-        // TODO add more options
         for (int index = 0; index < m_questions.Count; index++)
         {
             GUILayout.Label("Question: " +
             m_questions[index].questions[e_rating.NONE],
             EditorStyles.wordWrappedLabel);
 
-            displayQuestionVariations[index] =
-                EditorGUILayout.Foldout(displayQuestionVariations[index],
+            m_displayQuestionVariations[index] =
+                EditorGUILayout.Foldout(m_displayQuestionVariations[index],
                 "Question Variations", true);
 
-            if (displayQuestionVariations[index])
+            if (m_displayQuestionVariations[index])
             {
                 QuestionUIDIsplay temp = CreateInstance<QuestionUIDIsplay>();
                 temp.Display(m_questions[index].questions);
             }
 
-            displayResponseVariations[index] =
-                EditorGUILayout.Foldout(displayResponseVariations[index],
+            m_displayResponseVariations[index] =
+                EditorGUILayout.Foldout(m_displayResponseVariations[index],
                 "Response Variations", true);
-            if (displayResponseVariations[index])
+            if (m_displayResponseVariations[index])
             {
                 UIResponseVariations.Display(m_questions[index].options);
                 if (GUILayout.Button("Add Response"))
                 {
-                    AddResponse();
+                    m_questions[index].options.Add(new Questionresponse
+                    {
+                        response = "New response",
+                        rating = e_rating.OK,
+                        unlockCriteria = e_unlockFlag.NONE,
+                        tip = e_tipCategories.NOTASKING
+                    });
                 }
+
             }
             
             m_questions[index].tip = (e_tipCategories)EditorGUILayout.
@@ -71,7 +85,7 @@ public class InterviewQuestionWindow : EditorWindow
 
             if (GUILayout.Button("Delete Question"))
             {
-                DeleteQuestion(index);
+                m_questions.RemoveAt(index);
             }
         }
 
@@ -98,16 +112,30 @@ public class InterviewQuestionWindow : EditorWindow
 
     void AddQuestion()
     {
-        // TODO add a question
+        QuestionData dummy = new QuestionData();
+
+        dummy.tip = e_tipCategories.NOTASKING;
+        dummy.options = new List<Questionresponse>();
+        dummy.options.Add(new Questionresponse
+        {
+            rating = e_rating.OK,
+            response = "New Response",
+            unlockCriteria = e_unlockFlag.NONE,
+            tip = e_tipCategories.NONE
+        });
+        dummy.questions = new Dictionary<e_rating, string>();
+        foreach (e_rating rating in Enum.GetValues(typeof(e_rating)))
+        {
+            dummy.questions.Add(rating, rating.ToString() + " Version");
+        }
+
+        m_questions.Add(dummy);
+        m_displayResponseVariations.Add(false);
+        m_displayQuestionVariations.Add(false);
     }
 
     void AddResponse()
     {
         //TODO add new response
-    }
-
-    void DeleteQuestion(int _toDelete)
-    {
-        // TODO delete question
     }
 }

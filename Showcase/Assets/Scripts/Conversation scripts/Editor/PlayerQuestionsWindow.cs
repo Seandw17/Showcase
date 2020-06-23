@@ -6,7 +6,7 @@ public class PlayerQuestionWindow : EditorWindow
 {
     static List<PlayerQuestion> m_questions;
     Vector2 m_scrollPos = Vector2.zero;
-    static bool[] m_showQuestions;
+    static List<bool> m_showQuestions;
 
     [MenuItem("Interview Settings/Player Questions")]
     static void Init()
@@ -15,7 +15,12 @@ public class PlayerQuestionWindow : EditorWindow
             (PlayerQuestionWindow)GetWindow(typeof(PlayerQuestionWindow));
 
         w_CSVLoader.LoadInPlayerQuestions("PQuestions",out m_questions);
-        m_showQuestions = new bool[m_questions.Count];
+        m_showQuestions = new List<bool>();
+
+        foreach(PlayerQuestion ques in m_questions)
+        {
+            m_showQuestions.Add(false);
+        }
 
         window.Show();
     }
@@ -46,22 +51,28 @@ public class PlayerQuestionWindow : EditorWindow
 
                 if (GUILayout.Button("Delete Question"))
                 {
-                    DeleteResult(index);
+                    m_questions.RemoveAt(index);
                 }
             }
         }
 
         EditorGUILayout.EndScrollView();
 
+        if (GUILayout.Button("Add Question"))
+        {
+            m_questions.Add(new PlayerQuestion
+            {
+                question = "New Question",
+                flag = e_unlockFlag.FIRST,
+                response = "New Response"
+            });
+            m_showQuestions.Add(false);
+        }
+
         if (GUILayout.Button("Save Changes"))
         {
             WriteBack();
         }
-    }
-
-    void DeleteResult(int _delete)
-    {
-        // TODO delete
     }
 
     void WriteBack()

@@ -21,13 +21,8 @@ public class UIResponseVariations : EditorWindow
 
             if (GUILayout.Button("Delete Response"))
             {
-                DeleteResponse(index);
+                _val.RemoveAt(index);
             }
         }
-    }
-
-    static void DeleteResponse(int _toDelete)
-    {
-        // TODO delete response
     }
 }

@@ -28,7 +28,7 @@ public class FillerTextWindow : EditorWindow
             EditorGUILayout.TextArea(m_fillerText[index]);
             if (GUILayout.Button("Delete Filler"))
             {
-                DeleteFillerQuestion(index);
+                m_fillerText.RemoveAt(index);
             }
         }
 
@@ -37,23 +37,13 @@ public class FillerTextWindow : EditorWindow
         GUILayout.FlexibleSpace();
         if (GUILayout.Button("Add Filler Text"))
         {
-            AddFiller();
+            m_fillerText.Add("");
         }
 
         if (GUILayout.Button("Save Filler Text"))
         {
             WriteFiller();
         }
-    }
-
-    private void DeleteFillerQuestion(int _toDelete)
-    {
-        // TODO delete
-    }
-
-    private void AddFiller()
-    {
-        // TODO add
     }
 
     private void WriteFiller()

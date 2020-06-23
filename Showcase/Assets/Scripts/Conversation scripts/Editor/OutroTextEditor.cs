@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
+using System.Linq;
 
 public class OutroTextEditor : EditorWindow
 {
-    static string[] m_outroText;
+    static List<string> m_outroText;
     Vector2 m_scrollPos = Vector2.zero;
 
     [MenuItem("Interview Settings/Outro Text")]
@@ -12,7 +14,7 @@ public class OutroTextEditor : EditorWindow
         OutroTextEditor window =
             (OutroTextEditor)GetWindow(typeof(OutroTextEditor));
 
-        m_outroText = w_CSVLoader.LoadOutroText();
+        m_outroText = w_CSVLoader.LoadOutroText().ToList();
 
         window.Show();
     }
@@ -21,26 +23,25 @@ public class OutroTextEditor : EditorWindow
     {
         m_scrollPos = GUILayout.BeginScrollView(m_scrollPos, false, true);
 
-        foreach (string line in m_outroText)
+        for (int index = 0; index < m_outroText.Count; index++)
         {
-            EditorGUILayout.TextArea(line);
+            m_outroText[index] = EditorGUILayout.TextArea(m_outroText[index]);
+            if (GUILayout.Button("Delete Line"))
+            {
+                m_outroText.RemoveAt(index);
+            }
         }
 
         GUILayout.EndScrollView();
 
         if (GUILayout.Button("Add Line"))
         {
-            AddLine();
+            m_outroText.Add("");
         }
         if (GUILayout.Button("Save Changes"))
         {
             WriteBack();
         }
-    }
-
-    void AddLine()
-    {
-        // TODO add a line
     }
 
     void WriteBack()

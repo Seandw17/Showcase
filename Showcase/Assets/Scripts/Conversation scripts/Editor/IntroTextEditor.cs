@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
+using System.Linq;
 
 public class IntroTextWindow : EditorWindow
 {
-    static string[] m_introText;
+    static List<string> m_introText;
     Vector2 m_scrollPos = Vector2.zero;
 
     [MenuItem("Interview Settings/Intro Text")]
@@ -12,7 +14,7 @@ public class IntroTextWindow : EditorWindow
          IntroTextWindow window =
             (IntroTextWindow)GetWindow(typeof(IntroTextWindow));
 
-        m_introText = w_CSVLoader.LoadIntroText();
+        m_introText = w_CSVLoader.LoadIntroText().ToList();
 
         window.Show();
     }
@@ -21,26 +23,26 @@ public class IntroTextWindow : EditorWindow
     {
         m_scrollPos = GUILayout.BeginScrollView(m_scrollPos, false, true);
 
-        foreach (string line in m_introText)
+        for (int index = 0; index < m_introText.Count; index++)
         {
-            EditorGUILayout.TextArea(line);
+            m_introText[index] = EditorGUILayout.TextArea(m_introText[index]);
+
+            if (GUILayout.Button("Delete Line"))
+            {
+                m_introText.RemoveAt(index);
+            }
         }
 
         GUILayout.EndScrollView();
 
         if (GUILayout.Button("Add Line"))
         {
-            AddLine();
+            m_introText.Add("");
         }
         if (GUILayout.Button("Save Changes"))
         {
             WriteBack();
         }
-    }
-
-    void AddLine()
-    {
-        // TODO add a line
     }
 
     void WriteBack()

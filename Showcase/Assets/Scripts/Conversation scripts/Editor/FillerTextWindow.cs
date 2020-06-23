@@ -14,7 +14,7 @@ public class FillerTextWindow : EditorWindow
             (FillerTextWindow)GetWindow(typeof(FillerTextWindow));
 
         m_fillerText = w_CSVLoader.LoadInFillerText();
-        
+        EditorStyles.textField.wordWrap = true;
         window.Show();
     }
 

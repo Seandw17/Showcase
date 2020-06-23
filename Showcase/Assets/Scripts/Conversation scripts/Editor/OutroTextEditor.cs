@@ -13,7 +13,7 @@ public class OutroTextEditor : EditorWindow
     {
         OutroTextEditor window =
             (OutroTextEditor)GetWindow(typeof(OutroTextEditor));
-
+        EditorStyles.textField.wordWrap = true;
         m_outroText = w_CSVLoader.LoadOutroText().ToList();
 
         window.Show();

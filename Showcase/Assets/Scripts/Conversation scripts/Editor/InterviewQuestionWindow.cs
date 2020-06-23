@@ -99,17 +99,18 @@ public class InterviewQuestionWindow : EditorWindow
 
         if (GUILayout.Button("Save Changes"))
         {
-            WriteBack();
+            CSVWriter.WriteInterviewerQuestions(m_questions);
         }
     }
 
-    void WriteBack()
-    {
-        // TODO write back to file
-    }
-
+    /// <summary>
+    /// Redraw on update
+    /// </summary>
     public void OnInspectorUpdate() => Repaint();
 
+    /// <summary>
+    /// Function to add a blank question
+    /// </summary>
     void AddQuestion()
     {
         QuestionData dummy = new QuestionData();
@@ -132,10 +133,5 @@ public class InterviewQuestionWindow : EditorWindow
         m_questions.Add(dummy);
         m_displayResponseVariations.Add(false);
         m_displayQuestionVariations.Add(false);
-    }
-
-    void AddResponse()
-    {
-        //TODO add new response
     }
 }

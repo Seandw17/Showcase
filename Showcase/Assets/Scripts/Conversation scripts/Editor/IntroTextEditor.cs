@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
+using static CSVWriter;
 
 public class IntroTextWindow : EditorWindow
 {
@@ -41,12 +42,7 @@ public class IntroTextWindow : EditorWindow
         }
         if (GUILayout.Button("Save Changes"))
         {
-            WriteBack();
+            WriteIntroOutroText("Intro.CSV", m_introText);
         }
-    }
-
-    void WriteBack()
-    {
-        // TODO write back
     }
 }

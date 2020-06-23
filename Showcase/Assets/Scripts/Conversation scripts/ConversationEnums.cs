@@ -6,12 +6,12 @@
 /// </summary>
 public enum e_rating
 {
+    NONE = 5,
     GREAT = 4,
     GOOD = 3,
     OK = 2,
     BAD = 1,
-    AWFUL = 0,
-    NONE = 5
+    AWFUL = 0
 }
 
 /// <summary>

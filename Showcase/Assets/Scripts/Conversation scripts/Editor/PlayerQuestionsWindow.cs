@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor;
+using static CSVWriter;
 
 public class PlayerQuestionWindow : EditorWindow
 {
@@ -71,12 +72,7 @@ public class PlayerQuestionWindow : EditorWindow
 
         if (GUILayout.Button("Save Changes"))
         {
-            WriteBack();
+            WritePlayerQuestions(m_questions);
         }
-    }
-
-    void WriteBack()
-    {
-        // TODO write back
     }
 }

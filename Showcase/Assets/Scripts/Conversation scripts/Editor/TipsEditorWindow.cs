@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using static CSVWriter;
 
 public class TipsEditorWindow : EditorWindow
 {
@@ -36,12 +37,7 @@ public class TipsEditorWindow : EditorWindow
 
         if (GUILayout.Button("Save Changes"))
         {
-            WriteBack();
+            WriteTips(m_tips);
         }
-    }
-
-    void WriteBack()
-    {
-        // TODO write changes
     }
 }

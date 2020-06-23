@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using static CSVWriter;
 
+/// <summary>
+/// Class to manage the filler text editor window
+/// </summary>
 public class FillerTextWindow : EditorWindow
 {
     static List<string> m_fillerText;
     Vector2 m_scrollPos = Vector2.zero;
 
+    /// <summary>
+    /// Function to start
+    /// </summary>
     [MenuItem("Interview Settings/Filler Text")]
     public static void Init()
     {
@@ -42,13 +49,8 @@ public class FillerTextWindow : EditorWindow
 
         if (GUILayout.Button("Save Filler Text"))
         {
-            WriteFiller();
+            WriteFillerText(m_fillerText);
         }
-    }
-
-    private void WriteFiller()
-    {
-        // TODO write
     }
 }
 

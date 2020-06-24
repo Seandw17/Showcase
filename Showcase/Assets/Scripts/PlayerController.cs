@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
                         m_currentlySelected = ig_interactable[i];
                         if (ig_interactable[i].GetShouldGlow())
                         {
-                            Debug.Log("Should be glowing fam");
+                           // Debug.Log("Should be glowing fam");
                             ig_interactable[i].GetObjectOutline().enabled = true;
                         }
                         if (Input.GetMouseButtonDown(0))

@@ -32,7 +32,7 @@ public class InteractableObjectBase : MonoBehaviour
         m_gmscript = FindObjectOfType<GameManagerScript>();
         m_playerscript = FindObjectOfType<PlayerController>();
 
-        if (GetComponent<MeshRenderer>())
+        if (m_alternateGlowObject == null)
         {
             m_outline = gameObject.AddComponent<Outline>();
         }

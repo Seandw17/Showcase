@@ -94,6 +94,10 @@ static public class ConversationStore
         return m_playerResponses;
     }
 
+    /// <summary>
+    /// Add a tip
+    /// </summary>
+    /// <param name="_tip"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void AddTip(e_tipCategories _tip)
     {
@@ -103,6 +107,16 @@ static public class ConversationStore
         }
     }
 
+    /// <summary>
+    /// returns if the only flag is none
+    /// </summary>
+    /// <returns></returns>
+    public static bool IsOnlyNoneFlag() => m_tips.Equals(e_unlockFlag.NONE);
+
+    /// <summary>
+    /// Return the player tips
+    /// </summary>
+    /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static e_tipCategories GetPlayerTips() => m_tips;
 }

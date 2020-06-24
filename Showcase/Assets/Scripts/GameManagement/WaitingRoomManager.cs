@@ -71,6 +71,7 @@ public class WaitingRoomManager : MonoBehaviour
         else
         {
             Debug.Log("move to next scene or something yo!");
+            m_playerscript.SetCanPlayerMove(true);
             //end scene
         }
     }

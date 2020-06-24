@@ -22,6 +22,7 @@ public class LevelChange : MonoBehaviour
             "Enter a level to change to");
         //ChangeLevel("TitleScreen");
         ChangeLevel(forcedLevelChange);
+        ConversationStore.Init();
     }
 
     /// <summary>
@@ -32,7 +33,9 @@ public class LevelChange : MonoBehaviour
     {
         Debug.Log("Changing to scene: " + _sceneName);
         SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         instance.StartCoroutine(instance.LoadLevel(_sceneName));
+
     }
 
     /// <summary>

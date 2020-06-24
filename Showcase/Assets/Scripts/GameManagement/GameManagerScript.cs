@@ -18,7 +18,7 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         //SetCurrentHUD(ig_PlayerPanel);
-        ConversationStore.Init();
+       
         m_cmScript = GetComponent<CursorController>();
     }
 

@@ -37,11 +37,13 @@ public class ChairObject : InteractableObjectBase
                 }
             case 2:
                 {
-                    ig_playerObject.transform.position = ig_sitpositionObject.transform.position;
-                    m_playerscript.m_camera.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-               
-                    m_playerscript.SetCanPlayerMove(false);
-                    m_playerscript.SetIsInInterview(true);
+                    //ig_playerObject.transform.position = ig_sitpositionObject.transform.position;
+                    //m_playerscript.m_camera.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+
+                    //m_playerscript.SetCanPlayerMove(false);
+                    //m_playerscript.SetIsInInterview(true);
+
+                    LevelChange.ChangeLevel("InterviewTestScene");
 
                     break;
                 }

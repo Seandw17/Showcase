@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InterviewTestScene.unity
     guid: 4419a3396cbbc436caf2a4a89307a23b
+  - enabled: 1
+    path: Assets/Scenes/OfficeANDWaitingArea.unity
+    guid: 7dead49941f8f2a47b9fdd84f45a65e8
+  - enabled: 1
+    path: Assets/Scenes/ChooseOutfit.unity
+    guid: 9d6bac92a0efc1b4abf7e57656d3143a
+  - enabled: 1
+    path: Assets/Scenes/TItleScreen.unity
+    guid: 8404dae4ba8a64187b113cc04f790153
   m_configObjects: {}

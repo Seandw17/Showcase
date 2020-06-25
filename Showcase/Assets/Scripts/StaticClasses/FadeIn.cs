@@ -34,7 +34,7 @@ static public class FadeIn
         {
             if (!IsPaused())
             {
-                newColour.a += fade * Time.deltaTime;
+                newColour.a += fade;
                 material.color = newColour;
             }
             yield return null;
@@ -67,7 +67,7 @@ static public class FadeIn
             if (!IsPaused())
             {
                 Debug.Log(newColour.a);
-                newColour.a += fade * Time.deltaTime;
+                newColour.a += fade;
                 _tmp.color = newColour;
             }
             yield return null;
@@ -98,7 +98,7 @@ static public class FadeIn
         {
             if (!IsPaused())
             {
-                newColour.a += fade * Time.deltaTime;
+                newColour.a += fade;
                 _tmp.color = newColour;
             }
             yield return null;
@@ -129,7 +129,7 @@ static public class FadeIn
         {
             if (!IsPaused())
             {
-                newColour.a += fade * Time.deltaTime;
+                newColour.a += fade;
                 _spriteRenderer.color = newColour;
             }
             yield return null;
@@ -159,7 +159,7 @@ static public class FadeIn
         {
             if (!IsPaused())
             {
-                newColour.a += fade * Time.deltaTime;
+                newColour.a += fade;
                 _image.color = newColour;
             }
             yield return null;

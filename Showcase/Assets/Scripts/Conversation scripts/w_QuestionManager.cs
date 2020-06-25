@@ -58,9 +58,8 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     [SerializeField] float m_fadeInSpeed = 0.75f;
 
-    //TODO remove once I've got more than 1
     /// <summary>
-    /// Interviewer
+    /// Interviewer for this level
     /// </summary>
     [SerializeField] InterviewerFace m_interviewer;
 
@@ -69,6 +68,9 @@ public class w_QuestionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Assert(m_interviewer != null, "No reference to interviewer " +
+            "exists");
+
         // acquiring relevant data
         //questions for player
         m_questionBox = GetComponent<TextMeshPro>();
@@ -103,6 +105,9 @@ public class w_QuestionManager : MonoBehaviour
 
         SetAlphaToZero(transform.parent.GetComponent<Renderer>().material);
         SetAlphaToZero(m_questionBox);
+
+        //enabled = false;
+        // TODO once we move to unifying the views, remove this
         StartCoroutine(StartInterview());
     }
 
@@ -359,14 +364,5 @@ public class w_QuestionManager : MonoBehaviour
         }
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
             m_fadeInSpeed, false));
-    }
-
-    /// <summary>
-    /// Set the interviewer for this scene
-    /// </summary>
-    /// <param name="_new">new interviewer</param>
-    void SetInterviewer(InterviewerFace _new)
-    {
-        m_interviewer = _new;
     }
 }

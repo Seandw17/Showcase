@@ -54,6 +54,7 @@ public class LevelChange : MonoBehaviour
         {
             Debug.Log("Loading scene " + _sceneName + " " + async.progress +
                 "%");
+            m_loadingManager.SetLoadingPercentText(async.progress);
             yield return null;
         }
 

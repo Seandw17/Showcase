@@ -11,11 +11,9 @@ static public class ConversationStore
     static e_tipCategories m_tips;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void Init()
-    {
+    public static void Init() =>
         m_playerResponses = new List<s_playerResponse>();
-    }
-        
+
 
     /// <summary>
     /// Add a unlock flag to the player

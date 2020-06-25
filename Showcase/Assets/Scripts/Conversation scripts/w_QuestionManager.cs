@@ -33,10 +33,7 @@ public class w_QuestionManager : MonoBehaviour
 
     OptionPool m_optionPool;
 
-    /// <summary>
-    /// The timer visualisitation
-    /// </summary>
-    [SerializeField] Slider m_timerSlider;
+    Slider m_timerSlider;
 
     /// <summary>
     /// Time user has to answer a question
@@ -92,6 +89,8 @@ public class w_QuestionManager : MonoBehaviour
         m_optionPool = new OptionPool(m_buttonPoolSize, spawnLocation, this);
 
         // set timerslider
+        m_timerSlider = Instantiate(Resources.Load<GameObject>
+            ("Prefabs/Timer")).GetComponentInChildren<Slider>();
         m_timerSlider.maxValue = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(false);
 

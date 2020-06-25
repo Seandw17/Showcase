@@ -6,7 +6,7 @@ public class GameManagerScript : MonoBehaviour
 {
     //All of the HUDS should be added here so that they can be accessed in the editor
     [SerializeField]
-    public GameObject ig_PlayerPanel, ig_WardrobePanel, ig_LaptopPanel,ig_magazineWaitingRoom;
+    public GameObject ig_PlayerPanel, ig_WardrobePanel, ig_LaptopPanel, ig_magazineWaitingRoom, ig_outfitExitWarning, ig_noResearchExitWarning;
 
     //This is the HUD that is displayed to the screen at all times
     GameObject ig_currenthud;

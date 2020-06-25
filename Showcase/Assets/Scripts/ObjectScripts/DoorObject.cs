@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class DoorObject : InteractableObjectBase
@@ -61,7 +62,11 @@ public class DoorObject : InteractableObjectBase
                 if (ConversationStore.IsOnlyNoneFlag().Equals(true))
                 {
                     Debug.Log("You need to do some research fool");
-                    //BIG SEAN ADD SOME CODE HERE FOR THE PLAYER WHEN THEY HAVE NOT DONE ANY RESEARCH. LAZY BASTARDS
+
+                    // Changed to call coroutine
+                    m_gmscript.SetCurrentHUD(m_gmscript.ig_noResearchExitWarning);
+                    StartCoroutine(FadeIn.AssetInOut(m_gmscript.ig_noResearchExitWarning.GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
+                    
                 }
                 else if(ConversationStore.IsOnlyNoneFlag().Equals(false))
                 {
@@ -71,7 +76,9 @@ public class DoorObject : InteractableObjectBase
                     }
                     else
                     {
-                        //BIG SEAN ADD SOME CODE HERE FOR THE PLAYER WHEN THEY HAVE NOT SELECTED AN OUTFIT. DIRTY SCOUNDRAL 
+                        // Changed to call coroutine
+                        m_gmscript.SetCurrentHUD(m_gmscript.ig_outfitExitWarning);
+                        StartCoroutine(FadeIn.AssetInOut(m_gmscript.ig_outfitExitWarning.GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
                     }
                 }
             }
@@ -80,10 +87,6 @@ public class DoorObject : InteractableObjectBase
         {
             m_candoor = true;
             m_dooropen = !m_dooropen;
-        }
-        
-        
-        
-        
+        } 
     }
 }

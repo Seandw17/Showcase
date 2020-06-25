@@ -19,29 +19,6 @@ public class OutfitManager : MonoBehaviour
     protected PlayerController m_playerscript;
     CursorController m_cmScript;
 
-    // tried creating a struct which would hold the name of the outfit, the score given to it and the model/material which it applies to
-    //struct S_OutfitStruct
-    //{
-    //    string m_outfitName;
-    //    int m_appliedOutfitScore;
-    //    material m_outfitMaterial;
-    //
-    //    public S_OutfitStruct(string name, int score, material mat)
-    //    {
-    //        m_outfitName = name;
-    //        m_appliedOutfitScore = score;
-    //        m_outfitMaterial = mat; 
-    //    }
-    //}
-
-    // S_OutfitStruct[] s_Outfit = new S_OutfitStruct[]
-    //{
-    //    new S_OutfitStruct ("CASUAL", 1, m_outfitMats[0]),
-    //    new S_OutfitStruct ("SMART_CASUAL", 3, m_outfitMats[1]),
-    //    new S_OutfitStruct ("SMART", 2, m_outfitMats[2])
-    //};
-
-
     // Start is called before the first frame update
     void Start()
     {

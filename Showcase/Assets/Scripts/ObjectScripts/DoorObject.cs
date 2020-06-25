@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class DoorObject : InteractableObjectBase
@@ -61,7 +62,10 @@ public class DoorObject : InteractableObjectBase
                 if (ConversationStore.IsOnlyNoneFlag().Equals(true))
                 {
                     Debug.Log("You need to do some research fool");
-                    //BIG SEAN ADD SOME CODE HERE FOR THE PLAYER WHEN THEY HAVE NOT DONE ANY RESEARCH. LAZY BASTARDS
+
+                    // not sure why its not fading out !!!!!!!!!!ALEC HELP ME!!!!
+                    m_gmscript.SetCurrentHUD(m_gmscript.ig_noResearchExitWarning);
+                    FadeIn.FadeAsset(m_gmscript.ig_noResearchExitWarning.GetComponentInChildren<TextMeshPro>(), 5.0f, false);
                 }
                 else if(ConversationStore.IsOnlyNoneFlag().Equals(false))
                 {
@@ -71,7 +75,9 @@ public class DoorObject : InteractableObjectBase
                     }
                     else
                     {
-                        //BIG SEAN ADD SOME CODE HERE FOR THE PLAYER WHEN THEY HAVE NOT SELECTED AN OUTFIT. DIRTY SCOUNDRAL 
+                        // help here too xD
+                        m_gmscript.SetCurrentHUD(m_gmscript.ig_outfitExitWarning);
+                        FadeIn.FadeAsset(m_gmscript.ig_outfitExitWarning.GetComponentInChildren<TextMeshPro>(), 5.0f, false);
                     }
                 }
             }

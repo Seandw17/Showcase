@@ -6,13 +6,16 @@ using UnityEngine;
 
 static public class ConversationStore 
 {
-    static e_unlockFlag unlockedFlags = e_unlockFlag.NONE;
+    static e_unlockFlag m_unlockedFlags = e_unlockFlag.NONE;
     static List<s_playerResponse> m_playerResponses;
     static e_tipCategories m_tips;
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static void Init() =>
+    public static void Init()
+    {
         m_playerResponses = new List<s_playerResponse>();
+    }
+        
 
     /// <summary>
     /// Add a unlock flag to the player
@@ -20,7 +23,7 @@ static public class ConversationStore
     /// <param name="_flag"> the flag to add </param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     static public void RegisterUnlockFlag(e_unlockFlag _flag) =>
-        unlockedFlags |= _flag;
+        m_unlockedFlags |= _flag;
 
     /// <summary>
     /// Return if a flag is present in the player data
@@ -29,7 +32,7 @@ static public class ConversationStore
     /// <returns> returns if has </returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     static public bool CheckHasFlag(e_unlockFlag _flag) =>
-        unlockedFlags.HasFlag(_flag);
+        m_unlockedFlags.HasFlag(_flag);
 
 
     /// <summary>
@@ -111,7 +114,8 @@ static public class ConversationStore
     /// returns if the only flag is none
     /// </summary>
     /// <returns></returns>
-    public static bool IsOnlyNoneFlag() => m_tips.Equals(e_unlockFlag.NONE);
+    public static bool IsOnlyNoneFlag() =>
+        m_unlockedFlags.Equals(e_unlockFlag.NONE);
 
     /// <summary>
     /// Return the player tips

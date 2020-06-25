@@ -59,7 +59,7 @@ public class LoadingManage : MonoBehaviour
     /// <param name="_amountLoaded">amount that has been loaded</param>
     public void SetLoadingPercentText(float _amountLoaded)
     {
-        m_loadingPercentText.SetText(_amountLoaded + "%");
+        m_loadingPercentText.SetText(_amountLoaded.ToString("n1") + "%");
         m_slider.value = _amountLoaded;
     }
 }

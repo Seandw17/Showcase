@@ -51,6 +51,7 @@ static public class FadeIn
     static public IEnumerator FadeAsset(TextMeshProUGUI _tmp, float _time,
         bool _in)
     {
+        Debug.Log(_tmp);
         Color newColour = new Color(
             _tmp.color.r,
             _tmp.color.g,
@@ -160,6 +161,44 @@ static public class FadeIn
             {
                 newColour.a += fade;
                 _image.color = newColour;
+            }
+            yield return null;
+        }
+    }
+
+    static public IEnumerator AssetInOut(TextMeshProUGUI _tmp, float _time,
+        float _delayBetweenInOut)
+    {
+        Color newColour = new Color(
+            _tmp.color.r,
+            _tmp.color.g,
+            _tmp.color.b,
+            _tmp.color.a
+            );
+
+        float fade = (0.4f * _time) * Time.deltaTime;
+
+        // Fade out
+        while (CheckAlpha(true, newColour.a))
+        {
+            if (!IsPaused())
+            {
+                newColour.a += fade;
+                _tmp.color = newColour;
+            }
+            yield return null;
+        }
+
+        yield return new WaitForSecondsRealtime(_delayBetweenInOut);
+
+        fade *= -1;
+
+        while (CheckAlpha(false, newColour.a))
+        {
+            if (!IsPaused())
+            {
+                newColour.a += fade;
+                _tmp.color = newColour;
             }
             yield return null;
         }

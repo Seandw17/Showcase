@@ -63,9 +63,10 @@ public class DoorObject : InteractableObjectBase
                 {
                     Debug.Log("You need to do some research fool");
 
-                    // not sure why its not fading out !!!!!!!!!!ALEC HELP ME!!!!
+                    // Changed to call coroutine
                     m_gmscript.SetCurrentHUD(m_gmscript.ig_noResearchExitWarning);
-                    FadeIn.FadeAsset(m_gmscript.ig_noResearchExitWarning.GetComponentInChildren<TextMeshPro>(), 5.0f, false);
+                    StartCoroutine(FadeIn.AssetInOut(m_gmscript.ig_noResearchExitWarning.GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
+                    
                 }
                 else if(ConversationStore.IsOnlyNoneFlag().Equals(false))
                 {
@@ -75,9 +76,9 @@ public class DoorObject : InteractableObjectBase
                     }
                     else
                     {
-                        // help here too xD
+                        // Changed to call coroutine
                         m_gmscript.SetCurrentHUD(m_gmscript.ig_outfitExitWarning);
-                        FadeIn.FadeAsset(m_gmscript.ig_outfitExitWarning.GetComponentInChildren<TextMeshPro>(), 5.0f, false);
+                        StartCoroutine(FadeIn.AssetInOut(m_gmscript.ig_outfitExitWarning.GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
                     }
                 }
             }
@@ -86,10 +87,6 @@ public class DoorObject : InteractableObjectBase
         {
             m_candoor = true;
             m_dooropen = !m_dooropen;
-        }
-        
-        
-        
-        
+        } 
     }
 }

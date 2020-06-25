@@ -58,12 +58,12 @@ public class DoorObject : InteractableObjectBase
             }
             else
             {
-                if (ConversationStore.IsOnlyNoneFlag().Equals(false))
+                if (ConversationStore.IsOnlyNoneFlag().Equals(true))
                 {
                     Debug.Log("You need to do some research fool");
                     //BIG SEAN ADD SOME CODE HERE FOR THE PLAYER WHEN THEY HAVE NOT DONE ANY RESEARCH. LAZY BASTARDS
                 }
-                else if(ConversationStore.IsOnlyNoneFlag().Equals(true))
+                else if(ConversationStore.IsOnlyNoneFlag().Equals(false))
                 {
                     if (OutfitManager.GetOutfitScore() != 0)
                     {

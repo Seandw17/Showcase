@@ -17,6 +17,9 @@ public class WaitingRoomManager : MonoBehaviour
     private GameObject ig_textRepresentation;
     [SerializeField]
     private GameObject ig_textBox;
+    [SerializeField]
+    private GameObject ig_nextText;
+
 
     [Header("DEBUG ONLY")]
     [SerializeField]
@@ -31,8 +34,10 @@ public class WaitingRoomManager : MonoBehaviour
     [SerializeField]
     int m_currentSentence;
     float m_dialogTimer;
+    bool m_nextTextShown;
 
     protected PlayerController m_playerscript;
+    
 
 
     // Start is called before the first frame updateS
@@ -71,6 +76,12 @@ public class WaitingRoomManager : MonoBehaviour
         else
         {
             Debug.Log("move to next scene or something yo!");
+            if(!m_nextTextShown)
+            {
+                StartCoroutine(NextText());
+                m_nextTextShown = true;
+            }
+            
             m_playerscript.SetCanPlayerMove(true);
             //end scene
         }
@@ -83,6 +94,13 @@ public class WaitingRoomManager : MonoBehaviour
     {
         m_minutes = Mathf.Floor(m_waitTimer / 60);
         m_seconds = Mathf.RoundToInt(m_waitTimer % 60);
+    }
+
+    IEnumerator NextText()
+    {
+        ig_nextText.SetActive(true);
+        yield return new WaitForSeconds(2);
+        ig_nextText.SetActive(false);
     }
 
 

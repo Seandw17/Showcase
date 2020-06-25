@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorObject : InteractableObjectBase
 {
@@ -9,17 +10,21 @@ public class DoorObject : InteractableObjectBase
     float m_rotationspeed = 50.0f;
     [SerializeField]
     string m_levelname;
+    Scene scene;
    
 
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
+      
+        Debug.Log(scene.name);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (m_candoor == true)
         {
             if (m_dooropen == true)
@@ -43,30 +48,40 @@ public class DoorObject : InteractableObjectBase
     }
 
     public override void Interact()
-    {   
-        if (m_levelname != "OfficeANDWaitingArea")
+    {
+        scene = SceneManager.GetActiveScene();
+        if (scene.name.Equals("ChooseOutfit"))
         {
             if (m_levelname.Equals(""))
             {
-                Debug.Log("seanmademistakes");
+
             }
             else
             {
-                if (OutfitManager.GetOutfitScore() != 0)
+                if (ConversationStore.IsOnlyNoneFlag().Equals(false))
                 {
-                    LevelChange.ChangeLevel(m_levelname);
+                    Debug.Log("You need to do some research fool");
+                    //BIG SEAN ADD SOME CODE HERE FOR THE PLAYER WHEN THEY HAVE NOT DONE ANY RESEARCH. LAZY BASTARDS
                 }
-                else
+                else if(ConversationStore.IsOnlyNoneFlag().Equals(true))
                 {
-                    //BIG SEAN PLACE THAT SEXY CODE HERE
+                    if (OutfitManager.GetOutfitScore() != 0)
+                    {
+                        LevelChange.ChangeLevel(m_levelname);
+                    }
+                    else
+                    {
+                        //BIG SEAN ADD SOME CODE HERE FOR THE PLAYER WHEN THEY HAVE NOT SELECTED AN OUTFIT. DIRTY SCOUNDRAL 
+                    }
                 }
             }
         }
-        else if (m_levelname == "OfficeANDWaitingArea")
+        else
         {
-           m_candoor = true;
-           m_dooropen = !m_dooropen;
+            m_candoor = true;
+            m_dooropen = !m_dooropen;
         }
+        
         
         
         

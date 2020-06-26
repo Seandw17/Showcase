@@ -214,6 +214,10 @@ public class w_QuestionManager : MonoBehaviour
             "itself?");
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox, 0.75f, true));
 
+        Debug.Assert(!IsOnlyNoneFlag(),
+            "Somehow the player has reached the end with " +
+            "only none as there unlock flag");
+
         m_optionPool.Set(m_questionForJob);
 
         m_endLevel = true;

@@ -48,14 +48,16 @@ public class InteractableObjectBase : MonoBehaviour
         m_outline.OutlineColor = Color.blue;
         m_outline.OutlineWidth = 10.0f;
         m_outline.enabled = false;
+        gameObject.layer = 8;
 
-        AddToList();
+        //AddToList();
     }
 
+    /*
     void AddToList()
     {
         m_playerscript.ig_interactable.Add(this);
-    }
+    }*/
 
     // Update is called once per frame
     void Update()

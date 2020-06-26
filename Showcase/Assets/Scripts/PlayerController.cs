@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public Camera m_camera;
 
     //Interactable Object - ref
-    public List<InteractableObjectBase> ig_interactable;
+    //public List<InteractableObjectBase> ig_interactable;
 
     //Bool to handle player movement
     bool m_canmove = true;
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
     // the currently selected interactible
     InteractableObjectBase m_currentlySelected;
 
+    int m_layerMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
         //m_camera = FindObjectOfType<Camera>(); //Find the camera which is a child of the Player 
         m_camera = this.gameObject.GetComponentInChildren<Camera>();
         m_campos = m_camera.transform.position;
+        m_layerMask = LayerMask.GetMask("Interact");
     }
 
     // Update is called once per frame
@@ -55,7 +59,7 @@ public class PlayerController : MonoBehaviour
                 PlayerMovement();
             }
             CameraMovement();
-            OnInteract();
+            OnInteract(); 
         }
     }
 
@@ -109,8 +113,39 @@ public class PlayerController : MonoBehaviour
             RaycastHit m_hit;
             Ray m_ray = m_camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(m_ray, out m_hit))
+            if (Physics.Raycast(m_ray, out m_hit, 10.0f, m_layerMask))
             {
+                InteractableObjectBase hitObject = m_hit.transform.gameObject
+                    .GetComponent<InteractableObjectBase>();
+
+                if (m_currentlySelected == null)
+                {
+                    m_currentlySelected = hitObject;
+                }
+                else if (m_currentlySelected != hitObject)
+                {
+                    m_currentlySelected.GetObjectOutline().enabled = false;
+                    m_currentlySelected = hitObject;
+                }
+
+                hitObject.GetObjectOutline().enabled = true;
+                m_currentlySelected = hitObject;
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    hitObject.GetComponent<InteractableObjectBase>().Interact();
+                }
+            }
+            else
+            {
+                if (m_currentlySelected)
+                {
+                    m_currentlySelected.GetObjectOutline().enabled = false;
+                    m_currentlySelected = null;
+                }
+            }
+
+                /*
                 Transform m_objectHit = m_hit.transform;
                 //Run through all interactable objects within the game
                 for (int i = 0; i < ig_interactable.Count; i++)
@@ -132,8 +167,9 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                 }
-            }
+                */
 
+            /*
             // if we hit nothing, remove the current glow
             else
             {
@@ -141,7 +177,7 @@ public class PlayerController : MonoBehaviour
                 {
                     m_currentlySelected.GetObjectOutline().enabled = false;
                 }
-            }
+            }*/
         }
     }
 

@@ -35,6 +35,8 @@ public class w_QuestionManager : MonoBehaviour
 
     Slider m_timerSlider;
 
+    TextMeshProUGUI m_progressText;
+
     /// <summary>
     /// Time user has to answer a question
     /// </summary>
@@ -105,6 +107,10 @@ public class w_QuestionManager : MonoBehaviour
         SetAlphaToZero(transform.parent.GetComponent<Renderer>().material);
         SetAlphaToZero(m_questionBox);
 
+        m_progressText = m_timerSlider.transform.root.gameObject
+            .GetComponentInChildren<TextMeshProUGUI>();
+        m_progressText.SetText("");
+
         //enabled = false;
         // TODO once we move to unifying the views, remove this
         StartCoroutine(StartInterview());
@@ -119,6 +125,8 @@ public class w_QuestionManager : MonoBehaviour
         if (m_currentQuestion > m_questionsToAsk)
         {
             m_processNextStep.Invoke();
+
+            Destroy(m_progressText);
         }
         else
         {
@@ -148,6 +156,9 @@ public class w_QuestionManager : MonoBehaviour
             m_questions.RemoveAt(nextQuestion);
 
             m_waitForAnswer = StartCoroutine(WaitForAnswer());
+
+            m_progressText.SetText("Question " + m_currentQuestion +
+                " of " + m_questionsToAsk);
         }
     }
 

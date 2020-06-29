@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EventFolder" id="{ce112ec1-ea86-47f6-810a-abb34bd8b22e}">
+		<property name="name">
+			<value>Spot Effects</value>
+		</property>
+		<relationship name="folder">
+			<destination>{80ebf36c-cf3a-4946-b083-9751e4d8797a}</destination>
+		</relationship>
+	</object>
+</objects>

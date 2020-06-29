@@ -75,6 +75,11 @@ public class PauseMenu : MonoBehaviour
                     // if quit key is pressed, quit application
                     Application.Quit();
                 }
+
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    LevelChange.ChangeLevel("TitleScreen");
+                }
             }
         }
     }

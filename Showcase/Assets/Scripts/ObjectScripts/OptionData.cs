@@ -46,7 +46,7 @@ public class OptionData : InteractableObjectBase
         gameObject.SetActive(true);
         m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
         m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
-        SetShouldGlow(true);
+        //SetShouldGlow(true);
     }
 
     /// <summary>
@@ -55,6 +55,7 @@ public class OptionData : InteractableObjectBase
     override public void Interact()
     {
         Debug.Log("Option: " + m_textValue.text + "Hit");
+        Debug.Log("Interactable = " + m_isInteractible);
         if (m_isInteractible)
         {   
             m_questionManager.ProcessQuestionResult(m_responseForThisButton);
@@ -70,6 +71,7 @@ public class OptionData : InteractableObjectBase
         m_isInteractible = !_locked;
         if (!_locked)
         {
+            Debug.Log("Unlocked");
             SetShouldGlow(true);
         }
 
@@ -78,6 +80,7 @@ public class OptionData : InteractableObjectBase
 
     public IEnumerator setInactive()
     {
+        m_isInteractible = false;
         gameObject.SetActive(true);
         float fadeOutTime = 0.5f;
         SetShouldGlow(false);
@@ -86,6 +89,5 @@ public class OptionData : InteractableObjectBase
         StartCoroutine(FadeAsset(m_renderer, fadeOutTime, false));
         StartCoroutine(FadeAsset(m_textValue, fadeOutTime, false));
         yield return new WaitForSeconds(fadeOutTime + 1);
-        m_isInteractible = false;
     }
 }

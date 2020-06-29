@@ -27,8 +27,6 @@ public class w_QuestionManager : MonoBehaviour
 
     int m_currentQuestion;
 
-    FillerText m_fillerText;
-
     e_rating m_previous = e_rating.NONE;
 
     OptionPool m_optionPool;
@@ -102,8 +100,6 @@ public class w_QuestionManager : MonoBehaviour
         m_randomQuestion = new UnityEvent();
         m_randomQuestion.AddListener(LoadRandomQuestion);
 
-        m_fillerText = new FillerText();
-
         SetAlphaToZero(transform.parent.GetComponent<Renderer>().material);
         SetAlphaToZero(m_questionBox);
 
@@ -113,7 +109,9 @@ public class w_QuestionManager : MonoBehaviour
 
         //enabled = false;
         // TODO once we move to unifying the views, remove this
+        Init();
         StartCoroutine(StartInterview());
+        
     }
 
     /// <summary>
@@ -233,7 +231,7 @@ public class w_QuestionManager : MonoBehaviour
 
         m_endLevel = true;
 
-        StartCoroutine(WaitForAnswer());
+        m_waitForAnswer = StartCoroutine(WaitForAnswer());
     }
 
     /// <summary>
@@ -251,24 +249,12 @@ public class w_QuestionManager : MonoBehaviour
             m_questions.Clear();
             AskAboutJob();
         }
-        else { StartCoroutine(FillInTime(m_fillerText.ReturnFillerText())); }
+        else { StartCoroutine(FillInTime()); }
     }
 
-    /// <summary>
-    /// Function to display some filler text
-    /// </summary>
-    /// <param name="_fillInText">the filler text</param>
-    /// <returns> waits for 2 seconds</returns>
-    IEnumerator FillInTime(string _fillInText)
+    IEnumerator FillInTime()
     {
-        FadeOutQuestionText();
-        yield return new WaitForSecondsRealtime(2);
-        m_questionBox.SetText(_fillInText);
-        m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
-            true));
-        yield return new WaitForSecondsRealtime(2);
-        FadeOutQuestionText();
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(1);
         m_randomQuestion.Invoke();
     }
 

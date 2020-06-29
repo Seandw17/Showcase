@@ -128,7 +128,10 @@ public class PlayerController : MonoBehaviour
                     m_currentlySelected = hitObject;
                 }
 
-                hitObject.GetObjectOutline().enabled = true;
+                if (hitObject.GetShouldGlow())
+                {
+                    hitObject.GetObjectOutline().enabled = true;
+                }
                 m_currentlySelected = hitObject;
 
                 if (Input.GetMouseButtonDown(0))

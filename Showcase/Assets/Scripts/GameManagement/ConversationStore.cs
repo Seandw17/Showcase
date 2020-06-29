@@ -62,15 +62,12 @@ static public class ConversationStore
         temp.playerResponse = _response;
         temp.question = _question;
 
-        //TODO finish and allow
-        //InterviewerFace.Expression(_response.rating);
-
         if (_response.rating.Equals(e_rating.AWFUL) ||
             _response.rating.Equals(e_rating.BAD))
         {
             AddTip(_response.tip);
         }
-        
+
         m_playerResponses.Add(temp);
     }
 

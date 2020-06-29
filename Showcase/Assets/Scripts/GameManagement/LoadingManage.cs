@@ -30,6 +30,7 @@ public class LoadingManage : MonoBehaviour
         SetAlphaToZero(m_background);
         SetAlphaToZero(m_Loadingtext);
         FadeIn();
+        Cursor.visible = false;
     }
 
     /// <summary>

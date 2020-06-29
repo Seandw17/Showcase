@@ -38,9 +38,10 @@ public class PauseMenu : MonoBehaviour
             " to resume");
         m_quitText.SetText("Press " + m_quitKey.ToString() + " to quit");
 
+        /*
         m_playerCursorCanvas = Instantiate(
             Resources.Load<GameObject>("Prefabs/PlayerCursor"));
-        m_playerCursorCanvas.SetActive(false);
+        m_playerCursorCanvas.SetActive(false);*/
 
         // Create the FPS counter if in editor
         if (Application.isEditor)
@@ -48,7 +49,7 @@ public class PauseMenu : MonoBehaviour
             Instantiate(Resources.Load<GameObject>("Prefabs/FPSCounter"));
         }
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
@@ -78,13 +79,14 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    /*
     void OnSceneLoaded(Scene _newScene, LoadSceneMode _mode)
     {
         if (!_newScene.name.Equals("Menu"))
         {
             m_playerCursorCanvas.SetActive(true);
         }
-    }
+    }*/
 
     /// <summary>
     /// return if the game is paused or not

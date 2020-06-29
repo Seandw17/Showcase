@@ -72,7 +72,7 @@ MonoBehaviour:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
   - {fileID: 329854066129000554}
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -167,7 +167,7 @@ MonoBehaviour:
   Path: event:/Ambience/Waiting Room/amb_coffee_filter
   guid: 76d70ec93630af41b017387911b44242
   Banks:
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
   guid: 40846e08d3779c46a09e0a571026e021
   Banks:
   - {fileID: 329854066129000554}
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -493,7 +493,7 @@ MonoBehaviour:
   guid: 98920a41e3bd414283bdaacc3987c067
   Banks:
   - {fileID: 329854066129000554}
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 2061836392448175845}
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   EditorEvents:
   - {fileID: 1780115402532591631}
   - {fileID: 6299934516555497571}
@@ -569,10 +569,10 @@ MonoBehaviour:
   - {fileID: 6326597405759219879}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   StringsBanks:
   - {fileID: 2061836392448175845}
-  stringsBankWriteTime: 637290391817985917
+  stringsBankWriteTime: 637290463384013862
   cacheVersion: 3
 --- !u!114 &11867730222310922
 MonoBehaviour:
@@ -880,7 +880,7 @@ MonoBehaviour:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
   - {fileID: 329854066129000554}
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -903,7 +903,7 @@ MonoBehaviour:
   Path: event:/Spot Effects/Bedroom/pc_tower
   guid: 8c40e8b16ba3f64c9aea18f3b535b995
   Banks:
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637290391817985917
+  lastModified: 637290463384013862
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -967,7 +967,7 @@ MonoBehaviour:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
   - {fileID: 329854066129000554}
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
   - {fileID: 329854066129000554}
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   guid: 5d24b2fd1165ba45b5ffce96caa10bf6
   Banks:
   - {fileID: 329854066129000554}
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1376,7 +1376,7 @@ MonoBehaviour:
   Path: event:/Ambience/Waiting Room/amb_waiting_room
   guid: 2b518a912df62b4580dd4c63f5e788d9
   Banks:
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1538,7 +1538,7 @@ MonoBehaviour:
   - {fileID: -5382998256725764272}
   - {fileID: 1159093830977889022}
   - {fileID: 329854066129000554}
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   Path: event:/Ambience/Bedroom/amb_window
   guid: ff657dbce67ac845b61383f3abea75a4
   Banks:
-  - {fileID: 9167015692113335832}
+  - {fileID: 7665242703735641462}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1660,6 +1660,24 @@ MonoBehaviour:
   FileSizes:
   - Name: 
     Value: 946
+  Exists: 1
+--- !u!114 &7665242703735641462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637290463384003889
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
 --- !u!114 &8027600479680590143
 MonoBehaviour:
@@ -1768,4 +1786,4 @@ MonoBehaviour:
   lastModified: 637290391817965967
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0

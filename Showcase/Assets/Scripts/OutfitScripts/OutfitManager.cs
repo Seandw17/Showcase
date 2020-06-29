@@ -10,7 +10,7 @@ public class OutfitManager : MonoBehaviour
     e_Outfits m_selectedOutfit;
     static int m_selectedOutfitScore;
 
-    GameObject[] ig_Outfit;
+    public GameObject[] ig_Outfit;
     GameObject ig_Player;
 
     [SerializeField]
@@ -22,7 +22,7 @@ public class OutfitManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ig_Outfit = GameObject.FindGameObjectsWithTag("Outfit");
+        //ig_Outfit = GameObject.FindGameObjectsWithTag("Outfit");
 
         ig_Player = GameObject.Find("Player");
         m_playerscript = ig_Player.GetComponent<PlayerController>();

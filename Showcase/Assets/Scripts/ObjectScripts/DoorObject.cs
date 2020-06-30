@@ -64,8 +64,12 @@ public class DoorObject : InteractableObjectBase
                     Debug.Log("You need to do some research fool");
 
                     // Changed to call coroutine
-                    m_gmscript.SetCurrentHUD(m_gmscript.ig_noResearchExitWarning);
-                    StartCoroutine(FadeIn.AssetInOut(m_gmscript.ig_noResearchExitWarning.GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
+                    GameManagerScript.SetCurrentHUD(
+                        GameManagerScript.ReturnPanel(e_PanelTypes.
+                        RESEARCHWARNING));
+                    StartCoroutine(FadeIn.AssetInOut(GameManagerScript.
+                        ReturnPanel(e_PanelTypes.RESEARCHWARNING)
+                     .GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
                     
                 }
                 else if(ConversationStore.IsOnlyNoneFlag().Equals(false))
@@ -77,8 +81,12 @@ public class DoorObject : InteractableObjectBase
                     else
                     {
                         // Changed to call coroutine
-                        m_gmscript.SetCurrentHUD(m_gmscript.ig_outfitExitWarning);
-                        StartCoroutine(FadeIn.AssetInOut(m_gmscript.ig_outfitExitWarning.GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
+                        GameManagerScript.SetCurrentHUD(
+                            GameManagerScript.ReturnPanel(
+                                e_PanelTypes.OUTFITWARNING));
+                        StartCoroutine(FadeIn.AssetInOut(GameManagerScript.
+                            ReturnPanel(e_PanelTypes.OUTFITWARNING).
+                            GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
                     }
                 }
             }

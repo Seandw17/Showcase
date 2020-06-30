@@ -22,21 +22,22 @@ public class LaptopObject : InteractableObjectBase
 
     public override void Interact()
     {
-        m_gmscript.SetCurrentHUD(m_gmscript.ig_LaptopPanel);
+        GameManagerScript.SetCurrentHUD(
+            GameManagerScript.ReturnPanel(e_PanelTypes.LAPTOP));
         m_playerscript.SetCanInteract(false);
         m_playerscript.SetCanCameraMove(false);
         m_playerscript.SetCanPlayerMove(false);
-        m_gmscript.m_cmScript.EnableCursor();
+        GameManagerScript.GetCursor().EnableCursor();
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/tasklist_open", GetComponent<Transform>().position);
     }
 
     public void ReturnToPlayer()
     {
-        m_gmscript.SetCurrentHUD(m_gmscript.ig_PlayerPanel);
+        GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.PLAYER));
         m_playerscript.SetCanInteract(true);
         m_playerscript.SetCanCameraMove(true);
         m_playerscript.SetCanPlayerMove(true);
-        m_gmscript.m_cmScript.DisableCursor();
+        GameManagerScript.GetCursor().DisableCursor();
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/tasklist_close", GetComponent<Transform>().position);
     }
 

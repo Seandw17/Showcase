@@ -2,10 +2,8 @@
 
 public class InteractableObjectBase : MonoBehaviour
 {
-    GameObject ig_GameManager;
     GameObject ig_Player;
 
-    protected GameManagerScript m_gmscript;
     protected PlayerController m_playerscript;
 
     Outline m_outline;
@@ -28,8 +26,6 @@ public class InteractableObjectBase : MonoBehaviour
         m_playerscript = ig_Player.GetComponent<PlayerController>();
         */
 
-        //Proposed change
-        m_gmscript = FindObjectOfType<GameManagerScript>();
         m_playerscript = FindObjectOfType<PlayerController>();
 
         if (m_alternateGlowObject == null)

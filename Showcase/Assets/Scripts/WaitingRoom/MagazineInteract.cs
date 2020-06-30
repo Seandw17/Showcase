@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using static GameManagerScript;
 
 public class MagazineInteract : InteractableObjectBase
 {
@@ -18,17 +16,19 @@ public class MagazineInteract : InteractableObjectBase
 
     public override void Interact()
     {
-        m_gmscript.SetCurrentHUD(m_gmscript.ig_magazineWaitingRoom);
+        SetCurrentHUD(
+            ReturnPanel(e_PanelTypes.MAGAZINE));
         m_playerscript.SetCanCameraMove(false);
-        m_gmscript.m_cmScript.EnableCursor();
+        GetCursor().EnableCursor();
         m_playerscript.SetCanInteract(false);
     }
 
     public void ResetMagazineView()
     {
-        m_gmscript.SetCurrentHUD(m_gmscript.ig_PlayerPanel);
+        SetCurrentHUD(
+            ReturnPanel(e_PanelTypes.PLAYER));
         m_playerscript.SetCanCameraMove(true);
-        m_gmscript.m_cmScript.DisableCursor();
+        GetCursor().DisableCursor();
         m_playerscript.SetCanInteract(true);
     }
 }

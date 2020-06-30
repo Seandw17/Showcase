@@ -25,7 +25,7 @@ public class GameManagerScript : MonoBehaviour
 
     static GameObject m_playerPanel, m_WardrobePanel, m_laptopPanel, m_magazinePanel, m_outfitWarnPanel, m_researchWarnPanel;
 
-    Text m_objectivetext;
+    [SerializeField]Text m_objectivetext;
 
     //This is the HUD that is displayed to the screen at all times
     static GameObject ig_currenthud;
@@ -52,8 +52,6 @@ public class GameManagerScript : MonoBehaviour
         m_outfitWarnPanel = ig_outfitExitWarning;
         m_researchWarnPanel = ig_noResearchExitWarning;
 
-        m_objectivetext = m_playerPanel.GetComponent<Text>();
-
         ig_currenthud = m_playerPanel;
 
         DisplayObjectiveText();
@@ -63,7 +61,10 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            IncrementObjectiveIndex();
+        }
     }
 
     static public void SetCurrentHUD(GameObject _CurrentHUD)
@@ -83,7 +84,7 @@ public class GameManagerScript : MonoBehaviour
 
     void DisplayObjectiveText()
     {
-       // m_objectivetext.text = m_objectivetextarray[m_objectiveindex];
+       m_objectivetext.text = "Objective: " + m_objectivetextarray[m_objectiveindex];
     }
 
     public void IncrementObjectiveIndex()

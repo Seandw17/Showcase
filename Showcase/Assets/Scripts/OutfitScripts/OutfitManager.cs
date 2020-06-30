@@ -50,6 +50,7 @@ public class OutfitManager : MonoBehaviour
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
         CheckSelectedModel();
         FindObjectOfType<PlayerController>().enabled = true;
+        GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.PLAYER));
         m_cmScript.DisableCursor();    
     }
 

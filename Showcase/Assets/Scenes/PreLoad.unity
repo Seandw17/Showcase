@@ -735,18 +735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c54fc0cab283540bc50cbb6bca9f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ig_PlayerPanel: {fileID: 2913155364680425854, guid: 4f682f2137384574b98a4ffb1f124381,
-    type: 3}
-  ig_WardrobePanel: {fileID: 2674805153786572402, guid: 5b2164e5db88f5b4a97a6b1bb5294d0f,
-    type: 3}
-  ig_LaptopPanel: {fileID: 2976794775150927302, guid: 3cfeab793ce9ee644b621fba72d51948,
-    type: 3}
-  ig_magazineWaitingRoom: {fileID: 1744198181512043618, guid: cd282969bf6b5460aa3b77037565353d,
-    type: 3}
-  ig_outfitExitWarning: {fileID: 8875719370628961826, guid: 257ac841e4d216d40a5bb4253a7af696,
-    type: 3}
-  ig_noResearchExitWarning: {fileID: 8985068774636496417, guid: 1c92a353e3767f748a992bee6ce4b352,
-    type: 3}
   m_objectivetextarray: []
 --- !u!114 &904260759
 MonoBehaviour:
@@ -861,7 +849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1574630781
 RectTransform:
   m_ObjectHideFlags: 0

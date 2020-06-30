@@ -28,20 +28,13 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// The text field corrosponding to an action
     /// </summary>
-    [SerializeField] TextMeshProUGUI m_resumeText, m_quitText;
-
-    GameObject m_playerCursorCanvas;
+    [SerializeField] TextMeshProUGUI m_resumeText, m_quitText; 
 
     private void Start()
     {
         m_resumeText.SetText("Press " + m_pauseButton.ToString() +
             " to resume");
         m_quitText.SetText("Press " + m_quitKey.ToString() + " to quit");
-
-        /*
-        m_playerCursorCanvas = Instantiate(
-            Resources.Load<GameObject>("Prefabs/PlayerCursor"));
-        m_playerCursorCanvas.SetActive(false);*/
 
         // Create the FPS counter if in editor
         if (Application.isEditor)
@@ -56,17 +49,19 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         // if the active scene is not the title screen
-        if (!SceneManager.GetActiveScene().name.Equals("TitleScreen"))
+        if (!SceneManager.GetActiveScene().name.Equals("TItleScreen") &&
+            !SceneManager.GetActiveScene().name.Equals("PreLoad"))
         {
             // If escape is pressed, toggle the pause meny and gametime
             if (Input.GetKeyDown(m_pauseButton))
             {
+                Debug.Log(SceneManager.GetActiveScene().name);
                 m_isPaused = !m_isPaused;
                 Time.timeScale = Convert.ToSingle(!m_isPaused);
 
                 m_pauseMenuObject.SetActive(m_isPaused);
 
-                m_playerCursorCanvas.SetActive(!m_isPaused);
+                GameManagerScript.UIActive(!m_isPaused);
             }
             else if (m_isPaused)
             {
@@ -78,7 +73,7 @@ public class PauseMenu : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    LevelChange.ChangeLevel("TitleScreen");
+                    LevelChange.ChangeLevel("TItleScreen");
                 }
             }
         }

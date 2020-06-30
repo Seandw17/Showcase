@@ -63,6 +63,16 @@ public class LevelChange : MonoBehaviour
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(_sceneName));
         Debug.Log("Loading of Scene: " + _sceneName + " is complete");
+
+        if (!SceneManager.GetActiveScene().name.Equals("TItleScreen")
+            && !SceneManager.GetActiveScene().name.Equals("PreLoad"))
+        {
+            GameManagerScript.UIActive(true);
+        }
+        else
+        {
+            GameManagerScript.UIActive(false);
+        }
     }
 
     /// <summary>

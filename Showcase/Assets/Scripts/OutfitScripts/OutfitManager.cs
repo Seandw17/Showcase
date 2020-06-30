@@ -11,21 +11,18 @@ public class OutfitManager : MonoBehaviour
     static int m_selectedOutfitScore;
 
     public GameObject[] ig_Outfit;
-    GameObject ig_Player;
+    //GameObject ig_Player;
 
     [SerializeField]
     Material[] m_outfitMats;
 
-    protected PlayerController m_playerscript;
+    //protected PlayerController m_playerscript;
     CursorController m_cmScript;
 
     // Start is called before the first frame update
     void Start()
     {
         //ig_Outfit = GameObject.FindGameObjectsWithTag("Outfit");
-
-        ig_Player = GameObject.Find("Player");
-        m_playerscript = ig_Player.GetComponent<PlayerController>();
 
         m_cmScript = GetComponent<CursorController>();
 
@@ -52,7 +49,7 @@ public class OutfitManager : MonoBehaviour
         
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
         CheckSelectedModel();
-        m_playerscript.enabled = true;
+        FindObjectOfType<PlayerController>().enabled = true;
         m_cmScript.DisableCursor();    
     }
 
@@ -82,7 +79,7 @@ public class OutfitManager : MonoBehaviour
     // will be changed to change the model/texture when the assets are created
     void ChangeSelectedModel(Material mat)
     {
-        ig_Player.GetComponent<MeshRenderer>().material = mat;
+        GameObject.Find("Player").GetComponent<MeshRenderer>().material = mat;
     }
 
     // returns the score given to the outfit to future scenes

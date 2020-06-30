@@ -14,10 +14,19 @@ public class LaptopObject : InteractableObjectBase
         base.Start();   
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetUpButtons(Button _return, Button _unlock1,
+        Button _unlock2, Button _unlock3, Button _unlock4)
     {
-        
+        _return.onClick.AddListener(ReturnToPlayer);
+        ig_returnButton = _return;
+        _unlock1.onClick.AddListener(Unlock1);
+        ig_unlock1Button = _unlock1;
+        _unlock2.onClick.AddListener(Unlock2);
+        ig_unlock2Button = _unlock2;
+        _unlock3.onClick.AddListener(Unlock3);
+        ig_unlock3Button = _unlock3;
+        _unlock4.onClick.AddListener(Unlock4);
+        ig_unlock4Button = _unlock4;
     }
 
     public override void Interact()
@@ -33,6 +42,7 @@ public class LaptopObject : InteractableObjectBase
 
     public void ReturnToPlayer()
     {
+        Debug.Log("Clicked");
         GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.PLAYER));
         m_playerscript.SetCanInteract(true);
         m_playerscript.SetCanCameraMove(true);

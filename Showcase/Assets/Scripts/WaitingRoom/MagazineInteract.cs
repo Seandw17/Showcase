@@ -1,4 +1,5 @@
-﻿using static GameManagerScript;
+﻿using UnityEngine.UI;
+using static GameManagerScript;
 
 public class MagazineInteract : InteractableObjectBase
 {
@@ -12,6 +13,11 @@ public class MagazineInteract : InteractableObjectBase
     void Update()
     {
         
+    }
+
+    public void SetUp(Button m_exit)
+    {
+        m_exit.onClick.AddListener(ResetMagazineView);
     }
 
     public override void Interact()

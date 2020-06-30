@@ -5,7 +5,7 @@ using System.Linq;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    float m_playerSpeed = 5.0f;
+    float m_playerSpeed = 3.0f;
 
     //Camera Variables
     Vector2 m_mouseLook;

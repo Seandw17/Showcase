@@ -74,6 +74,7 @@ static public class FadeIn
         }
     }
 
+    
     /// <summary>
     /// Fade in / Fade out text
     /// </summary>

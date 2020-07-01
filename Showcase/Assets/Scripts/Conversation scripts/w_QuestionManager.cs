@@ -106,12 +106,15 @@ public class w_QuestionManager : MonoBehaviour
         m_progressText = m_timerSlider.transform.root.gameObject
             .GetComponentInChildren<TextMeshProUGUI>();
         m_progressText.SetText("");
+        enabled = false;
+    }
 
-        //enabled = false;
-        // TODO once we move to unifying the views, remove this
-        Init();
+    /// <summary>
+    /// Begin the interview
+    /// </summary>
+    public void BeginInterview()
+    {
         StartCoroutine(StartInterview());
-        
     }
 
     /// <summary>

@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class ChairObject : InteractableObjectBase
 {
-   
-    
-
-   
+    [SerializeField] w_QuestionManager m_questionManager;
 
     int m_chairchoice = 0;
    
@@ -43,7 +40,11 @@ public class ChairObject : InteractableObjectBase
                     m_playerscript.SetCanPlayerMove(false);
                     //m_playerscript.SetIsInInterview(true);
 
-                    LevelChange.ChangeLevel("InterviewTestScene");
+                    // Start Interview
+                    Debug.Assert(m_questionManager != null, "There is no " +
+                        "reference to a Question Manager Object");
+
+                    m_questionManager.BeginInterview();
 
                     break;
                 }

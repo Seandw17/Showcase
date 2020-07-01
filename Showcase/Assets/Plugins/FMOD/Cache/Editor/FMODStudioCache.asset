@@ -94,7 +94,7 @@ MonoBehaviour:
   - {fileID: 329854066129000554}
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -174,6 +174,47 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-7635276331024979184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SpotEffects/Bedroom/pc_tower
+  m_EditorClassIdentifier: 
+  Path: event:/SpotEffects/Bedroom/pc_tower
+  guid: 8c40e8b16ba3f64c9aea18f3b535b995
+  Banks:
+  - {fileID: -2528925474566625746}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3122
+--- !u!114 &-7178463409651194458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637292062101635390
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-6995475118110075905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +250,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -279,7 +320,7 @@ MonoBehaviour:
   - {fileID: 329854066129000554}
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -305,6 +346,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-6017250165168731234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637292061729097525
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-6016941484265989723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +598,7 @@ MonoBehaviour:
   - {fileID: 329854066129000554}
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -547,6 +606,42 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 27999
+--- !u!114 &-2783026242685198221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637290395569154995
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-2528925474566625746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637292064662252215
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-2041042658757128090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,6 +680,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-1214476814620055013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637292058297224546
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-1026068709752783893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,7 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 2061836392448175845}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   EditorEvents:
   - {fileID: 1780115402532591631}
   - {fileID: 6299934516555497571}
@@ -631,12 +744,14 @@ MonoBehaviour:
   - {fileID: 1859441297230461783}
   - {fileID: 5702746234564384229}
   - {fileID: 6326597405759219879}
+  - {fileID: -7635276331024979184}
+  - {fileID: 1241230122315402691}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   StringsBanks:
   - {fileID: 2061836392448175845}
-  stringsBankWriteTime: 637290398504066105
+  stringsBankWriteTime: 637292064662292132
   cacheVersion: 3
 --- !u!114 &11867730222310922
 MonoBehaviour:
@@ -908,6 +1023,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &1241230122315402691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SpotEffects/Bedroom/Wardrobe/collect_clothes
+  m_EditorClassIdentifier: 
+  Path: event:/SpotEffects/Bedroom/Wardrobe/collect_clothes
+  guid: ae6b4c8d6c59bb4bb3ad5e8595cb3633
+  Banks:
+  - {fileID: -2528925474566625746}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1243
 --- !u!114 &1598463468668449039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,7 +1102,7 @@ MonoBehaviour:
   - {fileID: 329854066129000554}
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -989,7 +1127,6 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1029,11 +1166,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637290398504066105
+  lastModified: 637292064662292132
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1338
+    Value: 1404
   Exists: 1
 --- !u!114 &2193345202728619249
 MonoBehaviour:
@@ -1055,7 +1192,7 @@ MonoBehaviour:
   - {fileID: 329854066129000554}
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1155,7 +1292,7 @@ MonoBehaviour:
   - {fileID: 329854066129000554}
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1445,7 +1582,7 @@ MonoBehaviour:
   - {fileID: 329854066129000554}
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1453,6 +1590,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 39969
+--- !u!114 &5373680449426870206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637292055209169261
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &5628408123477987876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,7 +1643,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1574,6 +1729,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &6020987796650709422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637292062632666801
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &6056644798027584350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1652,7 +1825,7 @@ MonoBehaviour:
   - {fileID: 329854066129000554}
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1695,7 +1868,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -8015805677202922990}
+  - {fileID: -2528925474566625746}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1757,6 +1930,28 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &6982156588280455625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Spot Effects/Bedroom/Wardrobe/Collect Clothes
+  m_EditorClassIdentifier: 
+  Path: event:/Spot Effects/Bedroom/Wardrobe/Collect Clothes
+  guid: ae6b4c8d6c59bb4bb3ad5e8595cb3633
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1243
 --- !u!114 &7277491087753339276
 MonoBehaviour:
   m_ObjectHideFlags: 0

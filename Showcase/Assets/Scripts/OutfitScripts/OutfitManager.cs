@@ -51,7 +51,8 @@ public class OutfitManager : MonoBehaviour
         CheckSelectedModel();
         FindObjectOfType<PlayerController>().enabled = true;
         GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.PLAYER));
-        m_cmScript.DisableCursor();    
+        m_cmScript.DisableCursor();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/Bedroom/Wardrobe/collect_clothes");
     }
 
     // temporally made it so that the players camera is higher up in the scene (not via code)

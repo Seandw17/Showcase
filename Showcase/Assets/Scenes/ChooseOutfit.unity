@@ -329,6 +329,7 @@ Transform:
   - {fileID: 602969770}
   - {fileID: 1961075644}
   - {fileID: 241579240}
+  - {fileID: 2105371166}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1409,16 +1410,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Spot Effects/Bedroom/pc_tower
+  Event: event:/SpotEffects/Bedroom/pc_tower
   PlayEvent: 1
-  StopEvent: 0
+  StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 8.400001
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1972419147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1494,60 @@ Transform:
   m_Father: {fileID: 1055340070}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -54.525, z: 0}
+--- !u!1 &2105371165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105371166}
+  - component: {fileID: 2105371167}
+  m_Layer: 0
+  m_Name: ResonanceRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105371166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105371165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.69, z: 0}
+  m_LocalScale: {x: 6.1321, y: 2.6049957, z: 6.3382}
+  m_Children: []
+  m_Father: {fileID: 346165441}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2105371167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105371165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0c5e63920ee4f55b7ec5248525af4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftWall: 5
+  rightWall: 5
+  floor: 14
+  ceiling: 16
+  backWall: 9
+  frontWall: 5
+  reflectivity: 1
+  reverbGainDb: 0
+  reverbBrightness: 0
+  reverbTime: 1
+  size: {x: 1, y: 1, z: 1}
 --- !u!1 &2144198193
 GameObject:
   m_ObjectHideFlags: 0

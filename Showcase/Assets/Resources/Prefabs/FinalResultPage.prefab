@@ -919,5 +919,5 @@ MonoBehaviour:
   m_outcomeText: {fileID: 5414165350053165353}
   m_amountNeededToPassPercent: 75
   m_finalPercentText: {fileID: 5414165349880242640}
-  m_passText: 
-  m_failText: 
+  m_passText: Congratulaitions, You got the job!
+  m_failText: I'm sorry, you have failed the interview

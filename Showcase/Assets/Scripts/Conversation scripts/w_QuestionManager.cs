@@ -214,7 +214,6 @@ public class w_QuestionManager : MonoBehaviour
         }
 
         TurnOffOptions();
-        FillerText.Silent();
         m_previous = e_rating.AWFUL;
         PlayerWasSilent(m_questionBox.text);
         m_processNextStep.Invoke();
@@ -304,15 +303,14 @@ public class w_QuestionManager : MonoBehaviour
 
         m_questionForJob.Clear();
 
-        //TODO push that player was silent on asking there own question
-
         m_questionBox.SetText(response);
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
             true));
         yield return new WaitForSecondsRealtime(3);
         GameObject card = Instantiate(Resources.Load<GameObject>
-            ("Prefabs/ScoreCard"),
-            transform.position, transform.rotation);
+            ("Prefabs/ScoreCard"));
+        card.transform.position = new Vector3(transform.position.x,
+            transform.position.y - 0.4f, transform.position.z);
         StartCoroutine(EndInterview(card));
         Destroy(m_timerSlider.gameObject);
     }

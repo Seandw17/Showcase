@@ -82,19 +82,6 @@ static public class ConversationStore
     static public List<s_playerResponse> ReturnFinalChosenResults() =>
         m_playerResponses;
 
-    // TESTING FUNCTION, TO REMOVE
-    static public List<s_playerResponse> ReturnTestData()
-    {
-        PlayerWasSilent("Test 1");
-        PlayerWasSilent("Test 2");
-        PlayerWasSilent("Test 3");
-        PlayerWasSilent("Test 4");
-        PlayerWasSilent("Test 5");
-        PlayerWasSilent("Test 6");
-
-        return m_playerResponses;
-    }
-
     /// <summary>
     /// Add a tip
     /// </summary>

@@ -61,6 +61,7 @@ public class OptionData : InteractableObjectBase
         if (m_isInteractible)
         {   
             m_questionManager.ProcessQuestionResult(m_responseForThisButton);
+            GetObjectOutline().enabled = false;
         }
     }
 
@@ -73,7 +74,6 @@ public class OptionData : InteractableObjectBase
         m_isInteractible = !_locked;
         if (!_locked)
         {
-            Debug.Log("Unlocked");
             SetShouldGlow(true);
         }
 

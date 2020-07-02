@@ -325,4 +325,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e772e1bcead4a69bf1a6470bd92a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_alternateGlowObject: {fileID: 2592376800853465042}
   m_startButton: 0

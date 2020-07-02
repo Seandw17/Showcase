@@ -60,6 +60,11 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     [SerializeField] InterviewerFace m_interviewer;
 
+    /// <summary>
+    /// If true, forces interview to start on load, for testing purposes
+    /// </summary>
+    [SerializeField] bool m_forceInterviewToStart;
+
     Coroutine m_waitForAnswer, m_fadeText;
 
     // Start is called before the first frame update
@@ -106,7 +111,15 @@ public class w_QuestionManager : MonoBehaviour
         m_progressText = m_timerSlider.transform.root.gameObject
             .GetComponentInChildren<TextMeshProUGUI>();
         m_progressText.SetText("");
-        enabled = false;
+        if (m_forceInterviewToStart)
+        {
+            Init();
+            StartCoroutine(StartInterview());
+        }
+        else
+        {
+            enabled = false;
+        }
     }
 
     /// <summary>
@@ -257,7 +270,7 @@ public class w_QuestionManager : MonoBehaviour
 
     IEnumerator FillInTime()
     {
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(5);
         m_randomQuestion.Invoke();
     }
 

@@ -40,10 +40,13 @@ static public class ConversationStore
     static public void PlayerWasSilent(string _question)
     {
         s_playerResponse silentResponse = new s_playerResponse();
-        silentResponse.playerResponse.rating = e_rating.AWFUL;
-        silentResponse.playerResponse.response = "Stayed Silent";
+        silentResponse.playerResponse = new Questionresponse
+        {
+            rating = e_rating.AWFUL,
+            response = "Stayed Silent"
+        };
         silentResponse.question = _question;
-        ConversationStore.AddTip(e_tipCategories.NOTASKING);
+        AddTip(e_tipCategories.NOTASKING);
         m_playerResponses.Add(silentResponse);
     }
 

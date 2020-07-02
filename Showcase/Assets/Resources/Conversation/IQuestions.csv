@@ -7,7 +7,7 @@
 #
 # What about this job appeals to you?
 #
-q$NONE|So what about this job appeals to you?,GREAT|Great! So moving on. What about this job appeals to you?GOOD|Alright then sounds good! So what about this job appeals to you?,OK|Really? ok so moving on what about the job appeals to you?,BAD|Alright then. what about the job appeals to you?,AWFUL|That's not a response we would expect! what about the job appeals to you?
+q$NONE|So what about this job appeals to you?,GREAT|Great! So moving on. What about this job appeals to you?,GOOD|Alright then sounds good! So what about this job appeals to you?,OK|Really? ok so moving on what about the job appeals to you?,BAD|Alright then. what about the job appeals to you?,AWFUL|That's not a response we would expect! what about the job appeals to you?
 r$It seems like it won't be very demanding|AWFUL|NONE,It looks fun|OK|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|GOOD|FIRST|,Your Company cares for its employees|GREAT|SECOND
 f$UNDEMANDING
 end
@@ -21,7 +21,7 @@ end
 #
 # What do you believe is expected of you at this job?
 #
-q$NONE|What do you believe is expected of you at this job?,GREAT| Love it! So what do you believe is expected of you at this job?,GOOD|Great! So what do you believe is expected of you at this job?,OK|Alright then. What do you believe is expected of you at this job?,BAD| Oh ok then. What do you believe is expected of you at this job?AWFUL|Interesting. What do you believe is expected of you at this job?
+q$NONE|What do you believe is expected of you at this job?,GREAT| Love it! So what do you believe is expected of you at this job?,GOOD|Great! So what do you believe is expected of you at this job?,OK|Alright then. What do you believe is expected of you at this job?,BAD|Oh ok then. What do you believe is expected of you at this job?,AWFUL|Interesting. What do you believe is expected of you at this job?
 r$I don't know|AWFUL|NONE,To turn up on time and not cause a fuss|BAD|NONE,To do the job at hand|OK|NONE,Take responsibility of my area and perform my tasks to the best of my ability|GREAT|FOURTH,To work hard and make every customer happy|GOOD|FIRST
 f$HARDWORK
 end
@@ -63,14 +63,14 @@ end
 # 
 # A customer comes in a rush and are quite irate. What would do you?
 #
-q$NONE|A customer comes in a rush and is quite irate. What would you do?,GREAT|Ok then A customer comes in a rush and is quite irate. What would you do?,GOOD|Alright! A customer comes in a rush and is quite irate. What would you do?,OK|Ok a customer comes in a rush and is quite irate. What would you do?,BAD|So then a customer comes in a rush and is quite irate. What would you do?AWFUL|So A customer comes in a rush and is quite irate. What would you do?
+q$NONE|A customer comes in a rush and is quite irate. What would you do?,GREAT|Ok then A customer comes in a rush and is quite irate. What would you do?,GOOD|Alright! A customer comes in a rush and is quite irate. What would you do?,OK|Ok a customer comes in a rush and is quite irate. What would you do?,BAD|So then a customer comes in a rush and is quite irate. What would you do?,AWFUL|So A customer comes in a rush and is quite irate. What would you do?
 r$I would refuse them service|AWFUL|NONE,I'd take my time to make sure I get the order correct|OK|NONE,I aknowledge that they are in a rush and get to them as soon as I can|GOOD|NONE,I acknowledge there needs and attempt to prepare the order if it would take a long time|GREAT|FIRST,I serve them first becuase they are in a rush|OK|FIRST
 f$PROBLEM
 end
 #
 # A customer complains to you about their coffee being cold. What do you do?
 #
-q$NONE|Ok a customer complains to you about their coffee being cold. What do you do?GREAT|Great! A customer complains to you about their coffee being cold. What do you do?GOOD|Ok so a customer complains to you about their coffee being cold. What do you do?OK|Alright. so a customer complains to you about their coffee being cold. What do you do?BAD|Hrrrmm ok. A customer complains to you about their coffee being cold. What do you do?AWFUL|That's interesting so a customer complains to you about their coffee being cold. What do you do?
+q$NONE|Ok a customer complains to you about their coffee being cold. What do you do?,GREAT|Great! A customer complains to you about their coffee being cold. What do you do?,GOOD|Ok so a customer complains to you about their coffee being cold. What do you do?,OK|Alright. So a customer complains to you about their coffee being cold. What do you do?,BAD|Hrrrmm ok. A customer complains to you about their coffee being cold. What do you do?,AWFUL|That's interesting so a customer complains to you about their coffee being cold. What do you do?
 r$I would apologise and ask to know more about the situation so I can determine what the context is around the order|OK|NONE,I would promise to get them a new coffee|GOOD|NONE,I would find my supervisor and see how they would handle it|BAD|NONE,I would apologise first and ask if it was cold when they received it. I would then ask the barista if there was anything wrong with the machine or any other orders|OK|FIRST,I would take the coffee and see if it is actually cold|AWFUL|THIRD
 f$PROBLEM
 end

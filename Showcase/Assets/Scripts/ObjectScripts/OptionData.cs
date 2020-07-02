@@ -44,6 +44,8 @@ public class OptionData : InteractableObjectBase
         m_responseForThisButton = _response;
         m_responseForThisButton.tip = _tip;
         gameObject.SetActive(true);
+        if (m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
+        if (m_fadeText != null) { StopCoroutine(m_fadeText); }
         m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
         m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
         //SetShouldGlow(true);
@@ -84,8 +86,8 @@ public class OptionData : InteractableObjectBase
         gameObject.SetActive(true);
         float fadeOutTime = 0.5f;
         SetShouldGlow(false);
-        StopCoroutine(m_fadeRenderer);
-        StopCoroutine(m_fadeText);
+        if(m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
+        if (m_fadeText != null) { StopCoroutine(m_fadeText); }
         StartCoroutine(FadeAsset(m_renderer, fadeOutTime, false));
         StartCoroutine(FadeAsset(m_textValue, fadeOutTime, false));
         yield return new WaitForSeconds(fadeOutTime + 1);

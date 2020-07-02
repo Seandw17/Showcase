@@ -10,7 +10,12 @@ public enum e_PanelTypes
     LAPTOP,
     MAGAZINE,
     OUTFITWARNING,
-    RESEARCHWARNING
+    RESEARCHWARNING,
+    WEBSITEMAIN,
+    WEBSITEPRODUCT,
+    WEBSITEABOUT,
+    WEBSITECOMMUNITY,
+    WEBSITELOOK
 }
 
 public class GameManagerScript : MonoBehaviour
@@ -22,8 +27,13 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] private GameObject ig_magazineWaitingRoom;
     [SerializeField] private GameObject ig_outfitExitWarning;
     [SerializeField] private GameObject ig_noResearchExitWarning;
+    [SerializeField] private GameObject ig_WebsiteMainPanel;
+    [SerializeField] private GameObject ig_WebsiteProductPanel;
+    [SerializeField] private GameObject ig_WebsiteAboutPanel;
+    [SerializeField] private GameObject ig_WebsiteCommunityPanel;
+    [SerializeField] private GameObject ig_WebsiteLookPanel;
 
-    static GameObject m_playerPanel, m_WardrobePanel, m_laptopPanel, m_magazinePanel, m_outfitWarnPanel, m_researchWarnPanel;
+    static GameObject m_playerPanel, m_WardrobePanel, m_laptopPanel, m_magazinePanel, m_outfitWarnPanel, m_researchWarnPanel, m_websitemainPanel, m_websiteproductPanel, m_websiteaboutPanel, m_websitecommunityPanel, m_websitelookPanel;
 
     [SerializeField]Text m_objectivetext;
 
@@ -51,6 +61,12 @@ public class GameManagerScript : MonoBehaviour
         m_magazinePanel = ig_magazineWaitingRoom;
         m_outfitWarnPanel = ig_outfitExitWarning;
         m_researchWarnPanel = ig_noResearchExitWarning;
+
+        m_websitemainPanel = ig_WebsiteMainPanel;
+        m_websiteproductPanel = ig_WebsiteProductPanel;
+        m_websiteaboutPanel = ig_WebsiteAboutPanel;
+        m_websitecommunityPanel = ig_WebsiteCommunityPanel;
+        m_websitelookPanel = ig_WebsiteLookPanel;
 
         ig_currenthud = m_playerPanel;
 
@@ -116,9 +132,23 @@ public class GameManagerScript : MonoBehaviour
                 return m_playerPanel;
             case e_PanelTypes.WARDROBE:
                 return m_WardrobePanel;
+            case e_PanelTypes.WEBSITEMAIN:
+                return m_websitemainPanel;
+            case e_PanelTypes.WEBSITEPRODUCT:
+                return m_websiteproductPanel;
+            case e_PanelTypes.WEBSITEABOUT:
+                return m_websiteaboutPanel;
+            case e_PanelTypes.WEBSITECOMMUNITY:
+                return m_websitecommunityPanel;
+            case e_PanelTypes.WEBSITELOOK:
+                return m_websitelookPanel;
         }
         throw new System.Exception("Invalid value passed");
     }
 
-    static public void UIActive(bool _state) => ig_currenthud.SetActive(_state);
+    static public void UIActive(bool _state)
+    {
+        Debug.Log("TWAS I");
+        ig_currenthud.SetActive(_state);
+    }
 }

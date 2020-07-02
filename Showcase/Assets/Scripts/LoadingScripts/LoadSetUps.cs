@@ -11,7 +11,7 @@ public class LoadSetUps : MonoBehaviour
     /// Buttons for laptop
     /// </summary>
     [SerializeField]
-    Button m_laptopReturn, m_Laptop1, m_laptop2, m_laptop3, m_laptop4;
+    Button m_laptopReturn, m_Laptop1, m_laptop2, m_laptop3, m_laptop4, m_laptopinternet, m_returnwebpage, m_returnwebpage1, m_returnwebpage2, m_returnwebpage3, m_returnplayer;
 
     /// <summary>
     /// buttons for magazine
@@ -36,7 +36,7 @@ public class LoadSetUps : MonoBehaviour
         {
             FindObjectOfType<LaptopObject>().
                 SetUpButtons(m_laptopReturn, m_Laptop1, m_laptop2,
-                m_laptop3, m_laptop4);
+                m_laptop3, m_laptop4, m_laptopinternet, m_returnwebpage, m_returnwebpage1, m_returnwebpage2, m_returnwebpage3, m_returnplayer);
         }
     }
 

@@ -213,6 +213,8 @@ MonoBehaviour:
   ig_unlock3Button: {fileID: 0}
   ig_unlock4Button: {fileID: 0}
   ig_returnButton: {fileID: 0}
+  ig_internetButton: {fileID: 0}
+  ig_webpagereturnButton: {fileID: 0}
 --- !u!65 &72602595
 BoxCollider:
   m_ObjectHideFlags: 0

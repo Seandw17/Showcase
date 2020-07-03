@@ -26,11 +26,17 @@ public class InteractableObjectOutfit : InteractableObjectBase
     // when the player interacts with the wardrobe
     public override void Interact()
     {
-        GameManagerScript.SetCurrentHUD(
-            GameManagerScript.ReturnPanel(e_PanelTypes.WARDROBE));
-        m_cmScript.EnableCursor();
+        if (m_gmscript.m_objectiveboolarray[0].Equals(true))
+        {
+            GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.WARDROBE));
+            m_cmScript.EnableCursor();
 
-        // for now it just disables the playerscript. There might be a better way of doing this
-        m_playerscript.enabled = false;
+            // for now it just disables the playerscript. There might be a better way of doing this
+            m_playerscript.enabled = false;
+        }
+        else
+        {
+            Debug.Log("Do Some Research");
+        }
     }
 }

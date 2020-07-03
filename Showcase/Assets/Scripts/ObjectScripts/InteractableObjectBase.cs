@@ -6,6 +6,8 @@ public class InteractableObjectBase : MonoBehaviour
 
     protected PlayerController m_playerscript;
 
+    protected GameManagerScript m_gmscript;
+
     Outline m_outline;
 
     bool m_shouldGlow = true;
@@ -28,6 +30,7 @@ public class InteractableObjectBase : MonoBehaviour
 
         m_playerscript = FindObjectOfType<PlayerController>();
 
+        m_gmscript = FindObjectOfType<GameManagerScript>();
         if (m_alternateGlowObject == null)
         {
             m_outline = gameObject.AddComponent<Outline>();

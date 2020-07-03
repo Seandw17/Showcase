@@ -946,8 +946,12 @@ MonoBehaviour:
   ig_unlock3Button: {fileID: 1839051664}
   ig_unlock4Button: {fileID: 535237440}
   ig_returnButton: {fileID: 1889038683}
-  ig_internetButton: {fileID: 1891570163}
+  ig_returnButton1: {fileID: 0}
+  ig_internetButton: {fileID: 0}
   ig_webpagereturnButton: {fileID: 2016247222}
+  ig_webpagereturnButton1: {fileID: 0}
+  ig_webpagereturnButton2: {fileID: 0}
+  ig_webpagereturnButton3: {fileID: 0}
 --- !u!135 &948209193
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1588,18 +1592,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1891570163 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4914579478321021951, guid: e84eb62c97d98704288b7fafd95fc198,
-    type: 3}
-  m_PrefabInstance: {fileID: 4914579478576943628}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1898524091 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2231816995413697221, guid: 33bd93adea81e8748ba43a945de5bcc8,
@@ -1754,17 +1746,8 @@ MonoBehaviour:
   ig_WebsiteLookPanel: {fileID: 6030227822626732136, guid: 33bd93adea81e8748ba43a945de5bcc8,
     type: 3}
   m_objectivetext: {fileID: 1147645795}
-  m_objectivetextarray:
-  - objective 1
-  - rawr
-  - XD
-  - Am Just a small boy
-  - Nobody loves me
-  - 'bleh '
-  - Fucked with an anchor
-  - I declare lunch time
-  - I declare second lunch time
-  - I ate too much
+  m_objectivetextarray: []
+  m_objectiveboolarray: 
 --- !u!4 &1932754123
 Transform:
   m_ObjectHideFlags: 0
@@ -2319,6 +2302,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaptopHomeScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 4914579478275991814, guid: e84eb62c97d98704288b7fafd95fc198,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914579478321021951, guid: e84eb62c97d98704288b7fafd95fc198,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 948209192}
     - target: {fileID: 4914579478275991815, guid: e84eb62c97d98704288b7fafd95fc198,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2424,11 +2417,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4914579478321021951, guid: e84eb62c97d98704288b7fafd95fc198,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 948209192}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e84eb62c97d98704288b7fafd95fc198, type: 3}
 --- !u!1001 &5077754428045186657
@@ -2682,11 +2670,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5095633974296426915, guid: 2acef2f8f0faa9d418f1dbcb1a6de910,
-        type: 3}
-      propertyPath: m_Viewport
-      value: 
-      objectReference: {fileID: 2031601134}
     - target: {fileID: 5095633974815733080, guid: 2acef2f8f0faa9d418f1dbcb1a6de910,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2721,6 +2704,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5095633974296426915, guid: 2acef2f8f0faa9d418f1dbcb1a6de910,
+        type: 3}
+      propertyPath: m_Viewport
+      value: 
+      objectReference: {fileID: 2031601134}
+    - target: {fileID: 1804010977161348875, guid: 2acef2f8f0faa9d418f1dbcb1a6de910,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2acef2f8f0faa9d418f1dbcb1a6de910, type: 3}

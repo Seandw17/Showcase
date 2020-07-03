@@ -8,10 +8,15 @@ public class LaptopObject : InteractableObjectBase
 {
     [SerializeField]
     Button ig_unlock1Button, ig_unlock2Button, ig_unlock3Button, ig_unlock4Button, ig_returnButton, ig_returnButton1, ig_internetButton, ig_webpagereturnButton, ig_webpagereturnButton1, ig_webpagereturnButton2, ig_webpagereturnButton3;
+
+    bool m_openfirst, m_opensecond, m_openthird, _m_openfourth;
+
+    
     // Start is called before the first frame update
     void Start()
     {
         base.Start();   
+
     }
 
     public void SetUpButtons(Button _return, Button _unlock1,
@@ -43,12 +48,17 @@ public class LaptopObject : InteractableObjectBase
 
     public override void Interact()
     {
-        GameManagerScript.SetCurrentHUD(
-            GameManagerScript.ReturnPanel(e_PanelTypes.LAPTOP));
+        //Gamemanager Script used to set the current hud
+        GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.LAPTOP));
+        //a bool to stop the player from interacting
         m_playerscript.SetCanInteract(false);
+        //a bool to stop the player camera from moving
         m_playerscript.SetCanCameraMove(false);
+        //a bool to stop the player from moving
         m_playerscript.SetCanPlayerMove(false);
+        //Set the cursor active
         GameManagerScript.GetCursor().EnableCursor();
+        //Play Sound
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/tasklist_open", GetComponent<Transform>().position);
     }
 
@@ -77,9 +87,13 @@ public class LaptopObject : InteractableObjectBase
     public void Unlock1()
     {
         GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.WEBSITEPRODUCT));
-        ConversationStore.RegisterUnlockFlag(e_unlockFlag.FIRST);
-      
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+        if (m_openfirst.Equals(false))
+        {
+            ConversationStore.RegisterUnlockFlag(e_unlockFlag.FIRST);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+            m_openfirst = true;
+            m_gmscript.SetTaskTrue(0);
+        }
     }
 
     public void Unlock2()

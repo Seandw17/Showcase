@@ -77,6 +77,7 @@ public class DoorObject : InteractableObjectBase
                     if (OutfitManager.GetOutfitScore() != 0)
                     {
                         LevelChange.ChangeLevel(m_levelname);
+                        m_gmscript.SetTaskTrue(2);
                     }
                     else
                     {

@@ -35,17 +35,20 @@ public class GameManagerScript : MonoBehaviour
 
     static GameObject m_playerPanel, m_WardrobePanel, m_laptopPanel, m_magazinePanel, m_outfitWarnPanel, m_researchWarnPanel, m_websitemainPanel, m_websiteproductPanel, m_websiteaboutPanel, m_websitecommunityPanel, m_websitelookPanel;
 
-    [SerializeField]Text m_objectivetext;
+    [SerializeField] Text m_objectivetext;
 
     //This is the HUD that is displayed to the screen at all times
     static GameObject ig_currenthud;
 
     //Array of strings for the objective text
-    [SerializeField]
-    string[] m_objectivetextarray;
+    [SerializeField] string[] m_objectivetextarray;
 
-    int m_objectiveindex;
-
+    //Array of bools for the objectives
+    public bool[] m_objectiveboolarray;
+    // the index number for the array
+     int m_objectiveindex = 0;
+    //The size of the array
+     int m_objectivesize = 8;
     static CursorController m_cmScript;
 
     // Start is called before the first frame update
@@ -70,17 +73,19 @@ public class GameManagerScript : MonoBehaviour
 
         ig_currenthud = m_playerPanel;
 
-        DisplayObjectiveText();
+        m_objectivetextarray = new string[m_objectivesize];
+        m_objectiveboolarray = new bool[m_objectivesize];
+
+        CreateTaskText();
+        
+       
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            IncrementObjectiveIndex();
-        }
+        
     }
 
     static public void SetCurrentHUD(GameObject _CurrentHUD)
@@ -103,9 +108,28 @@ public class GameManagerScript : MonoBehaviour
        m_objectivetext.text = "Objective: " + m_objectivetextarray[m_objectiveindex];
     }
 
-    public void IncrementObjectiveIndex()
+    public void SetTaskTrue(int _taskindex)
     {
+        m_objectiveboolarray[_taskindex] = true;
+        IncrementObjectiveIndex();
+    }
+
+     public void IncrementObjectiveIndex()
+     {
         m_objectiveindex++;
+        DisplayObjectiveText();
+     }
+
+    void CreateTaskText()
+    {
+        m_objectivetextarray[0] = "Do Some Research For Your Interview";
+        m_objectivetextarray[1] = "Pick An Appropriate Outfit";
+        m_objectivetextarray[2] = "Leave For Your Interview";
+        m_objectivetextarray[3] = "Speak With A Staff Member";
+        m_objectivetextarray[4] = "Follow Staff Member";
+        m_objectivetextarray[5] = "Take A Seat And Wait To Be Called In";
+        m_objectivetextarray[6] = "Go In For Your Interview";
+        m_objectivetextarray[7] = "Complete The Interview";
         DisplayObjectiveText();
     }
 

@@ -19,12 +19,15 @@ public class OutfitManager : MonoBehaviour
     //protected PlayerController m_playerscript;
     CursorController m_cmScript;
 
+    GameManagerScript m_gmscript;
+
     // Start is called before the first frame update
     void Start()
     {
         //ig_Outfit = GameObject.FindGameObjectsWithTag("Outfit");
 
         m_cmScript = GetComponent<CursorController>();
+        m_gmscript = FindObjectOfType<GameManagerScript>();
 
         for (int i = 0; i < ig_Outfit.Length; i++)
         {
@@ -34,6 +37,8 @@ public class OutfitManager : MonoBehaviour
         }
 
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
+
+
     }
 
     // Update is called once per frame
@@ -53,6 +58,7 @@ public class OutfitManager : MonoBehaviour
         GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.PLAYER));
         m_cmScript.DisableCursor();
         FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/Bedroom/Wardrobe/collect_clothes");
+        m_gmscript.SetTaskTrue(1);
     }
 
     // temporally made it so that the players camera is higher up in the scene (not via code)

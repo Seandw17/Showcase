@@ -213,8 +213,12 @@ MonoBehaviour:
   ig_unlock3Button: {fileID: 0}
   ig_unlock4Button: {fileID: 0}
   ig_returnButton: {fileID: 0}
+  ig_returnButton1: {fileID: 0}
   ig_internetButton: {fileID: 0}
   ig_webpagereturnButton: {fileID: 0}
+  ig_webpagereturnButton1: {fileID: 0}
+  ig_webpagereturnButton2: {fileID: 0}
+  ig_webpagereturnButton3: {fileID: 0}
 --- !u!65 &72602595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1096,6 +1100,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.099614, y: 14.584073, z: 12.341756}
   m_Center: {x: 0.2168145, y: -2.723546, z: 0.54136676}
+--- !u!114 &1047365116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047365112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Environment/lamp_switch
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1055340069
 GameObject:
   m_ObjectHideFlags: 0

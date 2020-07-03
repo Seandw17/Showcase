@@ -15,7 +15,7 @@ end
 # You have a disagreement with your supervisor what would you do?
 #
 q$NONE|So you have a disagreement with your supervisor what would you do?,GREAT|Thats Fantastic! so you have a disagreement with your supervisor what would you do?,GOOD|Sounds good! Anyway You have a disagreement with your supervisor. What would you do?,OK|Alright then You have a disagreement with your supervisor what would you do?,BAD|Interesting You have a disagreement with your supervisor what would you do?,AWFUL|Wouldn't have thought that. so you have a disagreement with your supervisor what would you do?
-r$Take it up with the manager|OK|NONE,Resolve the issue with supervior so we can work without conflict|GREAT|NONE,Stick to my ideas|BAD|NONE,Ignore them|AWFUL|THIRD,Discuss with the manager and find common ground|GOOD|FOURTH
+r$Take it up with the manager|OK|NONE,Resolve the issue with supervisor so we can work without conflict|GREAT|NONE,Stick to my ideas|BAD|NONE,Ignore them|AWFUL|THIRD,Discuss with the manager and find common ground|GOOD|FOURTH
 f$IMPROVEMENT
 end
 #
@@ -64,7 +64,7 @@ end
 # A customer comes in a rush and are quite irate. What would do you?
 #
 q$NONE|A customer comes in a rush and is quite irate. What would you do?,GREAT|Ok then A customer comes in a rush and is quite irate. What would you do?,GOOD|Alright! A customer comes in a rush and is quite irate. What would you do?,OK|Ok a customer comes in a rush and is quite irate. What would you do?,BAD|So then a customer comes in a rush and is quite irate. What would you do?,AWFUL|So A customer comes in a rush and is quite irate. What would you do?
-r$I would refuse them service|AWFUL|NONE,I'd take my time to make sure I get the order correct|OK|NONE,I aknowledge that they are in a rush and get to them as soon as I can|GOOD|NONE,I acknowledge there needs and attempt to prepare the order if it would take a long time|GREAT|FIRST,I serve them first becuase they are in a rush|OK|FIRST
+r$I would refuse them service|AWFUL|NONE,I'd take my time to make sure I get the order correct|OK|NONE,I aknowledge that they are in a rush and get to them as soon as I can|GOOD|NONE,I acknowledge there needs and attempt to prepare the order if it would take a long time|GREAT|FIRST,I serve them first because they are in a rush|OK|FIRST
 f$PROBLEM
 end
 #

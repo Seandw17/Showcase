@@ -40,6 +40,7 @@ public class LoadSetUps : MonoBehaviour
         switch (_scene.name)
         {
             case "ChooseOutfit":
+                Debug.Log("Performing UI setup for ChooseOutfit scene");
                 FindObjectOfType<LaptopObject>().
                 SetUpButtons(m_laptopReturn, m_Laptop1, m_laptop2,
                 m_laptop3, m_laptop4, m_laptopinternet, m_returnwebpage,
@@ -47,6 +48,7 @@ public class LoadSetUps : MonoBehaviour
                 m_returnplayer);
                 return;
             case "OfficeANDWaitingArea":
+                Debug.Log("Performing UI setup for Magazine interact");
                 FindObjectOfType<MagazineInteract>().SetUp(m_magazineExit);
                 return;
         }

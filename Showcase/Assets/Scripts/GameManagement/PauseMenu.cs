@@ -55,7 +55,6 @@ public class PauseMenu : MonoBehaviour
             // If escape is pressed, toggle the pause meny and gametime
             if (Input.GetKeyDown(m_pauseButton))
             {
-                Debug.Log(SceneManager.GetActiveScene().name);
                 m_isPaused = !m_isPaused;
                 Time.timeScale = Convert.ToSingle(!m_isPaused);
 
@@ -73,7 +72,12 @@ public class PauseMenu : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    LevelChange.ChangeLevel("TItleScreen");
+                    m_isPaused = !m_isPaused;
+                    Time.timeScale = Convert.ToSingle(!m_isPaused);
+
+                    m_pauseMenuObject.SetActive(m_isPaused);
+
+                    LevelChange.ChangeLevel(SceneManager.GetActiveScene().name);
                 }
             }
         }

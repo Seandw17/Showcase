@@ -14,19 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   sentences:
-  - text: 1 test
-    waitTimer: 1
-  - text: 2 test
-    waitTimer: 2
-  - text: 3 test
+  - text: "Did you find out what happened with that customer earlier? She seemed pretty
+      annoyed.\r\n"
+    waitTimer: 5
+  - text: The one with the cold mocha? Yeah, Jacob had made that one. He could have
+      handled it better though
+    waitTimer: 5
+  - text: "But what happened?\r\n"
     waitTimer: 3
-  - text: 4 test
-    waitTimer: 2
-  - text: 5 test
+  - text: "Well she came back with the coffee and had a bit of a rant. Since Jacob
+      was new, I guess he thought he\u2019d just make her a new coffee."
     waitTimer: 10
-  - text: 6 test
-    waitTimer: 20
-  - text: 7 test
-    waitTimer: 3
-  - text: 8 test
-    waitTimer: 3
+  - text: "Did he tell Lisa?\r"
+    waitTimer: 1
+  - text: "Afterwards, yeah. I\u2019d have probably gone to her first and see if there
+      were any other coffees that came back cold. Saying that, we all make mistakes
+      starting out.\r\n"
+    waitTimer: 10

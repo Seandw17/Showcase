@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
+  m_Name: Dialog4
+  m_EditorClassIdentifier: 
+  name: 
+  sentences:
+  - text: "I mind when I got the interview here. Sean made me a bit nervous back then,
+      but he\u2019s nice enough if you\u2019re nice "
+    waitTimer: 5
+  - text: "It\u2019s been a while for me. Does he still give out scenarios like customers
+      being angry and all that?\r\n"
+    waitTimer: 5
+  - text: "I\u2019m pretty sure he does. I think the one he gave me was the one with
+      a customer that\u2019s in a hurry"
+    waitTimer: 5
+  - text: "Oh yeah, he gave me that one too. As long as there isn\u2019t anyone in
+      front of them, you can get straight on it, you\u2019ll end up annoying everyone
+      else otherwise"
+    waitTimer: 10

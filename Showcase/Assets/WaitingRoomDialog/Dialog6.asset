@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
+  m_Name: Dialog6
+  m_EditorClassIdentifier: 
+  name: 
+  sentences:
+  - text: "I meant to say, Lisa says she\u2019s doing some training on how to use
+      the espresso machine. Are you still interested?\r\n"
+    waitTimer: 4
+  - text: "For sure. Is it hard?\r\n"
+    waitTimer: 2
+  - text: "Depends on how fast you learn. It\u2019s the same as everything, you get
+      better at it the more you practice.\r\n"
+    waitTimer: 4
+  - text: "Okay, cool. Is it weird I\u2019m kind of excited? Obviously, it means I
+      can help out more here, but I\u2019ve got this machine at home and I\u2019m
+      really wanting to know how to make a proper coffee with it.\r\n"
+    waitTimer: 10

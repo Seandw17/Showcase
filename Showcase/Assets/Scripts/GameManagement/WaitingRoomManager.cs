@@ -8,9 +8,19 @@ public class WaitingRoomManager : MonoBehaviour
     [SerializeField]
     private float m_waitTimer;
     [SerializeField]
+    private float m_hourStart;
+    private Vector3 m_rotHour;
+    [SerializeField]
     private bool m_chatAvailable;
     [SerializeField]
     private List<DialogSO> m_availableDialogs;
+
+    [Header("UI")]
+    [SerializeField]
+    private GameObject ig_tinyClockHandle;
+    [SerializeField]
+    private GameObject ig_normalClockHandle;
+
 
     [Header("UI")]
     [SerializeField]
@@ -47,7 +57,10 @@ public class WaitingRoomManager : MonoBehaviour
         m_playerscript.SetCanPlayerMove(false);
         PickNextDialog();
         m_usedDialogs = new List<DialogSO>();
-        m_dialogTimer = Random.Range(10, 40);//random wait timer between 2 dialogs
+        m_dialogTimer = Random.Range(5, 15);//random wait timer between 2 dialogs
+
+
+        m_rotHour = new Vector3(0, 0, (m_hourStart * 360) / 60);
 
     }
 
@@ -75,7 +88,6 @@ public class WaitingRoomManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("move to next scene or something yo!");
             if(!m_nextTextShown)
             {
                 StartCoroutine(NextText());
@@ -94,6 +106,12 @@ public class WaitingRoomManager : MonoBehaviour
     {
         m_minutes = Mathf.Floor(m_waitTimer / 60);
         m_seconds = Mathf.RoundToInt(m_waitTimer % 60);
+
+        Vector3 _newRot = new Vector3(0, 90, (m_seconds * 360) / 60);
+        ig_tinyClockHandle.transform.rotation = Quaternion.Euler(_newRot);
+
+        Vector3 _newRotH = new Vector3(0, 90, (m_minutes * 360) / 60);
+        ig_normalClockHandle.transform.rotation = Quaternion.Euler(m_rotHour+_newRotH);
     }
 
     IEnumerator NextText()

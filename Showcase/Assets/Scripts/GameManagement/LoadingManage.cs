@@ -74,6 +74,9 @@ public class LoadingManage : MonoBehaviour
         m_slider.value = _amountLoaded;
     }
 
+    /// <summary>
+    /// Spin the progress spinner
+    /// </summary>
     void Spin()
     {
         // Spin the spinner, show something is happening

@@ -41,20 +41,10 @@ public class FinalResult : Page
         // fade in assets
         SetAlphaToZero(GetComponent<Renderer>().material);
 
-        foreach(TextMeshPro child in GetComponentsInChildren<TextMeshPro>())
+        foreach (TextMeshPro child in GetComponentsInChildren<TextMeshPro>())
         {
             SetAlphaToZero(child);
         }
-
-        // instaniating the end button
-        GameObject button = Instantiate
-            (Resources.Load<GameObject>("Prefabs/EndButton"));
-        SetAlphaToZero(button.GetComponent<Renderer>().material);
-        StartCoroutine(FadeAsset(button.GetComponent<Renderer>(), 0.5f, true));
-        button.transform.position = new Vector3(
-            transform.position.x,
-            transform.position.y - 1,
-            transform.position.z);
 
     }
 
@@ -78,6 +68,16 @@ public class FinalResult : Page
     /// </summary>
     public void Display()
     {
+        // instaniating the end button
+        GameObject button = Instantiate
+            (Resources.Load<GameObject>("Prefabs/EndButton"));
+        SetAlphaToZero(button.GetComponent<Renderer>().material);
+        StartCoroutine(FadeAsset(button.GetComponent<Renderer>(), 0.5f, true));
+        button.transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y - 1,
+            transform.position.z);
+
         StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
 
         foreach (TextMeshPro child in GetComponentsInChildren<TextMeshPro>())

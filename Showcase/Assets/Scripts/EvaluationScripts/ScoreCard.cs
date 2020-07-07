@@ -8,7 +8,7 @@ public class ScoreCard : MonoBehaviour
     int m_currentPage;
     List<Page> m_pages;
 
-    PageMoveObject m_lftButton, m_rgtButton;
+    PageMoveObject m_rightButton, m_leftButton;
 
     void Start()
     {
@@ -24,12 +24,13 @@ public class ScoreCard : MonoBehaviour
     /// <returns></returns>
     IEnumerator CalculateResult()
     {
-        m_rgtButton = Instantiate(Resources.Load<GameObject>
+        m_leftButton = Instantiate(Resources.Load<GameObject>
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
-        m_rgtButton.Set(PageMoveObject.e_direction.RIGHT);
-        m_lftButton = Instantiate(Resources.Load<GameObject>
+        m_leftButton.Set(PageMoveObject.e_direction.LEFT);
+        m_leftButton.SetInteractable(false);
+        m_rightButton = Instantiate(Resources.Load<GameObject>
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
-        m_lftButton.Set(PageMoveObject.e_direction.LEFT);
+        m_rightButton.Set(PageMoveObject.e_direction.RIGHT);
 
         // Load in pages
         s_playerResponse[] TempResponses = new s_playerResponse[3];
@@ -89,11 +90,11 @@ public class ScoreCard : MonoBehaviour
         m_responses.Clear();
 
         // setting positions and rotations for left and right buttons
-        m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
-        m_lftButton.transform.localPosition = new Vector3(-0.9f, 0, 0);
-        m_rgtButton.transform.localPosition = new Vector3(0.9f, 0, 0);
-        m_lftButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
-        m_rgtButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
+        m_rightButton.transform.parent = m_leftButton.transform.parent = transform;
+        m_rightButton.transform.localPosition = new Vector3(-0.9f, 0, 0);
+        m_leftButton.transform.localPosition = new Vector3(0.9f, 0, 0);
+        m_rightButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
+        m_leftButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
 
         yield return null;
     }
@@ -109,6 +110,7 @@ public class ScoreCard : MonoBehaviour
         finalResultPage.SetValue(_finalScore, m_responses.Count);
         finalResultPage.gameObject.transform.parent = transform;
         finalResultPage.gameObject.transform.localPosition = Vector3.zero;
+        finalResultPage.gameObject.SetActive(true);
         m_pages.Insert(0, finalResultPage);
     }
 
@@ -169,16 +171,22 @@ public class ScoreCard : MonoBehaviour
     {
         if (m_currentPage == 0)
         {
-            m_lftButton.SetInteractable(false);
+            m_leftButton.SetInteractable(false);
         }
         else if (m_currentPage == m_pages.Count - 1)
         {
-            m_rgtButton.SetInteractable(false);
+            m_rightButton.SetInteractable(false);
         }
         else
         {
-            m_lftButton.SetInteractable(true);
-            m_rgtButton.SetInteractable(true);
+            m_rightButton.SetInteractable(true);
+            m_leftButton.SetInteractable(true);
         }
+    }
+
+    public void TurnOn()
+    {
+        m_rightButton.gameObject.SetActive(true);
+        m_leftButton.gameObject.SetActive(true);
     }
 }

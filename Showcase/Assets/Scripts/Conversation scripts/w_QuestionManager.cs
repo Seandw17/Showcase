@@ -364,6 +364,7 @@ public class w_QuestionManager : MonoBehaviour
         FadeOutQuestionText();
         yield return waitFor;
 
+        _card.GetComponent<ScoreCard>().TurnOn();
         Destroy(transform.parent.gameObject);
     }
 

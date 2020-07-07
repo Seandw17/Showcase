@@ -51,7 +51,6 @@ static public class FadeIn
     static public IEnumerator FadeAsset(TextMeshProUGUI _tmp, float _time,
         bool _in)
     {
-        Debug.Log(_tmp);
         Color newColour = new Color(
             _tmp.color.r,
             _tmp.color.g,
@@ -66,7 +65,6 @@ static public class FadeIn
         {
             if (!IsPaused())
             {
-                Debug.Log(newColour.a);
                 newColour.a += fade;
                 _tmp.color = newColour;
             }

@@ -24,6 +24,11 @@ public class LoadingManage : MonoBehaviour
     /// </summary>
     [SerializeField] Slider m_slider;
 
+    /// <summary>
+    /// Image that will spin to show we are loading
+    /// </summary>
+    [SerializeField] Transform m_spinner;
+
     private void Start()
     {
         LevelChange.SetLoadingManager(this);
@@ -60,7 +65,18 @@ public class LoadingManage : MonoBehaviour
     /// <param name="_amountLoaded">amount that has been loaded</param>
     public void SetLoadingPercentText(float _amountLoaded)
     {
+        if (_amountLoaded > 0)
+        {
+            Spin();
+        }
+
         m_loadingPercentText.SetText(_amountLoaded.ToString("n1") + "%");
         m_slider.value = _amountLoaded;
+    }
+
+    void Spin()
+    {
+        // Spin the spinner, show something is happening
+        m_spinner.transform.Rotate(0, 0, -20, Space.Self);
     }
 }

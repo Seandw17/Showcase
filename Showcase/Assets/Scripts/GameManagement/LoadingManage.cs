@@ -65,7 +65,7 @@ public class LoadingManage : MonoBehaviour
     /// <param name="_amountLoaded">amount that has been loaded</param>
     public void SetLoadingPercentText(float _amountLoaded)
     {
-        if (_amountLoaded > 0)
+        if (_amountLoaded > m_slider.value)
         {
             Spin();
         }

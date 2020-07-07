@@ -143,7 +143,6 @@ static public class w_CSVLoader
                     temp.flag = (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag),
                         keyValue[1]);
                     _list.Add(temp);
-                    Debug.Log("Player Question added");
                 }
             }
         }

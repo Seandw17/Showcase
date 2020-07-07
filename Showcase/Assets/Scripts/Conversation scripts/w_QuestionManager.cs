@@ -304,6 +304,11 @@ public class w_QuestionManager : MonoBehaviour
             }
         }
 
+        if (response.Equals("Nothing? Ok then..."))
+        {
+            AddTip(e_tipCategories.NOTASKING);
+        }
+
         m_questionForJob.Clear();
 
         m_questionBox.SetText(response);

@@ -44,5 +44,6 @@ public enum e_tipCategories
     UNIQUE = 1 << 9,
     PROBLEM = 1 << 10,
     IMPROVEMENT = 1 << 11,
-    TEAMWORK = 1 << 12
+    TEAMWORK = 1 << 12,
+    SILENT = 1 << 13
 }

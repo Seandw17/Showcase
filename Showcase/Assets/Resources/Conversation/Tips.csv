@@ -1,5 +1,6 @@
 ﻿# Format: [tipenum],[tiptext]
 NOTASKING,-You should always ask questions about the job
+SILENT,-Do not stay silent once asked a question
 UNDEMANDING,-Don't make it appear that you view the job as undemanding
 SOMETHINGBETTER,-Don't say you will leave after you find something better
 ENTHUSIASM,-Be enthusiastic about the job

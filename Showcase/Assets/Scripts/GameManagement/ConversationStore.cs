@@ -46,7 +46,7 @@ static public class ConversationStore
             response = "Stayed Silent"
         };
         silentResponse.question = _question;
-        AddTip(e_tipCategories.NOTASKING);
+        AddTip(e_tipCategories.SILENT);
         m_playerResponses.Add(silentResponse);
     }
 

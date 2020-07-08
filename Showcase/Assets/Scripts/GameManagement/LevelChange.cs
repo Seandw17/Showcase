@@ -15,6 +15,15 @@ public class LevelChange : MonoBehaviour
         instance = this;
     }
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void OnBeforeSceneLoadRuntimeMethod()
+    {
+        Debug.Assert(SceneManager.GetSceneByName("PreLoad").isLoaded,
+            "PreLoad " +
+            "must be loaded before all other scenes for core game " +
+            "functionality");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

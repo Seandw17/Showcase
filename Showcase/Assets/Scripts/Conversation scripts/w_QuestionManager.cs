@@ -35,6 +35,8 @@ public class w_QuestionManager : MonoBehaviour
 
     TextMeshProUGUI m_progressText;
 
+    FMODUnity.StudioEventEmitter m_FMOD;
+
     /// <summary>
     /// Time user has to answer a question
     /// </summary>
@@ -111,6 +113,9 @@ public class w_QuestionManager : MonoBehaviour
         m_progressText = m_timerSlider.transform.root.gameObject
             .GetComponentInChildren<TextMeshProUGUI>();
         m_progressText.SetText("");
+
+        m_FMOD = GetComponent<FMODUnity.StudioEventEmitter>(); 
+
         if (m_forceInterviewToStart)
         {
             Init();
@@ -156,6 +161,8 @@ public class w_QuestionManager : MonoBehaviour
             // check we have returned a value
             Debug.Assert(!questionToDisplay.Equals(new QuestionData()),
                 "An error has occured finding the quesiton");
+
+            // TODO BOBBY this is where the interviewer asking the question should go
 
             // use values to set data
             m_questionBox.SetText(questionToDisplay);
@@ -245,6 +252,8 @@ public class w_QuestionManager : MonoBehaviour
             "Somehow the player has reached the end with " +
             "only none as there unlock flag");
 
+        // TODO BOBBY this is where the voice clip for "so do you have any questions about the job?" should go
+
         m_optionPool.Set(m_questionForJob);
 
         m_endLevel = true;
@@ -304,6 +313,8 @@ public class w_QuestionManager : MonoBehaviour
             }
         }
 
+        // TODO BOBBY this is where the play for the response to the player question should go
+
         if (response.Equals("Nothing? Ok then..."))
         {
             AddTip(e_tipCategories.NOTASKING);
@@ -336,6 +347,7 @@ public class w_QuestionManager : MonoBehaviour
 
         foreach (string line in introText)
         {
+            // TODO BOBBY this is where each line of the interview start text should go
             m_questionBox.SetText(line);
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
                 m_fadeInSpeed, true));
@@ -360,6 +372,7 @@ public class w_QuestionManager : MonoBehaviour
         string[] outroText = LoadOutroText();
         foreach (string line in outroText)
         {
+            // TODO BOBBY this is where each line of the interview end should go
             FadeOutQuestionText();
             yield return waitFor;
             m_questionBox.SetText(line);

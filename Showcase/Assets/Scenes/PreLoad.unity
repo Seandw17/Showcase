@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2ef6517ab2947afae5f360c08d9d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forcedLevelChange: OfficeANDWaitingArea
+  forcedLevelChange: TItleScreen
 --- !u!114 &904260761
 MonoBehaviour:
   m_ObjectHideFlags: 0

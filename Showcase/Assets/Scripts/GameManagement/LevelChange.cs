@@ -15,15 +15,6 @@ public class LevelChange : MonoBehaviour
         instance = this;
     }
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    static void OnBeforeSceneLoadRuntimeMethod()
-    {
-        Debug.Assert(SceneManager.GetSceneByName("PreLoad").isLoaded,
-            "PreLoad " +
-            "must be loaded before all other scenes for core game " +
-            "functionality");
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +31,10 @@ public class LevelChange : MonoBehaviour
     /// <param name="_sceneName"> name of the scene </param>
     public static void ChangeLevel(string _sceneName)
     {
+        Debug.Assert(SceneManager.GetSceneByName("PreLoad").isLoaded,
+            "PreLoad " +
+            "must be loaded before all other scenes for core game " +
+            "functionality");
         Debug.Log("Changing to scene: " + _sceneName);
         SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());

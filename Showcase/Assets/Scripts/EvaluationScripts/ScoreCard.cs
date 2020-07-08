@@ -32,6 +32,8 @@ public class ScoreCard : MonoBehaviour
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
         m_rightButton.Set(PageMoveObject.e_direction.RIGHT);
 
+        yield return null;
+
         // Load in pages
         s_playerResponse[] TempResponses = new s_playerResponse[3];
         int externalIndexer = 0;
@@ -54,7 +56,6 @@ public class ScoreCard : MonoBehaviour
             if(Equals(response, m_responses[m_responses.Count - 1])
                 && externalIndexer < 3)
             {
-                Debug.Log("Called");
                 GenerateAnswerPage(TempResponses);
             }
 
@@ -120,6 +121,11 @@ public class ScoreCard : MonoBehaviour
     /// <param name="_reponses"> the player reponses for this page</param>
     void GenerateAnswerPage(s_playerResponse[] _reponses)
     {
+        // Safety to check to prevent unecassery pages
+        if (_reponses[0].question.Equals(""))
+        {
+            return;
+        }
         AnswerPage answerPage = Instantiate(Resources.Load<GameObject>
             ("Prefabs/AnswerPage").GetComponent<AnswerPage>());
         answerPage.SetValue(_reponses);
@@ -131,6 +137,11 @@ public class ScoreCard : MonoBehaviour
 
     void GenerateTipsPage(string[] _tips)
     {
+        // Safety check
+        if (_tips[0].Equals(""))
+        {
+            return;
+        }
         TipsPages tipsPage = Instantiate(Resources.Load<GameObject>
             ("Prefabs/TipsPage").GetComponent<TipsPages>());
         tipsPage.SetValue(_tips);

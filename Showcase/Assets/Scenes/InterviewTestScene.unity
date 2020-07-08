@@ -585,42 +585,13 @@ PrefabInstance:
       objectReference: {fileID: 689963582}
     - target: {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd,
         type: 3}
-      propertyPath: m_forceInterviewToStart
-      value: 1
+      propertyPath: m_questionsToAsk
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd,
         type: 3}
-      propertyPath: m_questionsToAsk
-      value: 1
+      propertyPath: m_timeBetweenQuestions
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 069b9d03dcea543c2940c4d2547df4bd, type: 3}
---- !u!1 &7735905781471114294 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7735905781441120367, guid: 069b9d03dcea543c2940c4d2547df4bd,
-    type: 3}
-  m_PrefabInstance: {fileID: 7735905781471114293}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7735905781471114295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735905781471114294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1

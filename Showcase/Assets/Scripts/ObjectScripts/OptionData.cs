@@ -85,6 +85,7 @@ public class OptionData : InteractableObjectBase
         m_isInteractible = false;
         gameObject.SetActive(true);
         float fadeOutTime = 0.5f;
+        GetObjectOutline().enabled = false;
         SetShouldGlow(false);
         if(m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
         if (m_fadeText != null) { StopCoroutine(m_fadeText); }

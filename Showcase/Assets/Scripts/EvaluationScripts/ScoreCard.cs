@@ -54,7 +54,7 @@ public class ScoreCard : MonoBehaviour
             // add to final score
             finalScore += (int)response.playerResponse.rating;
             if(Equals(response, m_responses[m_responses.Count - 1])
-                && externalIndexer < 3)
+                && externalIndexer < 3 && externalIndexer != 0)
             {
                 GenerateAnswerPage(TempResponses);
             }
@@ -81,7 +81,8 @@ public class ScoreCard : MonoBehaviour
             }
 
             // if any fall out of the loop at the end
-            if (Equals(tip, tips[tips.Count - 1]) && externalIndexer < 3){
+            if (Equals(tip, tips[tips.Count - 1]) && externalIndexer < 3
+                && externalIndexer != 0){
                 GenerateTipsPage(tipsToPass);
             }
 
@@ -121,11 +122,8 @@ public class ScoreCard : MonoBehaviour
     /// <param name="_reponses"> the player reponses for this page</param>
     void GenerateAnswerPage(s_playerResponse[] _reponses)
     {
-        // Safety to check to prevent unecassery pages
-        if (_reponses[0].question.Equals(""))
-        {
-            return;
-        }
+        Debug.Assert(!_reponses[0].question.Equals(""),
+            "A null page has been created");
         AnswerPage answerPage = Instantiate(Resources.Load<GameObject>
             ("Prefabs/AnswerPage").GetComponent<AnswerPage>());
         answerPage.SetValue(_reponses);
@@ -137,11 +135,8 @@ public class ScoreCard : MonoBehaviour
 
     void GenerateTipsPage(string[] _tips)
     {
-        // Safety check
-        if (_tips[0].Equals(""))
-        {
-            return;
-        }
+        Debug.Assert(!_tips[0].Equals(""),
+            "A null page has been created");
         TipsPages tipsPage = Instantiate(Resources.Load<GameObject>
             ("Prefabs/TipsPage").GetComponent<TipsPages>());
         tipsPage.SetValue(_tips);

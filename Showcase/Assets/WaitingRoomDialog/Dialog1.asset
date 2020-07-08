@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
+  m_Name: Dialog1
+  m_EditorClassIdentifier: 
+  name: TestDialog1
+  sentences:
+  - text: "So what did you get up to last night?\r\n"
+    waitTimer: 2
+  - text: "Eh, same as always. Got home and took the dog out for a walk. She\u2019s
+      getting better though. She used to keep lying down in the middle of the pavement. "
+    waitTimer: 10
+  - text: "Ah, my parents\u2019 dog used to do that. \r"
+    waitTimer: 2
+  - text: "I mean, she still does it if you don\u2019t go the way she wants to go,
+      but it\u2019s something. How about you?\r\n"
+    waitTimer: 5
+  - text: "Managed to get to the gym, finally. After that I just went home and made
+      dinner. Hoping to go see my parents on the weekend.\r\n"
+    waitTimer: 5

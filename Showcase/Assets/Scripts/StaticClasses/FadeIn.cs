@@ -65,7 +65,6 @@ static public class FadeIn
         {
             if (!IsPaused())
             {
-                Debug.Log(newColour.a);
                 newColour.a += fade;
                 _tmp.color = newColour;
             }
@@ -73,6 +72,7 @@ static public class FadeIn
         }
     }
 
+    
     /// <summary>
     /// Fade in / Fade out text
     /// </summary>
@@ -166,11 +166,198 @@ static public class FadeIn
     }
 
     /// <summary>
+    /// Fade an asset in then out
+    /// </summary>
+    /// <param name="_tmp"> TMProUGUI object</param>
+    /// <param name="_time">time to fade in / out</param>
+    /// <param name="_delayBetweenInOut">how long between fading in/out</param>
+    /// <returns></returns>
+    static public IEnumerator AssetInOut(TextMeshProUGUI _tmp, float _time,
+        float _delayBetweenInOut)
+    {
+        Color newColour = new Color(
+            _tmp.color.r,
+            _tmp.color.g,
+            _tmp.color.b,
+            _tmp.color.a
+            );
+
+        float fade = (0.4f * _time);
+
+        for (int index = 0; index < 2; index++)
+        {
+            while (CheckAlpha(!(index != 0), newColour.a))
+            {
+                if (!IsPaused())
+                {
+                    newColour.a += fade * Time.deltaTime;
+                    _tmp.color = newColour;
+                }
+
+                yield return null;
+            }
+
+            yield return new WaitForSecondsRealtime(_delayBetweenInOut);
+            fade *= -1;
+        }
+    }
+
+    /// <summary>
+    /// Fade an asset in then out
+    /// </summary>
+    /// <param name="_tmp">object to fade</param>
+    /// <param name="_time">time to in / out</param>
+    /// <param name="_delayBetweenInOut">time inbetween</param>
+    /// <returns>yield return wait</returns>
+    static public IEnumerator AssetInOut(TextMeshPro _tmp, float _time,
+        float _delayBetweenInOut)
+    {
+        Color newColour = new Color(
+            _tmp.color.r,
+            _tmp.color.g,
+            _tmp.color.b,
+            _tmp.color.a
+            );
+
+        float fade = (0.4f * _time);
+
+        for (int index = 0; index < 2; index++)
+        {
+            while (CheckAlpha(!(index != 0), newColour.a))
+            {
+                if (!IsPaused())
+                {
+                    newColour.a += fade * Time.deltaTime;
+                    _tmp.color = newColour;
+                }
+
+                yield return null;
+            }
+
+            yield return new WaitForSecondsRealtime(_delayBetweenInOut);
+            fade *= -1;
+        }
+    }
+
+    /// <summary>
+    /// Fade asset in / out
+    /// </summary>
+    /// <param name="_sprite">object to fade</param>
+    /// <param name="_time">time in / out</param>
+    /// <param name="_delayBetweenInOut">time inbetween</param>
+    /// <returns>yield return wait</returns>
+    static public IEnumerator AssetInOut(SpriteRenderer _sprite, float _time,
+        float _delayBetweenInOut)
+    {
+        Color newColour = new Color(
+            _sprite.color.r,
+            _sprite.color.g,
+            _sprite.color.b,
+            _sprite.color.a
+            );
+
+        float fade = (0.4f * _time);
+
+        for (int index = 0; index < 2; index++)
+        {
+            while (CheckAlpha(!(index != 0), newColour.a))
+            {
+                if (!IsPaused())
+                {
+                    newColour.a += fade * Time.deltaTime;
+                    _sprite.color = newColour;
+                }
+
+                yield return null;
+            }
+
+            yield return new WaitForSecondsRealtime(_delayBetweenInOut);
+            fade *= -1;
+        }
+    }
+
+    /// <summary>
+    /// Fade object in / out
+    /// </summary>
+    /// <param name="_image">object to fade</param>
+    /// <param name="_time">time in / out</param>
+    /// <param name="_delayBetweenInOut">time inbetween</param>
+    /// <returns>yield return wait</returns>
+    static public IEnumerator AssetInOut(Image _image, float _time,
+        float _delayBetweenInOut)
+    {
+        Color newColour = new Color(
+            _image.color.r,
+            _image.color.g,
+            _image.color.b,
+            _image.color.a
+            );
+
+        float fade = (0.4f * _time);
+
+        for (int index = 0; index < 2; index++)
+        {
+            while (CheckAlpha(!(index != 0), newColour.a))
+            {
+                if (!IsPaused())
+                {
+                    newColour.a += fade * Time.deltaTime;
+                    _image.color = newColour;
+                }
+
+                yield return null;
+            }
+
+            yield return new WaitForSecondsRealtime(_delayBetweenInOut);
+            fade *= -1;
+        }
+    }
+
+    /// <summary>
+    /// Fade asset in then out
+    /// </summary>
+    /// <param name="_renderer">object to fade</param>
+    /// <param name="_time">time to fade in / out</param>
+    /// <param name="_delayBetweenInOut">time inbetween</param>
+    /// <returns>yield return waits</returns>
+    static public IEnumerator AssetInOut(Renderer _renderer, float _time,
+        float _delayBetweenInOut)
+    {
+        Material mat = _renderer.material;
+
+        Color newColour = new Color(
+            mat.color.r,
+            mat.color.g,
+            mat.color.b,
+            mat.color.a
+            );
+
+        float fade = (0.4f * _time);
+
+        for (int index = 0; index < 2; index++)
+        {
+            while (CheckAlpha(!(index != 0), newColour.a))
+            {
+                if (!IsPaused())
+                {
+                    newColour.a += fade * Time.deltaTime;
+                    mat.color = newColour;
+                }
+
+                yield return null;
+            }
+
+            yield return new WaitForSecondsRealtime(_delayBetweenInOut);
+            fade *= -1;
+        }
+    }
+
+    /// <summary>
     /// Function to check if alpha value falls within certain bounds
     /// </summary>
     /// <param name="_up"> is alpha going up</param>
     /// <param name="_currentAlpha"> the current alpha</param>
-    /// <returns></returns>
+    /// <returns>if alpha has met goal</returns>
     static bool CheckAlpha(bool _up, float _currentAlpha)
     {
         if (_up) { return _currentAlpha <= 1; }

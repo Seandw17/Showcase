@@ -43,7 +43,7 @@ public class OptionPool
     /// </summary>
     /// <param name="_response">possible user reponses</param>
     /// <param name="_question">possible questions</param>
-    public void Set(List<s_Questionresponse> _response, s_questionData
+    public void Set(List<Questionresponse> _response, QuestionData
         _question)
     {
         for (int index = 0; index < m_options.Length; index++)
@@ -58,12 +58,12 @@ public class OptionPool
     /// Set the details of the options
     /// </summary>
     /// <param name="_questions">questions player can ask</param>
-    public void Set(List<s_playerQuestion> _questions)
+    public void Set(List<PlayerQuestion> _questions)
     {
         for(int index = 0; index < m_options.Length; index++)
         {
             m_options[index].SetLocked(!CheckHasFlag(_questions[index].flag));
-            s_Questionresponse temp = new s_Questionresponse
+             Questionresponse temp = new  Questionresponse
             {
                 rating = e_rating.GREAT,
                 response = _questions[index].question

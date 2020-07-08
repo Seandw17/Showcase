@@ -10,47 +10,24 @@ public class OutfitManager : MonoBehaviour
     e_Outfits m_selectedOutfit;
     static int m_selectedOutfitScore;
 
-    GameObject[] ig_Outfit;
-    GameObject ig_Player;
+    public GameObject[] ig_Outfit;
+    //GameObject ig_Player;
 
     [SerializeField]
     Material[] m_outfitMats;
 
-    protected PlayerController m_playerscript;
+    //protected PlayerController m_playerscript;
     CursorController m_cmScript;
 
-    // tried creating a struct which would hold the name of the outfit, the score given to it and the model/material which it applies to
-    //struct S_OutfitStruct
-    //{
-    //    string m_outfitName;
-    //    int m_appliedOutfitScore;
-    //    material m_outfitMaterial;
-    //
-    //    public S_OutfitStruct(string name, int score, material mat)
-    //    {
-    //        m_outfitName = name;
-    //        m_appliedOutfitScore = score;
-    //        m_outfitMaterial = mat; 
-    //    }
-    //}
-
-    // S_OutfitStruct[] s_Outfit = new S_OutfitStruct[]
-    //{
-    //    new S_OutfitStruct ("CASUAL", 1, m_outfitMats[0]),
-    //    new S_OutfitStruct ("SMART_CASUAL", 3, m_outfitMats[1]),
-    //    new S_OutfitStruct ("SMART", 2, m_outfitMats[2])
-    //};
-
+    GameManagerScript m_gmscript;
 
     // Start is called before the first frame update
     void Start()
     {
-        ig_Outfit = GameObject.FindGameObjectsWithTag("Outfit");
-
-        ig_Player = GameObject.Find("Player");
-        m_playerscript = ig_Player.GetComponent<PlayerController>();
+        //ig_Outfit = GameObject.FindGameObjectsWithTag("Outfit");
 
         m_cmScript = GetComponent<CursorController>();
+        m_gmscript = FindObjectOfType<GameManagerScript>();
 
         for (int i = 0; i < ig_Outfit.Length; i++)
         {
@@ -60,6 +37,8 @@ public class OutfitManager : MonoBehaviour
         }
 
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
+
+
     }
 
     // Update is called once per frame
@@ -75,8 +54,11 @@ public class OutfitManager : MonoBehaviour
         
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
         CheckSelectedModel();
-        m_playerscript.enabled = true;
-        m_cmScript.DisableCursor();    
+        FindObjectOfType<PlayerController>().enabled = true;
+        GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.PLAYER));
+        m_cmScript.DisableCursor();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/Bedroom/Wardrobe/collect_clothes");
+        m_gmscript.SetTaskTrue(1);
     }
 
     // temporally made it so that the players camera is higher up in the scene (not via code)
@@ -105,7 +87,7 @@ public class OutfitManager : MonoBehaviour
     // will be changed to change the model/texture when the assets are created
     void ChangeSelectedModel(Material mat)
     {
-        ig_Player.GetComponent<MeshRenderer>().material = mat;
+        GameObject.Find("Player").GetComponent<MeshRenderer>().material = mat;
     }
 
     // returns the score given to the outfit to future scenes

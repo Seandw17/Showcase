@@ -28,9 +28,7 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// The text field corrosponding to an action
     /// </summary>
-    [SerializeField] TextMeshProUGUI m_resumeText, m_quitText;
-
-    GameObject m_playerCursorCanvas;
+    [SerializeField] TextMeshProUGUI m_resumeText, m_quitText; 
 
     private void Start()
     {
@@ -38,49 +36,61 @@ public class PauseMenu : MonoBehaviour
             " to resume");
         m_quitText.SetText("Press " + m_quitKey.ToString() + " to quit");
 
-        m_playerCursorCanvas = Instantiate(
-            Resources.Load<GameObject>("Prefabs/PlayerCursor"));
-        m_playerCursorCanvas.SetActive(false);
-
         // Create the FPS counter if in editor
         if (Application.isEditor)
         {
             Instantiate(Resources.Load<GameObject>("Prefabs/FPSCounter"));
         }
 
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // If escape is pressed, toggle the pause meny and gametime
-        if (Input.GetKeyDown(m_pauseButton))
+        // if the active scene is not the title screen
+        if (!SceneManager.GetActiveScene().name.Equals("TItleScreen") &&
+            !SceneManager.GetActiveScene().name.Equals("PreLoad"))
         {
-            m_isPaused = !m_isPaused;
-            Time.timeScale = Convert.ToSingle(!m_isPaused);
-
-            m_pauseMenuObject.SetActive(m_isPaused);
-
-            m_playerCursorCanvas.SetActive(!m_isPaused);
-        }
-        else if (m_isPaused)
-        {
-            if (Input.GetKeyDown(m_quitKey))
+            // If escape is pressed, toggle the pause meny and gametime
+            if (Input.GetKeyDown(m_pauseButton))
             {
-                // TODO Stop the game or return to a main menu
-                Debug.Log("The quit button has been pressed");
+                m_isPaused = !m_isPaused;
+                Time.timeScale = Convert.ToSingle(!m_isPaused);
+
+                m_pauseMenuObject.SetActive(m_isPaused);
+
+                GameManagerScript.UIActive(!m_isPaused);
+            }
+            else if (m_isPaused)
+            {
+                if (Input.GetKeyDown(m_quitKey))
+                {
+                    // if quit key is pressed, quit application
+                    Application.Quit();
+                }
+
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    m_isPaused = !m_isPaused;
+                    Time.timeScale = Convert.ToSingle(!m_isPaused);
+
+                    m_pauseMenuObject.SetActive(m_isPaused);
+
+                    LevelChange.ChangeLevel(SceneManager.GetActiveScene().name);
+                }
             }
         }
     }
 
+    /*
     void OnSceneLoaded(Scene _newScene, LoadSceneMode _mode)
     {
         if (!_newScene.name.Equals("Menu"))
         {
             m_playerCursorCanvas.SetActive(true);
         }
-    }
+    }*/
 
     /// <summary>
     /// return if the game is paused or not

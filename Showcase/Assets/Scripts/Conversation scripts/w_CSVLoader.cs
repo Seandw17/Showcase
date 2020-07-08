@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -13,24 +14,24 @@ static public class w_CSVLoader
     /// </summary>
     /// <param name="_fileName">name of file</param>
     /// <returns>list of questions</returns>
-    public static List<s_questionData> LoadQuestionData(string _fileName)
+    public static List<QuestionData> LoadQuestionData(string _fileName)
     {
         Debug.Log("Starting Read of CSV: " + _fileName);
 
-        TextAsset file = LoadInFile(_fileName);
+        TextAsset file = LoadInFile("Conversation/" + _fileName);
 
-        List<s_questionData> returnValue = new List<s_questionData>();
-        s_questionData temp = new s_questionData();
+        List<QuestionData> returnValue = new List<QuestionData>();
+        QuestionData temp = new QuestionData();
 
         string[] lines = file.text.Split('\n');
-        foreach(string line in lines)
+        foreach (string line in lines)
         {
             if (!line[0].Equals('#'))
             {
                 if (line.Equals("end"))
                 {
                     returnValue.Add(temp);
-                    temp = new s_questionData();
+                    temp = new QuestionData();
                 }
                 else
                 {
@@ -86,17 +87,17 @@ static public class w_CSVLoader
     /// </summary>
     /// <param name="_responses">the string to parse</param>
     /// <returns>a list of responses</returns>
-    static List<s_Questionresponse> ReadOptions(string _responses)
+    static List<Questionresponse> ReadOptions(string _responses)
     {
-        List<s_Questionresponse> returnList = new List<s_Questionresponse>();
+        List<Questionresponse> returnList = new List<Questionresponse>();
 
         string[] data = _responses.Split(',');
         foreach (string dataSet in data)
         {
             string[] brokenUp = dataSet.Split('|');
-            s_Questionresponse temp = new s_Questionresponse();
+            Questionresponse temp = new Questionresponse();
             temp.response = brokenUp[0];
-            temp.rating = (e_rating) Enum.Parse(typeof(e_rating), brokenUp[1]);
+            temp.rating = (e_rating)Enum.Parse(typeof(e_rating), brokenUp[1]);
             temp.unlockCriteria =
                 (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag), brokenUp[2]);
             returnList.Add(temp);
@@ -112,37 +113,36 @@ static public class w_CSVLoader
     /// <param name="_replies">list of replies to the questions</param>
     /// <param name="_questions">List of questions the player can ask</param>
     public static void LoadInPlayerQuestions(string _fileName,
-        out List<s_playerQuestion> _list)
+        out List<PlayerQuestion> _list)
     {
         Debug.Log("Loading in player questions");
 
-        TextAsset file = LoadInFile(_fileName);
+        TextAsset file = LoadInFile("Conversation/" + _fileName);
 
-        _list = new List<s_playerQuestion>();
+        _list = new List<PlayerQuestion>();
 
         string[] lines = file.text.Split('\n');
 
         // split line into files
 
-        foreach(string data in lines)
+        foreach (string data in lines)
         {
             // if not a comment
             if (!data[0].Equals('#'))
             {
                 // split by comma
                 string[] responses = data.Split(',');
-                foreach(string response in responses)
+                foreach (string response in responses)
                 {
                     // split by | character
                     string[] keyValue = response.Split('|');
                     // load in
-                    s_playerQuestion temp = new s_playerQuestion();
+                    PlayerQuestion temp = new PlayerQuestion();
                     temp.question = keyValue[0];
                     temp.response = keyValue[2];
                     temp.flag = (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag),
                         keyValue[1]);
                     _list.Add(temp);
-                    Debug.Log("Player Question added");
                 }
             }
         }
@@ -157,7 +157,6 @@ static public class w_CSVLoader
     /// <returns>TextAsset of file</returns>
     static TextAsset LoadInFile(string _name)
     {
-        _name = "Conversation/" + _name;
         TextAsset file = Resources.Load<TextAsset>(_name);
 
         Debug.Assert(file, "File: " + _name + " cannot be found");
@@ -174,7 +173,7 @@ static public class w_CSVLoader
     {
         List<string> returnList = new List<string>();
 
-        TextAsset file = LoadInFile("FillerText");
+        TextAsset file = LoadInFile("Conversation/FillerText");
         string[] lines = file.text.Split('\n');
 
         foreach (string line in lines)
@@ -193,7 +192,7 @@ static public class w_CSVLoader
     {
         _list = new Dictionary<e_tipCategories, string>();
 
-        TextAsset file = LoadInFile("Tips");
+        TextAsset file = LoadInFile("Conversation/Tips");
         string[] lines = file.text.Split('\n');
 
         foreach (string line in lines)
@@ -212,7 +211,7 @@ static public class w_CSVLoader
     /// </summary>
     /// <returns>string array</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string[] LoadIntroText() => LoadInFile("intro")
+    public static string[] LoadIntroText() => LoadInFile("Conversation/intro")
         .text.Split('\n');
 
     /// <summary>
@@ -220,8 +219,6 @@ static public class w_CSVLoader
     /// </summary>
     /// <returns>string array of outro text</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static string[] LoadOutroText() => LoadInFile("outro")
+    public static string[] LoadOutroText() => LoadInFile("Conversation/outro")
         .text.Split('\n');
-
-
 }

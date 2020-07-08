@@ -6,7 +6,7 @@ using UnityEngine;
 
 static public class ConversationStore 
 {
-    static e_unlockFlag unlockedFlags = e_unlockFlag.NONE;
+    static e_unlockFlag m_unlockedFlags = e_unlockFlag.NONE;
     static List<s_playerResponse> m_playerResponses;
     static e_tipCategories m_tips;
 
@@ -14,13 +14,14 @@ static public class ConversationStore
     public static void Init() =>
         m_playerResponses = new List<s_playerResponse>();
 
+
     /// <summary>
     /// Add a unlock flag to the player
     /// </summary>
     /// <param name="_flag"> the flag to add </param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     static public void RegisterUnlockFlag(e_unlockFlag _flag) =>
-        unlockedFlags |= _flag;
+        m_unlockedFlags |= _flag;
 
     /// <summary>
     /// Return if a flag is present in the player data
@@ -29,7 +30,7 @@ static public class ConversationStore
     /// <returns> returns if has </returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     static public bool CheckHasFlag(e_unlockFlag _flag) =>
-        unlockedFlags.HasFlag(_flag);
+        m_unlockedFlags.HasFlag(_flag);
 
 
     /// <summary>
@@ -39,10 +40,13 @@ static public class ConversationStore
     static public void PlayerWasSilent(string _question)
     {
         s_playerResponse silentResponse = new s_playerResponse();
-        silentResponse.playerResponse.rating = e_rating.AWFUL;
-        silentResponse.playerResponse.response = "Stayed Silent";
+        silentResponse.playerResponse = new Questionresponse
+        {
+            rating = e_rating.AWFUL,
+            response = "Stayed Silent"
+        };
         silentResponse.question = _question;
-        ConversationStore.AddTip(e_tipCategories.NOTASKING);
+        AddTip(e_tipCategories.SILENT);
         m_playerResponses.Add(silentResponse);
     }
 
@@ -51,25 +55,22 @@ static public class ConversationStore
     /// </summary>
     /// <param name="_response"> the reponse the player chose </param>
     /// <param name="_question"> the active question </param>
-    static public void ProcessAnswer(s_Questionresponse _response,
+    static public void ProcessAnswer(Questionresponse _response,
         string _question)
     {
-        Debug.Assert(!_response.Equals(new s_Questionresponse())
+        Debug.Assert(!_response.Equals(new Questionresponse())
             && !_question.Equals(""));
 
         s_playerResponse temp = new s_playerResponse();
         temp.playerResponse = _response;
         temp.question = _question;
 
-        //TODO finish and allow
-        //InterviewerFace.Expression(_response.rating);
-
         if (_response.rating.Equals(e_rating.AWFUL) ||
             _response.rating.Equals(e_rating.BAD))
         {
             AddTip(_response.tip);
         }
-        
+
         m_playerResponses.Add(temp);
     }
 
@@ -81,19 +82,10 @@ static public class ConversationStore
     static public List<s_playerResponse> ReturnFinalChosenResults() =>
         m_playerResponses;
 
-    // TESTING FUNCTION, TO REMOVE
-    static public List<s_playerResponse> ReturnTestData()
-    {
-        PlayerWasSilent("Test 1");
-        PlayerWasSilent("Test 2");
-        PlayerWasSilent("Test 3");
-        PlayerWasSilent("Test 4");
-        PlayerWasSilent("Test 5");
-        PlayerWasSilent("Test 6");
-
-        return m_playerResponses;
-    }
-
+    /// <summary>
+    /// Add a tip
+    /// </summary>
+    /// <param name="_tip"></param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void AddTip(e_tipCategories _tip)
     {
@@ -103,6 +95,17 @@ static public class ConversationStore
         }
     }
 
+    /// <summary>
+    /// returns if the only flag is none
+    /// </summary>
+    /// <returns></returns>
+    public static bool IsOnlyNoneFlag() =>
+        m_unlockedFlags.Equals(e_unlockFlag.NONE);
+
+    /// <summary>
+    /// Return the player tips
+    /// </summary>
+    /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static e_tipCategories GetPlayerTips() => m_tips;
 }

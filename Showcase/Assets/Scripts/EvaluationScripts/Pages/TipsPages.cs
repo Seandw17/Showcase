@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Class to generate a tips page
@@ -18,6 +16,7 @@ public class TipsPages : Page
 
         for (int index = 0; index < m_responseDisplays.Length; index++)
         {
+            Debug.Log("Done");
             ResponseDisplay temp = Instantiate(Resources.Load<GameObject>
                 ("Prefabs/ResponseDisplay")).GetComponent<ResponseDisplay>();
             m_responseDisplays[index] = temp;
@@ -34,7 +33,6 @@ public class TipsPages : Page
 
     public void SetValue(string[] _tips)
     {
-        Debug.Log(m_responseDisplays.Length);
         Debug.Assert(_tips.Length == m_responseDisplays.Length,
             "Too many text " +
             "values have been passed to this functions");

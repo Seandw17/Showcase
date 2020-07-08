@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
+  m_Name: Dialog7
+  m_EditorClassIdentifier: 
+  name: 
+  sentences:
+  - text: "So, I was doing some baking the other night; it was this recipe for coconut
+      brownies. They turned out pretty good.\r\n"
+    waitTimer: 5
+  - text: "Did you bring any in?\r\n"
+    waitTimer: 2
+  - text: "I did, but I think that you had a day off. There might be one left in the
+      fridge, but it\u2019s probably gone hard by now.\r\n"
+    waitTimer: 5
+  - text: "Well, that\u2019s annoying. Are you going to be making any more?\r\n"
+    waitTimer: 4
+  - text: "Funny you should say that. Sean had one and he told me he\u2019d maybe
+      look into putting them with the other pastries and that. You\u2019d have to
+      pay for one, unless you ask Sean nicely."
+    waitTimer: 10

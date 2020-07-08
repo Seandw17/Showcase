@@ -9,7 +9,7 @@ public class AnswerPage : Page
     private void Awake()
     {
         m_reponses = new ResponseDisplay[3];
-        Vector3 newPos = Vector3.zero;
+        Vector3 newPos = new Vector3(0,-0.08f,-0.45f);
         for (int index = 0; index < m_reponses.Length; index++)
         {
             ResponseDisplay temp = Instantiate(Resources.Load<GameObject>
@@ -20,8 +20,8 @@ public class AnswerPage : Page
             if (index > 0)
             {
                 newPos.y -= 0.3f;
-                m_reponses[index].transform.position = newPos;
             }
+            m_reponses[index].transform.localPosition = newPos;
         }
     }
 
@@ -36,11 +36,17 @@ public class AnswerPage : Page
 
         for (int index = 0; index < _reponses.Length; index++)
         {
-            s_playerResponse currentResponse = _reponses[index];
-            m_reponses[index].SetValue(
-                currentResponse.question,
-                currentResponse.playerResponse.response,
-                currentResponse.playerResponse.rating);
+            if (_reponses[index].question == null)
+            {
+                return;
+            }
+            else
+            {
+                m_reponses[index].SetValue(
+                    _reponses[index].question,
+                    _reponses[index].playerResponse.response,
+                    _reponses[index].playerResponse.rating);
+            }
         }
     }
 }

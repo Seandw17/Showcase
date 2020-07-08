@@ -6,12 +6,12 @@
 /// </summary>
 public enum e_rating
 {
+    NONE = 5,
     GREAT = 4,
     GOOD = 3,
     OK = 2,
     BAD = 1,
-    AWFUL = 0,
-    NONE = 5
+    AWFUL = 0
 }
 
 /// <summary>
@@ -43,4 +43,7 @@ public enum e_tipCategories
     FORWARD = 1 << 8,
     UNIQUE = 1 << 9,
     PROBLEM = 1 << 10,
+    IMPROVEMENT = 1 << 11,
+    TEAMWORK = 1 << 12,
+    SILENT = 1 << 13
 }

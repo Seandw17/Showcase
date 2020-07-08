@@ -216,7 +216,6 @@ GameObject:
   - component: {fileID: 7890871962860907159}
   - component: {fileID: 7890871962860907156}
   - component: {fileID: 7890871962860907157}
-  - component: {fileID: 5976439288807615743}
   - component: {fileID: -5444157547044540282}
   m_Layer: 0
   m_Name: TipsPage
@@ -232,14 +231,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7890871962860907155}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.933, y: 1.288, z: -1.738}
   m_LocalScale: {x: 1, y: 1, z: 0.1}
   m_Children:
   - {fileID: 8550057676525317959}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &7890871962860907156
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -286,18 +285,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5976439288807615743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7890871962860907155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96c60ded08dcc4f88818e5f0569ae611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-5444157547044540282
 MonoBehaviour:
   m_ObjectHideFlags: 0

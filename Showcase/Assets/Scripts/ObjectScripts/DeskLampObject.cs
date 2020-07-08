@@ -29,10 +29,14 @@ public class DeskLampObject : InteractableObjectBase
         if (m_lighton == true)
         {
             m_light.enabled = true;
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Environment/lamp_switch", GetComponent<Transform>().position);
         }
         else
         {
             m_light.enabled = false;
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Environment/lamp_switch", GetComponent<Transform>().position);
         }
     }
 }

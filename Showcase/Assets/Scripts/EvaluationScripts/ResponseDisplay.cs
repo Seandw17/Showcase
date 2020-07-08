@@ -8,6 +8,13 @@ using UnityEngine;
 /// </summary>
 public class ResponseDisplay : MonoBehaviour
 {
+    TextMeshPro m_textBox;
+
+    private void Awake()
+    {
+        m_textBox = GetComponent<TextMeshPro>();
+    }
+
     /// <summary>
     /// Set Value for text box
     /// </summary>
@@ -16,11 +23,10 @@ public class ResponseDisplay : MonoBehaviour
     /// <param name="score">score given</param>
     public void SetValue(string _question, string _response, e_rating score)
     {
-        TextMeshPro textBox = GetComponent<TextMeshPro>();
-        textBox.SetText("For the question: '" + _question + "'" + '\n' +
+        m_textBox.SetText("For the question: '" + _question + "'" + '\n' +
             "You Said: '" + _response + "'" +'\n'
             + "This is a: " + score.ToString()
-            + " reponse, worth " + ((int) score).ToString() + " points");
+            + " response, worth " + ((int) score).ToString() + " points");
     }
 
     /// <summary>
@@ -29,6 +35,11 @@ public class ResponseDisplay : MonoBehaviour
     /// <param name="_tip">tip that you wish to display</param>
     public void SetValue(string _tip)
     {
-        GetComponent<TextMeshPro>().SetText(_tip);
+        m_textBox.SetText(_tip);
+    }
+
+    public bool IsTextNull()
+    {
+        return m_textBox.text.Equals("");
     }
 }

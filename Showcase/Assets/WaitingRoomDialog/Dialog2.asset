@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
+  m_Name: Dialog2
+  m_EditorClassIdentifier: 
+  name: 
+  sentences:
+  - text: "Did you find out what happened with that customer earlier? She seemed pretty
+      annoyed.\r\n"
+    waitTimer: 5
+  - text: The one with the cold mocha? Yeah, Jacob had made that one. He could have
+      handled it better though
+    waitTimer: 5
+  - text: "But what happened?\r\n"
+    waitTimer: 3
+  - text: "Well she came back with the coffee and had a bit of a rant. Since Jacob
+      was new, I guess he thought he\u2019d just make her a new coffee."
+    waitTimer: 10
+  - text: "Did he tell Lisa?\r"
+    waitTimer: 1
+  - text: "Afterwards, yeah. I\u2019d have probably gone to her first and see if there
+      were any other coffees that came back cold. Saying that, we all make mistakes
+      starting out.\r\n"
+    waitTimer: 10

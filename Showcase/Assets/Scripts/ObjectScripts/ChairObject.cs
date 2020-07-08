@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class ChairObject : InteractableObjectBase
 {
-    [SerializeField]
-    GameObject ig_playerObject, ig_sitpositionObject;
+    [SerializeField] w_QuestionManager m_questionManager;
+    [SerializeField] GameObject ig_playerobject, ig_sitpoisitonobject;
 
-
+    BoxCollider m_boxcollider;
+    [SerializeField] bool m_isinterviewchair;
     int m_chairchoice = 0;
    
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
-        
+        m_boxcollider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -26,34 +27,48 @@ public class ChairObject : InteractableObjectBase
     public override void Interact()
     {
         Debug.Log("chair");
-        m_chairchoice++;
-        switch (m_chairchoice)
+        if (m_isinterviewchair.Equals(true))
         {
-            case 1:
-                {
-                    transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, transform.position.z);
-                    break;
-                }
-            case 2:
-                {
-                    ig_playerObject.transform.position = ig_sitpositionObject.transform.position;
-                    m_playerscript.SetCanPlayerMove(false);
+            m_chairchoice++;
+            switch (m_chairchoice)
+            {
+                case 1:
+                    {
+                        transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
+                        break;
+                    }
+                case 2:
+                    {
 
-                    //TODO - Set player Position to be facing the interviewer
-                    break;
-                }
-            case 3:
-                {
-                    transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z); 
-                    break;
-                }
-            
+
+                        ig_playerobject.transform.position = ig_sitpoisitonobject.transform.position;
+                        m_playerscript.SetCanPlayerMove(false);
+                        m_boxcollider.enabled = false;
+
+                        // Start Interview
+                        Debug.Assert(m_questionManager != null, "There is no " +
+                            "reference to a Question Manager Object");
+
+                        m_questionManager.BeginInterview();
+
+                        break;
+                    }
+                case 3:
+                    {
+                        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f);
+                        break;
+                    }
+
+            }
+            if (m_chairchoice >= 3)
+            {
+                m_chairchoice = 0;
+            }
         }
-        if (m_chairchoice >= 3)
+        else
         {
-            m_chairchoice = 0;
+            ig_playerobject.transform.position = ig_sitpoisitonobject.transform.position;
         }
-        
     }
 
 

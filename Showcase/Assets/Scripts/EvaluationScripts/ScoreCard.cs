@@ -8,16 +8,13 @@ public class ScoreCard : MonoBehaviour
     int m_currentPage;
     List<Page> m_pages;
 
-    PageMoveObject m_lftButton, m_rgtButton;
+    PageMoveObject m_rightButton, m_leftButton;
 
     void Start()
     {
-        //m_responses = ConversationStore.ReturnFinalChosenResults();
-        m_responses = ConversationStore.ReturnTestData();
-        Debug.Log(m_responses.Count);
+        m_responses = ConversationStore.ReturnFinalChosenResults();
         m_pages = new List<Page>();
         PageMoveObject.Register(this);
-
         StartCoroutine(CalculateResult());
     }
 
@@ -27,15 +24,15 @@ public class ScoreCard : MonoBehaviour
     /// <returns></returns>
     IEnumerator CalculateResult()
     {
-        m_rgtButton = Instantiate(Resources.Load<GameObject>
+        m_leftButton = Instantiate(Resources.Load<GameObject>
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
-        m_rgtButton.Set(PageMoveObject.e_direction.RIGHT);
-        m_lftButton = Instantiate(Resources.Load<GameObject>
+        m_leftButton.Set(PageMoveObject.e_direction.LEFT);
+        m_leftButton.SetInteractable(false);
+        m_rightButton = Instantiate(Resources.Load<GameObject>
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
-        m_lftButton.Set(PageMoveObject.e_direction.LEFT);
+        m_rightButton.Set(PageMoveObject.e_direction.RIGHT);
 
-        m_lftButton.transform.position = new Vector3(-0.9f, 0, 0);
-        m_rgtButton.transform.position = new Vector3(0.9f, 0, 0);
+        yield return null;
 
         // Load in pages
         s_playerResponse[] TempResponses = new s_playerResponse[3];
@@ -48,7 +45,7 @@ public class ScoreCard : MonoBehaviour
             TempResponses[externalIndexer] = response;
             externalIndexer++;
             // if we've hit the limit, make a page
-            if (externalIndexer == 2)
+            if (externalIndexer == 3)
             {
                 GenerateAnswerPage(TempResponses);
                 TempResponses = new s_playerResponse[3];
@@ -57,7 +54,7 @@ public class ScoreCard : MonoBehaviour
             // add to final score
             finalScore += (int)response.playerResponse.rating;
             if(Equals(response, m_responses[m_responses.Count - 1])
-                && externalIndexer != 2)
+                && externalIndexer < 3 && externalIndexer != 0)
             {
                 GenerateAnswerPage(TempResponses);
             }
@@ -84,7 +81,8 @@ public class ScoreCard : MonoBehaviour
             }
 
             // if any fall out of the loop at the end
-            if (Equals(tip, tips[tips.Count - 1]) && externalIndexer != 2){
+            if (Equals(tip, tips[tips.Count - 1]) && externalIndexer < 3
+                && externalIndexer != 0){
                 GenerateTipsPage(tipsToPass);
             }
 
@@ -92,7 +90,14 @@ public class ScoreCard : MonoBehaviour
         }
 
         m_responses.Clear();
-        m_lftButton.transform.parent = m_rgtButton.transform.parent = transform;
+
+        // setting positions and rotations for left and right buttons
+        m_rightButton.transform.parent = m_leftButton.transform.parent = transform;
+        m_rightButton.transform.localPosition = new Vector3(-0.9f, 0, 0);
+        m_leftButton.transform.localPosition = new Vector3(0.9f, 0, 0);
+        m_rightButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
+        m_leftButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
+
         yield return null;
     }
 
@@ -106,6 +111,8 @@ public class ScoreCard : MonoBehaviour
             ("Prefabs/FinalResultPage").GetComponent<FinalResult>());
         finalResultPage.SetValue(_finalScore, m_responses.Count);
         finalResultPage.gameObject.transform.parent = transform;
+        finalResultPage.gameObject.transform.localPosition = Vector3.zero;
+        finalResultPage.gameObject.SetActive(true);
         m_pages.Insert(0, finalResultPage);
     }
 
@@ -115,20 +122,26 @@ public class ScoreCard : MonoBehaviour
     /// <param name="_reponses"> the player reponses for this page</param>
     void GenerateAnswerPage(s_playerResponse[] _reponses)
     {
+        Debug.Assert(!_reponses[0].question.Equals(""),
+            "A null page has been created");
         AnswerPage answerPage = Instantiate(Resources.Load<GameObject>
             ("Prefabs/AnswerPage").GetComponent<AnswerPage>());
         answerPage.SetValue(_reponses);
         answerPage.gameObject.transform.parent = transform;
+        answerPage.gameObject.transform.localPosition = Vector3.zero;
         answerPage.gameObject.SetActive(false);
         m_pages.Add(answerPage);
     }
 
     void GenerateTipsPage(string[] _tips)
     {
+        Debug.Assert(!_tips[0].Equals(""),
+            "A null page has been created");
         TipsPages tipsPage = Instantiate(Resources.Load<GameObject>
             ("Prefabs/TipsPage").GetComponent<TipsPages>());
         tipsPage.SetValue(_tips);
         tipsPage.gameObject.transform.parent = transform;
+        tipsPage.gameObject.transform.localPosition = Vector3.zero;
         tipsPage.gameObject.SetActive(false);
         m_pages.Add(tipsPage);
     }
@@ -164,16 +177,22 @@ public class ScoreCard : MonoBehaviour
     {
         if (m_currentPage == 0)
         {
-            m_lftButton.SetInteractable(false);
+            m_leftButton.SetInteractable(false);
         }
         else if (m_currentPage == m_pages.Count - 1)
         {
-            m_rgtButton.SetInteractable(false);
+            m_rightButton.SetInteractable(false);
         }
         else
         {
-            m_lftButton.SetInteractable(true);
-            m_rgtButton.SetInteractable(true);
+            m_rightButton.SetInteractable(true);
+            m_leftButton.SetInteractable(true);
         }
+    }
+
+    public void TurnOn()
+    {
+        m_rightButton.gameObject.SetActive(true);
+        m_leftButton.gameObject.SetActive(true);
     }
 }

@@ -1,5 +1,6 @@
 ﻿# Format: [tipenum],[tiptext]
 NOTASKING,-You should always ask questions about the job
+SILENT,-Do not stay silent once asked a question
 UNDEMANDING,-Don't make it appear that you view the job as undemanding
 SOMETHINGBETTER,-Don't say you will leave after you find something better
 ENTHUSIASM,-Be enthusiastic about the job
@@ -8,3 +9,5 @@ HARDWORK,-Emphasise your hard work and effort
 FORWARD,-Be forward thinking with your answers
 UNIQUE,-Emphasise what makes you a unique employee
 PROBLEM,-Demonstrate a talent for problem solving and creative thinking
+IMPROVEMENT,-Demonstrate a want to improve yourself and your skills
+TEAMWORK,-Show you can function well within a team

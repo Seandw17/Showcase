@@ -15,6 +15,15 @@ public class LevelChange : MonoBehaviour
         instance = this;
     }
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void OnBeforeSceneLoadRuntimeMethod()
+    {
+        Debug.Assert(SceneManager.GetSceneByName("PreLoad").isLoaded,
+            "PreLoad " +
+            "must be loaded before all other scenes for core game " +
+            "functionality");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +31,7 @@ public class LevelChange : MonoBehaviour
             "Enter a level to change to");
         //ChangeLevel("TitleScreen");
         ChangeLevel(forcedLevelChange);
+        ConversationStore.Init();
     }
 
     /// <summary>
@@ -32,7 +42,9 @@ public class LevelChange : MonoBehaviour
     {
         Debug.Log("Changing to scene: " + _sceneName);
         SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
         instance.StartCoroutine(instance.LoadLevel(_sceneName));
+
     }
 
     /// <summary>
@@ -51,6 +63,7 @@ public class LevelChange : MonoBehaviour
         {
             Debug.Log("Loading scene " + _sceneName + " " + async.progress +
                 "%");
+            m_loadingManager.SetLoadingPercentText(async.progress);
             yield return null;
         }
 
@@ -59,6 +72,16 @@ public class LevelChange : MonoBehaviour
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(_sceneName));
         Debug.Log("Loading of Scene: " + _sceneName + " is complete");
+
+        if (!SceneManager.GetActiveScene().name.Equals("TItleScreen")
+            && !SceneManager.GetActiveScene().name.Equals("PreLoad"))
+        {
+            GameManagerScript.UIActive(true);
+        }
+        else
+        {
+            GameManagerScript.UIActive(false);
+        }
     }
 
     /// <summary>

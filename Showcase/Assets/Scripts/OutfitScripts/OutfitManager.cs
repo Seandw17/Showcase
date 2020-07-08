@@ -55,7 +55,7 @@ public class OutfitManager : MonoBehaviour
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
         CheckSelectedModel();
         FindObjectOfType<PlayerController>().enabled = true;
-        GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.PLAYER));
+        GameManagerScript.SetHUDBack();
         m_cmScript.DisableCursor();
         FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/Bedroom/Wardrobe/collect_clothes");
         m_gmscript.SetTaskTrue(1);

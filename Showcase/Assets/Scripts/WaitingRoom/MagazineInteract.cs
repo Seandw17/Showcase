@@ -1,8 +1,11 @@
 ﻿using UnityEngine.UI;
 using static GameManagerScript;
+using UnityEngine;
 
 public class MagazineInteract : InteractableObjectBase
 {
+    [SerializeField] GameObject panel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,8 @@ public class MagazineInteract : InteractableObjectBase
 
     public override void Interact()
     {
-        SetCurrentHUD(
-            ReturnPanel(e_PanelTypes.MAGAZINE));
+        //SetCurrentHUD(ReturnPanel(e_PanelTypes.MAGAZINE));
+        SetNewHUD(panel);
         m_playerscript.SetCanCameraMove(false);
         GetCursor().EnableCursor();
         m_playerscript.SetCanInteract(false);
@@ -31,8 +34,8 @@ public class MagazineInteract : InteractableObjectBase
 
     public void ResetMagazineView()
     {
-        SetCurrentHUD(
-            ReturnPanel(e_PanelTypes.PLAYER));
+        //SetCurrentHUD(ReturnPanel(e_PanelTypes.PLAYER));
+        SetHUDBack();
         m_playerscript.SetCanCameraMove(true);
         GetCursor().DisableCursor();
         m_playerscript.SetCanInteract(true);

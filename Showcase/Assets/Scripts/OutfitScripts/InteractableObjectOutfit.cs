@@ -8,6 +8,8 @@ public class InteractableObjectOutfit : InteractableObjectBase
     CursorController m_cmScript;
     OutfitManager m_omScript;
 
+    [SerializeField] GameObject m_outfitUIObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class InteractableObjectOutfit : InteractableObjectBase
     {
         if (m_gmscript.m_objectiveboolarray[0].Equals(true))
         {
-            GameManagerScript.SetCurrentHUD(GameManagerScript.ReturnPanel(e_PanelTypes.WARDROBE));
+            GameManagerScript.SetNewHUD(m_outfitUIObject);
             m_cmScript.EnableCursor();
 
             // for now it just disables the playerscript. There might be a better way of doing this

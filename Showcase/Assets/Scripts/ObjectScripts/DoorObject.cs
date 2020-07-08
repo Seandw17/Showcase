@@ -12,14 +12,14 @@ public class DoorObject : InteractableObjectBase
     [SerializeField]
     string m_levelname;
     Scene scene;
+
+    [SerializeField] GameObject m_researchWarning, m_outfitWarning;
    
 
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
-      
-        Debug.Log(scene.name);
     }
 
     // Update is called once per frame
@@ -64,13 +64,10 @@ public class DoorObject : InteractableObjectBase
                     Debug.Log("You need to do some research fool");
 
                     // Changed to call coroutine
-                    GameManagerScript.SetCurrentHUD(
-                        GameManagerScript.ReturnPanel(e_PanelTypes.
-                        RESEARCHWARNING));
-                    StartCoroutine(FadeIn.AssetInOut(GameManagerScript.
-                        ReturnPanel(e_PanelTypes.RESEARCHWARNING)
-                     .GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
-                    
+                    GameManagerScript.SetNewHUD(m_researchWarning);
+                    StartCoroutine(FadeIn.AssetInOut(GameManagerScript
+                        .ReturnCurrentHUD().GetComponentInChildren
+                        <TextMeshProUGUI>(), 5, 2));
                 }
                 else if(ConversationStore.IsOnlyNoneFlag().Equals(false))
                 {
@@ -82,12 +79,10 @@ public class DoorObject : InteractableObjectBase
                     else
                     {
                         // Changed to call coroutine
-                        GameManagerScript.SetCurrentHUD(
-                            GameManagerScript.ReturnPanel(
-                                e_PanelTypes.OUTFITWARNING));
-                        StartCoroutine(FadeIn.AssetInOut(GameManagerScript.
-                            ReturnPanel(e_PanelTypes.OUTFITWARNING).
-                            GetComponentInChildren<TextMeshProUGUI>(), 5.0f, 2.0f));
+                        GameManagerScript.SetNewHUD(m_outfitWarning);
+                        StartCoroutine(FadeIn.AssetInOut(GameManagerScript
+                            .ReturnCurrentHUD().GetComponentInChildren
+                            <TextMeshProUGUI>(), 5, 2));
                     }
                 }
             }

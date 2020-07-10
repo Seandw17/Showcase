@@ -93,10 +93,8 @@ public class ScoreCard : MonoBehaviour
 
         // setting positions and rotations for left and right buttons
         m_rightButton.transform.parent = m_leftButton.transform.parent = transform;
-        m_rightButton.transform.localPosition = new Vector3(-0.9f, 0, 0);
-        m_leftButton.transform.localPosition = new Vector3(0.9f, 0, 0);
-        m_rightButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
-        m_leftButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
+        m_rightButton.transform.localPosition = new Vector3(-0.4f, -0.25f, 0);
+        m_leftButton.transform.localPosition = new Vector3(0.4f, -0.25f, 0);
 
         yield return null;
     }

@@ -1,27 +1,39 @@
 ﻿using UnityEngine;
+using TMPro;
 
 // Author: Alec
 
 public class AnswerPage : Page
 {
+    [SerializeField] bool m_forceStart;
+
     ResponseDisplay[] m_reponses;
 
     private void Awake()
     {
-        m_reponses = new ResponseDisplay[3];
-        Vector3 newPos = new Vector3(0,-0.08f,-0.45f);
-        for (int index = 0; index < m_reponses.Length; index++)
-        {
-            ResponseDisplay temp = Instantiate(Resources.Load<GameObject>
-                ("Prefabs/ResponseDisplay")).GetComponent<ResponseDisplay>();
-            m_reponses[index] = temp;
-            m_reponses[index].transform.SetParent(transform);
+        m_reponses = GetComponentsInChildren<ResponseDisplay>();
+    }
 
-            if (index > 0)
+    private void Start()
+    {
+        // Create test data
+        if (m_forceStart)
+        {
+            s_playerResponse[] testData = new s_playerResponse[3];
+
+            for (int index = 0; index < testData.Length; index++)
             {
-                newPos.y -= 0.3f;
+                testData[index] = new s_playerResponse
+                {
+                    question = "What do you think?",
+                    playerResponse = new Questionresponse
+                    {
+                        response = "I like it",
+                        rating = e_rating.AWFUL
+                    }
+                };
             }
-            m_reponses[index].transform.localPosition = newPos;
+            SetValue(testData);
         }
     }
 

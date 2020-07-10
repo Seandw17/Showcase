@@ -55,9 +55,9 @@ public class FinalResult : Page
     public void SetValue(int _score, int questionsAsked)
     {
         float amountNeededToPass = (questionsAsked * 5) * 0.75f;
-        m_finalPercentText.SetText(amountNeededToPass + "%");
+        //m_finalPercentText.SetText(amountNeededToPass + "%");
 
-        m_finalScore.SetText("Final Score: " + _score.ToString());
+        m_finalScore.SetText(_score.ToString());
 
         if (_score >= amountNeededToPass) { m_outcomeText.SetText(m_passText); }
         else { m_outcomeText.SetText(m_failText); }

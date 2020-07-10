@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// Class to generate a tips page
@@ -7,27 +8,23 @@ public class TipsPages : Page
 {
     ResponseDisplay[] m_responseDisplays;
 
+    /// <summary>
+    /// If we want to test a dummy page
+    /// </summary>
+    [SerializeField] bool m_forceStart;
+
     private void Awake()
-    {
-        m_responseDisplays = new ResponseDisplay[3];
-        Vector3 newPos = Vector3.zero;
-        newPos.z -= 1f;
-        newPos.y -= 0.3f;
+    { 
+        m_responseDisplays = GetComponentsInChildren<ResponseDisplay>();
 
-        for (int index = 0; index < m_responseDisplays.Length; index++)
+        // create test data
+        if (m_forceStart)
         {
-            Debug.Log("Done");
-            ResponseDisplay temp = Instantiate(Resources.Load<GameObject>
-                ("Prefabs/ResponseDisplay")).GetComponent<ResponseDisplay>();
-            m_responseDisplays[index] = temp;
-            m_responseDisplays[index].transform.SetParent(transform);
+            string[] testData = { "You should answer all questions!",
+                "Reallllllyyyy loooonnnngggg ttiiiiiiipppppppp",
+                "Emphasise your best features!" };
 
-            if (index > 0)
-            {
-                newPos.y -= 0.3f;
-            }
-
-            m_responseDisplays[index].transform.localPosition = newPos;
+            SetValue(testData);
         }
     }
 

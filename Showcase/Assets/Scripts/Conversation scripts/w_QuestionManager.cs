@@ -329,7 +329,7 @@ public class w_QuestionManager : MonoBehaviour
         GameObject card = Instantiate(Resources.Load<GameObject>
             ("Prefabs/ScoreCard"));
         card.transform.position = new Vector3(transform.position.x,
-            transform.position.y - 0.4f, transform.position.z);
+            transform.position.y - 0.4f, transform.position.z - 2);
         StartCoroutine(EndInterview(card));
         Destroy(m_timerSlider.gameObject);
     }

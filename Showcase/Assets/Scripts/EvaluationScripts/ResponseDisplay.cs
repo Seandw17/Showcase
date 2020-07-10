@@ -23,10 +23,12 @@ public class ResponseDisplay : MonoBehaviour
     /// <param name="score">score given</param>
     public void SetValue(string _question, string _response, e_rating score)
     {
+        FadeIn.SetAlphaToZero(m_textBox);
         m_textBox.SetText("For the question: '" + _question + "'" + '\n' +
             "You Said: '" + _response + "'" +'\n'
             + "This is a: " + score.ToString()
             + " response, worth " + ((int) score).ToString() + " points");
+        StartCoroutine(FadeIn.FadeAsset(m_textBox, 3, true));
     }
 
     /// <summary>
@@ -35,11 +37,10 @@ public class ResponseDisplay : MonoBehaviour
     /// <param name="_tip">tip that you wish to display</param>
     public void SetValue(string _tip)
     {
+        FadeIn.SetAlphaToZero(m_textBox);
         m_textBox.SetText(_tip);
+        FadeIn.FadeAsset(m_textBox, 2, true);
     }
 
-    public bool IsTextNull()
-    {
-        return m_textBox.text.Equals("");
-    }
+    public bool IsTextNull => m_textBox.text.Equals("");
 }

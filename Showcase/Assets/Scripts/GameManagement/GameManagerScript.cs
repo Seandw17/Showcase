@@ -29,6 +29,12 @@ public class GameManagerScript : MonoBehaviour
      int m_objectivesize = 8;
     static CursorController m_cmScript;
 
+    //Bool to check if sex choice one was made
+    public bool m_isplayerSexchoiceone;
+
+    //Array of bools to check what race was chosen 0 = race1, 1 = race2, 2 = race3
+    public bool[] m_playerracechoicebool;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +49,9 @@ public class GameManagerScript : MonoBehaviour
         m_objectivetextarray = new string[m_objectivesize];
         m_objectiveboolarray = new bool[m_objectivesize];
 
-        CreateTaskText();  
+        CreateTaskText();
+
+        m_playerracechoicebool = new bool[3];
     }
 
     // Update is called once per frame
@@ -83,6 +91,8 @@ public class GameManagerScript : MonoBehaviour
     }
 
     static public GameObject ReturnCurrentHUD() => ig_currenthud;
+
+    
 
     void DisplayObjectiveText()
     {

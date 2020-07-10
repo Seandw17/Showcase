@@ -160,7 +160,7 @@ public class w_QuestionManager : MonoBehaviour
 
             // check we have returned a value
             Debug.Assert(!questionToDisplay.Equals(new QuestionData()),
-                "An error has occured finding the quesiton");
+                "An error has occured finding the question");
 
             // TODO BOBBY this is where the interviewer asking the question should go
 

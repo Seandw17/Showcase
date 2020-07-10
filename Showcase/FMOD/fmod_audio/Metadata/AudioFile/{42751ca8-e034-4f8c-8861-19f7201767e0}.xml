@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{42751ca8-e034-4f8c-8861-19f7201767e0}">
+		<property name="assetPath">
+			<value>Q9C.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.15625</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bcabeacf-1335-4909-a1dc-7f04fe737edd}</destination>
+		</relationship>
+	</object>
+</objects>

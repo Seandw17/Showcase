@@ -21,6 +21,8 @@ public class OutfitManager : MonoBehaviour
 
     GameManagerScript m_gmscript;
 
+    PlayerController m_pcScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class OutfitManager : MonoBehaviour
 
         m_cmScript = GetComponent<CursorController>();
         m_gmscript = FindObjectOfType<GameManagerScript>();
+        m_pcScript = FindObjectOfType<PlayerController>();
 
         for (int i = 0; i < ig_Outfit.Length; i++)
         {
@@ -37,7 +40,7 @@ public class OutfitManager : MonoBehaviour
         }
 
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
-
+        GameManagerScript.SetHUDBack();
 
     }
 
@@ -87,7 +90,8 @@ public class OutfitManager : MonoBehaviour
     // will be changed to change the model/texture when the assets are created
     void ChangeSelectedModel(Material mat)
     {
-        GameObject.Find("Player").GetComponent<MeshRenderer>().material = mat;
+        //GameObject.Find("Player").GetComponent<MeshRenderer>().material = mat;
+        m_pcScript.SetPlayerMaterial(mat);
     }
 
     // returns the score given to the outfit to future scenes

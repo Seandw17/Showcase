@@ -11,7 +11,7 @@ public class OutfitManager : MonoBehaviour
     static int m_selectedOutfitScore;
 
     public GameObject[] ig_Outfit;
- 
+
     //GameObject ig_Player;
 
     // holds the materials/models for each race and gender    
@@ -58,17 +58,23 @@ public class OutfitManager : MonoBehaviour
             // check which race 
             if (m_gmscript.m_playerracechoicebool[0])
             {
-                m_currentOutfitMats = m_maleRace1OutfitMats;
+                m_currentOutfitMats[0] = m_maleRace1OutfitMats[0];
+                m_currentOutfitMats[1] = m_maleRace1OutfitMats[1];
+                m_currentOutfitMats[2] = m_maleRace1OutfitMats[2];
                 Debug.Log("Player is male with race 1");
             }
             else if (m_gmscript.m_playerracechoicebool[1])
             {
-                m_currentOutfitMats = m_maleRace2OutfitMats;
+                m_currentOutfitMats[0] = m_maleRace2OutfitMats[0];
+                m_currentOutfitMats[1] = m_maleRace2OutfitMats[1];
+                m_currentOutfitMats[2] = m_maleRace2OutfitMats[2];
                 Debug.Log("Player is male with race 2");
             }
             else if (m_gmscript.m_playerracechoicebool[2])
             {
-                m_currentOutfitMats = m_maleRace3OutfitMats;
+                m_currentOutfitMats[0] = m_maleRace3OutfitMats[0];
+                m_currentOutfitMats[1] = m_maleRace3OutfitMats[1];
+                m_currentOutfitMats[2] = m_maleRace3OutfitMats[2];
                 Debug.Log("Player is male with race 3");
             }
         }
@@ -78,17 +84,23 @@ public class OutfitManager : MonoBehaviour
             // check which race 
             if (m_gmscript.m_playerracechoicebool[0])
             {
-                m_currentOutfitMats = m_femaleRace1OutfitMats;
+                m_currentOutfitMats[0] = m_femaleRace1OutfitMats[0];
+                m_currentOutfitMats[1] = m_femaleRace1OutfitMats[1];
+                m_currentOutfitMats[2] = m_femaleRace1OutfitMats[2];
                 Debug.Log("Player is female with race 1");
             }
             else if (m_gmscript.m_playerracechoicebool[1])
             {
-                m_currentOutfitMats = m_femaleRace2OutfitMats;
+                m_currentOutfitMats[0] = m_femaleRace2OutfitMats[0];
+                m_currentOutfitMats[1] = m_femaleRace2OutfitMats[1];
+                m_currentOutfitMats[2] = m_femaleRace2OutfitMats[2];
                 Debug.Log("Player is female with race 2");
             }
             else if (m_gmscript.m_playerracechoicebool[2])
             {
-                m_currentOutfitMats = m_femaleRace3OutfitMats;
+                m_currentOutfitMats[0] = m_femaleRace3OutfitMats[0];
+                m_currentOutfitMats[1] = m_femaleRace3OutfitMats[1];
+                m_currentOutfitMats[2] = m_femaleRace3OutfitMats[2];
                 Debug.Log("Player is female with race 3");
             }
         }

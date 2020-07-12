@@ -1697,73 +1697,6 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &951375799
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 951375802}
-  - component: {fileID: 951375801}
-  - component: {fileID: 951375800}
-  m_Layer: 0
-  m_Name: OutfitManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &951375800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951375799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036e0ebc12db9da46887255c577f2536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ig_Outfit:
-  - {fileID: 1496057132}
-  - {fileID: 1449502647}
-  - {fileID: 638231557}
-  m_currentOutfitMats: []
-  m_maleRace1OutfitMats: []
-  m_maleRace2OutfitMats: []
-  m_maleRace3OutfitMats: []
-  m_femaleRace1OutfitMats: []
-  m_femaleRace2OutfitMats: []
-  m_femaleRace3OutfitMats: []
---- !u!114 &951375801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951375799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3afb55410be164da47fdaf899f4b63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &951375802
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951375799}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &975618455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1623697878677812010, guid: db7b318e06b5a7a459bc6962ffe5c225,
@@ -1935,7 +1868,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 951375799}
+      objectReference: {fileID: 0}
     - target: {fileID: 2674805155246363603, guid: 5b2164e5db88f5b4a97a6b1bb5294d0f,
         type: 3}
       propertyPath: m_Transition
@@ -2004,7 +1937,7 @@ Transform:
   - {fileID: 149858773}
   - {fileID: 1989136599}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1034711890
 GameObject:
@@ -2023,7 +1956,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1034711891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2063,10 +1996,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ig_Outfit:
+  - {fileID: 1496057132}
+  - {fileID: 1449502647}
+  - {fileID: 638231557}
+  m_currentOutfitMats:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  m_currentOutfitMats: []
   m_maleRace1OutfitMats:
   - {fileID: 2100000, guid: 11d595fa4328ab94b9c2b28ea68b0f98, type: 2}
   - {fileID: 2100000, guid: 6eccdcc7a9737c94f9622509d3be8d97, type: 2}
@@ -2397,7 +2333,7 @@ RectTransform:
   - {fileID: 565784069}
   - {fileID: 1479841168}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3969,15 +3905,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: 7560684513495266124, guid: b0ba77f6cea724820acbaaea24c15cfa,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7560684512522755528, guid: b0ba77f6cea724820acbaaea24c15cfa,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7560684513495266124, guid: b0ba77f6cea724820acbaaea24c15cfa,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0ba77f6cea724820acbaaea24c15cfa, type: 3}

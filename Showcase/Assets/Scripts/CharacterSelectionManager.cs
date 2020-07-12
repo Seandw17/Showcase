@@ -78,7 +78,7 @@ public class CharacterSelectionManager : MonoBehaviour
         {
             m_pcScript.SetPlayerMaterial(m_playerracechoice[4]);
         }
-        m_gmScript.m_objectiveboolarray[1] = true;
+        m_gmScript.m_playerracechoicebool[1] = true;
         LevelChange.ChangeLevel("ChooseOutfit");
     }
 
@@ -92,7 +92,7 @@ public class CharacterSelectionManager : MonoBehaviour
         {
             m_pcScript.SetPlayerMaterial(m_playerracechoice[5]);
         }
-        m_gmScript.m_objectiveboolarray[2] = true;
+        m_gmScript.m_playerracechoicebool[2] = true;
         LevelChange.ChangeLevel("ChooseOutfit");
     }
 }

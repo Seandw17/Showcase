@@ -15,13 +15,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7D
   guid: 81dd46e80da93e4fb285961fcf5115fd
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3000
 --- !u!114 &-9138330607798584009
 MonoBehaviour:
@@ -141,7 +141,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -149,6 +149,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 478
+--- !u!114 &-8708940034933558099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637302350067679153
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-8609183041806403558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,13 +254,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1C
   guid: c89eba8554704942a59c2faadb719718
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3179
 --- !u!114 &-7635276331024979184
 MonoBehaviour:
@@ -281,13 +299,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9A
   guid: a16a8e8460020d44bf698ed3b86a5500
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3500
 --- !u!114 &-7178463409651194458
 MonoBehaviour:
@@ -322,13 +340,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_4
   guid: 3b1591b18e04b64188227f165fe13330
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 5000
 --- !u!114 &-7006886499380476340
 MonoBehaviour:
@@ -345,13 +363,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10C
   guid: b409510183031e4ea3f535c15bed03de
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4937
 --- !u!114 &-6995475118110075905
 MonoBehaviour:
@@ -386,13 +404,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2F
   guid: 77e8cb1bef15a747bbbcc2de245aefbf
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 5421
 --- !u!114 &-6911800355825413399
 MonoBehaviour:
@@ -409,13 +427,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5C
   guid: 5f020d63fd08514686699b4710a2f55b
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3375
 --- !u!114 &-6796524396709304334
 MonoBehaviour:
@@ -434,7 +452,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -481,13 +499,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9B
   guid: 6b1499660c520341b8f9fc96f189eecd
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4375
 --- !u!114 &-6520502271195927858
 MonoBehaviour:
@@ -523,13 +541,13 @@ MonoBehaviour:
   guid: fd55d26cd591d848a1355690125381e8
   Banks:
   - {fileID: -6520502271195927858}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 1
-  Is3D: 1
-  IsOneShot: 1
+  Is3D: 0
+  IsOneShot: 0
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 200347
 --- !u!114 &-6483137220166895259
 MonoBehaviour:
@@ -551,6 +569,29 @@ MonoBehaviour:
   - Name: 
     Value: 946
   Exists: 0
+--- !u!114 &-6437192798690099750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/player_footstep
+  m_EditorClassIdentifier: 
+  Path: event:/player_footstep
+  guid: 22af27d86924e34398ece50c3972da2b
+  Banks:
+  - {fileID: 3956104817740618495}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 250
 --- !u!114 &-6414750585056338030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,7 +611,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -611,13 +652,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2E
   guid: 43d439231bc36c4a9e3032e88e76c110
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4375
 --- !u!114 &-6273054192422790772
 MonoBehaviour:
@@ -634,13 +675,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3B
   guid: e7b202f860298049806fa24d5deaa80c
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3000
 --- !u!114 &-6206395643655018113
 MonoBehaviour:
@@ -675,13 +716,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2A
   guid: f7d1243eefb2bd4f8c42db9bfeb0d563
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3250
 --- !u!114 &-6017250165168731234
 MonoBehaviour:
@@ -752,13 +793,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2B
   guid: c106f5f87b293d47b94a979c15e999e0
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4625
 --- !u!114 &-5552122542788867611
 MonoBehaviour:
@@ -775,13 +816,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5B
   guid: 33c980b9bdbbab4298f207a8afd69cae
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3062
 --- !u!114 &-5422242078299861144
 MonoBehaviour:
@@ -798,13 +839,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9C
   guid: c597084127ab784da083e044462c7fbc
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4156
 --- !u!114 &-5382998256725764272
 MonoBehaviour:
@@ -839,13 +880,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1B
   guid: 0d18e3485d08b94a8d84f6c54f9e268f
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3281
 --- !u!114 &-5259046542697861001
 MonoBehaviour:
@@ -865,6 +906,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-5209767869913552585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SpotEffects/Waiting Room/door_open
+  m_EditorClassIdentifier: 
+  Path: event:/SpotEffects/Waiting Room/door_open
+  guid: 0e1fac1d20f94942a2c2b802ebf517a2
+  Banks:
+  - {fileID: 3956104817740618495}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 750
 --- !u!114 &-5052092044280162460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,13 +1021,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7F
   guid: 909104c1e8264145926f1b4dd7f2a4d5
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3250
 --- !u!114 &-4746277274018206448
 MonoBehaviour:
@@ -980,13 +1044,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4E
   guid: c9c80a278903a649a8eeae62732b3013
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2382
 --- !u!114 &-4724237332237608071
 MonoBehaviour:
@@ -1006,6 +1070,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-4617214306137421576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637302353289538620
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-4552259449091353781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1021,13 +1103,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/nothing_ok_then
   guid: 953cb6d911681945983b0ac484984ea3
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &-4511188690770376457
 MonoBehaviour:
@@ -1047,6 +1129,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-4405591701207625094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SpotEffects/Waiting Room/door_close
+  m_EditorClassIdentifier: 
+  Path: event:/SpotEffects/Waiting Room/door_close
+  guid: 0d426d86d102314cadbc98a1d0e4c210
+  Banks:
+  - {fileID: 3956104817740618495}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 666
 --- !u!114 &-4280664593451241959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,13 +1167,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4D
   guid: bd76d20f9b80894ea672e145993e6b5b
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2500
 --- !u!114 &-4234222534281305781
 MonoBehaviour:
@@ -1193,13 +1298,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_3
   guid: e2ba8ea7cbc084499dae6ec4180a8a99
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1750
 --- !u!114 &-3115479229613378849
 MonoBehaviour:
@@ -1216,13 +1321,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5F
   guid: f53e57fd9b16f94693e3222b02c9e62f
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3618
 --- !u!114 &-2868314080039960213
 MonoBehaviour:
@@ -1243,7 +1348,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1284,13 +1389,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6C
   guid: 7426780a5fb9f6429dcc7d4e8f9e0ed9
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2517
 --- !u!114 &-2528925474566625746
 MonoBehaviour:
@@ -1325,13 +1430,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7A
   guid: e57bb96754b8b149a9dcf824624c07b1
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2250
 --- !u!114 &-2121114062828577838
 MonoBehaviour:
@@ -1348,13 +1453,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6D
   guid: 00a75de46cabf646a3dadc8fa1e514a3
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3093
 --- !u!114 &-2041042658757128090
 MonoBehaviour:
@@ -1409,13 +1514,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10F
   guid: 749b2e0a89b973479067c470757f962b
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4906
 --- !u!114 &-1219822664615356168
 MonoBehaviour:
@@ -1468,13 +1573,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10D
   guid: f5e9adc41224ed4883d2f98600ec92e5
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4593
 --- !u!114 &-1087283129100766557
 MonoBehaviour:
@@ -1491,13 +1596,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7B
   guid: 9e5224dc0542a449855530af58df124e
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2750
 --- !u!114 &-1026068709752783893
 MonoBehaviour:
@@ -1532,13 +1637,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8D
   guid: b6344cbe2a98de43a955369f1a3bca4c
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2953
 --- !u!114 &-701760147918068591
 MonoBehaviour:
@@ -1573,14 +1678,14 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/any_questions_itself
   guid: 063c52572ea607459432a05e9dfded74
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 1
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 49500
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2500
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,7 +1700,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 2061836392448175845}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   EditorEvents:
   - {fileID: 1780115402532591631}
   - {fileID: 6299934516555497571}
@@ -1682,12 +1787,16 @@ MonoBehaviour:
   - {fileID: 7421093041613505591}
   - {fileID: -6058685692789369234}
   - {fileID: 6738269377686020391}
+  - {fileID: -6437192798690099750}
+  - {fileID: 1557724622807355388}
+  - {fileID: -4405591701207625094}
+  - {fileID: -5209767869913552585}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   StringsBanks:
   - {fileID: 2061836392448175845}
-  stringsBankWriteTime: 637302318630000000
+  stringsBankWriteTime: 637302405783735586
   cacheVersion: 3
 --- !u!114 &11867730222310922
 MonoBehaviour:
@@ -1746,13 +1855,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6F
   guid: a9495128cb556c43b94ba9b7d878ccd1
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3500
 --- !u!114 &199314016323065782
 MonoBehaviour:
@@ -1769,13 +1878,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6A
   guid: c775ce40d53a37429c5064bc41aaa5ad
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2500
 --- !u!114 &329854066129000554
 MonoBehaviour:
@@ -1888,13 +1997,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1D
   guid: c36bb34a3497e5498b897a44a78d411f
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3750
 --- !u!114 &814043279826612992
 MonoBehaviour:
@@ -2025,13 +2134,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10A
   guid: bff85ff165612749be137d522e4cd249
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3656
 --- !u!114 &1159093830977889022
 MonoBehaviour:
@@ -2088,13 +2197,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7E
   guid: 72126c530391404b86bd077fd9326f3b
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2968
 --- !u!114 &1389087850109816346
 MonoBehaviour:
@@ -2111,13 +2220,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10B
   guid: 6cb186bad69d7d468d4c3b4e8264055b
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4125
 --- !u!114 &1464871408905451940
 MonoBehaviour:
@@ -2134,7 +2243,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/Bedroom/Wardrobe/collect_clothes
   guid: ae6b4c8d6c59bb4bb3ad5e8595cb3633
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2142,6 +2251,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1243
+--- !u!114 &1557724622807355388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/lamp_switch
+  m_EditorClassIdentifier: 
+  Path: event:/lamp_switch
+  guid: d8bc63de2f313c4190eda8437f5e16e6
+  Banks:
+  - {fileID: 3956104817740618495}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 15
 --- !u!114 &1598463468668449039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2193,13 +2325,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_1
   guid: 7dce115df5b7694bbfc1366014b8436e
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2526
 --- !u!114 &1780115402532591631
 MonoBehaviour:
@@ -2222,7 +2354,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -2245,13 +2377,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3D
   guid: 4230213c33eede42b6df11badec2ff22
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3375
 --- !u!114 &1859441297230461783
 MonoBehaviour:
@@ -2309,11 +2441,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637302318630000000
+  lastModified: 637302405783735586
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 3940
+    Value: 4174
   Exists: 1
 --- !u!114 &2065915036733161493
 MonoBehaviour:
@@ -2393,13 +2525,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7C
   guid: 3a1082e809eac64d88d20f1905633f36
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2851
 --- !u!114 &2405441044892910480
 MonoBehaviour:
@@ -2416,13 +2548,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3F
   guid: 192f0e47df0ab1458b4ef95e637bbf3a
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3617
 --- !u!114 &2443563064269837894
 MonoBehaviour:
@@ -2457,13 +2589,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8C
   guid: 62504c1d1561734995754c8f1b6a30f5
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3000
 --- !u!114 &2537267469443259432
 MonoBehaviour:
@@ -2498,13 +2630,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8B
   guid: c7ea80782640a04bb833b050c204b1ba
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2750
 --- !u!114 &2829205873546647008
 MonoBehaviour:
@@ -2521,13 +2653,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4B
   guid: 2a5a9ee21e3b56438da86938aa67855f
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3250
 --- !u!114 &2834558444114328260
 MonoBehaviour:
@@ -2586,7 +2718,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2699,13 +2831,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8F
   guid: 218986a85d21154c8e1013480b26782f
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3507
 --- !u!114 &3218819484367972898
 MonoBehaviour:
@@ -2722,13 +2854,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8A
   guid: 9d29d8aa70cd08409ad09e57f4e6d75d
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2250
 --- !u!114 &3257099470029723500
 MonoBehaviour:
@@ -2745,13 +2877,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1A
   guid: 9a68a7a331d284458e6ead9b57cbe7c6
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1968
 --- !u!114 &3296470234310587803
 MonoBehaviour:
@@ -2810,13 +2942,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3C
   guid: 7aafc23845ad494d8b3fe5ae870418c6
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3054
 --- !u!114 &3880511425784501490
 MonoBehaviour:
@@ -2855,14 +2987,32 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5E
   guid: e2e8c361751d6a41ab8c96978599b121
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3750
+--- !u!114 &3956104817740618495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637302405783725613
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &4076680776091208259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2878,13 +3028,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9D
   guid: 057d8ee092d9894fa46b16c9e7fe6701
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4000
 --- !u!114 &4281149914965262596
 MonoBehaviour:
@@ -2901,13 +3051,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3A
   guid: 35795092bb416641a6cff92e041f061c
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2718
 --- !u!114 &4390697848863890917
 MonoBehaviour:
@@ -2924,13 +3074,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4A
   guid: 96d21ffcd3609749a72aba08722d451c
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2500
 --- !u!114 &4447901369490843365
 MonoBehaviour:
@@ -2965,13 +3115,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1F
   guid: 84c58292c81b9641855acac43c9a7b08
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4203
 --- !u!114 &4870504718241805905
 MonoBehaviour:
@@ -3062,7 +3212,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/Bedroom/pc_tower
   guid: 8c40e8b16ba3f64c9aea18f3b535b995
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -3103,13 +3253,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6E
   guid: 771ff46f6d3401458946675eac5a1c33
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3538
 --- !u!114 &5101253097018865399
 MonoBehaviour:
@@ -3166,7 +3316,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -3227,7 +3377,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -3268,13 +3418,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1E
   guid: a4ed2a1538016341bf6127bf9466c858
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2812
 --- !u!114 &5885660043842843316
 MonoBehaviour:
@@ -3354,6 +3504,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &6048294640806537274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637302352979529837
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &6056644798027584350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3387,13 +3555,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2C
   guid: dc0e791ac8f35942a2f9a13aa1de238d
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4468
 --- !u!114 &6108088798786251621
 MonoBehaviour:
@@ -3456,7 +3624,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3499,7 +3667,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -3594,13 +3762,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5A
   guid: 9c8bb630ec5de5479459213fcec2fde2
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2250
 --- !u!114 &6738269377686020391
 MonoBehaviour:
@@ -3617,13 +3785,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6B
   guid: ff4879f8a7bc2f4b9e3270ba46c932c8
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2187
 --- !u!114 &6979440360677040613
 MonoBehaviour:
@@ -3640,13 +3808,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/any_questions
   guid: db166d47a0d32e4c893eed1d2b85e3cb
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 2000
 --- !u!114 &6982156588280455625
 MonoBehaviour:
@@ -3670,24 +3838,6 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1243
---- !u!114 &7152607625032045630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/StreamingAssets/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637302318630000000
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
 --- !u!114 &7211395489752185967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3705,7 +3855,7 @@ MonoBehaviour:
   lastModified: 637301693446793144
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &7277491087753339276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3739,13 +3889,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_5
   guid: f787e9a921dee447b20a0bbf1de97e09
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 5000
 --- !u!114 &7430169565289400685
 MonoBehaviour:
@@ -3762,13 +3912,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4F
   guid: 30f8213edfda4b44829d64d233d5fa0c
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3766
 --- !u!114 &7524228721939080740
 MonoBehaviour:
@@ -3785,13 +3935,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10E
   guid: c44ca672e0934649b259b297287ef6c0
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 5910
 --- !u!114 &7527981899696574933
 MonoBehaviour:
@@ -3808,13 +3958,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5D
   guid: 74db400baacb07419cfc38f79eb2e02e
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3125
 --- !u!114 &7604106224521538586
 MonoBehaviour:
@@ -3869,13 +4019,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3E
   guid: 83cace2628080349a6bb40765cc8935d
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4625
 --- !u!114 &8027600479680590143
 MonoBehaviour:
@@ -3928,13 +4078,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9F
   guid: d96755c3aa49714097304f99bc3ca210
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4765
 --- !u!114 &8318033225796177097
 MonoBehaviour:
@@ -3969,13 +4119,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8E
   guid: f3912f822ef6864a929bc89cc33ab952
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3500
 --- !u!114 &8558067590135815646
 MonoBehaviour:
@@ -3992,13 +4142,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2D
   guid: 8cbda49f02c48945b3e5b34f90b474cc
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4000
 --- !u!114 &8695626926642418914
 MonoBehaviour:
@@ -4033,13 +4183,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_2
   guid: 0c63a90291eee74e8832713b664a0c35
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1460
 --- !u!114 &8798223045400944187
 MonoBehaviour:
@@ -4056,13 +4206,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9E
   guid: f0f760d34fc92948a7b3bf7e3e6ea6f4
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 4500
 --- !u!114 &9080370603945469882
 MonoBehaviour:
@@ -4079,13 +4229,13 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4C
   guid: bf3396d87d89bf4381670f8371440496
   Banks:
-  - {fileID: 7152607625032045630}
+  - {fileID: 3956104817740618495}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 3039
 --- !u!114 &9139449887162576696
 MonoBehaviour:

@@ -63,6 +63,9 @@
 		<property name="maxVoices">
 			<value>2</value>
 		</property>
+		<property name="priority">
+			<value>3</value>
+		</property>
 	</object>
 	<object class="MarkerTrack" id="{a9793c0a-5c37-40f2-8592-4c43c6bfb730}" />
 	<object class="GroupTrack" id="{7688387c-2ea3-4149-93d3-b920c4af5771}">
@@ -183,7 +186,7 @@
 			<value>Gain</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-19.5</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-80.000000)(1.000000,24.000000)}</value>
@@ -194,7 +197,7 @@
 			<value>Spread</value>
 		</property>
 		<property name="value">
-			<value>360</value>
+			<value>84</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,360.000000)}</value>
@@ -216,7 +219,7 @@
 			<value>Max Distance</value>
 		</property>
 		<property name="value">
-			<value>500</value>
+			<value>15</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(2.000000,1.000000)(5.000000,5.000000)(10.000000,10.000000)(15.000000,100.000000)(20.000000,1000.000000)(27.000000,10000.000000)}</value>
@@ -227,7 +230,7 @@
 			<value>Dist Rolloff</value>
 		</property>
 		<property name="value">
-			<value>2</value>
+			<value>3</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
@@ -252,7 +255,7 @@
 			<value>Directivity</value>
 		</property>
 		<property name="value">
-			<value>9.99999975e-06</value>
+			<value>0</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,1.000000)}</value>
@@ -273,7 +276,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -291,7 +293,7 @@
 			<value>Near-Field FX</value>
 		</property>
 		<property name="value">
-			<value>false</value>
+			<value>true</value>
 		</property>
 	</object>
 	<object class="FloatPluginParameter" id="{56b033a6-e2c1-4206-991a-83fd39cfcdea}">
@@ -299,7 +301,7 @@
 			<value>Near-Field Gain</value>
 		</property>
 		<property name="value">
-			<value>1.00001001</value>
+			<value>0.699999928</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,9.000000)}</value>
@@ -309,7 +311,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

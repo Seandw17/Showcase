@@ -5,7 +5,7 @@
 			<value>pc_tower</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{0dd533ed-7638-4875-9acd-314f6d50fc23}</destination>
@@ -136,6 +136,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{e1e34642-dc09-4b5e-bf79-c9ce96475b44}">
 		<relationship name="effects">
+			<destination>{ed8f9fc2-ff92-4a16-8b86-f917a2ad7fa9}</destination>
 			<destination>{0acf2610-0b95-4d59-89f0-608438574db3}</destination>
 			<destination>{6ffe5191-0c6e-463e-bed0-45f00cf3b9d2}</destination>
 		</relationship>
@@ -152,6 +153,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{67a6b24e-9c9c-4e06-8f67-5fa11ee8d7fb}" />
+	<object class="ThreeEQEffect" id="{ed8f9fc2-ff92-4a16-8b86-f917a2ad7fa9}">
+		<property name="lowGain">
+			<value>-13</value>
+		</property>
+		<property name="midGain">
+			<value>1</value>
+		</property>
+		<property name="lowCrossover">
+			<value>120</value>
+		</property>
+	</object>
 	<object class="PluginEffect" id="{0acf2610-0b95-4d59-89f0-608438574db3}">
 		<relationship name="plugin">
 			<destination>{d48cedd3-7448-4609-b6f8-af15bafbdfdf}</destination>
@@ -184,7 +196,7 @@
 			<value>Gain</value>
 		</property>
 		<property name="value">
-			<value>-19</value>
+			<value>-31</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-80.000000)(1.000000,24.000000)}</value>
@@ -195,7 +207,7 @@
 			<value>Spread</value>
 		</property>
 		<property name="value">
-			<value>44</value>
+			<value>360</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,360.000000)}</value>
@@ -299,7 +311,7 @@
 			<value>Near-Field Gain</value>
 		</property>
 		<property name="value">
-			<value>1.00001001</value>
+			<value>1.24999988</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,9.000000)}</value>

@@ -105,7 +105,6 @@
 		<property name="length">
 			<value>39.730090702947848</value>
 		</property>
-		<property name="name" />
 		<property name="volume">
 			<value>10</value>
 		</property>
@@ -156,6 +155,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{23b48a01-ae83-4999-a3f6-51bcec98a77a}">
 		<relationship name="effects">
+			<destination>{eb90ff0c-62b7-47f6-bde4-d0f07c94543b}</destination>
 			<destination>{2c1f77e5-ee42-48e6-af79-ae5fbe5ecbe7}</destination>
 			<destination>{6c2c5f3b-ae51-40e8-b281-db6091b3d1b1}</destination>
 		</relationship>
@@ -229,6 +229,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{152dda73-7724-466d-a938-59d22e79f8fc}" />
+	<object class="ThreeEQEffect" id="{eb90ff0c-62b7-47f6-bde4-d0f07c94543b}">
+		<property name="lowGain">
+			<value>-14</value>
+		</property>
+		<property name="lowCrossover">
+			<value>100</value>
+		</property>
+	</object>
 	<object class="PluginEffect" id="{2c1f77e5-ee42-48e6-af79-ae5fbe5ecbe7}">
 		<relationship name="plugin">
 			<destination>{eb4e913b-f3db-4247-b5a1-f8aa61952fc8}</destination>
@@ -261,7 +269,7 @@
 			<value>Gain</value>
 		</property>
 		<property name="value">
-			<value>11</value>
+			<value>-7</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-80.000000)(1.000000,24.000000)}</value>
@@ -272,7 +280,7 @@
 			<value>Spread</value>
 		</property>
 		<property name="value">
-			<value>28</value>
+			<value>46</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,360.000000)}</value>
@@ -283,7 +291,7 @@
 			<value>Min Distance</value>
 		</property>
 		<property name="value">
-			<value>6</value>
+			<value>0</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(2.000000,1.000000)(5.000000,5.000000)(10.000000,10.000000)(15.000000,100.000000)(20.000000,1000.000000)(27.000000,10000.000000)}</value>
@@ -319,7 +327,7 @@
 			<value>Occlusion</value>
 		</property>
 		<property name="value">
-			<value>9.99999997e-07</value>
+			<value>0</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,10.000000)}</value>
@@ -351,7 +359,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -369,7 +376,7 @@
 			<value>Near-Field FX</value>
 		</property>
 		<property name="value">
-			<value>false</value>
+			<value>true</value>
 		</property>
 	</object>
 	<object class="FloatPluginParameter" id="{c6ac1a5e-7c30-4b52-973a-88caa971067f}">
@@ -387,7 +394,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

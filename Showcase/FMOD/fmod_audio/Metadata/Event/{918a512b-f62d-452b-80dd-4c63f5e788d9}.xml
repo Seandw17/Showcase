@@ -59,7 +59,11 @@
 			<destination>{7a6b2f25-bbd0-453a-ae65-a871908e4088}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{365ee730-6244-4f29-b30f-d12c1267a1fc}" />
+	<object class="EventAutomatableProperties" id="{365ee730-6244-4f29-b30f-d12c1267a1fc}">
+		<property name="priority">
+			<value>3</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{26631e86-825f-4207-9bde-e10f641e6eb7}" />
 	<object class="GroupTrack" id="{3f861ede-2a81-43bc-b888-af96a644bbb4}">
 		<relationship name="modules">
@@ -179,7 +183,7 @@
 			<value>Gain</value>
 		</property>
 		<property name="value">
-			<value>1.5</value>
+			<value>-9</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-80.000000)(1.000000,24.000000)}</value>
@@ -269,7 +273,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -305,7 +308,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

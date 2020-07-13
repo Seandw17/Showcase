@@ -39,7 +39,7 @@ public class ResponseDisplay : MonoBehaviour
     {
         FadeIn.SetAlphaToZero(m_textBox);
         m_textBox.SetText(_tip);
-        FadeIn.FadeAsset(m_textBox, 2, true);
+        StartCoroutine(FadeIn.FadeAsset(m_textBox, 2, true));
     }
 
     public bool IsTextNull => m_textBox.text.Equals("");

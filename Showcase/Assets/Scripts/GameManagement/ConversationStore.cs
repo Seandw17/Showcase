@@ -10,10 +10,11 @@ static public class ConversationStore
     static List<s_playerResponse> m_playerResponses;
     static e_tipCategories m_tips;
 
+    static int m_PlayerChoiceID;
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void Init() =>
         m_playerResponses = new List<s_playerResponse>();
-
 
     /// <summary>
     /// Add a unlock flag to the player
@@ -32,6 +33,9 @@ static public class ConversationStore
     static public bool CheckHasFlag(e_unlockFlag _flag) =>
         m_unlockedFlags.HasFlag(_flag);
 
+    static public void SetFinalID(int _ID) => m_PlayerChoiceID = _ID;
+
+    static public int GetFinalID() => m_PlayerChoiceID;
 
     /// <summary>
     /// Signals that the player was silent

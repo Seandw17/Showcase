@@ -42,7 +42,7 @@ public class StartKey : MonoBehaviour
         // if true, change level
         if (inputs)
         {
-            ChangeLevel("ChooseOutfit");
+            ChangeLevel("CharacterSelection");
         }
     }
 }

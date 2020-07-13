@@ -11,15 +11,19 @@ public class OutfitManager : MonoBehaviour
     static int m_selectedOutfitScore;
 
     public GameObject[] ig_Outfit;
+
     //GameObject ig_Player;
 
+    // holds the materials/models for each race and gender    
     [SerializeField]
-    Material[] m_outfitMats;
+    Material[] m_currentOutfitMats, m_maleRace1OutfitMats, m_maleRace2OutfitMats, m_maleRace3OutfitMats, m_femaleRace1OutfitMats, m_femaleRace2OutfitMats, m_femaleRace3OutfitMats;
 
     //protected PlayerController m_playerscript;
     CursorController m_cmScript;
 
     GameManagerScript m_gmscript;
+
+    PlayerController m_pcScript;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +32,7 @@ public class OutfitManager : MonoBehaviour
 
         m_cmScript = GetComponent<CursorController>();
         m_gmscript = FindObjectOfType<GameManagerScript>();
+        m_pcScript = FindObjectOfType<PlayerController>();
 
         for (int i = 0; i < ig_Outfit.Length; i++)
         {
@@ -35,10 +40,70 @@ public class OutfitManager : MonoBehaviour
             int m_tempi = i;
             m_tempButton.onClick.AddListener(() => OutfitClicked(m_tempi));
         }
+        
+        m_currentOutfitMats = new Material[3];
+        SetOutfitsOnLoad();
 
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
+        GameManagerScript.SetHUDBack();
+    }
 
-
+    // depending on what race and gender the player chooses, change the selected outfits
+    void SetOutfitsOnLoad()
+    { 
+        Debug.Log("Material's being assigned");
+        // if male
+        if (m_gmscript.m_isplayerSexchoiceone)
+        {
+            // check which race 
+            if (m_gmscript.m_playerracechoicebool[0])
+            {
+                m_currentOutfitMats[0] = m_maleRace1OutfitMats[0];
+                m_currentOutfitMats[1] = m_maleRace1OutfitMats[1];
+                m_currentOutfitMats[2] = m_maleRace1OutfitMats[2];
+                Debug.Log("Player is male with race 1");
+            }
+            else if (m_gmscript.m_playerracechoicebool[1])
+            {
+                m_currentOutfitMats[0] = m_maleRace2OutfitMats[0];
+                m_currentOutfitMats[1] = m_maleRace2OutfitMats[1];
+                m_currentOutfitMats[2] = m_maleRace2OutfitMats[2];
+                Debug.Log("Player is male with race 2");
+            }
+            else if (m_gmscript.m_playerracechoicebool[2])
+            {
+                m_currentOutfitMats[0] = m_maleRace3OutfitMats[0];
+                m_currentOutfitMats[1] = m_maleRace3OutfitMats[1];
+                m_currentOutfitMats[2] = m_maleRace3OutfitMats[2];
+                Debug.Log("Player is male with race 3");
+            }
+        }
+        // if female
+        else if (!m_gmscript.m_isplayerSexchoiceone)
+        {
+            // check which race 
+            if (m_gmscript.m_playerracechoicebool[0])
+            {
+                m_currentOutfitMats[0] = m_femaleRace1OutfitMats[0];
+                m_currentOutfitMats[1] = m_femaleRace1OutfitMats[1];
+                m_currentOutfitMats[2] = m_femaleRace1OutfitMats[2];
+                Debug.Log("Player is female with race 1");
+            }
+            else if (m_gmscript.m_playerracechoicebool[1])
+            {
+                m_currentOutfitMats[0] = m_femaleRace2OutfitMats[0];
+                m_currentOutfitMats[1] = m_femaleRace2OutfitMats[1];
+                m_currentOutfitMats[2] = m_femaleRace2OutfitMats[2];
+                Debug.Log("Player is female with race 2");
+            }
+            else if (m_gmscript.m_playerracechoicebool[2])
+            {
+                m_currentOutfitMats[0] = m_femaleRace3OutfitMats[0];
+                m_currentOutfitMats[1] = m_femaleRace3OutfitMats[1];
+                m_currentOutfitMats[2] = m_femaleRace3OutfitMats[2];
+                Debug.Log("Player is female with race 3");
+            }
+        }
     }
 
     // Update is called once per frame
@@ -67,17 +132,17 @@ public class OutfitManager : MonoBehaviour
     {
         if (m_selectedOutfit == e_Outfits.CASUAL)
         {
-            ChangeSelectedModel(m_outfitMats[0]);
+            ChangeSelectedModel(m_currentOutfitMats[0]);
             m_selectedOutfitScore = 1;
         }
         else if (m_selectedOutfit == e_Outfits.SMART_CASUAL)
         {
-            ChangeSelectedModel(m_outfitMats[1]);
+            ChangeSelectedModel(m_currentOutfitMats[1]);
             m_selectedOutfitScore = 3;
         }
         else if (m_selectedOutfit == e_Outfits.SMART)
         {
-            ChangeSelectedModel(m_outfitMats[2]);
+            ChangeSelectedModel(m_currentOutfitMats[2]);
             m_selectedOutfitScore = 2;
         }
         Debug.Log("Selected outfit is " + m_selectedOutfit);
@@ -87,7 +152,8 @@ public class OutfitManager : MonoBehaviour
     // will be changed to change the model/texture when the assets are created
     void ChangeSelectedModel(Material mat)
     {
-        GameObject.Find("Player").GetComponent<MeshRenderer>().material = mat;
+        //GameObject.Find("Player").GetComponent<MeshRenderer>().material = mat;
+        m_pcScript.SetPlayerMaterial(mat);
     }
 
     // returns the score given to the outfit to future scenes

@@ -45,6 +45,7 @@ public class WaitingRoomManager : MonoBehaviour
     int m_currentSentence;
     float m_dialogTimer;
     bool m_nextTextShown;
+    bool m_activeChat = true;
 
     protected PlayerController m_playerscript;
     
@@ -67,9 +68,15 @@ public class WaitingRoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DialogTick();
+   
+        if (m_activeChat)
+        {
+            DialogTick();
+        }
+
         TimerTick();
         TimerInClock();
+        StopDialog();
     }
 
 
@@ -122,6 +129,8 @@ public class WaitingRoomManager : MonoBehaviour
     }
 
 
+    
+
     //----------------------------------DIALOG CONTROLLER----------------------------------
 
     /// <summary>
@@ -154,7 +163,9 @@ public class WaitingRoomManager : MonoBehaviour
     /// <param name="_newText"></param>
     void UpdateTextDisplay(string _newText)
     {
+
         ig_textRepresentation.GetComponent<TextMeshProUGUI>().text = _newText;
+        
     }
 
     /// <summary>
@@ -194,6 +205,20 @@ public class WaitingRoomManager : MonoBehaviour
         else
         {
             ReadNextSentence();
+        }
+    }
+
+
+    /// <summary>
+    /// Stops the dialog when the timer runs out
+    /// </summary>
+    void StopDialog()
+    {
+        if(m_waitTimer <= 0 && m_activeChat)
+        {
+            Debug.Log("i stoped dialog");
+            ig_textBox.SetActive(false);
+            m_activeChat = false;
         }
     }
 

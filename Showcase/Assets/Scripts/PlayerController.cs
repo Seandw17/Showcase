@@ -39,6 +39,14 @@ public class PlayerController : MonoBehaviour
 
     int m_layerMask;
 
+    //Static value for Players mesh
+    public static Mesh m_playermesh;
+
+    //Static value for Players material
+    public static Material m_playermaterial;
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +55,9 @@ public class PlayerController : MonoBehaviour
         m_camera = this.gameObject.GetComponentInChildren<Camera>();
         m_campos = m_camera.transform.position;
         m_layerMask = LayerMask.GetMask("Interact");
+
+        SetPlayerMeshModel(m_playermesh);
+        SetPlayerMaterial(m_playermaterial);
     }
 
     // Update is called once per frame
@@ -184,7 +195,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-   
+    public void SetPlayerMeshModel(Mesh _mesh)
+    {
+        m_playermesh = _mesh;
+        this.GetComponent<MeshFilter>().mesh = m_playermesh;
+    }
+
+    public void SetPlayerMaterial(Material _material)
+    {
+        m_playermaterial = _material;
+        this.GetComponent<MeshRenderer>().material = m_playermaterial;
+    }
 
     public bool SetCanInteract(bool _canInteractbool)
     {

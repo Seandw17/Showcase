@@ -60,6 +60,10 @@ public class GameManagerScript : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Set a new HUD
+    /// </summary>
+    /// <param name="_new">the new HUD</param>
     static public void SetNewHUD(GameObject _new)
     {
         Debug.Assert(_new.GetComponent<CanvasRenderer>() != null,
@@ -76,6 +80,23 @@ public class GameManagerScript : MonoBehaviour
         ig_currenthud.SetActive(true);
     }
 
+    /// <summary>
+    /// Function to force the current HUD to null
+    /// </summary>
+    static public void SetHUDToNull()
+    {
+        ig_currenthud.SetActive(false);
+        if (ig_currenthud != m_playerPanel)
+        {
+            SceneManager.MoveGameObjectToScene(ig_currenthud,
+                SceneManager.GetActiveScene());
+        }
+        ig_currenthud = null;
+    }
+
+    /// <summary>
+    /// Restore the HUD to the player panel
+    /// </summary>
     static public void SetHUDBack()
     {
         Debug.Log("Setting hud back");

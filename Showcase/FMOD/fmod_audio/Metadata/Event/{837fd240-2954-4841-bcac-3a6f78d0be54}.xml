@@ -46,6 +46,9 @@
 		</relationship>
 	</object>
 	<object class="MixerInput" id="{b521078a-7137-4637-8d09-c802c3f90fa5}">
+		<relationship name="masters">
+			<destination>{e652a573-757b-4621-b09e-6027051df27a}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{f5642197-966e-4957-8842-ccab67a5ae10}</destination>
 		</relationship>
@@ -256,7 +259,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -292,7 +294,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

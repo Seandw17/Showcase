@@ -508,7 +508,7 @@
 			<value>Gain</value>
 		</property>
 		<property name="value">
-			<value>-20</value>
+			<value>-16</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-80.000000)(1.000000,24.000000)}</value>
@@ -642,7 +642,7 @@
 			<value>Gain</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-10</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-80.000000)(1.000000,24.000000)}</value>
@@ -653,7 +653,7 @@
 			<value>Spread</value>
 		</property>
 		<property name="value">
-			<value>90</value>
+			<value>160</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,360.000000)}</value>

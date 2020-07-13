@@ -317,7 +317,7 @@ MonoBehaviour:
   m_questionsToAsk: 1
   m_fadeInSpeed: 0.75
   m_interviewer: {fileID: 0}
-  m_forceInterviewToStart: 1
+  m_forceInterviewToStart: 0
 --- !u!114 &7735905781471114295
 MonoBehaviour:
   m_ObjectHideFlags: 0

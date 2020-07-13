@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CharacterSelection.unity
     guid: 8698ff50202f1744e8a4f94f157cf049
+  - enabled: 1
+    path: Assets/Scenes/Cafe.unity
+    guid: 6af1cc3125e299244bff83881a5c94f1
   m_configObjects: {}

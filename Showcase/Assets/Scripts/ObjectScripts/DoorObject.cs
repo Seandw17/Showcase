@@ -91,6 +91,10 @@ public class DoorObject : InteractableObjectBase
         {
             m_candoor = true;
             m_dooropen = !m_dooropen;
+            if(gameObject.scene.name == "Cafe")
+            {
+                LevelChange.ChangeLevel(m_levelname);
+            }
         } 
     }
 }

@@ -26,7 +26,7 @@ public class DeskLampObject : InteractableObjectBase
     public override void Interact()
     {
         m_lighton = !m_lighton;
-        if (m_lighton == true)
+        if (m_lighton == false)
         {
             m_light.enabled = true;
 

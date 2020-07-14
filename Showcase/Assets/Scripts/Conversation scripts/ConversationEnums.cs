@@ -45,5 +45,8 @@ public enum e_tipCategories
     PROBLEM = 1 << 10,
     IMPROVEMENT = 1 << 11,
     TEAMWORK = 1 << 12,
-    SILENT = 1 << 13
+    SILENT = 1 << 13,
+    LATEINTERVIEW = 1 << 14,
+    LATEWAITING = 1 << 15,
+    LATESHOP = 1 << 16
 }

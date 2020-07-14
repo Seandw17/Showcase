@@ -347,7 +347,7 @@ public class w_QuestionManager : MonoBehaviour
         Vector3 playerPos = Camera.main.gameObject.transform.root.position;
         card.transform.position = new Vector3(
             playerPos.x - 0.5f,
-            playerPos.y + 0.6f,
+            playerPos.y + 1f,
             playerPos.z); 
         StartCoroutine(EndInterview(card));
         Destroy(m_timerSlider.gameObject);

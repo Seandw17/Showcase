@@ -38,7 +38,7 @@ public class ScoreCard : MonoBehaviour
         s_playerResponse[] TempResponses = new s_playerResponse[3];
         int externalIndexer = 0;
         int finalScore = OutfitManager.GetOutfitScore();
-
+        
         foreach (s_playerResponse response in m_responses)
         {
             // add response to the array
@@ -60,6 +60,11 @@ public class ScoreCard : MonoBehaviour
             }
 
             yield return null;
+        }
+
+        if (ConversationStore.GetDidntArrivedOnTime() != 0)
+        {
+            finalScore -= 5 * ConversationStore.GetDidntArrivedOnTime();
         }
 
         GenerateResultPage(finalScore);

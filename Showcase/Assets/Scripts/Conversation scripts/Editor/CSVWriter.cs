@@ -106,7 +106,7 @@ public static class CSVWriter
         for (int index = 0; index < _questions.Count; index++)
         {
             line += _questions[index].question + "|" + _questions[index].flag
-                + "|" + _questions[index].response;
+                + "|" + _questions[index].response + "|" + _questions[index].ID;
 
             if (index != _questions.Count - 1)
             {
@@ -135,6 +135,9 @@ public static class CSVWriter
 
         foreach(QuestionData question in _questions)
         {
+            writer.WriteLine("i$" + question.ID);
+            Debug.Log("ID line :" + "i$" + question.ID + " written");
+
             // parsing question line
             string questionLine = "q$";
             int externalIndex = 0;

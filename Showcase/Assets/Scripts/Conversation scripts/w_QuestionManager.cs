@@ -26,7 +26,7 @@ public class w_QuestionManager : MonoBehaviour
 
     UnityEvent m_processNextStep;
 
-    int m_currentQuestion;
+    int m_currentQuestion, m_responseID;
 
     e_rating m_previous = e_rating.NONE;
 
@@ -117,6 +117,7 @@ public class w_QuestionManager : MonoBehaviour
         {
             Init();
             StartCoroutine(StartInterview());
+            RegisterUnlockFlag(e_unlockFlag.FIRST);
         }
         else
         {
@@ -132,6 +133,9 @@ public class w_QuestionManager : MonoBehaviour
         StartCoroutine(StartInterview());
     }
 
+    /// <summary>
+    /// Force stop fade coroutine
+    /// </summary>
     void StopFade()
     {
         if (m_fadeText != null)
@@ -198,7 +202,7 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// Process the result of our question, attach this to a button
     /// </summary>
-    public void ProcessQuestionResult(Questionresponse _chosenResponse)
+    public void ProcessQuestionResult(Questionresponse _chosenResponse, int _ID)
     {
         StopCoroutine(m_waitForAnswer);
         m_timerSlider.gameObject.SetActive(false);
@@ -213,6 +217,7 @@ public class w_QuestionManager : MonoBehaviour
         TurnOffOptions();
         FadeOutQuestionText();
         m_processNextStep.Invoke();
+        m_responseID = _ID;
     }
 
     /// <summary>
@@ -238,6 +243,7 @@ public class w_QuestionManager : MonoBehaviour
         TurnOffOptions();
         m_previous = e_rating.AWFUL;
         PlayerWasSilent(m_questionBox.text);
+        m_responseID = m_questionForJob.Count + 1;
         m_processNextStep.Invoke();
     }
 
@@ -312,36 +318,21 @@ public class w_QuestionManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(2);
 
-        string finalChoice = ReturnFinalChosenResults()
-            [ReturnFinalChosenResults().Count - 1]
-            .playerResponse.response;
-
-        Debug.Log(finalChoice);
-
-        // TODO this could now be rewritten since an ID system is in place
-        int ID = 0;
         string response = "Nothing? Ok then...";
-
-        foreach (PlayerQuestion question in m_questionForJob)
+        if (m_responseID != m_questionForJob.Count + 1)
         {
-            Debug.Log(question.response);
-            if (finalChoice.Equals(question.question))
-            {
-                response = question.response;
-                ID = question.ID;
-                break;
-            }
+            response = m_questionForJob[m_responseID].response;
+            m_QuestionAudio.PlayResponseToPlayerQuestion(m_responseID + 1);
         }
-
-        m_QuestionAudio.PlayResponseToPlayerQuestion(ID);
+        else
+        {
+            AddTip(e_tipCategories.NOTASKING);
+            m_QuestionAudio.PlayResponseToPlayerQuestion(0);
+        }
+        
         while (m_QuestionAudio.IsDonePlaying())
         {
             yield return null;
-        }
-
-        if (response.Equals("Nothing? Ok then..."))
-        {
-            AddTip(e_tipCategories.NOTASKING);
         }
 
         m_questionForJob.Clear();

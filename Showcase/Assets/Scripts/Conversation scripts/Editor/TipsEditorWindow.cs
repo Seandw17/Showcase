@@ -23,11 +23,12 @@ public class TipsEditorWindow : EditorWindow
     {
         m_scrollPos = GUILayout.BeginScrollView(m_scrollPos, false, true);
 
-        for (int index = 2; index < m_tips.Count; index++)
+        for (int index = 2; index < m_tips.Count + 2; index++)
         {
+            Debug.Log(index);
             GUILayout.BeginHorizontal();
             GUILayout.Label((e_tipCategories) (1 << index) + ":");
-            Debug.Log((e_tipCategories) (1 << index));
+            //Debug.Log((e_tipCategories) (1 << index));
             m_tips[(e_tipCategories) (1 << index)] = EditorGUILayout.TextArea(m_tips[
                 (e_tipCategories)(1 << index)]);
             GUILayout.EndHorizontal();

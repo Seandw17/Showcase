@@ -115,6 +115,7 @@ public class InterviewQuestionWindow : EditorWindow
     {
         QuestionData dummy = new QuestionData();
 
+        dummy.ID = m_questions[m_questions.Count - 1].ID + 1;
         dummy.tip = e_tipCategories.NOTASKING;
         dummy.options = new List<Questionresponse>();
         dummy.options.Add(new Questionresponse

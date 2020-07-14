@@ -65,7 +65,8 @@ public class PlayerQuestionWindow : EditorWindow
             {
                 question = "New Question",
                 flag = e_unlockFlag.FIRST,
-                response = "New Response"
+                response = "New Response",
+                ID = m_questions[m_questions.Count - 1].ID + 1
             });
             m_showQuestions.Add(false);
         }

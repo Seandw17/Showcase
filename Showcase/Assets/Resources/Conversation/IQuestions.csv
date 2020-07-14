@@ -1,6 +1,7 @@
 # This file specifies the questions that will be loaded into the game
 #
 # format is as follows
+# i$[ID]
 # q$[e_identifier]|[question text], ...
 # r$[response string]|[e_rating]|[e_unlockFlag]...
 # f$[e_tipcategories]

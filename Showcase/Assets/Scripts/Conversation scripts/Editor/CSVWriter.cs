@@ -47,7 +47,7 @@ public static class CSVWriter
 
         StreamWriter writer = new StreamWriter(path, false);
 
-        Debug.Log("Writing file: FillerText.csv");
+        Debug.Log("Writing file: " + path);
 
         foreach(string line in _text)
         {
@@ -60,7 +60,7 @@ public static class CSVWriter
 
         writer.Close();
 
-        Debug.Log("Completed writing file: FillerText.csv");
+        Debug.Log("Completed writing file: " + path);
     }
 
     /// <summary>
@@ -73,7 +73,9 @@ public static class CSVWriter
 
         StreamWriter writer = new StreamWriter(path, false);
 
-        Debug.Log("Writing file: Tips.csv");
+        Debug.Log("Writing file: " + path);
+
+        writer.WriteLine("# Format: [tipenum],[tiptext]");
 
         foreach(KeyValuePair<e_tipCategories, string> keyvalue in _values)
         {
@@ -86,7 +88,7 @@ public static class CSVWriter
 
         writer.Close();
 
-        Debug.Log("Completed writing file: Tips.csv");
+        Debug.Log("Completed writing file: " + path);
     }
 
     /// <summary>
@@ -99,7 +101,13 @@ public static class CSVWriter
 
         StreamWriter writer = new StreamWriter(path, false);
 
-        Debug.Log("Writing File: PQuestions.csv");
+        writer.WriteLine("#");
+        writer.WriteLine("# The format of this document is as follows ");
+        writer.WriteLine("# [question]|[unlockFlag]|[reponse]|ID, ... , " +
+            "[question]|[UnlockFlag]|[response]|ID");
+        writer.WriteLine("#");
+
+        Debug.Log("Writing File: " + path);
 
         string line = "";
 
@@ -118,7 +126,7 @@ public static class CSVWriter
 
         writer.Close();
 
-        Debug.Log("Completed Writing file: PQuestions.csv");
+        Debug.Log("Completed Writing file: " + path);
     }
 
     /// <summary>
@@ -127,11 +135,22 @@ public static class CSVWriter
     /// <param name="_questions">list of questions</param>
     public static void WriteInterviewerQuestions(List<QuestionData> _questions)
     {
-        string path = "Assets/Resources/Conversation/IQuestions.csv";
+
+        string path = "Assets/Resources/Conversation/IQuestionsTest.csv";
 
         StreamWriter writer = new StreamWriter(path, false);
 
-        Debug.Log("Writing File: IQuestions.csv");
+        Debug.Log("Writing File: " + path);
+
+        writer.WriteLine("# This file specifies the questions that will be " +
+            "loaded into the game");
+        writer.WriteLine("#");
+        writer.WriteLine("# format is as follows");
+        writer.WriteLine("# i$[ID]");
+        writer.WriteLine("# q$[e_identifier]|[question text], ...");
+        writer.WriteLine("# r$[response string]|[e_rating]|[e_unlockFlag]...");
+        writer.WriteLine("# f$[e_tipcategories]");
+        writer.WriteLine("#");
 
         foreach(QuestionData question in _questions)
         {
@@ -179,6 +198,6 @@ public static class CSVWriter
 
         writer.Close();
 
-        Debug.Log("Completed Writing file: IQuestions.csv");
+        Debug.Log("Completed Writing file: " + path);
     }
 }

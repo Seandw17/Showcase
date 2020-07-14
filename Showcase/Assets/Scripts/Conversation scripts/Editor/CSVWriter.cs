@@ -136,7 +136,7 @@ public static class CSVWriter
     public static void WriteInterviewerQuestions(List<QuestionData> _questions)
     {
 
-        string path = "Assets/Resources/Conversation/IQuestionsTest.csv";
+        string path = "Assets/Resources/Conversation/IQuestions.csv";
 
         StreamWriter writer = new StreamWriter(path, false);
 

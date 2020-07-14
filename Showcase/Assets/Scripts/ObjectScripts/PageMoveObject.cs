@@ -5,8 +5,8 @@ public class PageMoveObject : InteractableObjectBase
 {
     public enum e_direction
     {
-        LEFT = 90,
-        RIGHT = -90,
+        LEFT = 180,
+        RIGHT = 0,
         NONE
     }
 
@@ -36,7 +36,7 @@ public class PageMoveObject : InteractableObjectBase
     public void Set(e_direction _dir)
     {
         m_directionToMove = _dir;
-        transform.rotation = Quaternion.Euler(0, 0, (int)_dir);
+        transform.localRotation = Quaternion.Euler(0, 90, (int)_dir);
     }
 
     public override void Interact()

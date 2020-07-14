@@ -38,7 +38,7 @@ public class ScoreCard : MonoBehaviour
         s_playerResponse[] TempResponses = new s_playerResponse[3];
         int externalIndexer = 0;
         int finalScore = OutfitManager.GetOutfitScore();
-
+        
         foreach (s_playerResponse response in m_responses)
         {
             // add response to the array
@@ -60,6 +60,11 @@ public class ScoreCard : MonoBehaviour
             }
 
             yield return null;
+        }
+
+        if (ConversationStore.GetDidntArrivedOnTime() != 0)
+        {
+            finalScore -= 5 * ConversationStore.GetDidntArrivedOnTime();
         }
 
         GenerateResultPage(finalScore);
@@ -92,11 +97,12 @@ public class ScoreCard : MonoBehaviour
         m_responses.Clear();
 
         // setting positions and rotations for left and right buttons
-        m_rightButton.transform.parent = m_leftButton.transform.parent = transform;
-        m_rightButton.transform.localPosition = new Vector3(-0.9f, 0, 0);
-        m_leftButton.transform.localPosition = new Vector3(0.9f, 0, 0);
-        m_rightButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
-        m_leftButton.transform.localRotation.eulerAngles.Set(0, 0, -90);
+        m_rightButton.transform.parent = m_leftButton.transform.parent =
+            transform;
+        m_rightButton.transform.localPosition = new Vector3(-0.4f, -0.25f, 0);
+        m_leftButton.transform.localPosition = new Vector3(0.4f, -0.25f, 0);
+        m_leftButton.gameObject.SetActive(false);
+        m_rightButton.gameObject.SetActive(false);
 
         yield return null;
     }
@@ -112,8 +118,9 @@ public class ScoreCard : MonoBehaviour
         finalResultPage.SetValue(_finalScore, m_responses.Count);
         finalResultPage.gameObject.transform.parent = transform;
         finalResultPage.gameObject.transform.localPosition = Vector3.zero;
-        finalResultPage.gameObject.SetActive(true);
+        finalResultPage.gameObject.SetActive(false);
         m_pages.Insert(0, finalResultPage);
+
     }
 
     /// <summary>
@@ -192,6 +199,8 @@ public class ScoreCard : MonoBehaviour
 
     public void TurnOn()
     {
+        m_pages[0].gameObject.SetActive(true);
+        m_pages[0].gameObject.GetComponent<FinalResult>().Display();
         m_rightButton.gameObject.SetActive(true);
         m_leftButton.gameObject.SetActive(true);
     }

@@ -4,16 +4,17 @@ using UnityEngine;
 
 // Author: Alec
 
-static public class ConversationStore 
+static public class ConversationStore
 {
     static e_unlockFlag m_unlockedFlags = e_unlockFlag.NONE;
     static List<s_playerResponse> m_playerResponses;
     static e_tipCategories m_tips;
 
+    static int m_timesArrivedOnTime;
+
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void Init() =>
         m_playerResponses = new List<s_playerResponse>();
-
 
     /// <summary>
     /// Add a unlock flag to the player
@@ -31,7 +32,6 @@ static public class ConversationStore
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     static public bool CheckHasFlag(e_unlockFlag _flag) =>
         m_unlockedFlags.HasFlag(_flag);
-
 
     /// <summary>
     /// Signals that the player was silent
@@ -108,4 +108,31 @@ static public class ConversationStore
     /// <returns></returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static e_tipCategories GetPlayerTips() => m_tips;
+
+    /// <summary>
+    /// Set that the player was on time to interviewer
+    /// </summary>
+    public static void DidntReachedInterviewerOnTime()
+    {
+        m_timesArrivedOnTime++;
+        AddTip(e_tipCategories.LATEINTERVIEW);
+    }
+
+    /// <summary>
+    /// Set that the player arrived to waiting area on time
+    /// </summary>
+    public static void DidntArrivedInWaitingAreaOnTime()
+    {
+        m_timesArrivedOnTime++;
+        AddTip(e_tipCategories.LATEWAITING);
+    }
+
+    public static void DidntArrivedToShopOnTime()
+    {
+        m_timesArrivedOnTime++;
+        AddTip(e_tipCategories.LATESHOP);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static int GetDidntArrivedOnTime() => m_timesArrivedOnTime;
 }

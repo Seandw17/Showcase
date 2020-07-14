@@ -36,18 +36,6 @@ public class FinalResult : Page
     /// </summary>
     [SerializeField] string m_failText;
 
-    private void Start()
-    {
-        // fade in assets
-        SetAlphaToZero(GetComponent<Renderer>().material);
-
-        foreach (TextMeshPro child in GetComponentsInChildren<TextMeshPro>())
-        {
-            SetAlphaToZero(child);
-        }
-
-    }
-
     /// <summary>
     /// set the value of the page
     /// </summary>
@@ -55,19 +43,20 @@ public class FinalResult : Page
     public void SetValue(int _score, int questionsAsked)
     {
         float amountNeededToPass = (questionsAsked * 5) * 0.75f;
-        m_finalPercentText.SetText(amountNeededToPass + "%");
+        //m_finalPercentText.SetText(amountNeededToPass + "%");
 
-        m_finalScore.SetText("Final Score: " + _score.ToString());
+        m_finalScore.SetText(_score.ToString());
 
         if (_score >= amountNeededToPass) { m_outcomeText.SetText(m_passText); }
         else { m_outcomeText.SetText(m_failText); }
     }
-
+    
     /// <summary>
     /// function to display this card
     /// </summary>
     public void Display()
     {
+        Debug.Log("Called");
         // instaniating the end button
         GameObject button = Instantiate
             (Resources.Load<GameObject>("Prefabs/EndButton"));
@@ -77,12 +66,5 @@ public class FinalResult : Page
             transform.position.x,
             transform.position.y - 1,
             transform.position.z);
-
-        StartCoroutine(FadeAsset(GetComponent<Renderer>(), 0.5f, true));
-
-        foreach (TextMeshPro child in GetComponentsInChildren<TextMeshPro>())
-        {
-            StartCoroutine(FadeAsset(child, 0.5f, true));
-        }
     }
 }

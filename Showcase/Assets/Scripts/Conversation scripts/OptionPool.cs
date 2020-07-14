@@ -68,7 +68,8 @@ public class OptionPool
                 rating = e_rating.GREAT,
                 response = _questions[index].question
             };
-            m_options[index].SetValue(temp, e_tipCategories.NOTASKING);
+            m_options[index].SetValue(temp, e_tipCategories.NOTASKING,
+                index);
         }
     }
 

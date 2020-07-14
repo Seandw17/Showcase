@@ -38,8 +38,5 @@ public class ResponseDisplay : MonoBehaviour
         m_textBox.SetText(_tip);
     }
 
-    public bool IsTextNull()
-    {
-        return m_textBox.text.Equals("");
-    }
+    public bool IsTextNull => m_textBox.text.Equals("");
 }

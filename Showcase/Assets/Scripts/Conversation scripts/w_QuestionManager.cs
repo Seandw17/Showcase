@@ -20,12 +20,13 @@ public class w_QuestionManager : MonoBehaviour
     List<QuestionData> m_questions;
     List<PlayerQuestion> m_questionForJob;
 
+    QuestionAudio m_QuestionAudio;
+
     bool m_endLevel;
 
     UnityEvent m_processNextStep;
-    UnityEvent m_randomQuestion;
 
-    int m_currentQuestion;
+    int m_currentQuestion, m_responseID;
 
     e_rating m_previous = e_rating.NONE;
 
@@ -34,8 +35,6 @@ public class w_QuestionManager : MonoBehaviour
     Slider m_timerSlider;
 
     TextMeshProUGUI m_progressText;
-
-    FMODUnity.StudioEventEmitter m_FMOD;
 
     /// <summary>
     /// Time user has to answer a question
@@ -101,25 +100,24 @@ public class w_QuestionManager : MonoBehaviour
         m_timerSlider.maxValue = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(false);
 
+        m_QuestionAudio = gameObject.AddComponent<QuestionAudio>();
+
         // set up events 
         m_processNextStep = new UnityEvent();
         m_processNextStep.AddListener(ProcessNextStep);
-        m_randomQuestion = new UnityEvent();
-        m_randomQuestion.AddListener(LoadRandomQuestion);
 
         SetAlphaToZero(transform.parent.GetComponent<Renderer>().material);
         SetAlphaToZero(m_questionBox);
 
         m_progressText = m_timerSlider.transform.root.gameObject
             .GetComponentInChildren<TextMeshProUGUI>();
-        m_progressText.SetText("");
-
-        m_FMOD = GetComponent<FMODUnity.StudioEventEmitter>(); 
+        m_progressText.SetText(""); 
 
         if (m_forceInterviewToStart)
         {
             Init();
             StartCoroutine(StartInterview());
+            RegisterUnlockFlag(e_unlockFlag.FIRST);
         }
         else
         {
@@ -136,9 +134,20 @@ public class w_QuestionManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Force stop fade coroutine
+    /// </summary>
+    void StopFade()
+    {
+        if (m_fadeText != null)
+        {
+            StopCoroutine(m_fadeText); 
+        }
+    }
+
+    /// <summary>
     /// Load a random question
     /// </summary>
-    void LoadRandomQuestion()
+    IEnumerator LoadRandomQuestion()
     {
         m_currentQuestion++;
         if (m_currentQuestion > m_questionsToAsk)
@@ -162,12 +171,19 @@ public class w_QuestionManager : MonoBehaviour
             Debug.Assert(!questionToDisplay.Equals(new QuestionData()),
                 "An error has occured finding the question");
 
-            // TODO BOBBY this is where the interviewer asking the question should go
-
             // use values to set data
             m_questionBox.SetText(questionToDisplay);
+            StopFade();
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
                 m_fadeInSpeed, true));
+            m_QuestionAudio.PlayNewQuestion(m_questions[nextQuestion].ID,
+                m_previous);
+
+            // wait for audio
+            while (!m_QuestionAudio.IsDonePlaying())
+            {
+                yield return null;
+            }
 
             m_optionPool.Set(playerResponses, m_questions[nextQuestion]);
 
@@ -186,7 +202,7 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// Process the result of our question, attach this to a button
     /// </summary>
-    public void ProcessQuestionResult(Questionresponse _chosenResponse)
+    public void ProcessQuestionResult(Questionresponse _chosenResponse, int _ID)
     {
         StopCoroutine(m_waitForAnswer);
         m_timerSlider.gameObject.SetActive(false);
@@ -201,6 +217,7 @@ public class w_QuestionManager : MonoBehaviour
         TurnOffOptions();
         FadeOutQuestionText();
         m_processNextStep.Invoke();
+        m_responseID = _ID;
     }
 
     /// <summary>
@@ -226,6 +243,7 @@ public class w_QuestionManager : MonoBehaviour
         TurnOffOptions();
         m_previous = e_rating.AWFUL;
         PlayerWasSilent(m_questionBox.text);
+        m_responseID = m_questionForJob.Count + 1;
         m_processNextStep.Invoke();
     }
 
@@ -242,17 +260,22 @@ public class w_QuestionManager : MonoBehaviour
     /// <summary>
     /// Start question for user
     /// </summary>
-    void AskAboutJob()
+    IEnumerator AskAboutJob()
     {
-        m_questionBox.SetText("So do you have any questions about the job" +
-            "itself?");
+        m_questionBox.SetText("So do you have any questions about the job?");
+        StopFade();
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox, 0.75f, true));
 
         Debug.Assert(!IsOnlyNoneFlag(),
             "Somehow the player has reached the end with " +
             "only none as there unlock flag");
 
-        // TODO BOBBY this is where the voice clip for "so do you have any questions about the job?" should go
+        m_QuestionAudio.PlayEventFromQuestions("any_questions");
+
+        while (!m_QuestionAudio.IsDonePlaying())
+        {
+            yield return null;
+        }
 
         m_optionPool.Set(m_questionForJob);
 
@@ -274,15 +297,15 @@ public class w_QuestionManager : MonoBehaviour
         else if (m_currentQuestion > m_questionsToAsk)
         {
             m_questions.Clear();
-            AskAboutJob();
+            StartCoroutine(AskAboutJob());
         }
         else { StartCoroutine(FillInTime()); }
     }
 
     IEnumerator FillInTime()
     {
-        yield return new WaitForSecondsRealtime(5);
-        m_randomQuestion.Invoke();
+        yield return new WaitForSecondsRealtime(2);
+        StartCoroutine(LoadRandomQuestion());
     }
 
     /// <summary>
@@ -295,41 +318,37 @@ public class w_QuestionManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(2);
 
-        string finalChoice = ReturnFinalChosenResults()
-            [ReturnFinalChosenResults().Count - 1]
-            .playerResponse.response;
-
-        Debug.Log(finalChoice);
-
         string response = "Nothing? Ok then...";
-
-        foreach (PlayerQuestion question in m_questionForJob)
+        if (m_responseID != m_questionForJob.Count + 1)
         {
-            Debug.Log(question.response);
-            if (finalChoice.Equals(question.question))
-            {
-                response = question.response;
-                break;
-            }
+            response = m_questionForJob[m_responseID].response;
+            m_QuestionAudio.PlayResponseToPlayerQuestion(m_responseID + 1);
         }
-
-        // TODO BOBBY this is where the play for the response to the player question should go
-
-        if (response.Equals("Nothing? Ok then..."))
+        else
         {
             AddTip(e_tipCategories.NOTASKING);
+            m_QuestionAudio.PlayResponseToPlayerQuestion(0);
+        }
+        
+        while (m_QuestionAudio.IsDonePlaying())
+        {
+            yield return null;
         }
 
         m_questionForJob.Clear();
 
         m_questionBox.SetText(response);
+        StopFade();
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
             true));
         yield return new WaitForSecondsRealtime(3);
         GameObject card = Instantiate(Resources.Load<GameObject>
             ("Prefabs/ScoreCard"));
-        card.transform.position = new Vector3(transform.position.x,
-            transform.position.y - 0.4f, transform.position.z);
+        Vector3 playerPos = Camera.main.gameObject.transform.root.position;
+        card.transform.position = new Vector3(
+            playerPos.x - 0.5f,
+            playerPos.y + 1f,
+            playerPos.z); 
         StartCoroutine(EndInterview(card));
         Destroy(m_timerSlider.gameObject);
     }
@@ -349,13 +368,14 @@ public class w_QuestionManager : MonoBehaviour
         {
             // TODO BOBBY this is where each line of the interview start text should go
             m_questionBox.SetText(line);
+            StopFade();
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
                 m_fadeInSpeed, true));
             yield return waitFor;
             FadeOutQuestionText();
             yield return waitFor;
         }
-        m_randomQuestion.Invoke();
+        StartCoroutine(LoadRandomQuestion());
     }
 
     /// <summary>
@@ -376,11 +396,11 @@ public class w_QuestionManager : MonoBehaviour
             FadeOutQuestionText();
             yield return waitFor;
             m_questionBox.SetText(line);
+            StopFade();
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
                 true));
             yield return waitFor;
         }
-        _card.GetComponentInChildren<FinalResult>().Display();
 
         FadeOutQuestionText();
         yield return waitFor;

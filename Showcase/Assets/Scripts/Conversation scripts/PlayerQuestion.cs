@@ -8,6 +8,7 @@
 /// </summary>
 public class PlayerQuestion
 {
+    public int ID;
     public string question;
     public string response;
     public e_unlockFlag flag;

@@ -38,6 +38,9 @@ static public class w_CSVLoader
                     string[] check = line.Split('$');
                     switch (check[0])
                     {
+                        case "i":
+                            temp.ID = int.Parse(check[1]);
+                            break;
                         case "q":
                             temp.questions = ReadQuestions(check[1]);
                             break;
@@ -142,6 +145,7 @@ static public class w_CSVLoader
                     temp.response = keyValue[2];
                     temp.flag = (e_unlockFlag)Enum.Parse(typeof(e_unlockFlag),
                         keyValue[1]);
+                    temp.ID = int.Parse(keyValue[3]);
                     _list.Add(temp);
                 }
             }

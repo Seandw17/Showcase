@@ -16,7 +16,8 @@ public class OutfitManager : MonoBehaviour
 
     // holds the materials/models for each race and gender    
     [SerializeField]
-    Material[] m_currentOutfitMats, m_maleRace1OutfitMats, m_maleRace2OutfitMats, m_maleRace3OutfitMats, m_femaleRace1OutfitMats, m_femaleRace2OutfitMats, m_femaleRace3OutfitMats;
+    //Material[] m_currentOutfitMats, m_maleRace1OutfitMats, m_maleRace2OutfitMats, m_maleRace3OutfitMats, m_femaleRace1OutfitMats, m_femaleRace2OutfitMats, m_femaleRace3OutfitMats;
+    Sprite[] m_currentOutfitImage, m_maleRace1OutfitMats, m_maleRace2OutfitMats, m_maleRace3OutfitMats, m_femaleRace1OutfitMats, m_femaleRace2OutfitMats, m_femaleRace3OutfitMats;
 
     //protected PlayerController m_playerscript;
     CursorController m_cmScript;
@@ -40,8 +41,8 @@ public class OutfitManager : MonoBehaviour
             int m_tempi = i;
             m_tempButton.onClick.AddListener(() => OutfitClicked(m_tempi));
         }
-        
-        m_currentOutfitMats = new Material[3];
+
+        m_currentOutfitImage = new Sprite[3];
         SetOutfitsOnLoad();
 
         ig_Outfit[0].transform.parent.transform.parent.gameObject.SetActive(false);
@@ -58,23 +59,23 @@ public class OutfitManager : MonoBehaviour
             // check which race 
             if (m_gmscript.m_playerracechoicebool[0])
             {
-                m_currentOutfitMats[0] = m_maleRace1OutfitMats[0];
-                m_currentOutfitMats[1] = m_maleRace1OutfitMats[1];
-                m_currentOutfitMats[2] = m_maleRace1OutfitMats[2];
+                m_currentOutfitImage[0] = m_maleRace1OutfitMats[0];
+                m_currentOutfitImage[1] = m_maleRace1OutfitMats[1];
+                m_currentOutfitImage[2] = m_maleRace1OutfitMats[2];
                 Debug.Log("Player is male with race 1");
             }
             else if (m_gmscript.m_playerracechoicebool[1])
             {
-                m_currentOutfitMats[0] = m_maleRace2OutfitMats[0];
-                m_currentOutfitMats[1] = m_maleRace2OutfitMats[1];
-                m_currentOutfitMats[2] = m_maleRace2OutfitMats[2];
+                m_currentOutfitImage[0] = m_maleRace2OutfitMats[0];
+                m_currentOutfitImage[1] = m_maleRace2OutfitMats[1];
+                m_currentOutfitImage[2] = m_maleRace2OutfitMats[2];
                 Debug.Log("Player is male with race 2");
             }
             else if (m_gmscript.m_playerracechoicebool[2])
             {
-                m_currentOutfitMats[0] = m_maleRace3OutfitMats[0];
-                m_currentOutfitMats[1] = m_maleRace3OutfitMats[1];
-                m_currentOutfitMats[2] = m_maleRace3OutfitMats[2];
+                m_currentOutfitImage[0] = m_maleRace3OutfitMats[0];
+                m_currentOutfitImage[1] = m_maleRace3OutfitMats[1];
+                m_currentOutfitImage[2] = m_maleRace3OutfitMats[2];
                 Debug.Log("Player is male with race 3");
             }
         }
@@ -84,26 +85,30 @@ public class OutfitManager : MonoBehaviour
             // check which race 
             if (m_gmscript.m_playerracechoicebool[0])
             {
-                m_currentOutfitMats[0] = m_femaleRace1OutfitMats[0];
-                m_currentOutfitMats[1] = m_femaleRace1OutfitMats[1];
-                m_currentOutfitMats[2] = m_femaleRace1OutfitMats[2];
+                m_currentOutfitImage[0] = m_femaleRace1OutfitMats[0];
+                m_currentOutfitImage[1] = m_femaleRace1OutfitMats[1];
+                m_currentOutfitImage[2] = m_femaleRace1OutfitMats[2];
                 Debug.Log("Player is female with race 1");
             }
             else if (m_gmscript.m_playerracechoicebool[1])
             {
-                m_currentOutfitMats[0] = m_femaleRace2OutfitMats[0];
-                m_currentOutfitMats[1] = m_femaleRace2OutfitMats[1];
-                m_currentOutfitMats[2] = m_femaleRace2OutfitMats[2];
+                m_currentOutfitImage[0] = m_femaleRace2OutfitMats[0];
+                m_currentOutfitImage[1] = m_femaleRace2OutfitMats[1];
+                m_currentOutfitImage[2] = m_femaleRace2OutfitMats[2];
                 Debug.Log("Player is female with race 2");
             }
             else if (m_gmscript.m_playerracechoicebool[2])
             {
-                m_currentOutfitMats[0] = m_femaleRace3OutfitMats[0];
-                m_currentOutfitMats[1] = m_femaleRace3OutfitMats[1];
-                m_currentOutfitMats[2] = m_femaleRace3OutfitMats[2];
+                m_currentOutfitImage[0] = m_femaleRace3OutfitMats[0];
+                m_currentOutfitImage[1] = m_femaleRace3OutfitMats[1];
+                m_currentOutfitImage[2] = m_femaleRace3OutfitMats[2];
                 Debug.Log("Player is female with race 3");
             }
         }
+        ig_Outfit[0].GetComponent<Image>().sprite = m_currentOutfitImage[0];
+        ig_Outfit[1].GetComponent<Image>().sprite = m_currentOutfitImage[1];
+        ig_Outfit[2].GetComponent<Image>().sprite = m_currentOutfitImage[2];
+
     }
 
     // Update is called once per frame
@@ -132,17 +137,17 @@ public class OutfitManager : MonoBehaviour
     {
         if (m_selectedOutfit == e_Outfits.CASUAL)
         {
-            ChangeSelectedModel(m_currentOutfitMats[0]);
+            //ChangeSelectedModel(m_currentOutfitMats[0]);
             m_selectedOutfitScore = 1;
         }
         else if (m_selectedOutfit == e_Outfits.SMART_CASUAL)
         {
-            ChangeSelectedModel(m_currentOutfitMats[1]);
+            //ChangeSelectedModel(m_currentOutfitMats[1]);
             m_selectedOutfitScore = 3;
         }
         else if (m_selectedOutfit == e_Outfits.SMART)
         {
-            ChangeSelectedModel(m_currentOutfitMats[2]);
+            //ChangeSelectedModel(m_currentOutfitMats[2]);
             m_selectedOutfitScore = 2;
         }
         Debug.Log("Selected outfit is " + m_selectedOutfit);
@@ -153,7 +158,7 @@ public class OutfitManager : MonoBehaviour
     void ChangeSelectedModel(Material mat)
     {
         //GameObject.Find("Player").GetComponent<MeshRenderer>().material = mat;
-        m_pcScript.SetPlayerMaterial(mat);
+        //m_pcScript.SetPlayerMaterial(mat);
     }
 
     // returns the score given to the outfit to future scenes

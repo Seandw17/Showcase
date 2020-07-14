@@ -8,6 +8,7 @@ public class DoorObject : InteractableObjectBase
 {
     bool m_dooropen = false;
     bool m_candoor = false;
+    [SerializeField] private bool m_lockDoor = false;
     float m_rotationspeed = 50.0f;
     [SerializeField]
     string m_levelname;
@@ -25,27 +26,30 @@ public class DoorObject : InteractableObjectBase
     // Update is called once per frame
     void Update()
     {
-        
-        if (m_candoor == true)
+        if(!m_lockDoor)
         {
-            if (m_dooropen == true)
+            if (m_candoor == true)
             {
-                if (transform.rotation.z <= 0.5) //some reason this stops the rotation at 90 on the z axis so dont touch
+                if (m_dooropen == true)
                 {
-                    transform.Rotate(Vector3.forward * m_rotationspeed * Time.deltaTime);
+                    if (transform.rotation.z <= 0.5) //some reason this stops the rotation at 90 on the z axis so dont touch
+                    {
+                        transform.Rotate(Vector3.forward * m_rotationspeed * Time.deltaTime);
+
+                    }
 
                 }
-
-            }
-            else if (m_dooropen == false)
-            {
-                if (transform.rotation.z >= 0)
+                else if (m_dooropen == false)
                 {
-                    transform.Rotate(Vector3.back * m_rotationspeed * Time.deltaTime);
-                }
+                    if (transform.rotation.z >= 0)
+                    {
+                        transform.Rotate(Vector3.back * m_rotationspeed * Time.deltaTime);
+                    }
 
+                }
             }
         }
+       
     }
 
     public override void Interact()
@@ -96,5 +100,34 @@ public class DoorObject : InteractableObjectBase
                 LevelChange.ChangeLevel(m_levelname);
             }
         } 
+    }
+
+    /// <summary>
+    /// returns the value of the door in order to know if it was open
+    /// </summary>
+    /// <returns></returns>
+    public bool Getm_dooropen()
+    {
+        return m_dooropen;
+    }
+
+    public void Setm_dooropen(bool _state)
+    {
+        m_dooropen = _state;
+    }
+
+    public void Setm_dooropenApplicant(bool _state)
+    {
+        m_candoor = _state;
+        m_dooropen = _state;
+    }
+
+    /// <summary>
+    /// Changes the state of the door lock or unlock
+    /// </summary>
+    /// <param name="_state"></param>
+    public void SetM_lockDoor(bool _state)
+    {
+        m_lockDoor = _state;
     }
 }

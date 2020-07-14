@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 7560684513495266127}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -211,6 +211,3 @@ MonoBehaviour:
   m_Translation: 0
   m_Straffe: 0
   m_camera: {fileID: 7560684512522755535}
-  m_tempplayermesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
-  m_tempplayermaterial: {fileID: -2435214512123833766, guid: 2102f0855e8dec94aa514f2fe5b13b4a,
-    type: 3}

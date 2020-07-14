@@ -817,6 +817,8 @@ MonoBehaviour:
   m_objectivetext: {fileID: 2049500110}
   m_objectivetextarray: []
   m_objectiveboolarray: 
+  m_isplayerSexchoiceone: 0
+  m_playerracechoicebool: 
 --- !u!114 &904260759
 MonoBehaviour:
   m_ObjectHideFlags: 0

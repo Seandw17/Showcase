@@ -15,7 +15,10 @@ public class WaitingRoomManager : MonoBehaviour
     [SerializeField]
     private List<DialogSO> m_availableDialogs;
 
-    [Header("UI")]
+    [SerializeField] private GameObject ig_doorToCoffee;
+    
+
+    [Header("Clock")]
     [SerializeField]
     private GameObject ig_tinyClockHandle;
     [SerializeField]
@@ -45,7 +48,8 @@ public class WaitingRoomManager : MonoBehaviour
     int m_currentSentence;
     float m_dialogTimer;
     bool m_nextTextShown;
-    bool m_activeChat = true;
+    bool m_activeChat = false;
+    bool m_setMoveAgain = false;
 
     protected PlayerController m_playerscript;
     
@@ -55,7 +59,6 @@ public class WaitingRoomManager : MonoBehaviour
     void Start()
     {
         m_playerscript = FindObjectOfType<PlayerController>();
-        m_playerscript.SetCanPlayerMove(false);
         PickNextDialog();
         m_usedDialogs = new List<DialogSO>();
         m_dialogTimer = Random.Range(5, 15);//random wait timer between 2 dialogs
@@ -68,7 +71,6 @@ public class WaitingRoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   
         if (m_activeChat)
         {
             DialogTick();
@@ -80,7 +82,27 @@ public class WaitingRoomManager : MonoBehaviour
     }
 
 
- 
+    public void DoorClose()
+    {
+        
+        if (ig_doorToCoffee.GetComponent<DoorObject>().Getm_dooropen())
+        {
+            ig_doorToCoffee.GetComponent<DoorObject>().Setm_dooropen(false);
+        }
+        StartCoroutine(LockDoor());
+    }
+
+    IEnumerator LockDoor()
+    {
+        yield return new WaitForSeconds(2);
+        ig_doorToCoffee.GetComponent<DoorObject>().SetM_lockDoor(true);
+    }
+
+    public void UnlockDoor()
+    {
+        ig_doorToCoffee.GetComponent<DoorObject>().SetM_lockDoor(false);
+        m_activeChat = true;
+    }
 
 
     //----------------------------------WAIT TIMER----------------------------------
@@ -101,7 +123,12 @@ public class WaitingRoomManager : MonoBehaviour
                 m_nextTextShown = true;
             }
             
-            m_playerscript.SetCanPlayerMove(true);
+            if(!m_setMoveAgain)
+            {
+                m_playerscript.SetCanPlayerMove(true);
+                m_setMoveAgain = true;
+            }
+            //
             //end scene
         }
     }
@@ -216,10 +243,14 @@ public class WaitingRoomManager : MonoBehaviour
     {
         if(m_waitTimer <= 0 && m_activeChat)
         {
-            Debug.Log("i stoped dialog");
             ig_textBox.SetActive(false);
             m_activeChat = false;
         }
+    }
+
+    public float Getm_WaitTimer()
+    {
+        return m_waitTimer;
     }
 
 

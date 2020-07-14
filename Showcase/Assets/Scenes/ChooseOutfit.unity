@@ -2433,31 +2433,62 @@ MonoBehaviour:
   - {fileID: 1496057132}
   - {fileID: 1449502647}
   - {fileID: 638231557}
-  m_currentOutfitImage: []
-  m_maleRace1OutfitMats:
+  m_currentOutfitImage:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_maleRace1OutfitImage:
   - {fileID: 21300000, guid: 7b3fdd767400f604089263985fe6c451, type: 3}
   - {fileID: 21300000, guid: e05e406814496e44a88db46949c2a417, type: 3}
   - {fileID: 21300000, guid: ef4d4ab26e5e868439ece4672c2e05f7, type: 3}
-  m_maleRace2OutfitMats:
+  m_maleRace2OutfitImage:
   - {fileID: 21300000, guid: e889bc0b5832e64439860c032c93f8c4, type: 3}
   - {fileID: 21300000, guid: 8b905da95faac234892df33abd501180, type: 3}
   - {fileID: 21300000, guid: c886851725850554ea04e895569df599, type: 3}
-  m_maleRace3OutfitMats:
+  m_maleRace3OutfitImage:
   - {fileID: 21300000, guid: ac32f730f6c738f42a05103c3dee6c22, type: 3}
   - {fileID: 21300000, guid: 22fb957bf43aff344b24aa749f8a4a40, type: 3}
   - {fileID: 21300000, guid: 5f3d063e7a993ab409293fb6dcc94886, type: 3}
-  m_femaleRace1OutfitMats:
+  m_femaleRace1OutfitImage:
   - {fileID: 21300000, guid: a5ce855929f8f974e8f6cce92479ef02, type: 3}
   - {fileID: 21300000, guid: a3aae2c25a3aca84ca48840eb8e47adf, type: 3}
   - {fileID: 21300000, guid: d1a57547ed237c54f8b16e7b07ac8fe8, type: 3}
-  m_femaleRace2OutfitMats:
+  m_femaleRace2OutfitImage:
   - {fileID: 21300000, guid: daf3facaa2ddf87459c95777a45beb65, type: 3}
   - {fileID: 21300000, guid: a7f5638222ec6e144833b19111de8f11, type: 3}
   - {fileID: 21300000, guid: 3620df4f2cbd20f429e1eb9fe54e93f5, type: 3}
-  m_femaleRace3OutfitMats:
+  m_femaleRace3OutfitImage:
   - {fileID: 21300000, guid: fa04b18177cc14c4eb69778346bbd877, type: 3}
   - {fileID: 21300000, guid: 128ab9be7f4ae5e48a69ec6635ae1fc6, type: 3}
   - {fileID: 21300000, guid: ac125e79d21f2e841a4fdcbfa17549a5, type: 3}
+  m_currentOutfitMats:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_maleRace1OutfitMats:
+  - {fileID: 2100000, guid: ccfbd5205e4b9fd40ba4a96d1741848e, type: 2}
+  - {fileID: 2100000, guid: c51620991cc5f5c4a804355712729674, type: 2}
+  - {fileID: 2100000, guid: 833b31a47186e244b9e96524cbd53576, type: 2}
+  m_maleRace2OutfitMats:
+  - {fileID: 2100000, guid: 9f82250831b52db4298d361dcdd42ded, type: 2}
+  - {fileID: 2100000, guid: 34c7a757885f2e84ea7d98f5c84d4534, type: 2}
+  - {fileID: 2100000, guid: 740a5e81da3e03e479ab64cd56962407, type: 2}
+  m_maleRace3OutfitMats:
+  - {fileID: 2100000, guid: 6ef2e8805854a05439d4ef6c1c75cfe3, type: 2}
+  - {fileID: 2100000, guid: 95bdf04c9d253804c8d93a20d78b05c9, type: 2}
+  - {fileID: 2100000, guid: b023e9254ae1de9479599777390ef381, type: 2}
+  m_femaleRace1OutfitMats:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_femaleRace2OutfitMats:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_femaleRace3OutfitMats:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1047365112 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3447213833174360522, guid: db7b318e06b5a7a459bc6962ffe5c225,

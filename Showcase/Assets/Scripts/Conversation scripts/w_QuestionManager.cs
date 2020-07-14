@@ -346,8 +346,8 @@ public class w_QuestionManager : MonoBehaviour
             ("Prefabs/ScoreCard"));
         Vector3 playerPos = Camera.main.gameObject.transform.root.position;
         card.transform.position = new Vector3(
-            playerPos.x - 2,
-            playerPos.y + 1,
+            playerPos.x - 0.5f,
+            playerPos.y + 0.6f,
             playerPos.z); 
         StartCoroutine(EndInterview(card));
         Destroy(m_timerSlider.gameObject);
@@ -401,7 +401,6 @@ public class w_QuestionManager : MonoBehaviour
                 true));
             yield return waitFor;
         }
-        _card.GetComponentInChildren<FinalResult>().Display();
 
         FadeOutQuestionText();
         yield return waitFor;

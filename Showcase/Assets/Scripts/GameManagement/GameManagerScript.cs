@@ -26,7 +26,7 @@ public class GameManagerScript : MonoBehaviour
     // the index number for the array
      int m_objectiveindex = 0;
     //The size of the array
-     int m_objectivesize = 8;
+     int m_objectivesize = 9;
     static CursorController m_cmScript;
 
     //Bool to check if sex choice one was made
@@ -117,7 +117,7 @@ public class GameManagerScript : MonoBehaviour
 
     void DisplayObjectiveText()
     {
-       m_objectivetext.text = "Objective: " + m_objectivetextarray[m_objectiveindex];
+       m_objectivetext.text = m_objectivetextarray[m_objectiveindex];
     }
 
     public void SetTaskTrue(int _taskindex)
@@ -134,14 +134,15 @@ public class GameManagerScript : MonoBehaviour
 
     void CreateTaskText()
     {
-        m_objectivetextarray[0] = "Do Some Research For Your Interview";
+        m_objectivetextarray[0] = "Do Some Research\nFor Your Interview\n";
         m_objectivetextarray[1] = "Pick An Appropriate Outfit";
         m_objectivetextarray[2] = "Leave For Your Interview";
         m_objectivetextarray[3] = "Speak With A Staff Member";
         m_objectivetextarray[4] = "Follow Staff Member";
-        m_objectivetextarray[5] = "Take A Seat And Wait To Be Called In";
-        m_objectivetextarray[6] = "Go In For Your Interview";
-        m_objectivetextarray[7] = "Complete The Interview";
+        m_objectivetextarray[5] = "Take A Seat";
+        m_objectivetextarray[6] = "Wait To Be Called In";
+        m_objectivetextarray[7] = "Go In For Your Interview";
+        m_objectivetextarray[8] = "Complete The Interview";
         DisplayObjectiveText();
     }
 

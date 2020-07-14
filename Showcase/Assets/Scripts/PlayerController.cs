@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
             RaycastHit m_hit;
             Ray m_ray = m_camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(m_ray, out m_hit, 10.0f, m_layerMask))
+            if (Physics.Raycast(m_ray, out m_hit, 3.0f, m_layerMask))
             {
                 InteractableObjectBase hitObject = m_hit.transform.gameObject
                     .GetComponent<InteractableObjectBase>();

@@ -66,31 +66,56 @@ public class LaptopObject : InteractableObjectBase
             ConversationStore.RegisterUnlockFlag(e_unlockFlag.FIRST);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
             m_openfirst = true;
-            m_gmscript.SetTaskTrue(0);
+            if (m_gmscript.m_objectiveboolarray[0].Equals(false))
+            {
+                m_gmscript.SetTaskTrue(0);
+            }
         }
     }
 
     public void Unlock2()
     {
         GameManagerScript.SetNewHUD(m_websiteAbout);
-        ConversationStore.RegisterUnlockFlag(e_unlockFlag.SECOND);
-        
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+        if (m_opensecond.Equals(false))
+        {
+            ConversationStore.RegisterUnlockFlag(e_unlockFlag.SECOND);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+            m_opensecond = true;
+            if (m_gmscript.m_objectiveboolarray[0].Equals(false))
+            {
+                m_gmscript.SetTaskTrue(0);
+            }
+        }
     }
 
     public void Unlock3()
     {
         GameManagerScript.SetNewHUD(m_websiteCommunity);
-        ConversationStore.RegisterUnlockFlag(e_unlockFlag.THIRD);
-       
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+        if (m_openthird.Equals(false))
+        {
+            ConversationStore.RegisterUnlockFlag(e_unlockFlag.THIRD);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+            m_openthird = true;
+            if (m_gmscript.m_objectiveboolarray[0].Equals(false))
+            {
+                m_gmscript.SetTaskTrue(0);
+            }
+        }
     }
 
     public void Unlock4()
     {
         GameManagerScript.SetNewHUD(m_websiteLooking);
-        ConversationStore.RegisterUnlockFlag(e_unlockFlag.FOURTH);
-      
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+        if (_m_openfourth.Equals(false))
+        {
+            ConversationStore.RegisterUnlockFlag(e_unlockFlag.FOURTH);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+            _m_openfourth = true;
+            if (m_gmscript.m_objectiveboolarray[0].Equals(false))
+            {
+                m_gmscript.SetTaskTrue(0);
+            }
+        }
+        
     }
 }

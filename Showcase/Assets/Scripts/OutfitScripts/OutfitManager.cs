@@ -128,7 +128,10 @@ public class OutfitManager : MonoBehaviour
         GameManagerScript.SetHUDBack();
         m_cmScript.DisableCursor();
         FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/Bedroom/Wardrobe/collect_clothes");
-        m_gmscript.SetTaskTrue(1);
+        if (m_gmscript.m_objectiveboolarray[1] != true)
+        {
+            m_gmscript.SetTaskTrue(1);
+        }
     }
 
     // temporally made it so that the players camera is higher up in the scene (not via code)
@@ -158,7 +161,7 @@ public class OutfitManager : MonoBehaviour
     void ChangeSelectedModel(Material mat)
     {
         //GameObject.Find("Player").GetComponent<MeshRenderer>().material = mat;
-        //m_pcScript.SetPlayerMaterial(mat);
+       // m_pcScript.SetPlayerMaterial(mat);
     }
 
     // returns the score given to the outfit to future scenes

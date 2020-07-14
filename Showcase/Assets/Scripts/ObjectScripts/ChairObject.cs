@@ -45,6 +45,7 @@ public class ChairObject : InteractableObjectBase
                         m_playerscript.SetCanPlayerMove(false);
                         m_boxcollider.enabled = false;
 
+                        m_gmscript.SetTaskTrue(7);
                         // Start Interview
                         Debug.Assert(m_questionManager != null, "There is no " +
                             "reference to a Question Manager Object");

@@ -60,6 +60,8 @@ public class StaffMemberObject : InteractableObjectBase
             m_isInteractable = false;
             m_staffMemberTriggered = true;
             ig_staffMemberText.GetComponentInChildren<TextMeshPro>().text = "Ah you're here for the interview. This way please.";
+
+            m_gmscript.SetTaskTrue(3);
         }
     }
 

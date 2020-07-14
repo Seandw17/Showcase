@@ -52,8 +52,8 @@ public class WaitingRoomManager : MonoBehaviour
     bool m_setMoveAgain = false;
 
     protected PlayerController m_playerscript;
-    
 
+    private GameManagerScript m_gmScript;
 
     // Start is called before the first frame updateS
     void Start()
@@ -63,6 +63,7 @@ public class WaitingRoomManager : MonoBehaviour
         m_usedDialogs = new List<DialogSO>();
         m_dialogTimer = Random.Range(5, 15);//random wait timer between 2 dialogs
 
+        m_gmScript = FindObjectOfType<GameManagerScript>();
 
         m_rotHour = new Vector3(0, 0, (m_hourStart * 360) / 60);
 
@@ -126,6 +127,7 @@ public class WaitingRoomManager : MonoBehaviour
             if(!m_setMoveAgain)
             {
                 m_playerscript.SetCanPlayerMove(true);
+                m_gmScript.SetTaskTrue(6);
                 m_setMoveAgain = true;
             }
             //

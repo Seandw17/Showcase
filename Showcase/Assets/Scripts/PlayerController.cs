@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using System.Linq;
 
@@ -22,6 +23,9 @@ public class PlayerController : MonoBehaviour
     //Interactable Object - ref
     //public List<InteractableObjectBase> ig_interactable;
 
+    //Float value used for the timer in setting the coroutine to set the value false
+   [SerializeField] float m_viewchangetimer;
+
     //Bool to handle player movement
     bool m_canmove = true;
 
@@ -33,6 +37,9 @@ public class PlayerController : MonoBehaviour
 
     //Bool to check if the player is in the interview
     bool m_isininterview = false;
+
+    //Bool to check if the player is looking at the interviewer
+    public bool m_islookingatinterviewer = false;
 
     // the currently selected interactible
     InteractableObjectBase m_currentlySelected;
@@ -132,6 +139,7 @@ public class PlayerController : MonoBehaviour
                 if (m_currentlySelected == null)
                 {
                     m_currentlySelected = hitObject;
+                   
                 }
                 else if (m_currentlySelected != hitObject)
                 {
@@ -145,6 +153,12 @@ public class PlayerController : MonoBehaviour
                 }
                 m_currentlySelected = hitObject;
 
+                if (hitObject.GetComponent<InterviewerObject>())
+                {
+                    hitObject.GetComponent<InterviewerObject>().Interact();
+                    m_currentlySelected.GetObjectOutline().enabled = false;
+                }
+               
                 if (Input.GetMouseButtonDown(0))
                 {
                     hitObject.GetComponent<InteractableObjectBase>().Interact();
@@ -156,6 +170,10 @@ public class PlayerController : MonoBehaviour
                 {
                     m_currentlySelected.GetObjectOutline().enabled = false;
                     m_currentlySelected = null;
+                    if (m_islookingatinterviewer.Equals(true))
+                    {
+                        StartCoroutine(SetPlayerInterviewViewFalse());
+                    }
                 }
             }
 
@@ -193,6 +211,13 @@ public class PlayerController : MonoBehaviour
                 }
             }*/
         }
+    }
+
+    IEnumerator SetPlayerInterviewViewFalse()
+    {
+        Debug.Log("Called");
+        yield return new WaitForSeconds(m_viewchangetimer);
+        m_islookingatinterviewer = false;
     }
 
     public void SetPlayerMeshModel(Mesh _mesh)

@@ -43,7 +43,9 @@ public class ChairObject : InteractableObjectBase
 
                         ig_playerobject.transform.position = ig_sitpoisitonobject.transform.position;
                         m_playerscript.SetCanPlayerMove(false);
+                        WaitingRoomManager.IsInInterview();
                         m_boxcollider.enabled = false;
+
 
                         m_gmscript.SetTaskTrue(7);
                         // Start Interview

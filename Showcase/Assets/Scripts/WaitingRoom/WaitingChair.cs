@@ -28,7 +28,8 @@ public class WaitingChair : InteractableObjectBase
         Vector3 pos = transform.position;
         pos += new Vector3(0.5f, 1, 0.5f);
         m_playerscript.gameObject.transform.position = pos;
-
+        WaitingRoomManager.IsSitedInWaitingRoom();
+        Debug.Log("IS SITTED CHECKED");
         m_gmscript.SetTaskTrue(5);
 
         

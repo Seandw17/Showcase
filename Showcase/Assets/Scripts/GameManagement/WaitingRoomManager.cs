@@ -5,20 +5,26 @@ using UnityEngine;
 
 public class WaitingRoomManager : MonoBehaviour
 {
+    [Header("Conversations")]
+    [SerializeField]
+    private bool m_chatAvailable;
+    [SerializeField]
+    private List<DialogSO> m_availableDialogs;
+
+    private float m_goToInterviewTimer = 10f;
+
+
+    [SerializeField] private GameObject ig_doorToCoffee;
+    
+
+    [Header("Clock")]
     [SerializeField]
     private float m_waitTimer;
     [SerializeField]
     private float m_hourStart;
     private Vector3 m_rotHour;
     [SerializeField]
-    private bool m_chatAvailable;
-    [SerializeField]
-    private List<DialogSO> m_availableDialogs;
-
-    [SerializeField] private GameObject ig_doorToCoffee;
-    
-
-    [Header("Clock")]
+    private GameObject ig_Clock;
     [SerializeField]
     private GameObject ig_tinyClockHandle;
     [SerializeField]
@@ -54,6 +60,9 @@ public class WaitingRoomManager : MonoBehaviour
     protected PlayerController m_playerscript;
 
     private GameManagerScript m_gmScript;
+    private static bool m_IsSited;
+    private static bool m_IsInInterview;
+    private bool m_startTimerToGoToInterview =false;
 
     // Start is called before the first frame updateS
     void Start()
@@ -128,6 +137,12 @@ public class WaitingRoomManager : MonoBehaviour
             {
                 m_playerscript.SetCanPlayerMove(true);
                 m_gmScript.SetTaskTrue(6);
+                m_startTimerToGoToInterview = true;
+                ig_Clock.GetComponent<ClockManager>().SetTimers(m_hourStart, m_waitTimer);
+                if(!m_IsSited)
+                {
+                    ConversationStore.DidntArrivedInWaitingAreaOnTime();//wasnt sitted on chair when timer ran off
+                }
                 m_setMoveAgain = true;
             }
             //
@@ -158,7 +173,25 @@ public class WaitingRoomManager : MonoBehaviour
     }
 
 
-    
+    //----------------------------------GO TO INTERVIEW TIMER----------------------------------
+
+    void GoInterviewTimer()
+    {
+        if(m_goToInterviewTimer>0 && m_startTimerToGoToInterview)
+        {
+            m_goToInterviewTimer -= Time.deltaTime;
+        }
+        else
+        {
+            if(!m_IsInInterview)
+            {
+                ConversationStore.DidntReachedInterviewerOnTime();//wasnt inside the room after a while
+                m_startTimerToGoToInterview = false;
+            }
+        }
+    }
+
+
 
     //----------------------------------DIALOG CONTROLLER----------------------------------
 
@@ -250,10 +283,23 @@ public class WaitingRoomManager : MonoBehaviour
         }
     }
 
+
+
+    //----Gets and Sets
     public float Getm_WaitTimer()
     {
         return m_waitTimer;
     }
 
+    public static void IsSitedInWaitingRoom()
+    {
+        m_IsSited = true;
+    }
+
+    public static void IsInInterview()
+    {
+        m_IsInInterview = true;
+        Debug.Log("IS IN INTERVIEW CHECKED");
+    }
 
 }

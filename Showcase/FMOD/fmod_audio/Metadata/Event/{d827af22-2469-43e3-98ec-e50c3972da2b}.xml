@@ -217,6 +217,9 @@
 		<property name="curve">
 			<value>{(0.000000,-80.000000)(1.000000,24.000000)}</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{567b66fe-12e0-452e-ae90-0b1dc5cb9a03}</destination>
+		</relationship>
 	</object>
 	<object class="FloatPluginParameter" id="{52948abc-f67a-49b5-bd49-10738613c6b2}">
 		<property name="name">
@@ -281,7 +284,7 @@
 			<value>Directivity</value>
 		</property>
 		<property name="value">
-			<value>0.255000025</value>
+			<value>0.195000008</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,1.000000)}</value>
@@ -292,7 +295,7 @@
 			<value>Dir Sharpness</value>
 		</property>
 		<property name="value">
-			<value>1.63999999</value>
+			<value>1</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,1.000000)(1.000000,2.000000)(2.000000,5.000000)(3.000000,10.000000)}</value>
@@ -327,7 +330,7 @@
 			<value>Near-Field Gain</value>
 		</property>
 		<property name="value">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,9.000000)}</value>
@@ -339,6 +342,26 @@
 		</property>
 		<property name="dataType">
 			<value>-1</value>
+		</property>
+	</object>
+	<object class="ADSRModulator" id="{567b66fe-12e0-452e-ae90-0b1dc5cb9a03}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>value</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>0</value>
+		</property>
+		<property name="releaseTime">
+			<value>140</value>
+		</property>
+		<property name="releaseShape">
+			<value>0.491554648</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
 		</property>
 	</object>
 </objects>

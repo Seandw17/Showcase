@@ -48,5 +48,6 @@ public enum e_tipCategories
     SILENT = 1 << 13,
     LATEINTERVIEW = 1 << 14,
     LATEWAITING = 1 << 15,
-    LATESHOP = 1 << 16
+    LATESHOP = 1 << 16,
+    LOOKEDAWAY = 1 << 17
 }

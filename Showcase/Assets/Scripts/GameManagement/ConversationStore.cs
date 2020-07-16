@@ -9,6 +9,7 @@ static public class ConversationStore
     static e_unlockFlag m_unlockedFlags = e_unlockFlag.NONE;
     static List<s_playerResponse> m_playerResponses;
     static e_tipCategories m_tips;
+    static int m_timesLookedAway;
 
     static int m_timesArrivedOnTime;
 
@@ -135,4 +136,23 @@ static public class ConversationStore
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int GetDidntArrivedOnTime() => m_timesArrivedOnTime;
+
+    /// <summary>
+    /// Call if the player has looked away from the interviewer
+    /// </summary>
+    public static void LookedAway()
+    {
+        if (m_timesLookedAway != 5)
+        {
+            m_timesLookedAway++;
+        }
+        AddTip(e_tipCategories.LOOKEDAWAY);
+    }
+
+    /// <summary>
+    /// return how many times the player looked away 
+    /// </summary>
+    /// <returns>how many times, up to 5 the player has looked away</returns>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static int GetLookedAway() => m_timesLookedAway;
 }

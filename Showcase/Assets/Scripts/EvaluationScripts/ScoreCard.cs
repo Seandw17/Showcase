@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using static ConversationStore;
 
 public class ScoreCard : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ScoreCard : MonoBehaviour
 
     void Start()
     {
-        m_responses = ConversationStore.ReturnFinalChosenResults();
+        m_responses = ReturnFinalChosenResults();
         m_pages = new List<Page>();
         PageMoveObject.Register(this);
         StartCoroutine(CalculateResult());
@@ -62,10 +63,11 @@ public class ScoreCard : MonoBehaviour
             yield return null;
         }
 
-        if (ConversationStore.GetDidntArrivedOnTime() != 0)
+        if (GetDidntArrivedOnTime() != 0)
         {
-            finalScore -= 5 * ConversationStore.GetDidntArrivedOnTime();
+            finalScore -= 5 * GetDidntArrivedOnTime();
         }
+        finalScore -= GetLookedAway();
 
         GenerateResultPage(finalScore);
 

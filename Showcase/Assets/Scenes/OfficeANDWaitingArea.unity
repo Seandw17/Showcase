@@ -6556,17 +6556,17 @@ PrefabInstance:
     - target: {fileID: 7735905781420685438, guid: 069b9d03dcea543c2940c4d2547df4bd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.371
+      value: -6.106
       objectReference: {fileID: 0}
     - target: {fileID: 7735905781420685438, guid: 069b9d03dcea543c2940c4d2547df4bd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.06
+      value: 1.318
       objectReference: {fileID: 0}
     - target: {fileID: 7735905781420685438, guid: 069b9d03dcea543c2940c4d2547df4bd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.592
+      value: -3.709
       objectReference: {fileID: 0}
     - target: {fileID: 7735905781420685438, guid: 069b9d03dcea543c2940c4d2547df4bd,
         type: 3}
@@ -6613,6 +6613,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd,
+        type: 3}
+      propertyPath: m_interviewer
+      value: 
+      objectReference: {fileID: 206729331}
+    - target: {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd,
+        type: 3}
+      propertyPath: m_questionsToAsk
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd,
+        type: 3}
+      propertyPath: m_forceInterviewToStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7735905781441120361, guid: 069b9d03dcea543c2940c4d2547df4bd,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -6632,16 +6647,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd,
-        type: 3}
-      propertyPath: m_interviewer
-      value: 
-      objectReference: {fileID: 206729331}
-    - target: {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd,
-        type: 3}
-      propertyPath: m_questionsToAsk
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 069b9d03dcea543c2940c4d2547df4bd, type: 3}

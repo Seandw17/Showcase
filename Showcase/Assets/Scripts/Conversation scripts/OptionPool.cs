@@ -22,19 +22,49 @@ public class OptionPool
 
         // loop through and create appropriate amount of options
         Debug.Log("Creating options");
+        float yOrigin = 0;
         for (int index = 0; index < _size; index++)
         {
-            if (index > 0)
+            // assume correct position
+            switch (index)
             {
-                _pos = new Vector3(_pos.x, _pos.y - 0.25f, _pos.z);
+                case 0:
+                    _pos = new Vector3(_pos.x, (_pos.y + 1.5f), _pos.z);
+                    break;
+                default:
+                    switch (index % 2)
+                    {
+                        case 0:
+                            _pos = new Vector3(_pos.x, _pos.y - 0.5f, _pos.z);
+                            break;
+                        default:
+                            switch (index)
+                            {
+                                case 1:
+                                    _pos = new Vector3(_pos.x, _pos.y - 0.5f,
+                                        _pos.z - 1);
+                                    yOrigin = _pos.y;
+                                    break;
+                                default:
+                                    _pos = new Vector3(_pos.x, yOrigin,
+                                        _pos.z + 2);
+                                    break;
+                            }
+                            break;
+                    }
+                    break;
             }
+
             GameObject hold =
                 Object.Instantiate(temp.transform.parent.gameObject);
             hold.transform.position = _pos;
             m_options[index] = hold.GetComponentInChildren<OptionData>();
             Debug.Log("Created option " + (index + 1) + " of " +
                 m_options.Length);
+
+            
         }
+
         Debug.Log("All options have been created");
     }
 

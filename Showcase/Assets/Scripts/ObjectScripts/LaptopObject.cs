@@ -31,13 +31,13 @@ public class LaptopObject : InteractableObjectBase
         //Set the cursor active
         GameManagerScript.GetCursor().EnableCursor();
         //Play Sound
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/tasklist_open", GetComponent<Transform>().position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
     }
 
     public void OpenWebPage()
     {
         GameManagerScript.SetNewHUD(m_websiteMain);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/tasklist_open", GetComponent<Transform>().position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
     }
 
     /*
@@ -55,7 +55,7 @@ public class LaptopObject : InteractableObjectBase
         m_playerscript.SetCanCameraMove(true);
         m_playerscript.SetCanPlayerMove(true);
         GameManagerScript.GetCursor().DisableCursor();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/tasklist_close", GetComponent<Transform>().position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
     }
 
     public void Unlock1()
@@ -65,6 +65,7 @@ public class LaptopObject : InteractableObjectBase
         {
             ConversationStore.RegisterUnlockFlag(e_unlockFlag.FIRST);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
             m_openfirst = true;
             if (m_gmscript.m_objectiveboolarray[0].Equals(false))
             {
@@ -80,6 +81,7 @@ public class LaptopObject : InteractableObjectBase
         {
             ConversationStore.RegisterUnlockFlag(e_unlockFlag.SECOND);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
             m_opensecond = true;
             if (m_gmscript.m_objectiveboolarray[0].Equals(false))
             {
@@ -95,6 +97,7 @@ public class LaptopObject : InteractableObjectBase
         {
             ConversationStore.RegisterUnlockFlag(e_unlockFlag.THIRD);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
             m_openthird = true;
             if (m_gmscript.m_objectiveboolarray[0].Equals(false))
             {
@@ -110,6 +113,7 @@ public class LaptopObject : InteractableObjectBase
         {
             ConversationStore.RegisterUnlockFlag(e_unlockFlag.FOURTH);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
             _m_openfourth = true;
             if (m_gmscript.m_objectiveboolarray[0].Equals(false))
             {

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float m_Translation;
     public float m_Straffe;
 
+    FMODUnity.StudioEventEmitter m_eventEmitter;
 
     public Camera m_camera;
 
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
     //public List<InteractableObjectBase> ig_interactable;
 
     //Float value used for the timer in setting the coroutine to set the value false
-   [SerializeField] float m_viewchangetimer;
+    [SerializeField] float m_viewchangetimer;
 
     //Bool to handle player movement
     bool m_canmove = true;
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
     //Static value for Players material
     public static Material m_playermaterial;
 
-   
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +66,8 @@ public class PlayerController : MonoBehaviour
 
         SetPlayerMeshModel(m_playermesh);
         SetPlayerMaterial(m_playermaterial);
+
+        m_eventEmitter = GetComponent<FMODUnity.StudioEventEmitter>();
     }
 
     // Update is called once per frame
@@ -77,7 +80,7 @@ public class PlayerController : MonoBehaviour
                 PlayerMovement();
             }
             CameraMovement();
-            OnInteract(); 
+            OnInteract();
         }
     }
 
@@ -88,6 +91,20 @@ public class PlayerController : MonoBehaviour
         m_Straffe = Input.GetAxis("Horizontal") * m_playerSpeed;
         m_Translation *= Time.deltaTime;
         m_Straffe *= Time.deltaTime;
+
+        Debug.Log(m_eventEmitter.IsPlaying());
+
+        if (m_Translation != 0 || m_Straffe != 0)
+        {
+            if (!m_eventEmitter.IsPlaying())
+            {
+                m_eventEmitter.Play();
+            }
+        }
+        else
+        {
+            m_eventEmitter.Stop();
+        }
 
         transform.Translate(m_Straffe, 0, m_Translation);
     }

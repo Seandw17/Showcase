@@ -2290,7 +2290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Music/waiting_room_music
+  Event: event:/Music/cafe_music
   PlayEvent: 1
   StopEvent: 2
   AllowFadeout: 1

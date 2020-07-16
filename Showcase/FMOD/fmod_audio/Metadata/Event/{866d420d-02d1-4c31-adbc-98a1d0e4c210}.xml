@@ -5,10 +5,10 @@
 			<value>door_close</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
-			<destination>{8319f741-8693-4c47-be8f-27d881974ef2}</destination>
+			<destination>{ce112ec1-ea86-47f6-810a-abb34bd8b22e}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{5419ede2-d64f-441f-af29-05504e4ee4e2}</destination>
@@ -60,7 +60,7 @@
 	<object class="MarkerTrack" id="{dfd63318-3b19-45b0-a7e9-7fda10f262e7}" />
 	<object class="GroupTrack" id="{164f5d97-5b89-4754-b1b1-e6abffea3fbf}">
 		<relationship name="modules">
-			<destination>{5164136e-dac5-4310-a6ef-77cfcb3722f2}</destination>
+			<destination>{7d0ec575-e9cf-43bf-a434-24676548021e}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{8fab8510-1366-4318-8884-1aa0bd0f70d1}</destination>
@@ -68,7 +68,7 @@
 	</object>
 	<object class="Timeline" id="{f8e9932e-93ec-4602-8778-3f2ffb7deaa1}">
 		<relationship name="modules">
-			<destination>{5164136e-dac5-4310-a6ef-77cfcb3722f2}</destination>
+			<destination>{7d0ec575-e9cf-43bf-a434-24676548021e}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{749bd0d8-2360-4254-942c-1c555fbbcc45}">
@@ -88,12 +88,12 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b7011429-045a-4d08-90ab-b97013ac8d61}" />
-	<object class="SingleSound" id="{5164136e-dac5-4310-a6ef-77cfcb3722f2}">
+	<object class="SingleSound" id="{7d0ec575-e9cf-43bf-a434-24676548021e}">
 		<property name="length">
-			<value>0.66666666666666663</value>
+			<value>2.2689342403628117</value>
 		</property>
 		<relationship name="audioFile">
-			<destination>{12034e3f-7bb9-46cb-9d02-5ec2f227259d}</destination>
+			<destination>{8a62c7f2-1c54-46e6-b9bd-22c5a6bffa6b}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{8fab8510-1366-4318-8884-1aa0bd0f70d1}">
@@ -189,7 +189,7 @@
 			<value>Max Distance</value>
 		</property>
 		<property name="value">
-			<value>500</value>
+			<value>50</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(2.000000,1.000000)(5.000000,5.000000)(10.000000,10.000000)(15.000000,100.000000)(20.000000,1000.000000)(27.000000,10000.000000)}</value>
@@ -225,7 +225,7 @@
 			<value>Directivity</value>
 		</property>
 		<property name="value">
-			<value>9.99999975e-06</value>
+			<value>0.105000004</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,1.000000)}</value>
@@ -246,7 +246,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -264,7 +263,7 @@
 			<value>Near-Field FX</value>
 		</property>
 		<property name="value">
-			<value>false</value>
+			<value>true</value>
 		</property>
 	</object>
 	<object class="FloatPluginParameter" id="{29374af3-d4fa-436e-b583-e05a7954f9fb}">
@@ -282,7 +281,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

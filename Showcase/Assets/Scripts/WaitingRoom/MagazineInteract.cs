@@ -30,6 +30,8 @@ public class MagazineInteract : InteractableObjectBase
         m_playerscript.SetCanCameraMove(false);
         GetCursor().EnableCursor();
         m_playerscript.SetCanInteract(false);
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/paper_magazine_collect"); -play sound when player collect paper magazine
+
     }
 
     public void ResetMagazineView()

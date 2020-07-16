@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{4687a40f-ffe3-41cf-b8f0-9b53944caa6f}">
+		<property name="name">
+			<value>amb_coffee_filter</value>
+		</property>
+		<relationship name="folder">
+			<destination>{71d67b89-519f-4df0-8f09-b314fc21d57f}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{7a824ef9-5770-4e27-af4a-97442ebb8f85}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{7a824ef9-5770-4e27-af4a-97442ebb8f85}">
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{6f8f5fc1-97fb-4259-b17c-eae51d2f06ef}">
+		<property name="name">
+			<value>waiting_room_music_filter</value>
+		</property>
+		<relationship name="folder">
+			<destination>{71d67b89-519f-4df0-8f09-b314fc21d57f}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{58a48d1c-65c0-49be-8171-6a2e107c608d}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{58a48d1c-65c0-49be-8171-6a2e107c608d}">
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+		<property name="seekSpeed">
+			<value>1</value>
+		</property>
+	</object>
+</objects>

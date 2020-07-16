@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{6cd255fd-91d5-48d8-a135-5690125381e8}">
 		<property name="name">
-			<value>waiting_room_music</value>
+			<value>cafe_music</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -98,6 +98,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{779aed94-9578-4845-8717-94bbf3aa7ffc}">
+		<property name="volume">
+			<value>-3</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{f95552c9-7dba-4477-a15d-5b4992508b80}</destination>
 		</relationship>
@@ -287,7 +290,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="value">
-			<value>3.81469727e-06</value>
+			<value>-8</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{caf9d45c-1283-4fba-a005-11a357b50f41}">
@@ -295,7 +298,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-10</value>
+			<value>-18.0000038</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{a032ecd4-0ff0-407b-969a-6005dc2714d2}">
@@ -336,7 +339,7 @@
 			<value>Spread</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>360</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,360.000000)}</value>
@@ -394,7 +397,7 @@
 			<value>Directivity</value>
 		</property>
 		<property name="value">
-			<value>0.150000006</value>
+			<value>0</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,1.000000)}</value>
@@ -459,7 +462,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="value">
-			<value>-28</value>
+			<value>-32</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{1eecd8a6-8fe4-40c6-a9af-4f54ba3bd57c}">
@@ -483,7 +486,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="value">
-			<value>1500</value>
+			<value>400</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{30af8f44-a0b8-4774-941f-57f60a9252c7}">
@@ -491,7 +494,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>550</value>
+			<value>10</value>
 		</property>
 	</object>
 	<object class="Automator" id="{edf47622-1f91-4bd5-b67d-0fb9c2008199}">
@@ -517,7 +520,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="value">
-			<value>-6</value>
+			<value>-12</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{4dc664a1-8954-4816-85f6-7f2bbc158928}">

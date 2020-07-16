@@ -2056,7 +2056,7 @@ MonoBehaviour:
   - Target: {fileID: 1209080543}
     Params:
     - Name: waiting_room_music_filter
-      Value: 1
+      Value: 0.5
   TriggerEvent: 3
 --- !u!114 &413737753
 MonoBehaviour:
@@ -4627,25 +4627,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647690359}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &661147214 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7560684512522755533, guid: b0ba77f6cea724820acbaaea24c15cfa,
-    type: 3}
-  m_PrefabInstance: {fileID: 1988502547}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &661147215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661147214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ListenerNumber: -1
 --- !u!1 &682624756
 GameObject:
   m_ObjectHideFlags: 0
@@ -6168,7 +6149,7 @@ MonoBehaviour:
   - Target: {fileID: 1209080543}
     Params:
     - Name: waiting_room_music_filter
-      Value: 0
+      Value: 1
   TriggerEvent: 3
 --- !u!114 &1118362820
 MonoBehaviour:
@@ -6687,7 +6668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209080541}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.199, y: 3.871, z: 3.041}
+  m_LocalPosition: {x: -13.86, y: 3.871, z: 3.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 682624757}
@@ -6706,15 +6687,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Music/waiting_room_music
+  Event: event:/Music/cafe_music
   PlayEvent: 1
   StopEvent: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
-  Params:
-  - Name: MusicFilterTest
-    Value: 1
+  Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
@@ -8179,7 +8158,7 @@ MonoBehaviour:
   - Target: {fileID: 1209080543}
     Params:
     - Name: waiting_room_music_filter
-      Value: 0.5
+      Value: 1
   TriggerEvent: 3
 --- !u!114 &1638189907
 MonoBehaviour:
@@ -9261,7 +9240,7 @@ MonoBehaviour:
   - Target: {fileID: 1209080543}
     Params:
     - Name: waiting_room_music_filter
-      Value: 0.25
+      Value: 0
   TriggerEvent: 3
 --- !u!114 &1795481443
 MonoBehaviour:
@@ -9991,7 +9970,8 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.035274804
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7560684512522755534, guid: b0ba77f6cea724820acbaaea24c15cfa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b0ba77f6cea724820acbaaea24c15cfa, type: 3}
 --- !u!4 &2025730777 stripped
 Transform:

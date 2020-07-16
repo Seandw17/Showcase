@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{95b0a49a-94a7-4372-9e9c-476f86b2516e}">
+		<property name="name">
+			<value>amb_waiting_room_filter</value>
+		</property>
+		<relationship name="folder">
+			<destination>{71d67b89-519f-4df0-8f09-b314fc21d57f}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{9b90225b-2204-46c0-99b9-a7e7029caa85}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{9b90225b-2204-46c0-99b9-a7e7029caa85}">
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>

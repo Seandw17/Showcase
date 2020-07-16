@@ -35,6 +35,7 @@ public class DoorObject : InteractableObjectBase
                     if (transform.rotation.z <= 0.5) //some reason this stops the rotation at 90 on the z axis so dont touch
                     {
                         transform.Rotate(Vector3.forward * m_rotationspeed * Time.deltaTime);
+                        
 
                     }
 
@@ -54,7 +55,9 @@ public class DoorObject : InteractableObjectBase
 
     public override void Interact()
     {
-        scene = SceneManager.GetActiveScene();
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/door_open"); - play sound when doors are opening
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/door_close"); -play sound when doors are closing
+       scene = SceneManager.GetActiveScene();
         if (scene.name.Equals("ChooseOutfit"))
         {
             if (m_levelname.Equals(""))

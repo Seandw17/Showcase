@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7D
   guid: 81dd46e80da93e4fb285961fcf5115fd
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -192,7 +192,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -391,7 +391,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1C
   guid: c89eba8554704942a59c2faadb719718
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -436,7 +436,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9A
   guid: a16a8e8460020d44bf698ed3b86a5500
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -476,7 +476,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/door_close
   guid: 0d426d86d102314cadbc98a1d0e4c210
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -517,7 +517,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_4
   guid: 3b1591b18e04b64188227f165fe13330
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -540,7 +540,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10C
   guid: b409510183031e4ea3f535c15bed03de
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -581,7 +581,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2F
   guid: 77e8cb1bef15a747bbbcc2de245aefbf
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -638,7 +638,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5C
   guid: 5f020d63fd08514686699b4710a2f55b
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -663,7 +663,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -710,7 +710,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9B
   guid: 6b1499660c520341b8f9fc96f189eecd
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -718,7 +718,7 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4375
---- !u!114 &-6563446136019811449
+--- !u!114 &-6631111551392713311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -735,6 +735,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 1
+--- !u!114 &-6563446136019811449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee/amb_coffee_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &-6520502271195927858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,12 +786,12 @@ MonoBehaviour:
   guid: fd55d26cd591d848a1355690125381e8
   Banks:
   - {fileID: -6520502271195927858}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 5688457351580865037}
+  - {fileID: 497026990186685624}
   MinDistance: 0
   MaxDistance: 0
   Length: 200347
@@ -813,7 +830,7 @@ MonoBehaviour:
   Path: event:/player_footstep
   guid: 22af27d86924e34398ece50c3972da2b
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -840,12 +857,12 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -6563446136019811449}
+  - {fileID: -6631111551392713311}
   MinDistance: 0
   MaxDistance: 0
   Length: 8000
@@ -922,7 +939,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2E
   guid: 43d439231bc36c4a9e3032e88e76c110
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -945,7 +962,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3B
   guid: e7b202f860298049806fa24d5deaa80c
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1004,7 +1021,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2A
   guid: f7d1243eefb2bd4f8c42db9bfeb0d563
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1137,7 +1154,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2B
   guid: c106f5f87b293d47b94a979c15e999e0
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1160,7 +1177,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5B
   guid: 33c980b9bdbbab4298f207a8afd69cae
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1183,7 +1200,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9C
   guid: c597084127ab784da083e044462c7fbc
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1224,7 +1241,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1B
   guid: 0d18e3485d08b94a8d84f6c54f9e268f
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1433,7 +1450,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7F
   guid: 909104c1e8264145926f1b4dd7f2a4d5
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1456,7 +1473,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4E
   guid: c9c80a278903a649a8eeae62732b3013
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1550,7 +1567,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/nothing_ok_then
   guid: 953cb6d911681945983b0ac484984ea3
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1630,7 +1647,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4D
   guid: bd76d20f9b80894ea672e145993e6b5b
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1759,7 +1776,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &-3588910555313761548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1847,7 +1864,7 @@ MonoBehaviour:
   Path: event:/Ambience/Bedroom/amb_bedroom_b
   guid: 3b4d942081773d4cb78e57a47b90be80
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -1870,7 +1887,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_3
   guid: e2ba8ea7cbc084499dae6ec4180a8a99
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1893,7 +1910,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5F
   guid: f53e57fd9b16f94693e3222b02c9e62f
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1938,12 +1955,12 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 8359822140593968115}
+  - {fileID: 3446996853972440549}
   MinDistance: 0
   MaxDistance: 0
   Length: 27999
@@ -2014,7 +2031,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6C
   guid: 7426780a5fb9f6429dcc7d4e8f9e0ed9
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2055,7 +2072,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7A
   guid: e57bb96754b8b149a9dcf824624c07b1
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2078,7 +2095,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6D
   guid: 00a75de46cabf646a3dadc8fa1e514a3
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2119,7 +2136,7 @@ MonoBehaviour:
   Path: event:/Ambience/Coffee Shop/amb_street
   guid: 0d0343c540798d44b132e8dae0282955
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -2248,7 +2265,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10F
   guid: 749b2e0a89b973479067c470757f962b
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2307,7 +2324,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10D
   guid: f5e9adc41224ed4883d2f98600ec92e5
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2330,7 +2347,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7B
   guid: 9e5224dc0542a449855530af58df124e
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2371,7 +2388,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8D
   guid: b6344cbe2a98de43a955369f1a3bca4c
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2430,7 +2447,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/any_questions_itself
   guid: 063c52572ea607459432a05e9dfded74
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -2469,7 +2486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 2061836392448175845}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   EditorEvents:
   - {fileID: 1780115402532591631}
   - {fileID: 6299934516555497571}
@@ -2566,10 +2583,10 @@ MonoBehaviour:
   - {fileID: -2041497008714503742}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   StringsBanks:
   - {fileID: 2061836392448175845}
-  stringsBankWriteTime: 637304990944780436
+  stringsBankWriteTime: 637305048799311412
   cacheVersion: 3
 --- !u!114 &11867730222310922
 MonoBehaviour:
@@ -2645,7 +2662,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6F
   guid: a9495128cb556c43b94ba9b7d878ccd1
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2686,7 +2703,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6A
   guid: c775ce40d53a37429c5064bc41aaa5ad
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2769,6 +2786,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &497026990186685624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/waiting_room_music/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &542666658615885069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2822,7 +2856,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1D
   guid: c36bb34a3497e5498b897a44a78d411f
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2977,7 +3011,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10A
   guid: bff85ff165612749be137d522e4cd249
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3035,7 +3069,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/clock
   guid: dc1f5df0ed4d0b418e19db2859729417
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -3080,7 +3114,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7E
   guid: 72126c530391404b86bd077fd9326f3b
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3103,7 +3137,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10B
   guid: 6cb186bad69d7d468d4c3b4e8264055b
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3126,7 +3160,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/Bedroom/Wardrobe/collect_clothes
   guid: ae6b4c8d6c59bb4bb3ad5e8595cb3633
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3149,7 +3183,7 @@ MonoBehaviour:
   Path: event:/lamp_switch
   guid: d8bc63de2f313c4190eda8437f5e16e6
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3208,7 +3242,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_1
   guid: 7dce115df5b7694bbfc1366014b8436e
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3237,7 +3271,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -3260,7 +3294,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3D
   guid: 4230213c33eede42b6df11badec2ff22
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3359,7 +3393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637304990944780436
+  lastModified: 637305048799311412
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -3460,7 +3494,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7C
   guid: 3a1082e809eac64d88d20f1905633f36
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3483,7 +3517,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3F
   guid: 192f0e47df0ab1458b4ef95e637bbf3a
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3524,7 +3558,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8C
   guid: 62504c1d1561734995754c8f1b6a30f5
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3565,7 +3599,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8B
   guid: c7ea80782640a04bb833b050c204b1ba
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3573,6 +3607,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2750
+--- !u!114 &2657305166003319704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637305048799281743
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &2815178091148683079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3606,7 +3658,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4B
   guid: 2a5a9ee21e3b56438da86938aa67855f
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3671,7 +3723,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3837,7 +3889,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8F
   guid: 218986a85d21154c8e1013480b26782f
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3860,7 +3912,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8A
   guid: 9d29d8aa70cd08409ad09e57f4e6d75d
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3883,7 +3935,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1A
   guid: 9a68a7a331d284458e6ead9b57cbe7c6
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3908,6 +3960,23 @@ MonoBehaviour:
   lastModified: 637296255390000000
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &3446996853972440549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee_bar/amb_coffee_bar_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_bar_filter
+  Min: 0
+  Max: 1
+  Default: 1
   Exists: 1
 --- !u!114 &3607849594216576422
 MonoBehaviour:
@@ -3965,7 +4034,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3C
   guid: 7aafc23845ad494d8b3fe5ae870418c6
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4044,7 +4113,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5E
   guid: e2e8c361751d6a41ab8c96978599b121
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4085,7 +4154,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9D
   guid: 057d8ee092d9894fa46b16c9e7fe6701
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4143,7 +4212,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3A
   guid: 35795092bb416641a6cff92e041f061c
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4166,7 +4235,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4A
   guid: 96d21ffcd3609749a72aba08722d451c
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4225,7 +4294,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1F
   guid: 84c58292c81b9641855acac43c9a7b08
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4322,7 +4391,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/Bedroom/pc_tower
   guid: 8c40e8b16ba3f64c9aea18f3b535b995
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -4363,7 +4432,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6E
   guid: 771ff46f6d3401458946675eac5a1c33
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4461,7 +4530,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -4521,7 +4590,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &5702746234564384229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4539,12 +4608,12 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -3683220300371919667}
+  - {fileID: 6876708180133232949}
   MinDistance: 0
   MaxDistance: 0
   Length: 8055
@@ -4581,7 +4650,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1E
   guid: a4ed2a1538016341bf6127bf9466c858
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4718,7 +4787,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2C
   guid: dc0e791ac8f35942a2f9a13aa1de238d
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4781,7 +4850,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/paper_magazine_collect
   guid: 59a262ccdc13b649934778dd07318d05
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4810,7 +4879,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4853,7 +4922,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -4948,7 +5017,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5A
   guid: 9c8bb630ec5de5479459213fcec2fde2
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4989,7 +5058,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6B
   guid: ff4879f8a7bc2f4b9e3270ba46c932c8
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5014,6 +5083,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &6876708180133232949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_waiting_room/amb_waiting_room_filter
+  m_EditorClassIdentifier: 
+  Name: amb_waiting_room_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &6942333894803029584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5029,7 +5115,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/door_open
   guid: 0e1fac1d20f94942a2c2b802ebf517a2
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5052,7 +5138,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/any_questions
   guid: db166d47a0d32e4c893eed1d2b85e3cb
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5150,7 +5236,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_5
   guid: f787e9a921dee447b20a0bbf1de97e09
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5173,7 +5259,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4F
   guid: 30f8213edfda4b44829d64d233d5fa0c
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5196,7 +5282,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10E
   guid: c44ca672e0934649b259b297287ef6c0
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5219,7 +5305,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5D
   guid: 74db400baacb07419cfc38f79eb2e02e
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5332,7 +5418,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3E
   guid: 83cace2628080349a6bb40765cc8935d
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5425,7 +5511,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9F
   guid: d96755c3aa49714097304f99bc3ca210
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5467,7 +5553,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &8477180219372435897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5483,7 +5569,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8E
   guid: f3912f822ef6864a929bc89cc33ab952
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5506,7 +5592,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2D
   guid: 8cbda49f02c48945b3e5b34f90b474cc
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5547,7 +5633,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_2
   guid: 0c63a90291eee74e8832713b664a0c35
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5570,7 +5656,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9E
   guid: f0f760d34fc92948a7b3bf7e3e6ea6f4
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5593,7 +5679,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4C
   guid: bf3396d87d89bf4381670f8371440496
   Banks:
-  - {fileID: 9114479735801580787}
+  - {fileID: 2657305166003319704}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5618,7 +5704,7 @@ MonoBehaviour:
   lastModified: 637304990944700649
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &9134933042507060911
 MonoBehaviour:
   m_ObjectHideFlags: 0

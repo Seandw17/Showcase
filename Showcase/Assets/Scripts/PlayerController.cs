@@ -92,8 +92,6 @@ public class PlayerController : MonoBehaviour
         m_Translation *= Time.deltaTime;
         m_Straffe *= Time.deltaTime;
 
-        Debug.Log(m_eventEmitter.IsPlaying());
-
         if (m_Translation != 0 || m_Straffe != 0)
         {
             if (!m_eventEmitter.IsPlaying())

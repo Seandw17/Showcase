@@ -160,7 +160,7 @@ public class QuestionAudio : MonoBehaviour
             Debug.LogWarning("Audio was playing when this was called");
         }
 
-        m_FMODInstance.Event = "event:/Dialogue/Interviewer/Extras/outro_" +
+        m_FMODInstance.Event = "event:/Dialogue/Interviewer/Extras/outro" +
             _line;
 
         Debug.Log("Playing outro line: " + _line);

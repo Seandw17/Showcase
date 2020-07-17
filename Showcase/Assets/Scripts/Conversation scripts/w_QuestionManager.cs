@@ -162,16 +162,14 @@ public class w_QuestionManager : MonoBehaviour
         {
             Debug.Log(m_questions.Count);
 
-            /*
             // retrieve data
             int nextQuestion = Random.Range(0, m_questions.Count
                 - 1);
-            */
 
             List<Questionresponse> playerResponses =
-                m_questions[m_currentQuestion].options;
+                m_questions[nextQuestion].options;
             string questionToDisplay =
-                m_questions[m_currentQuestion].questions[m_previous];
+                m_questions[nextQuestion].questions[m_previous];
 
             // check we have returned a value
             Debug.Assert(!questionToDisplay.Equals(new QuestionData()),
@@ -182,7 +180,7 @@ public class w_QuestionManager : MonoBehaviour
             StopFade();
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
                 m_fadeInSpeed, true));
-            m_QuestionAudio.PlayNewQuestion(m_questions[m_currentQuestion].ID,
+            m_QuestionAudio.PlayNewQuestion(m_questions[nextQuestion].ID,
                 m_previous);
 
             // wait for audio
@@ -191,12 +189,12 @@ public class w_QuestionManager : MonoBehaviour
                 yield return null;
             }
 
-            m_optionPool.Set(playerResponses, m_questions[m_currentQuestion]);
+            m_optionPool.Set(playerResponses, m_questions[nextQuestion]);
 
             Debug.Log("Chose Question: " + questionToDisplay);
 
             // remove our question to prevent repeated valeus
-            m_questions.RemoveAt(m_currentQuestion);
+            m_questions.RemoveAt(nextQuestion);
 
             m_waitForAnswer = StartCoroutine(WaitForAnswer());
 

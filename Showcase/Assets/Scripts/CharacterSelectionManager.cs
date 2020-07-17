@@ -35,7 +35,7 @@ public class CharacterSelectionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        m_cmScript.EnableCursor();
     }
 
     public void SetPlayerMeshMale()

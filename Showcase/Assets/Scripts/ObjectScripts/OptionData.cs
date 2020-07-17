@@ -47,8 +47,12 @@ public class OptionData : InteractableObjectBase
         gameObject.SetActive(true);
         if (m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
         if (m_fadeText != null) { StopCoroutine(m_fadeText); }
-        m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
-        m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
+        // TODO remove this if statement once material is given
+        if (m_isInteractible)
+        {
+            m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
+            m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
+        }
     }
 
     /// <summary>
@@ -67,8 +71,12 @@ public class OptionData : InteractableObjectBase
         gameObject.SetActive(true);
         if (m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
         if (m_fadeText != null) { StopCoroutine(m_fadeText); }
-        m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
-        m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
+        // TODO remove this if statement once material is given
+        if (m_isInteractible)
+        {
+            m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
+            m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
+        }
         m_questionID = _ID;
     }
 

@@ -364,17 +364,21 @@ public class w_QuestionManager : MonoBehaviour
         string[] introText = LoadIntroText();
         WaitForSeconds waitFor = new WaitForSeconds(1.5f);
 
-        foreach (string line in introText)
+        for (int index = 0; index < introText.Length; index++)
         {
-            // TODO BOBBY this is where each line of the interview start text should go
-            m_questionBox.SetText(line);
+            m_questionBox.SetText(introText[index]);
+            m_QuestionAudio.PlayIntro(index + 1);
             StopFade();
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
                 m_fadeInSpeed, true));
-            yield return waitFor;
+            while (!m_QuestionAudio.IsDonePlaying())
+            {
+                yield return null;
+            }
             FadeOutQuestionText();
             yield return waitFor;
         }
+
         StartCoroutine(LoadRandomQuestion());
     }
 
@@ -390,16 +394,20 @@ public class w_QuestionManager : MonoBehaviour
         StartCoroutine(m_optionPool.Clear());
 
         string[] outroText = LoadOutroText();
-        foreach (string line in outroText)
+
+        for (int index = 0; index < outroText.Length; index++)
         {
-            // TODO BOBBY this is where each line of the interview end should go
             FadeOutQuestionText();
             yield return waitFor;
-            m_questionBox.SetText(line);
+            m_QuestionAudio.PlayOutro(index + 1);
+            m_questionBox.SetText(outroText[index]);
             StopFade();
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
                 true));
-            yield return waitFor;
+            while (!m_QuestionAudio.IsDonePlaying())
+            {
+                yield return null;
+            }
         }
 
         FadeOutQuestionText();

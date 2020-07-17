@@ -136,4 +136,36 @@ public class QuestionAudio : MonoBehaviour
         throw new Exception("An illegal value has been passed to the " +
             "context parser");
     }
+
+    public void PlayIntro(int _line)
+    {
+        if (!IsDonePlaying())
+        {
+            Debug.LogWarning("Audio was playing when this was called");
+        }
+
+        m_FMODInstance.Event = "event:/Dialogue/Interviewer/Extras/intro_" +
+            _line;
+
+        Debug.Log("Playing intro line: " + _line);
+
+        m_FMODInstance.Lookup();
+        PlayAudio();
+    }
+
+    public void PlayOutro(int _line)
+    {
+        if (!IsDonePlaying())
+        {
+            Debug.LogWarning("Audio was playing when this was called");
+        }
+
+        m_FMODInstance.Event = "event:/Dialogue/Interviewer/Extras/outro_" +
+            _line;
+
+        Debug.Log("Playing outro line: " + _line);
+
+        m_FMODInstance.Lookup();
+        PlayAudio();
+    }
 }

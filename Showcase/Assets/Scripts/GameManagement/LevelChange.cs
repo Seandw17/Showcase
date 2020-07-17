@@ -49,6 +49,8 @@ public class LevelChange : MonoBehaviour
     /// <returns>yield command</returns>
     public IEnumerator LoadLevel(string _sceneName)
     {
+        PlayerController.SetInPlay(false);
+
         yield return new WaitForSeconds(1);
 
         AsyncOperation async = SceneManager.
@@ -77,6 +79,8 @@ public class LevelChange : MonoBehaviour
         {
             GameManagerScript.UIActive(false);
         }
+
+        PlayerController.SetInPlay(true);
     }
 
     /// <summary>

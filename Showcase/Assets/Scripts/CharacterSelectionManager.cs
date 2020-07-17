@@ -29,7 +29,8 @@ public class CharacterSelectionManager : MonoBehaviour
 
         GameManagerScript.SetNewHUD(m_playersexPanel);
         m_cmScript.EnableCursor();
-       
+
+        m_pcScript.SetCanPlayerMove(false);
     }
 
     // Update is called once per frame

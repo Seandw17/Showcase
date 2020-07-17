@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public float m_Translation;
     public float m_Straffe;
 
-    FMODUnity.StudioEventEmitter m_eventEmitter;
+    static FMODUnity.StudioEventEmitter m_eventEmitter;
 
     public Camera m_camera;
 
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     //Static value for Players material
     public static Material m_playermaterial;
 
-
+    static bool m_inPlay;
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
         if (m_Translation != 0 || m_Straffe != 0)
         {
-            if (!m_eventEmitter.IsPlaying())
+            if (!m_eventEmitter.IsPlaying() && m_inPlay)
             {
                 m_eventEmitter.Play();
             }
@@ -176,6 +176,7 @@ public class PlayerController : MonoBehaviour
                
                 if (Input.GetMouseButtonDown(0))
                 {
+                    m_eventEmitter.Stop();
                     hitObject.GetComponent<InteractableObjectBase>().Interact();
                 }
             }
@@ -272,4 +273,14 @@ public class PlayerController : MonoBehaviour
         m_isininterview = _isininterview;
         return m_isininterview;
     }
+
+    public static void SetInPlay(bool _value)
+    {
+        if (!_value && m_eventEmitter != null)
+        {
+            m_eventEmitter.Stop();   
+        }
+        m_inPlay = _value;
+    }
+
 }

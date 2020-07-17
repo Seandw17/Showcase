@@ -160,6 +160,8 @@ public class w_QuestionManager : MonoBehaviour
         }
         else
         {
+            Debug.Log(m_questions.Count);
+
             /*
             // retrieve data
             int nextQuestion = Random.Range(0, m_questions.Count

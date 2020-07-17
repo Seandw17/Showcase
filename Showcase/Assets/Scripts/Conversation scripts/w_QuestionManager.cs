@@ -149,6 +149,8 @@ public class w_QuestionManager : MonoBehaviour
     /// </summary>
     IEnumerator LoadRandomQuestion()
     {
+        Debug.Log(m_questions.Count);
+
         m_currentQuestion++;
         if (m_currentQuestion > m_questionsToAsk)
         {
@@ -158,14 +160,16 @@ public class w_QuestionManager : MonoBehaviour
         }
         else
         {
+            /*
             // retrieve data
             int nextQuestion = Random.Range(0, m_questions.Count
                 - 1);
+            */
 
             List<Questionresponse> playerResponses =
-                m_questions[nextQuestion].options;
+                m_questions[m_currentQuestion].options;
             string questionToDisplay =
-                m_questions[nextQuestion].questions[m_previous];
+                m_questions[m_currentQuestion].questions[m_previous];
 
             // check we have returned a value
             Debug.Assert(!questionToDisplay.Equals(new QuestionData()),
@@ -176,7 +180,7 @@ public class w_QuestionManager : MonoBehaviour
             StopFade();
             m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
                 m_fadeInSpeed, true));
-            m_QuestionAudio.PlayNewQuestion(m_questions[nextQuestion].ID,
+            m_QuestionAudio.PlayNewQuestion(m_questions[m_currentQuestion].ID,
                 m_previous);
 
             // wait for audio
@@ -185,12 +189,12 @@ public class w_QuestionManager : MonoBehaviour
                 yield return null;
             }
 
-            m_optionPool.Set(playerResponses, m_questions[nextQuestion]);
+            m_optionPool.Set(playerResponses, m_questions[m_currentQuestion]);
 
             Debug.Log("Chose Question: " + questionToDisplay);
 
             // remove our question to prevent repeated valeus
-            m_questions.RemoveAt(nextQuestion);
+            m_questions.RemoveAt(m_currentQuestion);
 
             m_waitForAnswer = StartCoroutine(WaitForAnswer());
 

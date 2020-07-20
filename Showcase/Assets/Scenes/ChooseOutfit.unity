@@ -4440,10 +4440,10 @@ MonoBehaviour:
   ceiling: 16
   backWall: 9
   frontWall: 5
-  reflectivity: 1
-  reverbGainDb: 0
+  reflectivity: 0.11
+  reverbGainDb: -1.3
   reverbBrightness: 0
-  reverbTime: 1
+  reverbTime: 0.51
   size: {x: 1, y: 1, z: 1}
 --- !u!1 &2144198193
 GameObject:

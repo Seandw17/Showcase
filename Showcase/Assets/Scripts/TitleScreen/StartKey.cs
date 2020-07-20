@@ -88,10 +88,12 @@ public class StartKey : MonoBehaviour
             if (m_howToPlay.transform.parent == null)
             {
                 GameManagerScript.SetNewHUD(m_howToPlay);
+                Time.timeScale = 0;
             }
             else
             {
                 GameManagerScript.SetHUDToNull();
+                Time.timeScale = 1;
             }
         }
     }

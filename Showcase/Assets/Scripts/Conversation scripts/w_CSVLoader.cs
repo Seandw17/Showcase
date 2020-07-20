@@ -23,9 +23,16 @@ static public class w_CSVLoader
         List<QuestionData> returnValue = new List<QuestionData>();
         QuestionData temp = new QuestionData();
 
+        StreamWriter writer = new StreamWriter("Assets/Resources/EntireFile.txt", true);
+        writer.WriteLine(file.text);
+        writer.Close();
+
+        writer = new StreamWriter("Assets/Resources/LineByLine.txt", true);
+
         string[] lines = file.text.Split('\n');
         foreach (string line in lines)
         {
+            writer.WriteLine(line);
             if (!line[0].Equals('#'))
             {
                 if (line.Equals("end"))

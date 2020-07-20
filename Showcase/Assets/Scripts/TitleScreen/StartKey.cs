@@ -9,6 +9,21 @@ public class StartKey : MonoBehaviour
     /// </summary>
     [SerializeField] string m_startKeyController;
 
+    /// <summary>
+    /// How to play menu keyboard key
+    /// </summary>
+    [SerializeField] KeyCode m_howToPlayKeyBoard;
+    /// <summary>
+    /// How to play menu controller key
+    /// </summary>
+    [SerializeField] string m_howToPlayKeyController;
+
+    /// <summary>
+    /// Tmpro objects
+    /// </summary>
+    [SerializeField] TextMeshProUGUI m_startText;
+    [SerializeField] TextMeshProUGUI m_HowToPlayText;
+
     private void Awake()
     {
         // compose text for how to start
@@ -21,7 +36,17 @@ public class StartKey : MonoBehaviour
 
         setValue += " to begin";
 
-        GetComponent<TextMeshProUGUI>().SetText(setValue);
+        m_startText.SetText(setValue);
+
+
+        setValue = "Press " + m_howToPlayKeyBoard.ToString();
+        if (!m_howToPlayKeyController.Equals(""))
+        {
+            setValue += "or " + m_howToPlayKeyController.ToString(); 
+        }
+        setValue += " for how to play";
+
+        m_HowToPlayText.SetText(setValue);
     }
 
     // Update is called once per frame
@@ -43,6 +68,23 @@ public class StartKey : MonoBehaviour
         if (inputs)
         {
             ChangeLevel("CharacterSelection");
+        }
+
+        // Inputs for the how to play screen
+        if (!m_howToPlayKeyController.Equals(""))
+        {
+            inputs = Input.GetKeyDown(m_howToPlayKeyBoard) ||
+                Input.GetButtonDown(m_howToPlayKeyController);
+        }
+        else
+        {
+            inputs = Input.GetKeyDown(m_howToPlayKeyBoard);
+        }
+
+        if (inputs)
+        {
+            throw new System.Exception
+                ("I haven't got a screen for how to play yet");
         }
     }
 }

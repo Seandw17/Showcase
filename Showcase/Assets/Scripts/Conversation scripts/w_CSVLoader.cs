@@ -30,8 +30,9 @@ static public class w_CSVLoader
         writer = new StreamWriter("Assets/Resources/LineByLine.txt", false);
 
         string[] lines = file.text.Split('\n');
-        foreach (string line in lines)
+        foreach (string lineRaw in lines)
         {
+            string line = lineRaw.Replace("\n", "").Replace("\r", "");
             if (!line[0].Equals('#') && !line.Equals(""))
             {
                 writer.WriteLine(line);

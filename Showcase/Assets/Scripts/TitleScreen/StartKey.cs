@@ -24,6 +24,8 @@ public class StartKey : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_startText;
     [SerializeField] TextMeshProUGUI m_HowToPlayText;
 
+    [SerializeField] GameObject m_howToPlay;
+
     private void Awake()
     {
         // compose text for how to start
@@ -83,8 +85,14 @@ public class StartKey : MonoBehaviour
 
         if (inputs)
         {
-            throw new System.Exception
-                ("I haven't got a screen for how to play yet");
+            if (m_howToPlay.transform.parent == null)
+            {
+                GameManagerScript.SetNewHUD(m_howToPlay);
+            }
+            else
+            {
+                GameManagerScript.SetHUDToNull();
+            }
         }
     }
 }

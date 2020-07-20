@@ -88,6 +88,7 @@ public class GameManagerScript : MonoBehaviour
         ig_currenthud.SetActive(false);
         if (ig_currenthud != m_playerPanel)
         {
+            ig_currenthud.transform.parent = null;
             SceneManager.MoveGameObjectToScene(ig_currenthud,
                 SceneManager.GetActiveScene());
         }

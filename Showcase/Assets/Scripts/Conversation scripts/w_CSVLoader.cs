@@ -23,11 +23,11 @@ static public class w_CSVLoader
         List<QuestionData> returnValue = new List<QuestionData>();
         QuestionData temp = new QuestionData();
 
-        StreamWriter writer = new StreamWriter("Assets/Resources/EntireFile.txt", true);
+        StreamWriter writer = new StreamWriter("Assets/Resources/EntireFile.txt", false);
         writer.WriteLine(file.text);
         writer.Close();
 
-        writer = new StreamWriter("Assets/Resources/LineByLine.txt", true);
+        writer = new StreamWriter("Assets/Resources/LineByLine.txt", false);
 
         string[] lines = file.text.Split('\n');
         foreach (string line in lines)
@@ -64,6 +64,8 @@ static public class w_CSVLoader
                 }
             }
         }
+
+        writer.Close();
 
         Debug.Log("completed read of file: " + _fileName);
 

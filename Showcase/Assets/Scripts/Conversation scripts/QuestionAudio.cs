@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using FMODUnity;
 
 public class QuestionAudio : MonoBehaviour
 {
@@ -13,22 +14,15 @@ public class QuestionAudio : MonoBehaviour
     }
 
     public void PlayNewQuestion(int _questionID, e_rating _rating)
-    { 
-
-        if (!IsDonePlaying())
-        {
-            Debug.LogWarning("Audio was already playing when this was called");
-            StopAudio();
-        }
+    {
+        CheckIfDone();
 
         string newEvent = "Q" + _questionID + ParseContext(_rating);
 
-        m_FMODInstance.Event = "event:/Dialogue/Interviewer/Questions/" + newEvent;
-        m_FMODInstance.Lookup();
-        Debug.Log("Playing event: " + newEvent);
-        Debug.Assert(m_FMODInstance.Event != "", "An error has occured in " +
-            "the setting of the event");
-        PlayAudio();
+        m_FMODInstance.Event = "event:/Dialogue/Interviewer/Questions/" +
+            newEvent;
+        LookUpAndPlay("question Q" + _questionID + ParseContext(_rating));
+        
     }
 
     /// <summary>
@@ -42,10 +36,7 @@ public class QuestionAudio : MonoBehaviour
     /// </summary>
     public void PlayAudio()
     {
-        if (!IsDonePlaying())
-        {
-            Debug.LogWarning("This was called when audio was already running");
-        }
+        CheckIfDone();
         m_FMODInstance.Play();
     }
 
@@ -82,8 +73,9 @@ public class QuestionAudio : MonoBehaviour
         }
         m_FMODInstance.Event = "event:/Dialogue/Interviewer/Questions/"
             + _event;
-        m_FMODInstance.Lookup();
-        PlayAudio();
+
+        LookUpAndPlay("event " + _event);
+        
     }
 
     /// <summary>
@@ -92,10 +84,7 @@ public class QuestionAudio : MonoBehaviour
     /// <param name="ID"></param>
     public void PlayResponseToPlayerQuestion(int _ID)
     {
-        if (!IsDonePlaying())
-        {
-            Debug.LogWarning("Audio was playing when this was called");
-        }
+        CheckIfDone();
 
         if (_ID != 0)
         {
@@ -107,8 +96,8 @@ public class QuestionAudio : MonoBehaviour
             m_FMODInstance.Event = "event:/Dialogue/Interviewer/Questions" +
                 "/nothing_ok_then";
         }
-        m_FMODInstance.Lookup();
-        PlayAudio();
+        LookUpAndPlay("player response " + _ID);
+        
     }
 
     /// <summary>
@@ -140,33 +129,48 @@ public class QuestionAudio : MonoBehaviour
 
     public void PlayIntro(int _line)
     {
-        if (!IsDonePlaying())
-        {
-            Debug.LogWarning("Audio was playing when this was called");
-        }
+        CheckIfDone();
 
         m_FMODInstance.Event = "event:/Dialogue/Interviewer/Extras/intro_" +
             _line;
 
         Debug.Log("Playing intro line: " + _line);
 
-        m_FMODInstance.Lookup();
-        PlayAudio();
+        LookUpAndPlay("intro line  " + _line);  
     }
 
     public void PlayOutro(int _line)
     {
-        if (!IsDonePlaying())
-        {
-            Debug.LogWarning("Audio was playing when this was called");
-        }
+        CheckIfDone();
 
         m_FMODInstance.Event = "event:/Dialogue/Interviewer/Extras/outro" +
             _line;
 
         Debug.Log("Playing outro line: " + _line);
 
-        m_FMODInstance.Lookup();
-        PlayAudio();
+        LookUpAndPlay("outro line " + _line);        
+    }
+
+    void CheckIfDone()
+    {
+        if (!IsDonePlaying())
+        {
+            Debug.LogWarning("Audio was playing when this was called");
+            StopAudio();
+        }
+    }
+
+    void LookUpAndPlay(string _audioText)
+    {
+        try
+        {
+            m_FMODInstance.Lookup();
+            PlayAudio();
+        }
+        catch (EventNotFoundException)
+        {
+            Debug.Log("Requested Audio event: " + _audioText +
+                " Could not be found");
+        }
     }
 }

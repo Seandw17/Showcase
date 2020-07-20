@@ -32,9 +32,9 @@ static public class w_CSVLoader
         string[] lines = file.text.Split('\n');
         foreach (string line in lines)
         {
-            writer.WriteLine(line);
-            if (!line[0].Equals('#'))
+            if (!line[0].Equals('#') && !line.Equals(""))
             {
+                writer.WriteLine(line);
                 if (line.Equals("end"))
                 {
                     returnValue.Add(temp);

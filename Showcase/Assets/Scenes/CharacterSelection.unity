@@ -1039,14 +1039,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_malemesh: {fileID: 8696514955532347510, guid: b05e25cfffdde1d46b493d0a282c7181,
     type: 3}
-  m_femalemesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_femalemesh: {fileID: -2802882637618357329, guid: 04755f6fa6ac62f4a86df6a8e1e64f1b,
+    type: 3}
   m_playerracechoice:
   - {fileID: 2100000, guid: 23c26d97c770ec147a890c7087a8a647, type: 2}
   - {fileID: 2100000, guid: e61d9c1cd08322849a751848336d0e51, type: 2}
   - {fileID: 2100000, guid: 01b91450149b03a4581b19421634beb4, type: 2}
-  - {fileID: 2100000, guid: aa62e3a894ac31a4cbef9a435f7c1918, type: 2}
-  - {fileID: 2100000, guid: 0527b1828b80d81458e7fd4b6c1ab668, type: 2}
-  - {fileID: 8748892135801146194, guid: 562c98fc8a300444db1dcf26e39f184d, type: 3}
+  - {fileID: 2100000, guid: a24a471ff44b96f42b7fc5b03e0e9c4a, type: 2}
+  - {fileID: 2100000, guid: fe85aa8b68c904f4c98f43e770f68448, type: 2}
+  - {fileID: 2100000, guid: fc4507a3cbc42d94581dddecace56e0c, type: 2}
   m_playersexPanel: {fileID: 693295273}
   m_playermaleracePanel: {fileID: 1380342588}
   m_playerfemaleracePanel: {fileID: 1825355988}

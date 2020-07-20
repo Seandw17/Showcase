@@ -1,0 +1,50 @@
+i$1
+q$NONE|So what about this job appeals to you?,GREAT|Great! So moving on. What about this job appeals to you?,GOOD|Alright then sounds good! So what about this job appeals to you?,OK|Really? ok so moving on what about the job appeals to you?,BAD|Alright then. what about the job appeals to you?,AWFUL|That's not a response we would expect! what about the job appeals to you?
+r$It seems like it won't be very demanding|AWFUL|NONE,It looks fun|OK|NONE,It looks really easy|BAD|NONE,Your Company has a very generous progression scheme|GOOD|FIRST|,Your Company cares for its employees|GREAT|SECOND
+f$UNDEMANDING
+end
+i$2
+q$NONE|So you have a disagreement with your supervisor what would you do?,GREAT|Thats Fantastic! so you have a disagreement with your supervisor what would you do?,GOOD|Sounds good! Anyway You have a disagreement with your supervisor. What would you do?,OK|Alright then You have a disagreement with your supervisor what would you do?,BAD|Interesting You have a disagreement with your supervisor what would you do?,AWFUL|Wouldn't have thought that. so you have a disagreement with your supervisor what would you do?
+r$Take it up with the manager|OK|NONE,Resolve the issue with supervisor so we can work without conflict|GREAT|NONE,Stick to my ideas|BAD|NONE,Ignore them|AWFUL|THIRD,Discuss with the manager and find common ground|GOOD|FOURTH
+f$IMPROVEMENT
+end
+i$3
+q$NONE|What do you believe is expected of you at this job?,GREAT| Love it! So what do you believe is expected of you at this job?,GOOD|Great! So what do you believe is expected of you at this job?,OK|Alright then. What do you believe is expected of you at this job?,BAD|Oh ok then. What do you believe is expected of you at this job?,AWFUL|Interesting. What do you believe is expected of you at this job?
+r$I don't know|AWFUL|NONE,To turn up on time and not cause a fuss|BAD|NONE,To do the job at hand|OK|NONE,Take responsibility of my area and perform my tasks to the best of my ability|GREAT|FOURTH,To work hard and make every customer happy|GOOD|FIRST
+f$HARDWORK
+end
+i$4
+q$NONE|To start How well do you work in a team?,GREAT|Wow that's great! How well do you work in a team?,GOOD|Nice! I like that! How well do you work in a team?,OK|Ok so how well do you work in a team?,BAD|Right sounds good! How well do you work in a team?,AWFUL|Alright so How well do you work in a team?
+r$I prefer working not to rely on others|AWFUL|NONE,I'm ok in a team and I just go with the flow|OK|NONE,I don't often work in teams|BAD|NONE,I've worked on teams in the past in school|GOOD|SECOND,I'm great in teams and I take whatever role I need to fill|GOOD|FOURTH
+f$TEAMWORK
+end
+i$5
+q$NONE|So how do you tend to respond to criticism?,GREAT|Fantastic! So how do you respond to criticism?,GOOD|Great! so out of interest how do you deal with criticism?,OK|Alright. So how do you deal with criticism on the job?,BAD|Alright then. so criticism on the job how do you deal with it?,AWFUL|Interesting. So how do you respond to criticism on the job?
+r$I take it on respectfully and deal with it immediately|GREAT|NONE,I don’t tend to respond to it very well|BAD|NONE,I ignore it and would rather realise this issues on my own|BAD|NONE,I always want to improve. so I pay great attention|GOOD|FIRST,I listen and then improve so it doesn't happen again|GOOD|SECOND
+f$CRITICISM
+end
+i$6
+q$NONE|So what do you think are your best qualities?,GREAT|Awesome! So what are your best qualities?,GOOD|Good. So what are your best qualities?,OK|Ok. What do you think are your best qualities?,BAD|Alright then. So what do you feel are your best qualities?,AWFUL|Sounds good. So what do you believe are your best qualities?
+r$I’m a very hard worker! I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE, I don't really care|AWFUL|NONE
+f$HARDWORK
+end
+i$7
+q$NONE|So Where do you see yourself in a few years time?,GREAT|Awesome! Where do you see yourself in a few years time?,GOOD|Great! Where do you see yourself in a few years time?,OK|Alright where do you see yourself in a few years time?,BAD|Well then where do you see yourself in a few years time?,AWFUL|Ok then where do you see yourself in a few years time?
+r$I hope to have improved my skills and confidence to take on new projects and responsibilities|GOOD|NONE,I don’t know! I haven’t really thought about it|BAD|NONE,I hope to do something I really want to do as soon as possible|OK|NONE,I’d like to be working in something related to my interests! though I know I will have to work hard towards it|GREAT|FIRST,I hope to be able to support myself without worries|GOOD|NONE
+f$FORWARD
+end
+i$8
+q$NONE|Out of everyone why should we hire you?,GREAT|Great! Out of everyone why should we hire you?,GOOD|Ok out of everyone why should we hire you?,OK|So out of everyone why should we hire you?,BAD|Alright out of everyone why should we hire you?,AWFUL|Alright.. Out of everyone why should we hire you?
+r$I believe that my CV shows I am suited to work in this line of work!|GOOD|NONE,Obviously I’m the best out of everyone|AWFUL|NONE,I hope that talking with you has shown that I would be a great choice for you and your company|OK|SECOND,This would provide me a great opportunity to develop myself and work in a company I enjoy|GOOD|FIRST,Out of the people I’ve seen I believe I would fit into this environment a lot better|BAD|NONE
+f$UNIQUE
+end
+i$9
+q$NONE|A customer comes in a rush and is quite irate. What would you do?,GREAT|Ok then A customer comes in a rush and is quite irate. What would you do?,GOOD|Alright! A customer comes in a rush and is quite irate. What would you do?,OK|Ok a customer comes in a rush and is quite irate. What would you do?,BAD|So then a customer comes in a rush and is quite irate. What would you do?,AWFUL|So A customer comes in a rush and is quite irate. What would you do?
+r$I would refuse them service|AWFUL|NONE,I'd take my time to make sure I get the order correct|OK|NONE,I aknowledge that they are in a rush and get to them as soon as I can|GOOD|NONE,I acknowledge there needs and attempt to prepare the order if it would take a long time|GREAT|FIRST,I serve them first because they are in a rush|OK|FIRST
+f$PROBLEM
+end
+i$10
+q$NONE|Ok a customer complains to you about their coffee being cold. What do you do?,GREAT|Great! A customer complains to you about their coffee being cold. What do you do?,GOOD|Ok so a customer complains to you about their coffee being cold. What do you do?,OK|Alright. So a customer complains to you about their coffee being cold. What do you do?,BAD|Hrrrmm ok. A customer complains to you about their coffee being cold. What do you do?,AWFUL|That's interesting so a customer complains to you about their coffee being cold. What do you do?
+r$I would apologise and ask to know more about the situation so I can determine what the context is around the order|OK|NONE,I would promise to get them a new coffee|GOOD|NONE,I would find my supervisor and see how they would handle it|BAD|NONE,I would apologise first and ask if it was cold when they received it. I would then ask the barista if there was anything wrong with the machine or any other orders|OK|FIRST,I would take the coffee and see if it is actually cold|AWFUL|THIRD
+f$PROBLEM
+end

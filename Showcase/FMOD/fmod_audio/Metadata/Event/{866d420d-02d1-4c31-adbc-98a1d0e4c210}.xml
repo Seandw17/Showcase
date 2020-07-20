@@ -156,7 +156,7 @@
 			<value>Gain</value>
 		</property>
 		<property name="value">
-			<value>-6</value>
+			<value>-10</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-80.000000)(1.000000,24.000000)}</value>

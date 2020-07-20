@@ -55,8 +55,8 @@ public class DoorObject : InteractableObjectBase
 
     public override void Interact()
     {
-        //FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/door_open"); - play sound when doors are opening
-        //FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/door_close"); -play sound when doors are closing
+        // - play sound when doors are opening
+        // -play sound when doors are closing
        scene = SceneManager.GetActiveScene();
         if (scene.name.Equals("ChooseOutfit"))
         {
@@ -98,6 +98,14 @@ public class DoorObject : InteractableObjectBase
         {
             m_candoor = true;
             m_dooropen = !m_dooropen;
+            if (m_dooropen == true)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/door_open");
+            }
+            else
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/door_close");
+            }
             if(gameObject.scene.name == "Cafe")
             {
                 LevelChange.ChangeLevel(m_levelname);

@@ -103,9 +103,9 @@ public class OutfitManager : MonoBehaviour
                 m_currentOutfitImage[1] = m_femaleRace1OutfitImage[1];
                 m_currentOutfitImage[2] = m_femaleRace1OutfitImage[2];
 
-                //m_currentOutfitMats[0] = m_femaleRace1OutfitMats[0];
-                //m_currentOutfitMats[1] = m_femaleRace1OutfitMats[1];
-                //m_currentOutfitMats[2] = m_femaleRace1OutfitMats[2];
+                m_currentOutfitMats[0] = m_femaleRace1OutfitMats[0];
+                m_currentOutfitMats[1] = m_femaleRace1OutfitMats[1];
+                m_currentOutfitMats[2] = m_femaleRace1OutfitMats[2];
                 Debug.Log("Player is female with race 1");
             }
             else if (m_gmscript.m_playerracechoicebool[1])
@@ -114,9 +114,9 @@ public class OutfitManager : MonoBehaviour
                 m_currentOutfitImage[1] = m_femaleRace2OutfitImage[1];
                 m_currentOutfitImage[2] = m_femaleRace2OutfitImage[2];
 
-                //m_currentOutfitMats[0] = m_femaleRace2OutfitMats[0];
-                //m_currentOutfitMats[1] = m_femaleRace2OutfitMats[1];
-                //m_currentOutfitMats[2] = m_femaleRace2OutfitMats[2];
+                m_currentOutfitMats[0] = m_femaleRace2OutfitMats[0];
+                m_currentOutfitMats[1] = m_femaleRace2OutfitMats[1];
+                m_currentOutfitMats[2] = m_femaleRace2OutfitMats[2];
                 Debug.Log("Player is female with race 2");
             }
             else if (m_gmscript.m_playerracechoicebool[2])
@@ -125,9 +125,9 @@ public class OutfitManager : MonoBehaviour
                 m_currentOutfitImage[1] = m_femaleRace3OutfitImage[1];
                 m_currentOutfitImage[2] = m_femaleRace3OutfitImage[2];
 
-                //m_currentOutfitMats[0] = m_femaleRace3OutfitMats[0];
-                //m_currentOutfitMats[1] = m_femaleRace3OutfitMats[1];
-                //m_currentOutfitMats[2] = m_femaleRace3OutfitMats[2];
+                m_currentOutfitMats[0] = m_femaleRace3OutfitMats[0];
+                m_currentOutfitMats[1] = m_femaleRace3OutfitMats[1];
+                m_currentOutfitMats[2] = m_femaleRace3OutfitMats[2];
                 Debug.Log("Player is female with race 3");
             }
         }

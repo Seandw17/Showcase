@@ -20,6 +20,7 @@ public class StaffMemberObject : InteractableObjectBase
    
     private int m_destPoint = 0;
     private float m_currentWaitTime = 0.0f;
+    public float m_maxWaitTimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +39,7 @@ public class StaffMemberObject : InteractableObjectBase
             // show the text above the staff member then procede to wait a few seconds before starting the pathfinding.
             m_currentWaitTime += Time.deltaTime;
             int seconds = Mathf.RoundToInt(m_currentWaitTime % 60.0f);
-            if (seconds == 5)
+            if (seconds == m_maxWaitTimer)
             {
                 m_staffMemberMoving = true;
                 ig_staffMemberText.SetActive(false);

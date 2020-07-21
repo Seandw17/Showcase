@@ -234,6 +234,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Called");
         yield return new WaitForSeconds(m_viewchangetimer);
         m_islookingatinterviewer = false;
+        ConversationStore.LookedAway();
     }
 
     public void SetPlayerMeshModel(Mesh _mesh)

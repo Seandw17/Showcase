@@ -54,6 +54,11 @@ public class StartKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Application.Quit();
+        }
+
         // Check if we need to check for button
         bool inputs;
         if (!m_startKeyController.Equals(""))

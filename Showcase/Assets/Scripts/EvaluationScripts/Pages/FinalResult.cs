@@ -50,21 +50,4 @@ public class FinalResult : Page
         if (_score >= amountNeededToPass) { m_outcomeText.SetText(m_passText); }
         else { m_outcomeText.SetText(m_failText); }
     }
-    
-    /// <summary>
-    /// function to display this card
-    /// </summary>
-    public void Display()
-    {
-        Debug.Log("Called");
-        // instaniating the end button
-        GameObject button = Instantiate
-            (Resources.Load<GameObject>("Prefabs/EndButton"));
-        SetAlphaToZero(button.GetComponent<Renderer>().material);
-        StartCoroutine(FadeAsset(button.GetComponent<Renderer>(), 0.5f, true));
-        button.transform.position = new Vector3(
-            transform.position.x,
-            transform.position.y - 1,
-            transform.position.z);
-    }
 }

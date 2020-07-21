@@ -190,11 +190,11 @@ public class ScoreCard : MonoBehaviour
         }
         else if (m_currentPage == m_pages.Count - 1)
         {
-            m_rightButton.SetInteractable(false);
+            m_rightButton.ToggleEnd(true);
         }
         else
         {
-            m_rightButton.SetInteractable(true);
+            m_rightButton.ToggleEnd(false);
             m_leftButton.SetInteractable(true);
         }
     }
@@ -202,7 +202,6 @@ public class ScoreCard : MonoBehaviour
     public void TurnOn()
     {
         m_pages[0].gameObject.SetActive(true);
-        m_pages[0].gameObject.GetComponent<FinalResult>().Display();
         m_rightButton.gameObject.SetActive(true);
         m_leftButton.gameObject.SetActive(true);
     }

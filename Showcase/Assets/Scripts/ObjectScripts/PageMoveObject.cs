@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using static FadeIn;
+using TMPro;
 
 public class PageMoveObject : InteractableObjectBase
 {
@@ -13,6 +14,8 @@ public class PageMoveObject : InteractableObjectBase
     static ScoreCard m_card;
     e_direction m_directionToMove;
     bool m_interactable = true;
+    bool m_endGame;
+    GameObject m_mainMenuButton;
 
     /// <summary>
     /// Function to set static reference for scorecard parent
@@ -20,7 +23,7 @@ public class PageMoveObject : InteractableObjectBase
     /// <param name="_card">the cart that will act as a parent</param>
     static public void Register(ScoreCard _card)
     {
-        m_card = _card; 
+        m_card = _card;   
     }
 
     private void OnEnable()
@@ -37,29 +40,59 @@ public class PageMoveObject : InteractableObjectBase
     {
         m_directionToMove = _dir;
         transform.localRotation = Quaternion.Euler(0, 90, (int)_dir);
+
+        m_mainMenuButton = GetComponentInChildren<TextMeshPro>().gameObject;
+        m_mainMenuButton.SetActive(false);
+
+        if (_dir != e_direction.RIGHT)
+        {
+            Destroy(m_mainMenuButton);
+        }
     }
 
     public override void Interact()
     {
         if (m_interactable)
         {
-            Debug.Assert(m_directionToMove.Equals(e_direction.LEFT) ||
-            m_directionToMove.Equals(e_direction.RIGHT),
-            "Please give button a move direction");
-
-            if (m_directionToMove.Equals(e_direction.LEFT))
+            if (!m_endGame)
             {
-                m_card.GoPageLeft();
+                Debug.Assert(m_directionToMove.Equals(e_direction.LEFT) ||
+                    m_directionToMove.Equals(e_direction.RIGHT),
+                    "Please give button a move direction");
+
+                if (m_directionToMove.Equals(e_direction.LEFT))
+                {
+                    m_card.GoPageLeft();
+                }
+                else
+                {
+                    m_card.GoPageRight();
+                }
             }
             else
             {
-                m_card.GoPageRight();
+                // go back to the title screen
+                Debug.Log("Returning to TitleScreen");
+                LevelChange.ChangeLevel("TitleScreen");
             }
+            
         }
     }
 
     public void SetInteractable(bool _value)
     {
         m_interactable = _value;
+    }
+
+    /// <summary>
+    /// Turn this into a level end button
+    /// </summary>
+    /// <param name="_state">whether this ends the level or not</param>
+    public void ToggleEnd(bool _state)
+    {
+        Debug.Assert(m_directionToMove == e_direction.RIGHT,
+            "Wrong button passed turn off function");
+        m_mainMenuButton.SetActive(_state);
+        m_endGame = _state;
     }
 }

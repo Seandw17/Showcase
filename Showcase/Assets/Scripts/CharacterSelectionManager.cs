@@ -39,6 +39,11 @@ public class CharacterSelectionManager : MonoBehaviour
         m_cmScript.EnableCursor();
     }
 
+    public void ReturnToCharacterSexSelection()
+    {
+        GameManagerScript.SetNewHUD(m_playersexPanel);
+    }
+
     public void SetPlayerMeshMale()
     {
         m_pcScript.SetPlayerMeshModel(m_malemesh);

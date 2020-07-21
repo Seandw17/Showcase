@@ -145,7 +145,7 @@ static public class ConversationStore
         if (m_timesLookedAway != 5)
         {
             AddTip(e_tipCategories.LOOKEDAWAY);
-            Debug.Log("Registered that player was silent " +
+            Debug.Log("Registered that player has looked away " +
                 m_timesLookedAway + " of 5 times");
             m_timesLookedAway++;
         }

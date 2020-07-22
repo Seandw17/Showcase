@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_alternateGlowObject: {fileID: 0}
-  m_questionManager: {fileID: 0}
+  m_questionManager: {fileID: 1184843686}
   ig_playerobject: {fileID: 1419482148}
   ig_sitpoisitonobject: {fileID: 1858787061}
   m_isinterviewchair: 1
@@ -6937,6 +6937,18 @@ MonoBehaviour:
   m_fadeInSpeed: 0.75
   m_interviewer: {fileID: 206729331}
   m_forceInterviewToStart: 0
+--- !u!114 &1184843686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 556240120077072848, guid: 069b9d03dcea543c2940c4d2547df4bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1184843683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184843684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb9df78ae225434c9f64721976187e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1209080541
 GameObject:
   m_ObjectHideFlags: 0

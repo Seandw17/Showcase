@@ -46,22 +46,6 @@ public class QuestionAudio : MonoBehaviour
     public void StopAudio() => m_FMODInstance.Stop();
 
     /// <summary>
-    /// Play the intro text
-    /// </summary>
-    public void PlayIntroText()
-    {
-        throw new NotImplementedException();
-    }
-
-    /// <summary>
-    /// Play the outro text
-    /// </summary>
-    public void PlayOutroText()
-    {
-        throw new NotImplementedException();
-    }
-
-    /// <summary>
     /// Play a specific event from the questions directory
     /// </summary>
     /// <param name="_event">the events name</param>

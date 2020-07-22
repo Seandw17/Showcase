@@ -15,7 +15,7 @@ public class PlayerQuestionWindow : EditorWindow
         PlayerQuestionWindow window =
             (PlayerQuestionWindow)GetWindow(typeof(PlayerQuestionWindow));
 
-        w_CSVLoader.LoadInPlayerQuestions("PQuestions",out m_questions);
+        CSVLoader.LoadInPlayerQuestions("PQuestions",out m_questions);
         m_showQuestions = new List<bool>();
 
         foreach(PlayerQuestion ques in m_questions)

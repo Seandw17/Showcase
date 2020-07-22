@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using static FadeIn;
-using static w_CSVLoader;
+using static CSVLoader;
 using static ConversationStore;
 
 // Author: Alec
@@ -13,7 +13,7 @@ using static ConversationStore;
 /// <summary>
 /// Class to manage the gameloop of the question stage of the interviewer stage
 /// </summary>
-public class w_QuestionManager : MonoBehaviour
+public class QuestionManager : MonoBehaviour
 {
     TextMeshPro m_questionBox;
 
@@ -111,7 +111,7 @@ public class w_QuestionManager : MonoBehaviour
 
         m_progressText = m_timerSlider.transform.root.gameObject
             .GetComponentInChildren<TextMeshProUGUI>();
-        m_progressText.SetText(""); 
+        m_progressText.SetText("");
 
         if (m_forceInterviewToStart)
         {
@@ -140,7 +140,7 @@ public class w_QuestionManager : MonoBehaviour
     {
         if (m_fadeText != null)
         {
-            StopCoroutine(m_fadeText); 
+            StopCoroutine(m_fadeText);
         }
     }
 
@@ -212,7 +212,7 @@ public class w_QuestionManager : MonoBehaviour
         m_timerSlider.gameObject.SetActive(false);
         ProcessAnswer(_chosenResponse,
             m_questionBox.text);
-        if((int)_chosenResponse.rating < 4)
+        if ((int)_chosenResponse.rating < 4)
         {
             AddTip(_chosenResponse.tip);
         }
@@ -333,7 +333,7 @@ public class w_QuestionManager : MonoBehaviour
             AddTip(e_tipCategories.NOTASKING);
             m_QuestionAudio.PlayResponseToPlayerQuestion(0);
         }
-        
+
         while (m_QuestionAudio.IsDonePlaying())
         {
             yield return null;
@@ -352,7 +352,7 @@ public class w_QuestionManager : MonoBehaviour
         card.transform.position = new Vector3(
             playerPos.x - 0.5f,
             playerPos.y + 1f,
-            playerPos.z); 
+            playerPos.z);
         StartCoroutine(EndInterview(card));
         Destroy(m_timerSlider.gameObject);
     }

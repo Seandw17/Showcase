@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
 // Author: Alec
 
 // TODO rename class once completed
-static public class w_CSVLoader
+static public class CSVLoader
 {
     /// <summary>
     /// Function to load in interview questions

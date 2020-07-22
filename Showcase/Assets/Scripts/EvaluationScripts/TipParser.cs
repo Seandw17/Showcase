@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
-using static w_CSVLoader;
+using static CSVLoader;
 
 /// <summary>
 /// Class to parse and load tips 

@@ -8,7 +8,7 @@ using static FadeIn;
 public class OptionData : InteractableObjectBase
 {
     TextMeshPro m_textValue;
-    static w_QuestionManager m_questionManager;
+    static QuestionManager m_questionManager;
     Questionresponse m_responseForThisButton;
     bool m_isInteractible;
     Renderer m_renderer;
@@ -28,7 +28,7 @@ public class OptionData : InteractableObjectBase
     /// Function to set the manager
     /// </summary>
     /// <param name="_questionManager"> the manager object </param>
-    static public void Register(w_QuestionManager _questionManager)
+    static public void Register(QuestionManager _questionManager)
     {
         m_questionManager = _questionManager;
     }
@@ -117,7 +117,7 @@ public class OptionData : InteractableObjectBase
         float fadeOutTime = 0.5f;
         GetObjectOutline().enabled = false;
         SetShouldGlow(false);
-        if(m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
+        if (m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
         if (m_fadeText != null) { StopCoroutine(m_fadeText); }
         StartCoroutine(FadeAsset(m_renderer, fadeOutTime, false));
         StartCoroutine(FadeAsset(m_textValue, fadeOutTime, false));

@@ -14,7 +14,7 @@ public class TipsEditorWindow : EditorWindow
         TipsEditorWindow window =
             (TipsEditorWindow)GetWindow(typeof(TipsEditorWindow));
 
-        w_CSVLoader.LoadTips(out m_tips);
+        CSVLoader.LoadTips(out m_tips);
         
         window.Show();
     }

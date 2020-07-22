@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChairObject : InteractableObjectBase
 {
-    [SerializeField] w_QuestionManager m_questionManager;
+    [SerializeField] QuestionManager m_questionManager;
     [SerializeField] GameObject ig_playerobject, ig_sitpoisitonobject;
 
     BoxCollider m_boxcollider;

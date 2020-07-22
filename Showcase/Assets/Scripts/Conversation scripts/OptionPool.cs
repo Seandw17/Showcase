@@ -10,7 +10,7 @@ public class OptionPool
 {
     OptionData[] m_options;
 
-    public OptionPool(int _size, Vector3 _pos, w_QuestionManager _manager)
+    public OptionPool(int _size, Vector3 _pos, QuestionManager _manager)
     {
         m_options = new OptionData[_size];
 
@@ -62,7 +62,7 @@ public class OptionPool
             Debug.Log("Created option " + (index + 1) + " of " +
                 m_options.Length);
 
-            
+
         }
 
         Debug.Log("All options have been created");
@@ -90,10 +90,10 @@ public class OptionPool
     /// <param name="_questions">questions player can ask</param>
     public void Set(List<PlayerQuestion> _questions)
     {
-        for(int index = 0; index < m_options.Length; index++)
+        for (int index = 0; index < m_options.Length; index++)
         {
             m_options[index].SetLocked(!CheckHasFlag(_questions[index].flag));
-             Questionresponse temp = new  Questionresponse
+            Questionresponse temp = new Questionresponse
             {
                 rating = e_rating.GREAT,
                 response = _questions[index].question

@@ -24,7 +24,7 @@ public class InterviewQuestionWindow : EditorWindow
         InterviewQuestionWindow window =
             (InterviewQuestionWindow)GetWindow(typeof(InterviewQuestionWindow));
 
-        m_questions = w_CSVLoader.LoadQuestionData("IQuestions");
+        m_questions = CSVLoader.LoadQuestionData("IQuestions");
         m_displayQuestionVariations = new List<bool>();
         m_displayResponseVariations = new List<bool>();
 
@@ -79,7 +79,7 @@ public class InterviewQuestionWindow : EditorWindow
                 }
 
             }
-            
+
             m_questions[index].tip = (e_tipCategories)EditorGUILayout.
                 EnumPopup("Tip to display: ", m_questions[index].tip);
 

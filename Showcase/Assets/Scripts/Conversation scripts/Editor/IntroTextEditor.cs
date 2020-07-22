@@ -15,7 +15,7 @@ public class IntroTextWindow : EditorWindow
          IntroTextWindow window =
             (IntroTextWindow)GetWindow(typeof(IntroTextWindow));
 
-        m_introText = w_CSVLoader.LoadIntroText().ToList();
+        m_introText = CSVLoader.LoadIntroText().ToList();
         EditorStyles.textField.wordWrap = true;
         window.Show();
     }

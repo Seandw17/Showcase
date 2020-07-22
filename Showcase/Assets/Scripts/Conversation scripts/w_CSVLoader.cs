@@ -23,19 +23,12 @@ static public class w_CSVLoader
         List<QuestionData> returnValue = new List<QuestionData>();
         QuestionData temp = new QuestionData();
 
-        StreamWriter writer = new StreamWriter("Assets/Resources/EntireFile.txt", false);
-        writer.WriteLine(file.text);
-        writer.Close();
-
-        writer = new StreamWriter("Assets/Resources/LineByLine.txt", false);
-
         string[] lines = file.text.Split('\n');
         foreach (string lineRaw in lines)
         {
             string line = lineRaw.Replace("\n", "").Replace("\r", "");
             if (!line[0].Equals('#') && !line.Equals(""))
             {
-                writer.WriteLine(line);
                 if (line.Equals("end"))
                 {
                     returnValue.Add(temp);
@@ -65,8 +58,6 @@ static public class w_CSVLoader
                 }
             }
         }
-
-        writer.Close();
 
         Debug.Log("completed read of file: " + _fileName);
 
@@ -177,25 +168,6 @@ static public class w_CSVLoader
         Debug.Log("File: " + _name + " Has Been found");
 
         return file;
-    }
-
-    /// <summary>
-    /// Function to load in the filler text
-    /// </summary>
-    /// <returns>List of filler text string</returns>
-    public static List<string> LoadInFillerText()
-    {
-        List<string> returnList = new List<string>();
-
-        TextAsset file = LoadInFile("Conversation/FillerText");
-        string[] lines = file.text.Split('\n');
-
-        foreach (string line in lines)
-        {
-            returnList.Add(line);
-        }
-
-        return returnList;
     }
 
     /// <summary>

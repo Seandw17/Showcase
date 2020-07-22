@@ -592,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd,
         type: 3}
       propertyPath: m_questionsToAsk
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd,
         type: 3}

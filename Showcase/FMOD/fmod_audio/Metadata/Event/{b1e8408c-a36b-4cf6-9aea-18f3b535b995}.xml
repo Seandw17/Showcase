@@ -196,7 +196,7 @@
 			<value>Gain</value>
 		</property>
 		<property name="value">
-			<value>-26</value>
+			<value>-20</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-80.000000)(1.000000,24.000000)}</value>
@@ -207,7 +207,7 @@
 			<value>Spread</value>
 		</property>
 		<property name="value">
-			<value>180</value>
+			<value>46</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,360.000000)}</value>
@@ -229,7 +229,7 @@
 			<value>Max Distance</value>
 		</property>
 		<property name="value">
-			<value>15</value>
+			<value>9.40000057</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(2.000000,1.000000)(5.000000,5.000000)(10.000000,10.000000)(15.000000,100.000000)(20.000000,1000.000000)(27.000000,10000.000000)}</value>
@@ -265,7 +265,7 @@
 			<value>Directivity</value>
 		</property>
 		<property name="value">
-			<value>0.425000042</value>
+			<value>0</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,1.000000)}</value>
@@ -276,7 +276,7 @@
 			<value>Dir Sharpness</value>
 		</property>
 		<property name="value">
-			<value>7.19999981</value>
+			<value>1</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,1.000000)(1.000000,2.000000)(2.000000,5.000000)(3.000000,10.000000)}</value>

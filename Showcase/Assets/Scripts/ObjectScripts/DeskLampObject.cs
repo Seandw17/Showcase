@@ -31,12 +31,14 @@ public class DeskLampObject : InteractableObjectBase
             m_light.enabled = true;
 
             FMODUnity.RuntimeManager.PlayOneShot("event:/lamp_switch", GetComponent<Transform>().position);
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
         }
         else
         {
             m_light.enabled = false;
 
             FMODUnity.RuntimeManager.PlayOneShot("event:/lamp_switch", GetComponent<Transform>().position);
+            GetComponent<FMODUnity.StudioEventEmitter>().Stop();
         }
     }
 }

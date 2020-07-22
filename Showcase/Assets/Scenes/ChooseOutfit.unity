@@ -418,7 +418,7 @@ PrefabInstance:
     - target: {fileID: 900608328984363548, guid: 83023f241b7b51c4cb155d43e4e952bb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.7999878
+      value: -0.8000488
       objectReference: {fileID: 0}
     - target: {fileID: 900608328984363548, guid: 83023f241b7b51c4cb155d43e4e952bb,
         type: 3}
@@ -2745,8 +2745,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Environment/lamp_switch
-  PlayEvent: 0
+  Event: event:/SpotEffects/lamp_electricity
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0

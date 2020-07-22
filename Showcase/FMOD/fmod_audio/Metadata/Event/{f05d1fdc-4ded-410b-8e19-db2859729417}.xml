@@ -95,6 +95,9 @@
 		<property name="length">
 			<value>10</value>
 		</property>
+		<property name="name">
+			<value>clock_time</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{99aa3031-f2b8-49a4-941a-554a28df1659}</destination>
 		</relationship>

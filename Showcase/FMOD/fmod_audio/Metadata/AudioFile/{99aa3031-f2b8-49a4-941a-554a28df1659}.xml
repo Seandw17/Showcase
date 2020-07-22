@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="AudioFile" id="{99aa3031-f2b8-49a4-941a-554a28df1659}">
 		<property name="assetPath">
-			<value>G4F SFX05 - Casual - SPO sfx_clock_timer_10s_02.wav</value>
+			<value>clock_timer.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

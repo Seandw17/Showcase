@@ -36,8 +36,63 @@ namespace Tests
         }
 
         [UnityTest]
-        public IEnumerator Test_Page_Creation()
+        public IEnumerator Test_Final_Result_Page_Creation()
         {
+            FinalResult page = Object.Instantiate
+                (Resources.Load<GameObject>("Prefabs/FinalResultPage"))
+                .GetComponent<FinalResult>();
+
+            Assert.IsNotNull(page);
+
+            page.SetValue(5, 10);
+
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator Test_Tip_Page_Creation()
+        {
+            TipsPages page = Object.Instantiate
+                (Resources.Load<GameObject>("Prefabs/TipsPage"))
+                .GetComponent<TipsPages>();
+
+            Assert.IsNotNull(page);
+
+            string[] testData = { "Test", "Test", "Test" };
+
+            page.SetValue(testData);
+
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator Test_Answer_Page_Creation()
+        {
+            AnswerPage page = Object.Instantiate
+                (Resources.Load<GameObject>("Prefabs/AnswerPage"))
+                .GetComponent<AnswerPage>();
+
+            Assert.IsNotNull(page);
+
+            s_playerResponse[] testData = new s_playerResponse[3];
+
+            for (int index = 0; index < testData.Length; index++)
+            {
+                testData[index] = new s_playerResponse
+                {
+                    question = "Test",
+                    playerResponse = new Questionresponse
+                    {
+                        rating = e_rating.AWFUL,
+                        response = "Test",
+                        unlockCriteria = e_unlockFlag.FIRST,
+                        tip = e_tipCategories.CRITICISM
+                    }
+                };
+            }
+
+            page.SetValue(testData);
+
             yield return null;
         }
     }

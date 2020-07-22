@@ -5,7 +5,6 @@ using UnityEngine;
 public class WaitingChair : InteractableObjectBase
 {
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +30,10 @@ public class WaitingChair : InteractableObjectBase
         WaitingRoomManager.IsSitedInWaitingRoom();
         Debug.Log("IS SITTED CHECKED");
         m_gmscript.SetTaskTrue(5);
+       
 
-        
+
+
     }
 
 }

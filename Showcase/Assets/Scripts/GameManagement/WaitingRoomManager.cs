@@ -15,7 +15,7 @@ public class WaitingRoomManager : MonoBehaviour
 
 
     [SerializeField] private GameObject ig_doorToCoffee;
-    
+    [SerializeField] private GameObject ig_interviewDoor;
 
     [Header("Clock")]
     [SerializeField]
@@ -139,7 +139,9 @@ public class WaitingRoomManager : MonoBehaviour
                 m_gmScript.SetTaskTrue(6);
                 m_startTimerToGoToInterview = true;
                 ig_Clock.GetComponent<ClockManager>().SetTimers(m_hourStart, m_waitTimer);
-                if(!m_IsSited)
+                ig_interviewDoor.GetComponent<InteractableObjectBase>().enabled = true;
+               
+                if (!m_IsSited)
                 {
                     ConversationStore.DidntArrivedInWaitingAreaOnTime();//wasnt sitted on chair when timer ran off
                 }

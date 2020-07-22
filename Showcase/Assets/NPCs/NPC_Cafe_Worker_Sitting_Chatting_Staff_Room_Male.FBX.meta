@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc9f5b63d088d224b8bd9208e949c62f
+guid: 5bc762bfbc7899a42842fb9c1a447524
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: M_Cardboard
-    second: {fileID: 2100000, guid: 5e193e2e6eae8a54c8647c097ec708cd, type: 2}
+    second: {fileID: 2100000, guid: 8992014cc328d7748930b80012ceccfd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material #305
-    second: {fileID: 2100000, guid: 8992014cc328d7748930b80012ceccfd, type: 2}
+      name: Material #318
+    second: {fileID: 2100000, guid: 1219b05e3ad1ba9418b2d0611bc724ec, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -106,8 +106,8 @@ GameObject:
   - component: {fileID: 7735905781441120363}
   - component: {fileID: 7735905781441120360}
   - component: {fileID: 7735905781441120361}
-  - component: {fileID: 7735905781441120341}
   - component: {fileID: 7735905781471114295}
+  - component: {fileID: 556240120077072848}
   m_Layer: 0
   m_Name: QuestionText
   m_TagString: Untagged
@@ -300,24 +300,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
---- !u!114 &7735905781441120341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735905781441120367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c42d20079404f66bc28e1e27cf5d14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_timeBetweenQuestions: 20
-  m_buttonPoolSize: 5
-  m_questionsToAsk: 1
-  m_fadeInSpeed: 0.75
-  m_interviewer: {fileID: 0}
-  m_forceInterviewToStart: 0
 --- !u!114 &7735905781471114295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,3 +323,21 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: -1
   OverrideMaxDistance: -1
+--- !u!114 &556240120077072848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7735905781441120367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb9df78ae225434c9f64721976187e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_timeBetweenQuestions: 20
+  m_buttonPoolSize: 5
+  m_questionsToAsk: 5
+  m_fadeInSpeed: 0.75
+  m_interviewer: {fileID: 0}
+  m_forceInterviewToStart: 0

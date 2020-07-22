@@ -5,7 +5,6 @@ using UnityEngine;
 
 // Author: Alec
 
-// TODO rename class once completed
 static public class CSVLoader
 {
     /// <summary>

@@ -68,12 +68,14 @@ public class QuestionManager : MonoBehaviour
 
     Coroutine m_waitForAnswer, m_fadeText;
 
+    public void Construct()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Assert(m_interviewer != null, "No reference to interviewer " +
-            "exists");
-
         // acquiring relevant data
         //questions for player
         m_questionBox = GetComponent<TextMeshPro>();
@@ -130,6 +132,8 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public void BeginInterview()
     {
+        Debug.Assert(m_interviewer != null, "No reference to interviewer " +
+            "exists");
         StartCoroutine(StartInterview());
     }
 

@@ -73,6 +73,7 @@ public class StartKey : MonoBehaviour
         // if true, change level
         if (inputs)
         {
+            Time.timeScale = 1;
             ChangeLevel("CharacterSelection");
         }
 

@@ -17,11 +17,12 @@ public class WorkerAudio
     /// Specify the new event, and play
     /// </summary>
     /// <param name="_name">name of the event</param>
-    public void PlayEvent(string _name)
+    public void PlayEvent(int _conversationID, char _sentence)
     {
-        throw new NotImplementedException("Need to know the event directory");
+        m_FMODInstance.Event = "event:/Dialogue/Workers/Convo" +
+            _conversationID + _sentence;
 
-        m_FMODInstance.Event = "";
+        Debug.Log("Playing conversation event " + _conversationID + _sentence);
 
         PlayAudio(true);
     }
@@ -30,7 +31,7 @@ public class WorkerAudio
     /// Play audio
     /// </summary>
     /// <param name="_lookUp">do we want to lookup audio?</param>
-    void PlayAudio(bool _lookUp)
+    public void PlayAudio(bool _lookUp)
     {
         if (IsPlaying())
         {

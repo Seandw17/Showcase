@@ -26,8 +26,6 @@ public class StartKey : MonoBehaviour
 
     [SerializeField] GameObject m_howToPlay;
 
-    Canvas m_canvas;
-
     private void Start()
     {
         // compose text for how to start
@@ -41,8 +39,6 @@ public class StartKey : MonoBehaviour
         setValue += " to begin";
 
         m_startText.text = (setValue);
-
-        m_canvas = transform.root.GetComponent<Canvas>();
 
         setValue = "Press " + m_howToPlayKeyBoard.ToString();
         if (!m_howToPlayKeyController.Equals(""))
@@ -93,17 +89,15 @@ public class StartKey : MonoBehaviour
 
         if (inputs)
         {
-            if (m_howToPlay.transform.parent == null)
+            if (!m_howToPlay.activeSelf)
             {
-                GameManagerScript.SetNewHUD(m_howToPlay);
-                m_canvas.enabled = false;
+                m_howToPlay.SetActive(true);
                 Time.timeScale = 0;
             }
             else
             {
-                GameManagerScript.SetHUDToNull();
+                m_howToPlay.SetActive(false);
                 Time.timeScale = 1;
-                m_canvas.enabled = true;
             }
         }
     }

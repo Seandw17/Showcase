@@ -320,7 +320,6 @@ public class QuestionManager : MonoBehaviour
     IEnumerator EndLevel()
     {
         FadeOutQuestionText();
-
         string response = "Nothing? Ok then...";
         if (m_responseID != m_questionForJob.Count + 1)
         {
@@ -332,6 +331,9 @@ public class QuestionManager : MonoBehaviour
             AddTip(e_tipCategories.NOTASKING);
             m_QuestionAudio.PlayResponseToPlayerQuestion(0);
         }
+        StopFade();
+        m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
+            true));
         m_questionBox.SetText(response);
         while (!m_QuestionAudio.IsDonePlaying())
         {
@@ -339,10 +341,6 @@ public class QuestionManager : MonoBehaviour
         }
 
         m_questionForJob.Clear();
-
-        StopFade();
-        m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
-            true));
         yield return new WaitForSecondsRealtime(3);
         GameObject card = Instantiate(Resources.Load<GameObject>
             ("Prefabs/ScoreCard"));

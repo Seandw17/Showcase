@@ -604,6 +604,11 @@ PrefabInstance:
       propertyPath: m_interviewer
       value: 
       objectReference: {fileID: 689963582}
+    - target: {fileID: 556240120077072848, guid: 069b9d03dcea543c2940c4d2547df4bd,
+        type: 3}
+      propertyPath: m_questionsToAsk
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 069b9d03dcea543c2940c4d2547df4bd, type: 3}

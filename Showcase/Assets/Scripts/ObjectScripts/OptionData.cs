@@ -5,6 +5,8 @@ using static FadeIn;
 
 // Author: Alec
 
+// TODO material swapping
+
 public class OptionData : InteractableObjectBase
 {
     TextMeshPro m_textValue;
@@ -12,13 +14,21 @@ public class OptionData : InteractableObjectBase
     Questionresponse m_responseForThisButton;
     bool m_isInteractible;
     Renderer m_renderer;
+    MeshRenderer m_meshRenderer;
+    MeshFilter m_meshFilter;
     Coroutine m_fadeText, m_fadeRenderer;
     int m_questionID;
+
+    [SerializeField] Material m_matInactive, m_matActive;
+    [SerializeField] Mesh m_Inactive, m_active;
 
     private void Awake()
     {
         m_textValue = GetComponent<TextMeshPro>();
         m_renderer = transform.parent.GetComponent<Renderer>();
+        m_meshRenderer = transform.parent.GetComponent<MeshRenderer>();
+        m_meshRenderer.enabled = false;
+        m_meshFilter = transform.parent.GetComponent<MeshFilter>();
         SetAlphaToZero(m_renderer.material);
         SetAlphaToZero(m_textValue);
         SetShouldGlow(false);
@@ -40,14 +50,13 @@ public class OptionData : InteractableObjectBase
     /// <param name="_connotation"> what feelings should be returned </param>
     public void SetValue(Questionresponse _response, e_tipCategories _tip)
     {
-        transform.parent.gameObject.SetActive(true);
+        m_meshRenderer.enabled = true;
         m_textValue.SetText(_response.response);
         m_responseForThisButton = _response;
         m_responseForThisButton.tip = _tip;
         gameObject.SetActive(true);
         if (m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
         if (m_fadeText != null) { StopCoroutine(m_fadeText); }
-        // TODO remove this if statement once material is given
         if (m_isInteractible)
         {
             SetAlphaToZero(m_textValue);
@@ -66,7 +75,7 @@ public class OptionData : InteractableObjectBase
     public void SetValue(Questionresponse _response, e_tipCategories _tip,
         int _ID)
     {
-        transform.parent.gameObject.SetActive(true);
+        m_meshRenderer.enabled = true;
         m_textValue.SetText(_response.response);
         m_responseForThisButton = _response;
         m_responseForThisButton.tip = _tip;
@@ -109,9 +118,14 @@ public class OptionData : InteractableObjectBase
         if (!_locked)
         {
             SetShouldGlow(true);
+            m_meshFilter.mesh = m_active;
+            m_meshRenderer.material = m_matActive;
         }
-
-        // TODO graphical changes
+        else
+        {
+            m_meshFilter.mesh = m_Inactive;
+            m_meshRenderer.material = m_matInactive;
+        }
     }
 
     public IEnumerator setInactive()
@@ -125,6 +139,10 @@ public class OptionData : InteractableObjectBase
         if (m_fadeText != null) { StopCoroutine(m_fadeText); }
         SetAlphaToZero(m_renderer.material);
         SetAlphaToZero(m_textValue);
+
+        m_meshFilter.mesh = m_Inactive;
+        m_meshRenderer.material = m_matInactive;
+
         yield return new WaitForSeconds(fadeOutTime + 1);
     }
 }

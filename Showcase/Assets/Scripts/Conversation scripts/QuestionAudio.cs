@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using FMODUnity;
+using UnityEngine.Assertions;
 
 public class QuestionAudio
 {
@@ -9,6 +10,7 @@ public class QuestionAudio
 
     public QuestionAudio(FMODUnity.StudioEventEmitter _emitter)
     {
+        Assert.IsNotNull(_emitter);
         m_FMODInstance = _emitter;
     }
 

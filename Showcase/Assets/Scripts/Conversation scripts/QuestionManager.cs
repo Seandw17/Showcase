@@ -103,8 +103,7 @@ public class QuestionManager : MonoBehaviour
         // set up events 
         m_processNextStep = new UnityEvent();
         m_processNextStep.AddListener(ProcessNextStep);
-
-        SetAlphaToZero(transform.parent.GetComponent<Renderer>().material);
+        
         SetAlphaToZero(m_questionBox);
 
         m_progressText = m_timerSlider.transform.root.gameObject
@@ -119,6 +118,7 @@ public class QuestionManager : MonoBehaviour
         }
         else
         {
+            transform.parent.GetComponent<MeshRenderer>().enabled = false;
             enabled = false;
         }
     }
@@ -128,6 +128,7 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     public void BeginInterview()
     {
+        transform.parent.GetComponent<MeshRenderer>().enabled = true;
         Debug.Assert(m_interviewer != null, "No reference to interviewer " +
             "exists");
         StartCoroutine(StartInterview());

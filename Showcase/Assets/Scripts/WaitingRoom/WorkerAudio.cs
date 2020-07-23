@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using FMODUnity;
+using UnityEngine.Assertions;
 
 public class WorkerAudio
 {
@@ -9,9 +10,9 @@ public class WorkerAudio
 
     public WorkerAudio(FMODUnity.StudioEventEmitter _emitter)
     {
+        Assert.IsNotNull(_emitter);
         m_FMODInstance = _emitter;
     }
-
     /// <summary>
     /// Specify the new event, and play
     /// </summary>

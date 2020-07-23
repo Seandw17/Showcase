@@ -27,7 +27,7 @@ static public class FadeIn
             material.color.b,
             material.color.a);
 
-        float fade = (0.4f * _time) * Time.deltaTime;
+        float fade = (0.4f * _time);
         if (!_in) { fade *= -1; }
 
         while (CheckAlpha(_in, newColour.a))
@@ -58,7 +58,7 @@ static public class FadeIn
             _tmp.color.a
             );
 
-        float fade = (0.4f * _time) * Time.deltaTime;
+        float fade = (0.4f * _time);
         if (!_in) { fade *= -1; }
 
         while (CheckAlpha(_in, newColour.a))
@@ -90,7 +90,7 @@ static public class FadeIn
             _tmp.color.a
             );
 
-        float fade = (0.4f * _time) * Time.deltaTime;
+        float fade = (0.4f * _time);
         if (!_in){ fade *= -1; }
 
         while (CheckAlpha(_in, newColour.a))

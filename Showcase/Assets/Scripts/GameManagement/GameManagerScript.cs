@@ -101,7 +101,7 @@ public class GameManagerScript : MonoBehaviour
     static public void SetHUDBack()
     {
         Debug.Log("Setting hud back");
-        if (ig_currenthud != null)
+        if (ig_currenthud != null && ig_currenthud != m_playerPanel)
         {
             ig_currenthud.SetActive(false);
             ig_currenthud.transform.parent = null;
@@ -113,9 +113,7 @@ public class GameManagerScript : MonoBehaviour
     }
 
     static public GameObject ReturnCurrentHUD() => ig_currenthud;
-
-    
-
+ 
     void DisplayObjectiveText()
     {
        m_objectivetext.text = m_objectivetextarray[m_objectiveindex];

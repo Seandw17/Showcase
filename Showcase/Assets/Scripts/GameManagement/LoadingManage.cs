@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using TMPro;
 using static FadeIn;
 using UnityEngine.UI;
 
@@ -9,15 +8,11 @@ public class LoadingManage : MonoBehaviour
     /// Background image
     /// </summary>
     [SerializeField] Image m_background;
-    /// <summary>
-    /// Loading text
-    /// </summary>
-    [SerializeField] TextMeshProUGUI m_Loadingtext;
 
     /// <summary>
     /// Text for loading percent
     /// </summary>
-    [SerializeField] TextMeshProUGUI m_loadingPercentText;
+    [SerializeField] Text m_loadingPercentText;
 
     /// <summary>
     /// Progress Slider
@@ -33,7 +28,6 @@ public class LoadingManage : MonoBehaviour
     {
         LevelChange.SetLoadingManager(this);
         SetAlphaToZero(m_background);
-        SetAlphaToZero(m_Loadingtext);
         FadeIn();
         Cursor.visible = false;
     }
@@ -45,7 +39,6 @@ public class LoadingManage : MonoBehaviour
     {
         Debug.Log("Fading in");
         StartCoroutine(FadeAsset(m_background, 0.5f, true));
-        StartCoroutine(FadeAsset(m_Loadingtext, 1f, true));
     }
 
     /// <summary>
@@ -56,7 +49,6 @@ public class LoadingManage : MonoBehaviour
         Destroy(m_loadingPercentText);
         Destroy(m_slider);
         StartCoroutine(FadeOutLoadingScreen(m_background));
-        StartCoroutine(FadeAsset(m_Loadingtext, 0.5f, false));
     }
 
     /// <summary>
@@ -70,7 +62,7 @@ public class LoadingManage : MonoBehaviour
             Spin();
         }
 
-        m_loadingPercentText.SetText(_amountLoaded.ToString("n1") + "%");
+        m_loadingPercentText.text = (_amountLoaded.ToString("n1") + "%");
         m_slider.value = _amountLoaded;
     }
 

@@ -441,30 +441,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 91bb578abec7833479a5ec97e5051cc4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766b26258385ba14e9f7c62065b93b44, type: 3}
---- !u!1 &1218717031 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7735905781441120367, guid: 069b9d03dcea543c2940c4d2547df4bd,
-    type: 3}
-  m_PrefabInstance: {fileID: 7735905781471114293}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1218717032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218717031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebb9df78ae225434c9f64721976187e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_timeBetweenQuestions: 20
-  m_buttonPoolSize: 5
-  m_questionsToAsk: 5
-  m_fadeInSpeed: 0.75
-  m_interviewer: {fileID: 689963582}
-  m_forceInterviewToStart: 1
 --- !u!1 &1619843323
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +604,16 @@ PrefabInstance:
       propertyPath: m_forceInterviewToStart
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 556240120077072848, guid: 069b9d03dcea543c2940c4d2547df4bd,
+        type: 3}
+      propertyPath: m_forceInterviewToStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 556240120077072848, guid: 069b9d03dcea543c2940c4d2547df4bd,
+        type: 3}
+      propertyPath: m_interviewer
+      value: 
+      objectReference: {fileID: 689963582}
     m_RemovedComponents:
     - {fileID: 7735905781441120341, guid: 069b9d03dcea543c2940c4d2547df4bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 069b9d03dcea543c2940c4d2547df4bd, type: 3}

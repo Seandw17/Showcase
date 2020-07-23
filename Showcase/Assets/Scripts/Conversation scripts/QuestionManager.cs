@@ -34,7 +34,7 @@ public class QuestionManager : MonoBehaviour
 
     Slider m_timerSlider;
 
-    TextMeshProUGUI m_progressText;
+    Text m_progressText;
 
     /// <summary>
     /// Time user has to answer a question
@@ -107,8 +107,8 @@ public class QuestionManager : MonoBehaviour
         SetAlphaToZero(m_questionBox);
 
         m_progressText = m_timerSlider.transform.root.gameObject
-            .GetComponentInChildren<TextMeshProUGUI>();
-        m_progressText.SetText("");
+            .GetComponentInChildren<Text>();
+        m_progressText.text = ("");
 
         if (m_forceInterviewToStart)
         {
@@ -197,7 +197,7 @@ public class QuestionManager : MonoBehaviour
 
             m_waitForAnswer = StartCoroutine(WaitForAnswer());
 
-            m_progressText.SetText("Question " + m_currentQuestion +
+            m_progressText.text = ("Question " + m_currentQuestion +
                 " of " + m_questionsToAsk);
         }
     }
@@ -210,7 +210,8 @@ public class QuestionManager : MonoBehaviour
         StopCoroutine(m_waitForAnswer);
         m_timerSlider.gameObject.SetActive(false);
         ProcessAnswer(_chosenResponse,
-            m_questionBox.text);
+            m_questionBox.GetParsedText());
+        
         if ((int)_chosenResponse.rating < 4)
         {
             AddTip(_chosenResponse.tip);
@@ -314,12 +315,9 @@ public class QuestionManager : MonoBehaviour
     /// <summary>
     /// The couroutine to end the level
     /// </summary>
-    /// <returns>yield for 2 seconds</returns>
     IEnumerator EndLevel()
     {
         FadeOutQuestionText();
-
-        yield return new WaitForSecondsRealtime(2);
 
         string response = "Nothing? Ok then...";
         if (m_responseID != m_questionForJob.Count + 1)
@@ -332,15 +330,14 @@ public class QuestionManager : MonoBehaviour
             AddTip(e_tipCategories.NOTASKING);
             m_QuestionAudio.PlayResponseToPlayerQuestion(0);
         }
-
-        while (m_QuestionAudio.IsDonePlaying())
+        m_questionBox.SetText(response);
+        while (!m_QuestionAudio.IsDonePlaying())
         {
             yield return null;
         }
 
         m_questionForJob.Clear();
 
-        m_questionBox.SetText(response);
         StopFade();
         m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
             true));
@@ -401,7 +398,6 @@ public class QuestionManager : MonoBehaviour
         for (int index = 0; index < outroText.Length; index++)
         {
             FadeOutQuestionText();
-            yield return waitFor;
             m_QuestionAudio.PlayOutro(index + 1);
             m_questionBox.SetText(outroText[index]);
             StopFade();

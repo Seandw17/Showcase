@@ -50,6 +50,8 @@ public class OptionData : InteractableObjectBase
         // TODO remove this if statement once material is given
         if (m_isInteractible)
         {
+            SetAlphaToZero(m_textValue);
+            SetAlphaToZero(m_renderer.material);
             m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
             m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
         }
@@ -74,6 +76,8 @@ public class OptionData : InteractableObjectBase
         // TODO remove this if statement once material is given
         if (m_isInteractible)
         {
+            SetAlphaToZero(m_renderer.material);
+            SetAlphaToZero(m_textValue);
             m_fadeRenderer = StartCoroutine(FadeAsset(m_renderer, 0.5f, true));
             m_fadeText = StartCoroutine(FadeAsset(m_textValue, 0.5f, true));
         }
@@ -119,8 +123,8 @@ public class OptionData : InteractableObjectBase
         SetShouldGlow(false);
         if (m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
         if (m_fadeText != null) { StopCoroutine(m_fadeText); }
-        StartCoroutine(FadeAsset(m_renderer, fadeOutTime, false));
-        StartCoroutine(FadeAsset(m_textValue, fadeOutTime, false));
+        SetAlphaToZero(m_renderer.material);
+        SetAlphaToZero(m_textValue);
         yield return new WaitForSeconds(fadeOutTime + 1);
     }
 }

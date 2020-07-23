@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using static LevelChange;
-using TMPro;
+using UnityEngine.UI;
 
 public class StartKey : MonoBehaviour
 {
@@ -21,14 +21,14 @@ public class StartKey : MonoBehaviour
     /// <summary>
     /// Tmpro objects
     /// </summary>
-    [SerializeField] TextMeshProUGUI m_startText;
-    [SerializeField] TextMeshProUGUI m_HowToPlayText;
+    [SerializeField] Text m_startText;
+    [SerializeField] Text m_HowToPlayText;
 
     [SerializeField] GameObject m_howToPlay;
 
     Canvas m_canvas;
 
-    private void Awake()
+    private void Start()
     {
         // compose text for how to start
         string setValue = "Press left mouse button";
@@ -40,7 +40,7 @@ public class StartKey : MonoBehaviour
 
         setValue += " to begin";
 
-        m_startText.SetText(setValue);
+        m_startText.text = (setValue);
 
         m_canvas = transform.root.GetComponent<Canvas>();
 
@@ -51,7 +51,7 @@ public class StartKey : MonoBehaviour
         }
         setValue += " for how to play";
 
-        m_HowToPlayText.SetText(setValue);
+        m_HowToPlayText.text = (setValue);
     }
 
     // Update is called once per frame

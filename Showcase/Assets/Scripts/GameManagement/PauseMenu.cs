@@ -1,7 +1,7 @@
 ﻿using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 // Author: Alec
 
@@ -28,13 +28,13 @@ public class PauseMenu : MonoBehaviour
     /// <summary>
     /// The text field corrosponding to an action
     /// </summary>
-    [SerializeField] TextMeshProUGUI m_resumeText, m_quitText; 
+    [SerializeField] Text m_resumeText, m_quitText; 
 
     private void Start()
     {
-        m_resumeText.SetText("Press " + m_pauseButton.ToString() +
+        m_resumeText.text = ("Press " + m_pauseButton.ToString() +
             " to resume");
-        m_quitText.SetText("Press " + m_quitKey.ToString() + " to quit");
+        m_quitText.text = ("Press " + m_quitKey.ToString() + " to quit");
 
         // Create the FPS counter if in editor
         if (Application.isEditor)
@@ -58,8 +58,9 @@ public class PauseMenu : MonoBehaviour
                 m_isPaused = !m_isPaused;
                 Time.timeScale = Convert.ToSingle(!m_isPaused);
 
-                m_pauseMenuObject.SetActive(m_isPaused);
+                Canvas.ForceUpdateCanvases();
 
+                m_pauseMenuObject.SetActive(m_isPaused);
                 GameManagerScript.UIActive(!m_isPaused);
             }
             else if (m_isPaused)
@@ -82,15 +83,6 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-
-    /*
-    void OnSceneLoaded(Scene _newScene, LoadSceneMode _mode)
-    {
-        if (!_newScene.name.Equals("Menu"))
-        {
-            m_playerCursorCanvas.SetActive(true);
-        }
-    }*/
 
     /// <summary>
     /// return if the game is paused or not

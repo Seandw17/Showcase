@@ -1,6 +1,5 @@
 ﻿using TMPro;
 using UnityEngine;
-using static FadeIn;
 
 // Author: Alec
 
@@ -42,7 +41,8 @@ public class FinalResult : Page
     /// <param name="_score">the players score</param>
     public void SetValue(int _score, int questionsAsked)
     {
-        float amountNeededToPass = (questionsAsked * 5) * 0.75f;
+        float amountNeededToPass = (questionsAsked * 5) * 0.6f;
+        Debug.Log(amountNeededToPass + " would have been a passing score");
         //m_finalPercentText.SetText(amountNeededToPass + "%");
 
         m_finalScore.SetText(_score.ToString());

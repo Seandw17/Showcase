@@ -97,7 +97,8 @@ public class QuestionManager : MonoBehaviour
         m_timerSlider.maxValue = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(false);
 
-        m_QuestionAudio = gameObject.AddComponent<QuestionAudio>();
+        m_QuestionAudio =
+            new QuestionAudio(GetComponent<FMODUnity.StudioEventEmitter>());
 
         // set up events 
         m_processNextStep = new UnityEvent();

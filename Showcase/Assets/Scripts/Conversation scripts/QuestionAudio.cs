@@ -2,15 +2,14 @@
 using System;
 using FMODUnity;
 
-public class QuestionAudio : MonoBehaviour
+public class QuestionAudio
 {
     // Fmod Instance for this GameObject
     FMODUnity.StudioEventEmitter m_FMODInstance;
 
-    private void Awake()
+    public QuestionAudio(FMODUnity.StudioEventEmitter _emitter)
     {
-        m_FMODInstance = GetComponent<FMODUnity.StudioEventEmitter>();
-
+        m_FMODInstance = _emitter;
     }
 
     public void PlayNewQuestion(int _questionID, e_rating _rating)

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{2c343e20-8f6b-439f-b567-77cd6b15f02d}">
+		<property name="assetPath">
+			<value>Convo1C.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3066458333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bcabeacf-1335-4909-a1dc-7f04fe737edd}</destination>
+		</relationship>
+	</object>
+</objects>

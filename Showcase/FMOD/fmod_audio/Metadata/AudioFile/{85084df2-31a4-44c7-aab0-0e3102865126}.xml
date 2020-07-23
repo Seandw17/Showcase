@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{85084df2-31a4-44c7-aab0-0e3102865126}">
+		<property name="assetPath">
+			<value>Convo7D.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.390625</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bcabeacf-1335-4909-a1dc-7f04fe737edd}</destination>
+		</relationship>
+	</object>
+</objects>

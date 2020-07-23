@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{f6564cee-0a4e-498d-8b54-93d38404b00f}">
+		<property name="assetPath">
+			<value>Convo5G.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>10.875</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bcabeacf-1335-4909-a1dc-7f04fe737edd}</destination>
+		</relationship>
+	</object>
+</objects>

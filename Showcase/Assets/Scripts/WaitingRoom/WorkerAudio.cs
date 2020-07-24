@@ -23,9 +23,9 @@ public class WorkerAudio
         try
         {
             m_FMODInstance.Event = "event:/Dialogue/Workers/Convo" +
-                _conversationID + partOfConversation;
+                (_conversationID + 1) + partOfConversation;
 
-            Debug.Log("Playing conversation event " + _conversationID +
+            Debug.Log("Playing conversation event " + (_conversationID + 1) +
                 partOfConversation);
 
             PlayAudio(true);

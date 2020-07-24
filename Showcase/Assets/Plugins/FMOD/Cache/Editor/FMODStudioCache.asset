@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7D
   guid: 81dd46e80da93e4fb285961fcf5115fd
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -90,7 +90,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo4B
   guid: c15ca581b77dd749b0883e6664e92657
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -229,6 +229,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-8822911112990861453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/tasklist_close/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &-8821700406393941888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,12 +267,12 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -5851163040857624332}
+  - {fileID: -4846204496517140892}
   MinDistance: 0
   MaxDistance: 0
   Length: 478
@@ -380,6 +397,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &-8505958392378844637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/clue_found/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &-8481499050367436945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +534,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &-8282338210053480231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +567,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Extras/outro2
   guid: bf4c3717a5482d459422184dc2b6ec1e
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -573,7 +607,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo5D
   guid: 61e81f26d98a0240a32d8046f296de52
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -665,7 +699,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo5G
   guid: 78dfa6b1883ac840a34fa0dfb165d66e
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -723,7 +757,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1C
   guid: c89eba8554704942a59c2faadb719718
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -731,6 +765,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3179
+--- !u!114 &-7728820439186876606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/lamp_switch/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &-7725551316035240392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -803,7 +854,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo4D
   guid: f95ab92e548db14e93fd96170ed84bfd
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -843,7 +894,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9A
   guid: a16a8e8460020d44bf698ed3b86a5500
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -852,6 +903,23 @@ MonoBehaviour:
   MaxDistance: 0
   Length: 3500
 --- !u!114 &-7246129634987822898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee_bar/amb_coffee_bar_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_bar_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
+--- !u!114 &-7223311451627061430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -883,7 +951,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/door_close
   guid: 0d426d86d102314cadbc98a1d0e4c210
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -906,7 +974,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo2E
   guid: d8649d0743ef8b45870bcd3a2775504b
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -947,7 +1015,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_4
   guid: 3b1591b18e04b64188227f165fe13330
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -988,7 +1056,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo1A
   guid: 08fbbb414f4de3479c03b258e4834454
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1011,7 +1079,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10C
   guid: b409510183031e4ea3f535c15bed03de
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1069,7 +1137,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2F
   guid: 77e8cb1bef15a747bbbcc2de245aefbf
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1143,7 +1211,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5C
   guid: 5f020d63fd08514686699b4710a2f55b
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1151,6 +1219,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3375
+--- !u!114 &-6900302230688093062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee/amb_coffee_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &-6850521654180025514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,7 +1287,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1223,6 +1308,23 @@ MonoBehaviour:
   m_Name: parameter:/amb_waiting_room/amb_waiting_room_filter
   m_EditorClassIdentifier: 
   Name: amb_waiting_room_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
+--- !u!114 &-6728344859717270098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/tasklist_open/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
   Min: 0
   Max: 1
   Default: 1
@@ -1334,7 +1436,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9B
   guid: 6b1499660c520341b8f9fc96f189eecd
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1392,7 +1494,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo1C
   guid: e613a7b262306e40bf2c42b78b067260
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1511,7 +1613,7 @@ MonoBehaviour:
   Path: event:/player_footstep
   guid: 22af27d86924e34398ece50c3972da2b
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1555,12 +1657,12 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 2083272010447850757}
+  - {fileID: -4649382621805743543}
   MinDistance: 0
   MaxDistance: 0
   Length: 8000
@@ -1637,7 +1739,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2E
   guid: 43d439231bc36c4a9e3032e88e76c110
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1677,7 +1779,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3B
   guid: e7b202f860298049806fa24d5deaa80c
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1700,7 +1802,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo3E
   guid: ef62f62517c90544bd36d5796f787726
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1759,7 +1861,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2A
   guid: f7d1243eefb2bd4f8c42db9bfeb0d563
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1940,7 +2042,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &-5841758792275118129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2029,7 +2131,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2B
   guid: c106f5f87b293d47b94a979c15e999e0
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2052,7 +2154,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5B
   guid: 33c980b9bdbbab4298f207a8afd69cae
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2060,6 +2162,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3062
+--- !u!114 &-5500416585182748739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637312091946968269
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-5473710775684406101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2092,7 +2212,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9C
   guid: c597084127ab784da083e044462c7fbc
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2167,7 +2287,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo3C
   guid: fb56410239e899438ca2a02671ad2399
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2190,7 +2310,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1B
   guid: 0d18e3485d08b94a8d84f6c54f9e268f
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2213,7 +2333,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo1E
   guid: a7728cf5f8af0c4c9280470692f24ecc
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2329,6 +2449,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 1
+--- !u!114 &-5130005300905203779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee_bar/amb_coffee_bar_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_bar_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &-5106957064558581311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2344,7 +2481,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo5A
   guid: 7134b7d5a79b8845ad160a5a3c7dcb16
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2498,6 +2635,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-4846204496517140892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/tasklist_close/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &-4838801502363186736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2583,7 +2737,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7F
   guid: 909104c1e8264145926f1b4dd7f2a4d5
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2606,7 +2760,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4E
   guid: c9c80a278903a649a8eeae62732b3013
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2683,6 +2837,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &-4649382621805743543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee/amb_coffee_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &-4640886622534251690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2768,7 +2939,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/nothing_ok_then
   guid: 953cb6d911681945983b0ac484984ea3
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2967,7 +3138,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4D
   guid: bd76d20f9b80894ea672e145993e6b5b
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3025,7 +3196,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo4C
   guid: 12fd982425e4704d9cdd34a14941537c
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3117,7 +3288,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &-4024009750818562953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3168,7 +3339,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo6A
   guid: 1db4a43f9334484da1d4d556b40be4a6
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3331,6 +3502,40 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 1
+--- !u!114 &-3547344812981082629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/clue_found/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
+--- !u!114 &-3492829914341800141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/tasklist_close/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &-3463598117916076437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3434,7 +3639,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo6D
   guid: 2f1986334c789e49b9530afe41fa8fdc
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3474,7 +3679,7 @@ MonoBehaviour:
   Path: event:/Ambience/Bedroom/amb_bedroom_b
   guid: 3b4d942081773d4cb78e57a47b90be80
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -3482,6 +3687,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 50000
+--- !u!114 &-3255883988933329625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637312093778745894
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-3171891902459150673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3497,7 +3720,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_3
   guid: e2ba8ea7cbc084499dae6ec4180a8a99
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3554,7 +3777,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5F
   guid: f53e57fd9b16f94693e3222b02c9e62f
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3611,7 +3834,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo2C
   guid: a117c74f1bde5c4b9763c54a580436f1
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3634,7 +3857,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Extras/intro_5
   guid: a4c63df60c46354a86dc8eb96e23f603
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3714,12 +3937,12 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 4188294234989647380}
+  - {fileID: 3176740571760055056}
   MinDistance: 0
   MaxDistance: 0
   Length: 27999
@@ -3808,7 +4031,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6C
   guid: 7426780a5fb9f6429dcc7d4e8f9e0ed9
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3884,7 +4107,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &-2325537416231691222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3900,7 +4123,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7A
   guid: e57bb96754b8b149a9dcf824624c07b1
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3974,7 +4197,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6D
   guid: 00a75de46cabf646a3dadc8fa1e514a3
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4033,7 +4256,7 @@ MonoBehaviour:
   Path: event:/Ambience/Coffee Shop/amb_street
   guid: 0d0343c540798d44b132e8dae0282955
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -4129,6 +4352,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &-1825676745242871938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/cafe_music/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &-1788275140735341680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4161,7 +4401,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo5H
   guid: 39c4834afb21b3409ed39d176f91cf7f
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4237,6 +4477,24 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
+  Exists: 0
+--- !u!114 &-1598459969866498298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637312088603571359
+  LoadResult: 0
+  FileSizes: []
   Exists: 0
 --- !u!114 &-1516470435953422948
 MonoBehaviour:
@@ -4338,7 +4596,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo7C
   guid: cf19a2ba2be1b64889f4feff28cd6fb0
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4361,7 +4619,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10F
   guid: 749b2e0a89b973479067c470757f962b
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4441,6 +4699,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-1198991346526129276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/lamp_switch/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &-1125313804813084767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4456,7 +4731,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10D
   guid: f5e9adc41224ed4883d2f98600ec92e5
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4496,7 +4771,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7B
   guid: 9e5224dc0542a449855530af58df124e
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4519,7 +4794,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/lamp_electricity
   guid: 589435be09beab4b9c507861cfe9b17f
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -4543,7 +4818,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &-1036260001017370189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4559,7 +4834,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Extras/intro_2
   guid: 4f8001dbe2879a4aada8185e58df3312
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4635,7 +4910,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8D
   guid: b6344cbe2a98de43a955369f1a3bca4c
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -4728,7 +5003,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/any_questions_itself
   guid: 063c52572ea607459432a05e9dfded74
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -4753,7 +5028,7 @@ MonoBehaviour:
   lastModified: 637311900159210602
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-505991582404516211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4787,7 +5062,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &-410686685158725052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4889,7 +5164,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &-214312658088293266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4990,7 +5265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 2061836392448175845}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   EditorEvents:
   - {fileID: 1780115402532591631}
   - {fileID: 6299934516555497571}
@@ -5136,10 +5411,10 @@ MonoBehaviour:
   - {fileID: -5353688315887693102}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   StringsBanks:
   - {fileID: 2061836392448175845}
-  stringsBankWriteTime: 637311899555121340
+  stringsBankWriteTime: 637312093778905499
   cacheVersion: 3
 --- !u!114 &11867730222310922
 MonoBehaviour:
@@ -5180,7 +5455,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo6B
   guid: e5d9f6185f3cec4cb73e95ecfb35a9db
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5238,7 +5513,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo7F
   guid: f4d3885cb3145e418e357f2f78793fc4
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5261,7 +5536,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6F
   guid: a9495128cb556c43b94ba9b7d878ccd1
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5302,7 +5577,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6A
   guid: c775ce40d53a37429c5064bc41aaa5ad
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5523,7 +5798,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo2F
   guid: e555eb5b7268724aba1025aa176d18d7
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5580,7 +5855,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1D
   guid: c36bb34a3497e5498b897a44a78d411f
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5603,7 +5878,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo1D
   guid: 1191fc447a038844ab36215329cdba09
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5678,7 +5953,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo3F
   guid: 8d3b71985cd5cc4a805106ce14b0152c
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5807,12 +6082,12 @@ MonoBehaviour:
   Path: event:/Music/cafe_music
   guid: fd55d26cd591d848a1355690125381e8
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -8296750630847095425}
+  - {fileID: 3768445181614367512}
   MinDistance: 0
   MaxDistance: 0
   Length: 200347
@@ -5890,7 +6165,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10A
   guid: bff85ff165612749be137d522e4cd249
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5965,7 +6240,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Extras/intro_1
   guid: cf26eaa180189243be6faa501468c27a
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5988,7 +6263,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/clock
   guid: dc1f5df0ed4d0b418e19db2859729417
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -6050,7 +6325,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo3A
   guid: b31f935279d31347a1fda08a04954947
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6107,7 +6382,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7E
   guid: 72126c530391404b86bd077fd9326f3b
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6130,7 +6405,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10B
   guid: 6cb186bad69d7d468d4c3b4e8264055b
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6170,7 +6445,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo1B
   guid: cdbc1193c5a3434eb44049b8f29cfae7
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6193,7 +6468,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/Bedroom/Wardrobe/collect_clothes
   guid: ae6b4c8d6c59bb4bb3ad5e8595cb3633
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6233,7 +6508,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo3B
   guid: 1feadc0779aede4991a3cc7cdd8bfd6c
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6256,12 +6531,12 @@ MonoBehaviour:
   Path: event:/lamp_switch
   guid: d8bc63de2f313c4190eda8437f5e16e6
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -4142679161777571874}
+  - {fileID: 3345433016089257113}
   MinDistance: 0
   MaxDistance: 0
   Length: 15
@@ -6333,7 +6608,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_1
   guid: 7dce115df5b7694bbfc1366014b8436e
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6362,12 +6637,12 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -1037827856802036418}
+  - {fileID: 8845757220654367639}
   MinDistance: 0
   MaxDistance: 0
   Length: 1400
@@ -6386,7 +6661,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3D
   guid: 4230213c33eede42b6df11badec2ff22
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6451,7 +6726,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo6E
   guid: 79dc981e63e2774da11857b3a887fb99
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6491,7 +6766,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo3D
   guid: 2b58d349927fa24da0f5d6c8450e4d23
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6565,7 +6840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/StreamingAssets/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637311899555121340
+  lastModified: 637312093778905499
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -6605,7 +6880,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &2091812080033762565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6691,7 +6966,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo2B
   guid: 57f0d44cae15bd40bfbd230694effc95
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6743,6 +7018,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &2262071525610493156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee/amb_coffee_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &2329913431965566639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6776,7 +7068,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q7C
   guid: 3a1082e809eac64d88d20f1905633f36
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6784,6 +7076,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2851
+--- !u!114 &2365831114881191370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee_bar/amb_coffee_bar_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_bar_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &2366855421039975989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6817,7 +7126,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3F
   guid: 192f0e47df0ab1458b4ef95e637bbf3a
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6892,7 +7201,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo7B
   guid: f8687cb4811ec1469c385cbe46320aec
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6915,7 +7224,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8C
   guid: 62504c1d1561734995754c8f1b6a30f5
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -6991,7 +7300,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8B
   guid: c7ea80782640a04bb833b050c204b1ba
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7032,7 +7341,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo5B
   guid: 53a79ce5d7724a4ab52b4ae9dfb9ea4b
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7090,7 +7399,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4B
   guid: 2a5a9ee21e3b56438da86938aa67855f
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7172,12 +7481,12 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -453489970678031832}
+  - {fileID: 8549830004237162503}
   MinDistance: 0
   MaxDistance: 0
   Length: 130
@@ -7301,7 +7610,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo6C
   guid: 57d41e1031e9a446b09b5d9579f7cf38
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7326,6 +7635,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 1
+--- !u!114 &2988306563992708067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_waiting_room/amb_waiting_room_filter
+  m_EditorClassIdentifier: 
+  Name: amb_waiting_room_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &3058504837214176992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7379,6 +7705,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &3138929508935398324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/tasklist_close/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &3146200045499615722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7413,6 +7756,23 @@ MonoBehaviour:
   lastModified: 637309348362513077
   LoadResult: 0
   FileSizes: []
+  Exists: 1
+--- !u!114 &3176740571760055056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee_bar/amb_coffee_bar_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_bar_filter
+  Min: 0
+  Max: 1
+  Default: 1
   Exists: 1
 --- !u!114 &3191172690880185605
 MonoBehaviour:
@@ -7500,7 +7860,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8F
   guid: 218986a85d21154c8e1013480b26782f
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7523,7 +7883,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo2A
   guid: 9285fc5ac5dcc84c88af60e0b2a022be
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7546,7 +7906,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8A
   guid: 9d29d8aa70cd08409ad09e57f4e6d75d
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7569,7 +7929,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1A
   guid: 9a68a7a331d284458e6ead9b57cbe7c6
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7595,6 +7955,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &3300202572396962590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/cafe_music/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &3310985140393089345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7612,6 +7989,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &3345433016089257113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/lamp_switch/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &3397079942360422695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7678,7 +8072,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Extras/intro_4
   guid: 057785cce2222d4aa948d44c9360e6e3
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7742,7 +8136,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3C
   guid: 7aafc23845ad494d8b3fe5ae870418c6
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7767,6 +8161,40 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &3742528474874362633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mouse_click/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
+--- !u!114 &3768445181614367512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/cafe_music/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &3778194474424673535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7782,7 +8210,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Extras/outro1
   guid: e21f313f7818714daf168b1670e28d03
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7878,7 +8306,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5E
   guid: e2e8c361751d6a41ab8c96978599b121
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7919,7 +8347,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo7D
   guid: 15cf75bc77064a488926338441c9e788
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -7927,6 +8355,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3390
+--- !u!114 &4059512899120198913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_waiting_room/amb_waiting_room_filter
+  m_EditorClassIdentifier: 
+  Name: amb_waiting_room_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &4076680776091208259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7942,7 +8387,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9D
   guid: 057d8ee092d9894fa46b16c9e7fe6701
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8052,7 +8497,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 1
-  Exists: 1
+  Exists: 0
 --- !u!114 &4219578096241071464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8119,7 +8564,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3A
   guid: 35795092bb416641a6cff92e041f061c
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8159,7 +8604,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo5F
   guid: 38060336d4d2c8499426edda31cece86
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8182,7 +8627,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Extras/intro_3
   guid: 41169529cc09fe46a69de8aaf8a77913
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8222,7 +8667,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4A
   guid: 96d21ffcd3609749a72aba08722d451c
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8263,7 +8708,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo7E
   guid: d2c073a017b4a14fab56a1bd5bbf9feb
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8286,7 +8731,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo4A
   guid: d8577e9b2bd9374da86e667256d5165c
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8294,6 +8739,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 9500
+--- !u!114 &4640768597432283484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_coffee/amb_coffee_filter
+  m_EditorClassIdentifier: 
+  Name: amb_coffee_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &4699697283056677809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8362,7 +8824,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1F
   guid: 84c58292c81b9641855acac43c9a7b08
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8459,7 +8921,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/Bedroom/pc_tower
   guid: 8c40e8b16ba3f64c9aea18f3b535b995
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -8500,7 +8962,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6E
   guid: 771ff46f6d3401458946675eac5a1c33
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -8560,6 +9022,24 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 1
+--- !u!114 &5142759336822179286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637312089742298124
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &5144244287362465143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8632,7 +9112,7 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -8763,6 +9243,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &5674129925781635741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mouse_click/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &5688457351580865037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8797,12 +9294,12 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -2362774090261813147}
+  - {fileID: 7025516256538886340}
   MinDistance: 0
   MaxDistance: 0
   Length: 8055
@@ -8890,7 +9387,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q1E
   guid: a4ed2a1538016341bf6127bf9466c858
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9063,7 +9560,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2C
   guid: dc0e791ac8f35942a2f9a13aa1de238d
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9177,7 +9674,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/paper_magazine_collect
   guid: 59a262ccdc13b649934778dd07318d05
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9206,12 +9703,12 @@ MonoBehaviour:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
   - {fileID: -6520502271195927858}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -238059546695017180}
+  - {fileID: 6447513436505158093}
   MinDistance: 0
   MaxDistance: 0
   Length: 695
@@ -9250,7 +9747,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 6543793616006196507}
   - {fileID: 542666658615885069}
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -9328,6 +9825,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &6447513436505158093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/tasklist_open/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &6457361746619825730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9399,6 +9913,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &6568943932903444583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/clue_found/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &6631614559148380321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9432,7 +9963,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5A
   guid: 9c8bb630ec5de5479459213fcec2fde2
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9473,7 +10004,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q6B
   guid: ff4879f8a7bc2f4b9e3270ba46c932c8
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9547,7 +10078,7 @@ MonoBehaviour:
   Path: event:/SpotEffects/door_open
   guid: 0e1fac1d20f94942a2c2b802ebf517a2
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9570,7 +10101,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/any_questions
   guid: db166d47a0d32e4c893eed1d2b85e3cb
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9617,6 +10148,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &7025516256538886340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_waiting_room/amb_waiting_room_filter
+  m_EditorClassIdentifier: 
+  Name: amb_waiting_room_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &7040101371955652810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9737,7 +10285,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_5
   guid: f787e9a921dee447b20a0bbf1de97e09
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9760,7 +10308,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4F
   guid: 30f8213edfda4b44829d64d233d5fa0c
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9768,6 +10316,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 3766
+--- !u!114 &7462403964636202314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/tasklist_open/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &7524228721939080740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9783,7 +10348,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q10E
   guid: c44ca672e0934649b259b297287ef6c0
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9806,7 +10371,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q5D
   guid: 74db400baacb07419cfc38f79eb2e02e
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9902,7 +10467,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo5C
   guid: 32ff8be828b8d54aa28d764a9161fa36
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9942,7 +10507,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q3E
   guid: 83cace2628080349a6bb40765cc8935d
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -9967,6 +10532,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &7993706350267526460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/tasklist_open/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &8027600479680590143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9984,6 +10566,23 @@ MonoBehaviour:
   lastModified: 637286870069881657
   LoadResult: 0
   FileSizes: []
+  Exists: 0
+--- !u!114 &8052992979760155784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mouse_click/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
   Exists: 0
 --- !u!114 &8074186682516421910
 MonoBehaviour:
@@ -10086,7 +10685,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9F
   guid: d96755c3aa49714097304f99bc3ca210
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10109,7 +10708,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo5E
   guid: 28e68a4b0d92e94a915ad0dd82586eb0
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10184,7 +10783,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo2D
   guid: cba2abc3e8417d49a39a1ec4db5b8196
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10207,7 +10806,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q8E
   guid: f3912f822ef6864a929bc89cc33ab952
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10249,6 +10848,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &8549830004237162503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mouse_click/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &8558067590135815646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10264,7 +10880,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q2D
   guid: 8cbda49f02c48945b3e5b34f90b474cc
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10339,7 +10955,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Answers/answer_2
   guid: 0c63a90291eee74e8832713b664a0c35
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10397,7 +11013,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q9E
   guid: f0f760d34fc92948a7b3bf7e3e6ea6f4
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10405,6 +11021,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4500
+--- !u!114 &8845757220654367639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/clue_found/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 1
 --- !u!114 &8850515813156001870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10489,7 +11122,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Worker Conversations/Convo7A
   guid: 5d7c88151c0b8b4bbc1dd975824667f4
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10529,7 +11162,7 @@ MonoBehaviour:
   Path: event:/Dialogue/Interviewer/Questions/Q4C
   guid: bf3396d87d89bf4381670f8371440496
   Banks:
-  - {fileID: -549015234477573042}
+  - {fileID: -3255883988933329625}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -10554,6 +11187,23 @@ MonoBehaviour:
   Max: 1
   Default: 1
   Exists: 0
+--- !u!114 &9098591552321687639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/amb_waiting_room/amb_waiting_room_filter
+  m_EditorClassIdentifier: 
+  Name: amb_waiting_room_filter
+  Min: 0
+  Max: 1
+  Default: 1
+  Exists: 0
 --- !u!114 &9114479735801580787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10571,6 +11221,23 @@ MonoBehaviour:
   lastModified: 637304990944700649
   LoadResult: 0
   FileSizes: []
+  Exists: 0
+--- !u!114 &9119312937916019235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/cafe_music/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
   Exists: 0
 --- !u!114 &9134933042507060911
 MonoBehaviour:
@@ -10606,6 +11273,23 @@ MonoBehaviour:
   lastModified: 637290331660908994
   LoadResult: 0
   FileSizes: []
+  Exists: 0
+--- !u!114 &9139846463571362160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/lamp_switch/waiting_room_music_filter
+  m_EditorClassIdentifier: 
+  Name: waiting_room_music_filter
+  Min: 0
+  Max: 1
+  Default: 1
   Exists: 0
 --- !u!114 &9167015692113335832
 MonoBehaviour:

@@ -5,6 +5,8 @@ using UnityEngine;
 public class ApplicantInInterview : MonoBehaviour
 {
     public UnityEngine.AI.NavMeshAgent ig_navAgent { get; private set; }
+    public GameObject ig_standingUp;
+    public GameObject ig_siting;
     private WaitingRoomManager roomManager;
     [SerializeField] private GameObject ig_doorToInterview;
 
@@ -44,8 +46,10 @@ public class ApplicantInInterview : MonoBehaviour
     {
         //open the door
         ig_doorToInterview.GetComponent<DoorObject>().Setm_dooropenApplicant(true);
-        //Wait a few seconds
-        yield return new WaitForSeconds(2);
+        ig_siting.SetActive(false);
+        ig_standingUp.SetActive(true);
+         //Wait a few seconds
+         yield return new WaitForSeconds(2);
         //Move Ai
         startMove = true;
 

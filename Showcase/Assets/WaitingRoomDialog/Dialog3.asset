@@ -13,19 +13,25 @@ MonoBehaviour:
   m_Name: Dialog3
   m_EditorClassIdentifier: 
   name: 
+  m_conversationID: 2
   sentences:
   - text: "Oh, if Lisa asks, I did manage to get that spill cleaned up in the toilets
       earlier.\r\n"
-    waitTimer: 5
+    m_sentenceID: 0
+    waitTimer: 10
   - text: "What spill?\r\n"
-    waitTimer: 2
+    m_sentenceID: 1
+    waitTimer: 10
   - text: "One of the sinks sprung a leak. It wasn\u2019t a big one, just a small
       crack in the piping. I told Lisa and she said she\u2019d get you or someone
       else to clean it up. I thought it\u2019d take too long, so I just went and did
       it.\r"
+    m_sentenceID: 2
     waitTimer: 10
   - text: Oh, thanks I suppose.
-    waitTimer: 2
+    m_sentenceID: 3
+    waitTimer: 10
   - text: "That\u2019s okay. Better sooner rather than later. It\u2019d be quite a
       fuss if someone got hurt\r\n"
-    waitTimer: 5
+    m_sentenceID: 4
+    waitTimer: 10

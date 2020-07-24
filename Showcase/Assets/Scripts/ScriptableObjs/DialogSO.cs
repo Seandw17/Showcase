@@ -6,6 +6,7 @@ using UnityEngine;
 public class DialogSO : ScriptableObject
 {
     public string name;
+    public int m_conversationID;
     public List<SenteceSOSupport> sentences;
 
 }

@@ -13,18 +13,24 @@ MonoBehaviour:
   m_Name: Dialog7
   m_EditorClassIdentifier: 
   name: 
+  m_conversationID: 6
   sentences:
   - text: "So, I was doing some baking the other night; it was this recipe for coconut
       brownies. They turned out pretty good.\r\n"
-    waitTimer: 5
+    m_sentenceID: 0
+    waitTimer: 10
   - text: "Did you bring any in?\r\n"
+    m_sentenceID: 1
     waitTimer: 2
   - text: "I did, but I think that you had a day off. There might be one left in the
       fridge, but it\u2019s probably gone hard by now.\r\n"
-    waitTimer: 5
+    m_sentenceID: 2
+    waitTimer: 10
   - text: "Well, that\u2019s annoying. Are you going to be making any more?\r\n"
-    waitTimer: 4
+    m_sentenceID: 3
+    waitTimer: 10
   - text: "Funny you should say that. Sean had one and he told me he\u2019d maybe
       look into putting them with the other pastries and that. You\u2019d have to
       pay for one, unless you ask Sean nicely."
+    m_sentenceID: 4
     waitTimer: 10

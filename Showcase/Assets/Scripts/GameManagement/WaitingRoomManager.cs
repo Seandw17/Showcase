@@ -64,6 +64,8 @@ public class WaitingRoomManager : MonoBehaviour
     private static bool m_IsInInterview;
     private bool m_startTimerToGoToInterview =false;
 
+    private WorkerAudio m_audio;
+
     // Start is called before the first frame updateS
     void Start()
     {
@@ -71,6 +73,7 @@ public class WaitingRoomManager : MonoBehaviour
         PickNextDialog();
         m_usedDialogs = new List<DialogSO>();
         m_dialogTimer = Random.Range(5, 15);//random wait timer between 2 dialogs
+        m_audio = new WorkerAudio(GetComponent<FMODUnity.StudioEventEmitter>());
 
         m_gmScript = FindObjectOfType<GameManagerScript>();
 
@@ -250,8 +253,12 @@ public class WaitingRoomManager : MonoBehaviour
         else
         {
             ig_textBox.SetActive(true);
+            m_audio.PlayEvent(m_currentDialog.m_conversationID, m_currentDialog.sentences[m_currentSentence].m_sentenceID);
             UpdateTextDisplay(m_currentDialog.sentences[m_currentSentence].text);
             m_dialogTimer = m_currentDialog.sentences[m_currentSentence].waitTimer;
+            /*
+             * m_audio.isPlaying();
+             */
             m_currentSentence += 1;
         }
     }

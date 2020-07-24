@@ -13,17 +13,22 @@ MonoBehaviour:
   m_Name: Dialog4
   m_EditorClassIdentifier: 
   name: 
+  m_conversationID: 3
   sentences:
   - text: "I mind when I got the interview here. Sean made me a bit nervous back then,
       but he\u2019s nice enough if you\u2019re nice "
-    waitTimer: 5
+    m_sentenceID: 0
+    waitTimer: 10
   - text: "It\u2019s been a while for me. Does he still give out scenarios like customers
       being angry and all that?\r\n"
-    waitTimer: 5
+    m_sentenceID: 1
+    waitTimer: 10
   - text: "I\u2019m pretty sure he does. I think the one he gave me was the one with
       a customer that\u2019s in a hurry"
-    waitTimer: 5
+    m_sentenceID: 2
+    waitTimer: 10
   - text: "Oh yeah, he gave me that one too. As long as there isn\u2019t anyone in
       front of them, you can get straight on it, you\u2019ll end up annoying everyone
       else otherwise"
+    m_sentenceID: 3
     waitTimer: 10

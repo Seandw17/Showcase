@@ -13,17 +13,23 @@ MonoBehaviour:
   m_Name: Dialog1
   m_EditorClassIdentifier: 
   name: TestDialog1
+  m_conversationID: 0
   sentences:
   - text: "So what did you get up to last night?\r\n"
-    waitTimer: 2
+    m_sentenceID: 0
+    waitTimer: 10
   - text: "Eh, same as always. Got home and took the dog out for a walk. She\u2019s
       getting better though. She used to keep lying down in the middle of the pavement. "
+    m_sentenceID: 1
     waitTimer: 10
   - text: "Ah, my parents\u2019 dog used to do that. \r"
-    waitTimer: 2
+    m_sentenceID: 2
+    waitTimer: 10
   - text: "I mean, she still does it if you don\u2019t go the way she wants to go,
       but it\u2019s something. How about you?\r\n"
+    m_sentenceID: 3
     waitTimer: 5
   - text: "Managed to get to the gym, finally. After that I just went home and made
       dinner. Hoping to go see my parents on the weekend.\r\n"
-    waitTimer: 5
+    m_sentenceID: 4
+    waitTimer: 10

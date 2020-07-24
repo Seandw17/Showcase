@@ -22,7 +22,7 @@ public class WorkerAudio
 
         try
         {
-            m_FMODInstance.Event = "event:/Dialogue/Workers/Convo" +
+            m_FMODInstance.Event = "event:/Dialogue/Worker Conversations/Convo" +
                 (_conversationID + 1) + partOfConversation;
 
             Debug.Log("Playing conversation event " + (_conversationID + 1) +

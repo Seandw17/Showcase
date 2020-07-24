@@ -13,19 +13,26 @@ MonoBehaviour:
   m_Name: Dialog5
   m_EditorClassIdentifier: 
   name: 
+  m_conversationID: 4
   sentences:
-  - text: "Are you still able to cover my shift next Tuesday?\r\n"
-    waitTimer: 2
+  - text: Are you able to cover my shift next Tuesday?
+    m_sentenceID: 0
+    waitTimer: 10
   - text: I should be, yeah. Is it the morning shift?
-    waitTimer: 2
+    m_sentenceID: 1
+    waitTimer: 10
   - text: "That\u2019s the one, half eight to three. Thanks again.\r\n"
-    waitTimer: 2
+    m_sentenceID: 2
+    waitTimer: 10
   - text: "No problem, I\u2019ll take extra hours whenever I can. What\u2019s the
       occasion?\r\n"
-    waitTimer: 4
+    m_sentenceID: 3
+    waitTimer: 10
   - text: "I\u2019m away to visit family. My gran\u2019s birthday is on the Wednesday,
       but I can\u2019t make it then, so I thought I\u2019d visit her beforehand.\r\n"
-    waitTimer: 5
+    m_sentenceID: 4
+    waitTimer: 10
   - text: "That\u2019s nice. Shame it\u2019s not on the day, but I suppose she\u2019ll
       be happy to see you anyway.\r\n"
-    waitTimer: 5
+    m_sentenceID: 5
+    waitTimer: 10

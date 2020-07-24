@@ -13,21 +13,28 @@ MonoBehaviour:
   m_Name: Dialog2
   m_EditorClassIdentifier: 
   name: 
+  m_conversationID: 1
   sentences:
   - text: "Did you find out what happened with that customer earlier? She seemed pretty
       annoyed.\r\n"
-    waitTimer: 5
+    m_sentenceID: 0
+    waitTimer: 10
   - text: The one with the cold mocha? Yeah, Jacob had made that one. He could have
       handled it better though
-    waitTimer: 5
+    m_sentenceID: 1
+    waitTimer: 10
   - text: "But what happened?\r\n"
-    waitTimer: 3
+    m_sentenceID: 2
+    waitTimer: 10
   - text: "Well she came back with the coffee and had a bit of a rant. Since Jacob
       was new, I guess he thought he\u2019d just make her a new coffee."
+    m_sentenceID: 3
     waitTimer: 10
   - text: "Did he tell Lisa?\r"
+    m_sentenceID: 4
     waitTimer: 1
   - text: "Afterwards, yeah. I\u2019d have probably gone to her first and see if there
       were any other coffees that came back cold. Saying that, we all make mistakes
       starting out.\r\n"
+    m_sentenceID: 5
     waitTimer: 10

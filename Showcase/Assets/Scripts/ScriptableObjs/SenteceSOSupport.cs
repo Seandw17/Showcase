@@ -6,5 +6,6 @@ public class SenteceSOSupport
 {
     [TextArea]
     public string text;
+    public int m_sentenceID;
     public float waitTimer;
 }

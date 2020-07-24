@@ -2425,6 +2425,7 @@ GameObject:
   - component: {fileID: 426820274}
   - component: {fileID: 426820276}
   - component: {fileID: 426820277}
+  - component: {fileID: 426820278}
   m_Layer: 0
   m_Name: _WaitingRoomController
   m_TagString: WaitingRoomManager
@@ -2474,8 +2475,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426820273}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.62, y: 0.913, z: 36.00283}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.035, y: 0.979, z: -4.592}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2512,6 +2513,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3afb55410be164da47fdaf899f4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &426820278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426820273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1001 &448121939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6029,7 +6053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.5, y: -177.29999}
+  m_AnchoredPosition: {x: -5.5, y: -177.29997}
   m_SizeDelta: {x: -185, y: -389}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &882375369

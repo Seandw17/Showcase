@@ -370,7 +370,7 @@
 			<value>Max Distance</value>
 		</property>
 		<property name="value">
-			<value>25</value>
+			<value>8.19999981</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(2.000000,1.000000)(5.000000,5.000000)(10.000000,10.000000)(15.000000,100.000000)(20.000000,1000.000000)(27.000000,10000.000000)}</value>
@@ -487,7 +487,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>22000</value>
+			<value>21599.998</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{a9b2af26-73e4-4860-b87b-3e9b5bfb693d}">
@@ -495,7 +495,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="value">
-			<value>1000</value>
+			<value>949.999817</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{30af8f44-a0b8-4774-941f-57f60a9252c7}">
@@ -570,7 +570,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>360</value>
+			<value>1.99999487</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{4a107a58-d7ca-48b8-afb8-f18f1880a946}">
@@ -578,7 +578,7 @@
 			<value>0.5</value>
 		</property>
 		<property name="value">
-			<value>90</value>
+			<value>1.99999487</value>
 		</property>
 	</object>
 </objects>

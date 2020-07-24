@@ -117,6 +117,7 @@
 		<relationship name="effects">
 			<destination>{361ad6e6-9e9e-4edf-b3a2-9b7af14581fd}</destination>
 			<destination>{26c7acf8-40c3-44d8-977b-c4707d0e0215}</destination>
+			<destination>{5e81f7f6-9ef8-4eb7-9798-58054729f355}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b09c4e81-f66f-492a-a326-d5b00b7fa3e9}" />
@@ -132,6 +133,14 @@
 		<relationship name="plugin">
 			<destination>{8223ed8c-cfef-447d-a7ee-691ab7901ed5}</destination>
 		</relationship>
+	</object>
+	<object class="DelayEffect" id="{5e81f7f6-9ef8-4eb7-9798-58054729f355}">
+		<property name="delay">
+			<value>10</value>
+		</property>
+		<property name="feedback">
+			<value>3.5</value>
+		</property>
 	</object>
 	<object class="MixerBusFader" id="{5ff045b2-0711-4358-8b91-518b702448fc}" />
 	<object class="Plugin" id="{8223ed8c-cfef-447d-a7ee-691ab7901ed5}">

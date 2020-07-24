@@ -21,6 +21,7 @@ public class StaffMemberObject : InteractableObjectBase
     private int m_destPoint = 0;
     private float m_currentWaitTime = 0.0f;
     public float m_maxWaitTimer = 0.0f;
+    private int m_rotationSpeed = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -48,8 +49,7 @@ public class StaffMemberObject : InteractableObjectBase
         else if (m_staffMemberMoving)
         {
             AIPathfinding();
-        }
-        
+        }      
     }
 
 
@@ -76,7 +76,14 @@ public class StaffMemberObject : InteractableObjectBase
             else
             {
                 if (m_destPoint != ig_targetPoints.Length)
+                {
                     ig_staffAgent.SetDestination(ig_targetPoints[m_destPoint].position);
+
+                    Vector3 m_lookPos = ig_targetPoints[m_destPoint].transform.position - ig_staffAgent.transform.position;
+                    m_lookPos.y = 0;
+                    Quaternion m_targetRotation = Quaternion.LookRotation(m_lookPos);
+                    ig_staffAgent.transform.rotation = Quaternion.Slerp(ig_staffAgent.transform.rotation, m_targetRotation, m_rotationSpeed * Time.deltaTime);
+                }
             }
         }
 
@@ -93,6 +100,10 @@ public class StaffMemberObject : InteractableObjectBase
                 m_staffMemberTriggered = false;
                 ig_staffMemberText.SetActive(true);
                 ig_staffMemberText.GetComponentInChildren<TextMeshPro>().text = "Please enter through here.";
+
+                Vector3 m_rotationVector = ig_staffAgent.transform.rotation.eulerAngles;
+                m_rotationVector.y = m_rotationVector.y + 180;
+                ig_staffAgent.transform.rotation = Quaternion.Euler(m_rotationVector);
             }
         }        
     }

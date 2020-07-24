@@ -5,7 +5,7 @@
 			<value>Convo7F</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{87209d4d-0926-4744-8a3b-d36ed4b1b2a4}</destination>
@@ -113,7 +113,6 @@
 	<object class="MixerBusEffectChain" id="{6978aeda-1482-4314-be3d-8e67d1ac6c10}">
 		<relationship name="effects">
 			<destination>{a21fdb09-44e9-4f48-9632-fd4ebe0b3823}</destination>
-			<destination>{e178a406-dfd5-4ee9-80ff-be3a8688c12c}</destination>
 			<destination>{d430366f-f6b5-46e2-995d-ff94b8b0ddbd}</destination>
 		</relationship>
 	</object>
@@ -126,7 +125,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{7ecd5c87-e395-46ca-ba8f-464fefc5688a}" />
 	<object class="MixerBusFader" id="{a21fdb09-44e9-4f48-9632-fd4ebe0b3823}" />
-	<object class="SpatialiserEffect" id="{e178a406-dfd5-4ee9-80ff-be3a8688c12c}" />
 	<object class="PluginEffect" id="{d430366f-f6b5-46e2-995d-ff94b8b0ddbd}">
 		<relationship name="plugin">
 			<destination>{c5cd906f-f29f-4a9d-adcf-ff6cb080fc3a}</destination>

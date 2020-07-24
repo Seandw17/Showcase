@@ -72,7 +72,7 @@ public class WaitingRoomManager : MonoBehaviour
         m_playerscript = FindObjectOfType<PlayerController>();
         PickNextDialog();
         m_usedDialogs = new List<DialogSO>();
-        m_dialogTimer = Random.Range(5, 15);//random wait timer between 2 dialogs
+        m_dialogTimer = Random.Range(1,3);//random wait timer between 2 dialogs
         m_audio = new WorkerAudio(GetComponent<FMODUnity.StudioEventEmitter>());
 
         m_gmScript = FindObjectOfType<GameManagerScript>();
@@ -245,7 +245,7 @@ public class WaitingRoomManager : MonoBehaviour
         if (m_currentSentence >= m_currentDialog.sentences.Count)
         {
             RemoveDialog(m_currentDialog);
-            m_dialogTimer = Random.Range(10, 40);//random wait timer between 2 dialogs
+            m_dialogTimer = Random.Range(3, 7);//random wait timer between 2 dialogs
             ig_textBox.SetActive(false);
             m_currentSentence = 0;
             PickNextDialog();
@@ -255,10 +255,7 @@ public class WaitingRoomManager : MonoBehaviour
             ig_textBox.SetActive(true);
             m_audio.PlayEvent(m_currentDialog.m_conversationID, m_currentDialog.sentences[m_currentSentence].m_sentenceID);
             UpdateTextDisplay(m_currentDialog.sentences[m_currentSentence].text);
-            m_dialogTimer = m_currentDialog.sentences[m_currentSentence].waitTimer;
-            /*
-             * m_audio.isPlaying();
-             */
+            m_dialogTimer = 1;
             m_currentSentence += 1;
         }
     }
@@ -275,8 +272,13 @@ public class WaitingRoomManager : MonoBehaviour
         }
         else
         {
-            ReadNextSentence();
+            if(!m_audio.IsPlaying())
+            {
+                ReadNextSentence();
+            }
+           
         }
+
     }
 
 

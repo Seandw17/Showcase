@@ -12,24 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
   m_Name: Dialog1
   m_EditorClassIdentifier: 
-  name: TestDialog1
+  name: 'Conversation 1 '
   m_conversationID: 0
   sentences:
-  - text: "So what did you get up to last night?\r\n"
+  - text: 'So what did you get up to last night?
+
+'
     m_sentenceID: 0
     waitTimer: 10
-  - text: "Eh, same as always. Got home and took the dog out for a walk. She\u2019s
-      getting better though. She used to keep lying down in the middle of the pavement. "
+  - text: "Nothing much really. I got home from work and made a pasta bake for tea.
+      It was amazing but I ate too much of it. Didn\u2019t feel great when I got up
+      this morning.  "
     m_sentenceID: 1
     waitTimer: 10
-  - text: "Ah, my parents\u2019 dog used to do that. \r"
+  - text: 'I do that too. '
     m_sentenceID: 2
     waitTimer: 10
-  - text: "I mean, she still does it if you don\u2019t go the way she wants to go,
-      but it\u2019s something. How about you?\r\n"
+  - text: 'It put me in a food coma, I fell asleep straight after it. What about you?
+
+'
     m_sentenceID: 3
     waitTimer: 5
-  - text: "Managed to get to the gym, finally. After that I just went home and made
-      dinner. Hoping to go see my parents on the weekend.\r\n"
+  - text: "I finally went to the gym. I think I overdid it though cause I\u2019m in
+      some amount of pain today. After that I just went home and made dinner. I was
+      starving.\n"
     m_sentenceID: 4
     waitTimer: 10

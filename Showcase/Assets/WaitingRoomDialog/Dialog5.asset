@@ -12,27 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
   m_Name: Dialog5
   m_EditorClassIdentifier: 
-  name: 
+  name: 'Conversation 5 '
   m_conversationID: 4
   sentences:
-  - text: Are you able to cover my shift next Tuesday?
+  - text: "Are you able to cover my shift next Tuesday?\r\n"
     m_sentenceID: 0
     waitTimer: 10
-  - text: I should be, yeah. Is it the morning shift?
+  - text: What time is your shift supposed to be?
     m_sentenceID: 1
     waitTimer: 10
-  - text: "That\u2019s the one, half eight to three. Thanks again.\r\n"
+  - text: "It\u2019s half eight till three.\n"
     m_sentenceID: 2
     waitTimer: 10
-  - text: "No problem, I\u2019ll take extra hours whenever I can. What\u2019s the
-      occasion?\r\n"
+  - text: "Yeah, I can do that, I need the money so I\u2019ll take the extra hours
+      whenever I can. Why can\u2019t you do it?"
     m_sentenceID: 3
     waitTimer: 10
-  - text: "I\u2019m away to visit family. My gran\u2019s birthday is on the Wednesday,
-      but I can\u2019t make it then, so I thought I\u2019d visit her beforehand.\r\n"
+  - text: "It\u2019s my grans birthday and all the family are going to make a day
+      of it for her. She\u2019s very old now so we\u2019re trying to make the most
+      it. \r"
     m_sentenceID: 4
     waitTimer: 10
-  - text: "That\u2019s nice. Shame it\u2019s not on the day, but I suppose she\u2019ll
-      be happy to see you anyway.\r\n"
+  - text: "That\u2019s nice. Where are you taking her?\r"
     m_sentenceID: 5
+    waitTimer: 10
+  - text: "I think we\u2019re meeting at grans, then going to the garden centre. She
+      loves her flowers. Then we are going to her favourite caf\xE9 for food, and
+      after that, my mum is taking her to the bingo. She will be knackered after all
+      that."
+    m_sentenceID: 6
+    waitTimer: 10
+  - text: "Aww, she\u2019s gonna love that."
+    m_sentenceID: 7
     waitTimer: 10

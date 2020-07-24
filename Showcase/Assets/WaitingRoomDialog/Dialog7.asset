@@ -12,25 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
   m_Name: Dialog7
   m_EditorClassIdentifier: 
-  name: 
+  name: 'Conversation 7 '
   m_conversationID: 6
   sentences:
-  - text: "So, I was doing some baking the other night; it was this recipe for coconut
-      brownies. They turned out pretty good.\r\n"
+  - text: "Omg, I baked these coconut brownies the other night. They turned out amazing.\r"
     m_sentenceID: 0
     waitTimer: 10
-  - text: "Did you bring any in?\r\n"
+  - text: "And you never brought any in?\r\n"
     m_sentenceID: 1
     waitTimer: 2
-  - text: "I did, but I think that you had a day off. There might be one left in the
-      fridge, but it\u2019s probably gone hard by now.\r\n"
+  - text: I did, but it was your day off. The staff demolished them pretty quick.
     m_sentenceID: 2
     waitTimer: 10
-  - text: "Well, that\u2019s annoying. Are you going to be making any more?\r\n"
+  - text: Thanks for saving me some! Are you going to be making any more?
     m_sentenceID: 3
     waitTimer: 10
-  - text: "Funny you should say that. Sean had one and he told me he\u2019d maybe
-      look into putting them with the other pastries and that. You\u2019d have to
-      pay for one, unless you ask Sean nicely."
+  - text: "Yeah. Lisa had one, and said she might even start selling them in the caf\xE9.\r\n"
     m_sentenceID: 4
+    waitTimer: 10
+  - text: "Wow, that\u2019s amazing. Now I really wanna try them. \r\n"
+    m_sentenceID: 5
     waitTimer: 10

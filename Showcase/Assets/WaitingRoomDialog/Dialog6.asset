@@ -12,22 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
   m_Name: Dialog6
   m_EditorClassIdentifier: 
-  name: 
+  name: Conversation 6
   m_conversationID: 5
   sentences:
-  - text: "I meant to say, Lisa says she\u2019s doing some training on how to use
-      the espresso machine. Are you still interested?\r\n"
+  - text: "Oh I meant to say, Lisa says she\u2019s going to be training the new start
+      on Monday on how to use the coffee machine. I think she wants everyone to attend.\r"
     m_sentenceID: 0
     waitTimer: 10
-  - text: "For sure. Is it hard?\r\n"
+  - text: "I\u2019ll be here. What time did she say?"
     m_sentenceID: 1
     waitTimer: 2
-  - text: "Depends on how fast you learn. It\u2019s the same as everything, you get
-      better at it the more you practice.\r\n"
+  - text: "She said from 6pm after the caf\xE9 closes. It will take an hour, but we\u2019re
+      getting paid for it. "
     m_sentenceID: 2
     waitTimer: 10
-  - text: "Okay, cool. Is it weird I\u2019m kind of excited? Obviously, it means I
-      can help out more here, but I\u2019ve got this machine at home and I\u2019m
-      really wanting to know how to make a proper coffee with it.\r\n"
+  - text: Count me in! It will be interesting to see how the new start does. I remember
+      I was panicking using it for the first time. I still struggle to get the consistency
+      of the milk right sometimes.
     m_sentenceID: 3
+    waitTimer: 10
+  - text: "Well you may even learn something. \r"
+    m_sentenceID: 4
     waitTimer: 10

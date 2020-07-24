@@ -12,26 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
   m_Name: Dialog3
   m_EditorClassIdentifier: 
-  name: 
+  name: 'Conversation 3 '
   m_conversationID: 2
   sentences:
-  - text: "Oh, if Lisa asks, I did manage to get that spill cleaned up in the toilets
-      earlier.\r\n"
+  - text: "Oh, if Lisa asks, tell her I put out the wet floor signs after cleaning
+      up that coffee spill earlier.\r"
     m_sentenceID: 0
     waitTimer: 10
-  - text: "What spill?\r\n"
+  - text: 'Did you?
+
+'
     m_sentenceID: 1
     waitTimer: 10
-  - text: "One of the sinks sprung a leak. It wasn\u2019t a big one, just a small
-      crack in the piping. I told Lisa and she said she\u2019d get you or someone
-      else to clean it up. I thought it\u2019d take too long, so I just went and did
-      it.\r"
+  - text: No, I totally forgot. It was so busy, it just slipped my mind.
     m_sentenceID: 2
     waitTimer: 10
-  - text: Oh, thanks I suppose.
+  - text: "You need to watch with that though. That\u2019s pretty serious if someone
+      falls. \r\n"
     m_sentenceID: 3
     waitTimer: 10
-  - text: "That\u2019s okay. Better sooner rather than later. It\u2019d be quite a
-      fuss if someone got hurt\r\n"
+  - text: "Yeah, I know. I won\u2019t forget next time. Believe me, I need this job.
+      \n"
     m_sentenceID: 4
+    waitTimer: 10
+  - text: "It\u2019s ok, I won\u2019t say anything. You just better hope she doesn\u2019t
+      check the cameras.\n"
+    m_sentenceID: 5
     waitTimer: 10

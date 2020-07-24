@@ -12,23 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
   m_Name: Dialog4
   m_EditorClassIdentifier: 
-  name: 
+  name: Conversation 4
   m_conversationID: 3
   sentences:
-  - text: "I mind when I got the interview here. Sean made me a bit nervous back then,
-      but he\u2019s nice enough if you\u2019re nice "
+  - text: "There\u2019s so many applicants today. I remember my interview. Lisa made
+      me a bit nervous back then, but she\u2019s nice enough really. She just takes
+      the job very seriously."
     m_sentenceID: 0
     waitTimer: 10
-  - text: "It\u2019s been a while for me. Does he still give out scenarios like customers
-      being angry and all that?\r\n"
+  - text: "Does she still give out scenarios like customers being angry and all that?\r"
     m_sentenceID: 1
     waitTimer: 10
-  - text: "I\u2019m pretty sure he does. I think the one he gave me was the one with
-      a customer that\u2019s in a hurry"
+  - text: "I\u2019m pretty sure she does. I think the one she gave me was the one
+      where the customer\u2019s in a hurry."
     m_sentenceID: 2
     waitTimer: 10
-  - text: "Oh yeah, he gave me that one too. As long as there isn\u2019t anyone in
-      front of them, you can get straight on it, you\u2019ll end up annoying everyone
-      else otherwise"
+  - text: "Oh yeah, she gave me that one too. I said I would acknowledge their needs
+      and try to prepare the order if it would take a long time.\r"
     m_sentenceID: 3
     waitTimer: 10

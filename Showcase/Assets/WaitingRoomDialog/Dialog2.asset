@@ -12,29 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ffee361738b094fab089fc215014fb, type: 3}
   m_Name: Dialog2
   m_EditorClassIdentifier: 
-  name: 
+  name: 'Conversation 2 '
   m_conversationID: 1
   sentences:
-  - text: "Did you find out what happened with that customer earlier? She seemed pretty
-      annoyed.\r\n"
+  - text: "Did you find out what happened with that customer earlier? She wasn\u2019t
+      too happy.\r\r\n"
     m_sentenceID: 0
     waitTimer: 10
-  - text: The one with the cold mocha? Yeah, Jacob had made that one. He could have
-      handled it better though
+  - text: 'The one with the cold mocha? Yeah, Jacob made that one. '
     m_sentenceID: 1
     waitTimer: 10
-  - text: "But what happened?\r\n"
+  - text: "What happened?\r"
     m_sentenceID: 2
     waitTimer: 10
-  - text: "Well she came back with the coffee and had a bit of a rant. Since Jacob
-      was new, I guess he thought he\u2019d just make her a new coffee."
+  - text: "He should really use the thermometers if he can\u2019t tell how hot the
+      milk is by touching the side of the jug. He is new to the job though, it comes
+      with practice.\r"
     m_sentenceID: 3
     waitTimer: 10
   - text: "Did he tell Lisa?\r"
     m_sentenceID: 4
     waitTimer: 1
-  - text: "Afterwards, yeah. I\u2019d have probably gone to her first and see if there
-      were any other coffees that came back cold. Saying that, we all make mistakes
-      starting out.\r\n"
+  - text: "Afterwards, yeah. We all make mistakes starting out.\r"
     m_sentenceID: 5
     waitTimer: 10

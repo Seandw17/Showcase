@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System;
 using FMODUnity;
 using UnityEngine.Assertions;
 
@@ -8,23 +7,33 @@ public class WorkerAudio
     // Fmod Instance for this GameObject
     FMODUnity.StudioEventEmitter m_FMODInstance;
 
+    static char[] partChar = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+        'J', 'K', 'L', 'M', 'N' };
+
     public WorkerAudio(FMODUnity.StudioEventEmitter _emitter)
     {
         Assert.IsNotNull(_emitter);
         m_FMODInstance = _emitter;
     }
-    /// <summary>
-    /// Specify the new event, and play
-    /// </summary>
-    /// <param name="_name">name of the event</param>
-    public void PlayEvent(int _conversationID, char _sentence)
-    {
-        m_FMODInstance.Event = "event:/Dialogue/Workers/Convo" +
-            _conversationID + _sentence;
+    
+    public void PlayEvent(int _conversationID, int _sentence)
+    { 
+        char partOfConversation = partChar[_sentence];
 
-        Debug.Log("Playing conversation event " + _conversationID + _sentence);
+        try
+        {
+            m_FMODInstance.Event = "event:/Dialogue/Workers/Convo" +
+                _conversationID + partOfConversation;
 
-        PlayAudio(true);
+            Debug.Log("Playing conversation event " + _conversationID +
+                partOfConversation);
+
+            PlayAudio(true);
+        }
+        catch (EventNotFoundException)
+        {
+            Debug.LogWarning("Couldn't find line that was requested");
+        }
     }
 
     /// <summary>

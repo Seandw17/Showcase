@@ -98,7 +98,8 @@ public class QuestionManager : MonoBehaviour
         m_timerSlider.gameObject.SetActive(false);
 
         m_QuestionAudio =
-            new QuestionAudio(GetComponent<FMODUnity.StudioEventEmitter>());
+            new QuestionAudio(m_interviewer.GetComponent
+            <FMODUnity.StudioEventEmitter>());
 
         // set up events 
         m_processNextStep = new UnityEvent();

@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.Assertions;
 using UnityEngine.TestTools;
+using System.Collections;
 
 namespace Tests
 {
@@ -10,14 +10,18 @@ namespace Tests
         [UnityTest]
         public IEnumerator Test_Interview_SetUp()
         {
-            Assert.IsNotNull(Object.Instantiate(
-                Resources.Load<GameObject>("Prefabs/QuestionSpace")));
+            GameObject test = Object.Instantiate(
+                Resources.Load<GameObject>("Prefabs/QuestionSpace"));
+            Assert.IsNotNull(test);
 
             yield return null;
+
+            Assert.IsFalse(test.
+                GetComponentInChildren<QuestionManager>().enabled);
         }
 
-        [UnityTest]
-        public IEnumerator Test_File_Read()
+        [Test]
+        public void Test_File_Read()
         {
             Assert.IsNotNull(CSVLoader.LoadQuestionData("IQuestions"));
 
@@ -31,12 +35,10 @@ namespace Tests
             System.Collections.Generic.Dictionary<e_tipCategories, string> temp;
             CSVLoader.LoadTips(out temp);
             Assert.IsNotNull(temp);
-
-            yield return null;
         }
 
-        [UnityTest]
-        public IEnumerator Test_Final_Result_Page_Creation()
+        [Test]
+        public void Test_Final_Result_Page_Creation()
         {
             FinalResult page = Object.Instantiate
                 (Resources.Load<GameObject>("Prefabs/FinalResultPage"))
@@ -45,12 +47,10 @@ namespace Tests
             Assert.IsNotNull(page);
 
             page.SetValue(5, 10);
-
-            yield return null;
         }
 
-        [UnityTest]
-        public IEnumerator Test_Tip_Page_Creation()
+        [Test]
+        public void Test_Tip_Page_Creation()
         {
             TipsPages page = Object.Instantiate
                 (Resources.Load<GameObject>("Prefabs/TipsPage"))
@@ -61,12 +61,10 @@ namespace Tests
             string[] testData = { "Test", "Test", "Test" };
 
             page.SetValue(testData);
-
-            yield return null;
         }
 
-        [UnityTest]
-        public IEnumerator Test_Answer_Page_Creation()
+        [Test]
+        public void Test_Answer_Page_Creation()
         {
             AnswerPage page = Object.Instantiate
                 (Resources.Load<GameObject>("Prefabs/AnswerPage"))
@@ -92,8 +90,18 @@ namespace Tests
             }
 
             page.SetValue(testData);
+        }
 
-            yield return null;
+        [Test]
+        public void TestRandomNumberGeneration()
+        {
+            QuestionManager manager = Object.Instantiate(
+                Resources.Load<GameObject>("Prefabs/QuestionSpace"))
+                .GetComponentInChildren<QuestionManager>();
+
+            Assert.Less(manager.GenerateRandomQuestionNumber(50), 50);
+            Assert.Less(manager.GenerateRandomQuestionNumber(100), 100);
+            Assert.Less(manager.GenerateRandomQuestionNumber(5), 5);
         }
     }
 }

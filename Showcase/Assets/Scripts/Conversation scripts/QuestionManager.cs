@@ -164,8 +164,7 @@ public class QuestionManager : MonoBehaviour
             Debug.Log(m_questions.Count);
 
             // retrieve data
-            int nextQuestion = Random.Range(0, m_questions.Count
-                - 1);
+            int nextQuestion = GenerateRandomQuestionNumber(m_questions.Count);
 
             List<Questionresponse> playerResponses =
                 m_questions[nextQuestion].options;
@@ -202,6 +201,16 @@ public class QuestionManager : MonoBehaviour
             m_progressText.text = ("Question " + m_currentQuestion +
                 " of " + m_questionsToAsk);
         }
+    }
+
+    /// <summary>
+    /// Generate a random number based on the amount of questions present
+    /// </summary>
+    /// <param name="_amountOfQuestions">how many questions are present</param>
+    /// <returns>a number below the amount</returns>
+    public int GenerateRandomQuestionNumber(int _amountOfQuestions)
+    {
+        return Random.Range(0, _amountOfQuestions - 1);
     }
 
     /// <summary>

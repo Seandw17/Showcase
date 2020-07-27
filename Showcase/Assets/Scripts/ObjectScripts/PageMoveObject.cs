@@ -16,6 +16,7 @@ public class PageMoveObject : InteractableObjectBase
     bool m_interactable = true;
     bool m_endGame;
     GameObject m_mainMenuButton;
+    MeshRenderer m_meshRenderer;
 
     /// <summary>
     /// Function to set static reference for scorecard parent
@@ -43,6 +44,8 @@ public class PageMoveObject : InteractableObjectBase
 
         m_mainMenuButton = GetComponentInChildren<TextMeshPro>().gameObject;
         m_mainMenuButton.SetActive(false);
+
+        m_meshRenderer = GetComponent<MeshRenderer>();
 
         if (_dir != e_direction.RIGHT)
         {
@@ -94,5 +97,12 @@ public class PageMoveObject : InteractableObjectBase
             "Wrong button passed turn off function");
         m_mainMenuButton.SetActive(_state);
         m_endGame = _state;
+    }
+
+    public void ToggleVisible(bool _state)
+    {
+        Debug.Assert(m_directionToMove == e_direction.LEFT,
+            "Wrong button was passed this function");
+        m_meshRenderer.enabled = _state;
     }
 }

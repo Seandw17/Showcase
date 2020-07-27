@@ -32,6 +32,7 @@ public class ScoreCard : MonoBehaviour
         m_rightButton = Instantiate(Resources.Load<GameObject>
             ("Prefabs/PageMoveButton")).GetComponent<PageMoveObject>();
         m_rightButton.Set(PageMoveObject.e_direction.RIGHT);
+        m_leftButton.ToggleVisible(false);
 
         yield return null;
 
@@ -187,6 +188,7 @@ public class ScoreCard : MonoBehaviour
         if (m_currentPage == 0)
         {
             m_leftButton.SetInteractable(false);
+            m_leftButton.ToggleVisible(false);
         }
         else if (m_currentPage == m_pages.Count - 1)
         {
@@ -195,6 +197,7 @@ public class ScoreCard : MonoBehaviour
         else
         {
             m_rightButton.ToggleEnd(false);
+            m_leftButton.ToggleVisible(true);
             m_leftButton.SetInteractable(true);
         }
     }

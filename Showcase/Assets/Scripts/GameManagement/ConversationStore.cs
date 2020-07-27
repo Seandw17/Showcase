@@ -115,8 +115,11 @@ static public class ConversationStore
     /// </summary>
     public static void DidntReachedInterviewerOnTime()
     {
-        m_timesArrivedOnTime++;
-        AddTip(e_tipCategories.LATEINTERVIEW);
+        if (!m_tips.HasFlag(e_tipCategories.LATEINTERVIEW))
+        {
+            m_timesArrivedOnTime++;
+            AddTip(e_tipCategories.LATEINTERVIEW);
+        }
     }
 
     /// <summary>
@@ -124,14 +127,20 @@ static public class ConversationStore
     /// </summary>
     public static void DidntArrivedInWaitingAreaOnTime()
     {
-        m_timesArrivedOnTime++;
-        AddTip(e_tipCategories.LATEWAITING);
+        if (!m_tips.HasFlag(e_tipCategories.LATEWAITING))
+        {
+            m_timesArrivedOnTime++;
+            AddTip(e_tipCategories.LATEWAITING);
+        }
     }
 
     public static void DidntArrivedToShopOnTime()
     {
-        m_timesArrivedOnTime++;
-        AddTip(e_tipCategories.LATESHOP);
+        if (!m_tips.HasFlag(e_tipCategories.LATESHOP))
+        {
+            m_timesArrivedOnTime++;
+            AddTip(e_tipCategories.LATESHOP);
+        }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -145,9 +154,9 @@ static public class ConversationStore
         if (m_timesLookedAway != 5)
         {
             AddTip(e_tipCategories.LOOKEDAWAY);
+            m_timesLookedAway++;
             Debug.Log("Registered that player has looked away " +
                 m_timesLookedAway + " of 5 times");
-            m_timesLookedAway++;
         }
         
     }

@@ -41,13 +41,38 @@ public class FinalResult : Page
     /// <param name="_score">the players score</param>
     public void SetValue(int _score, int questionsAsked)
     {
-        float amountNeededToPass = (questionsAsked * 5) * 0.6f;
-        Debug.Log(amountNeededToPass + " would have been a passing score");
-        //m_finalPercentText.SetText(amountNeededToPass + "%");
-
         m_finalScore.SetText(_score.ToString());
 
-        if (_score >= amountNeededToPass) { m_outcomeText.SetText(m_passText); }
-        else { m_outcomeText.SetText(m_failText); }
+        if (CalculatePass(CalculatePassingGrade(questionsAsked, 0.6f), _score))
+        {
+            m_outcomeText.SetText(m_passText);
+        }
+        else
+        {
+            m_outcomeText.SetText(m_failText);
+        }
+    }
+
+    /// <summary>
+    /// Calculate what is needed to pass based upon the question amount
+    /// </summary>
+    /// <param name="_questionAmount">how many questions were asked</param>
+    /// <param name="_passingPercent">what % is the pass amount</param>
+    /// <returns>what score is needed to pass</returns>
+    static public float CalculatePassingGrade(int _questionAmount,
+        float _passingPercent)
+    {
+        return Mathf.Round((_questionAmount * 5) * _passingPercent);
+    }
+
+    /// <summary>
+    /// Find out if passed or not
+    /// </summary>
+    /// <param name="_amountToPass">what score is needed to pass</param>
+    /// <param name="_score">the score the player got</param>
+    /// <returns>if passed or not</returns>
+    static public bool CalculatePass(float _amountToPass, float _score)
+    {
+        return _score >= _amountToPass;
     }
 }

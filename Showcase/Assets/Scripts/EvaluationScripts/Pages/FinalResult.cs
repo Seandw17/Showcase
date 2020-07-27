@@ -62,7 +62,7 @@ public class FinalResult : Page
     static public float CalculatePassingGrade(int _questionAmount,
         float _passingPercent)
     {
-        return Mathf.Round((_questionAmount * 5) * _passingPercent);
+        return Mathf.Round(((_questionAmount - 1) * 5) * _passingPercent);
     }
 
     /// <summary>

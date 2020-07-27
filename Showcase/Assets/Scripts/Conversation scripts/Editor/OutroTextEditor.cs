@@ -41,7 +41,7 @@ public class OutroTextEditor : EditorWindow
         }
         if (GUILayout.Button("Save Changes"))
         {
-            WriteIntroOutroText("Outro.csv", m_outroText);
+            WriteIntroOutroText("Outro.txt", m_outroText);
         }
     }
 }

@@ -367,17 +367,20 @@ public class QuestionManager : MonoBehaviour
 
         for (int index = 0; index < introText.Length; index++)
         {
-            m_questionBox.SetText(introText[index]);
-            m_QuestionAudio.PlayIntro(index + 1);
-            StopFade();
-            m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
-                m_fadeInSpeed, true));
-            while (!m_QuestionAudio.IsDonePlaying())
+            if (!introText[index].Equals(""))
             {
-                yield return null;
+                m_questionBox.SetText(introText[index]);
+                m_QuestionAudio.PlayIntro(index + 1);
+                StopFade();
+                m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
+                    m_fadeInSpeed, true));
+                while (!m_QuestionAudio.IsDonePlaying())
+                {
+                    yield return null;
+                }
+                FadeOutQuestionText();
+                yield return waitFor;
             }
-            FadeOutQuestionText();
-            yield return waitFor;
         }
 
         StartCoroutine(LoadRandomQuestion());
@@ -398,16 +401,21 @@ public class QuestionManager : MonoBehaviour
 
         for (int index = 0; index < outroText.Length; index++)
         {
-            FadeOutQuestionText();
-            m_QuestionAudio.PlayOutro(index + 1);
-            m_questionBox.SetText(outroText[index]);
-            StopFade();
-            m_fadeText = StartCoroutine(FadeAsset(m_questionBox, m_fadeInSpeed,
-                true));
-            while (!m_QuestionAudio.IsDonePlaying())
+            if (!outroText[index].Equals(""))
             {
-                yield return null;
+                FadeOutQuestionText();
+                m_QuestionAudio.PlayOutro(index + 1);
+                m_questionBox.SetText(outroText[index]);
+                StopFade();
+                m_fadeText = StartCoroutine(FadeAsset(m_questionBox,
+                    m_fadeInSpeed,
+                    true));
+                while (!m_QuestionAudio.IsDonePlaying())
+                {
+                    yield return null;
+                }
             }
+            
         }
 
         FadeOutQuestionText();

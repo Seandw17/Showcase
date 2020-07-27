@@ -42,7 +42,7 @@ public class IntroTextWindow : EditorWindow
         }
         if (GUILayout.Button("Save Changes"))
         {
-            WriteIntroOutroText("Intro.CSV", m_introText);
+            WriteIntroOutroText("Intro.txt", m_introText);
         }
     }
 }

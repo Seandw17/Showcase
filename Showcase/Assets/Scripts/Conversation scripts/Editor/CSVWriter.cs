@@ -43,7 +43,7 @@ public static class CSVWriter
     /// <param name="_text">List of strings to write to file</param>
     public static void WriteFillerText(List<string> _text)
     {
-        string path = "Assets/Resources/Conversation/FillerText.csv";
+        string path = "Assets/Resources/Conversation/FillerText.txt";
 
         StreamWriter writer = new StreamWriter(path, false);
 
@@ -69,7 +69,7 @@ public static class CSVWriter
     /// <param name="_values">Dictionary of values</param>
     public static void WriteTips(Dictionary<e_tipCategories, string> _values)
     {
-        string path = "Assets/Resources/Conversation/Tips.csv";
+        string path = "Assets/Resources/Conversation/Tips.txt";
 
         StreamWriter writer = new StreamWriter(path, false);
 
@@ -97,7 +97,7 @@ public static class CSVWriter
     /// <param name="_strings"></param>
     public static void WritePlayerQuestions(List<PlayerQuestion> _questions)
     {
-        string path = "Assets/Resources/Conversation/PQuestions.csv";
+        string path = "Assets/Resources/Conversation/PQuestions.txt";
 
         StreamWriter writer = new StreamWriter(path, false);
 
@@ -136,7 +136,7 @@ public static class CSVWriter
     public static void WriteInterviewerQuestions(List<QuestionData> _questions)
     {
 
-        string path = "Assets/Resources/Conversation/IQuestions.csv";
+        string path = "Assets/Resources/Conversation/IQuestions.txt";
 
         StreamWriter writer = new StreamWriter(path, false);
 

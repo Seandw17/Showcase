@@ -97,10 +97,6 @@ public class QuestionManager : MonoBehaviour
         m_timerSlider.maxValue = m_timeBetweenQuestions;
         m_timerSlider.gameObject.SetActive(false);
 
-        m_QuestionAudio =
-            new QuestionAudio(m_interviewer.GetComponent
-            <FMODUnity.StudioEventEmitter>());
-
         // set up events 
         m_processNextStep = new UnityEvent();
         m_processNextStep.AddListener(ProcessNextStep);
@@ -114,7 +110,7 @@ public class QuestionManager : MonoBehaviour
         if (m_forceInterviewToStart)
         {
             Init();
-            StartCoroutine(StartInterview());
+            BeginInterview();
             RegisterUnlockFlag(e_unlockFlag.FIRST);
         }
         else
@@ -132,6 +128,9 @@ public class QuestionManager : MonoBehaviour
         transform.parent.GetComponent<MeshRenderer>().enabled = true;
         Debug.Assert(m_interviewer != null, "No reference to interviewer " +
             "exists");
+        m_QuestionAudio =
+            new QuestionAudio(m_interviewer.GetComponent
+            <FMODUnity.StudioEventEmitter>());
         StartCoroutine(StartInterview());
     }
 

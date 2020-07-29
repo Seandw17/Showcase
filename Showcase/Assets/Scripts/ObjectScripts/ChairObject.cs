@@ -29,44 +29,18 @@ public class ChairObject : InteractableObjectBase
         Debug.Log("chair");
         if (m_isinterviewchair.Equals(true))
         {
-            m_chairchoice++;
-            switch (m_chairchoice)
-            {
-                case 1:
-                    {
-                        transform.position = new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
-                        break;
-                    }
-                case 2:
-                    {
+            ig_playerobject.transform.position = ig_sitpoisitonobject.transform.position;
+            m_playerscript.SetCanPlayerMove(false);
+            WaitingRoomManager.IsInInterview();
+            m_boxcollider.enabled = false;
 
 
-                        ig_playerobject.transform.position = ig_sitpoisitonobject.transform.position;
-                        m_playerscript.SetCanPlayerMove(false);
-                        WaitingRoomManager.IsInInterview();
-                        m_boxcollider.enabled = false;
+            m_gmscript.SetTaskTrue(7);
+            // Start Interview
+            Debug.Assert(m_questionManager != null, "There is no " +
+                "reference to a Question Manager Object");
 
-
-                        m_gmscript.SetTaskTrue(7);
-                        // Start Interview
-                        Debug.Assert(m_questionManager != null, "There is no " +
-                            "reference to a Question Manager Object");
-
-                        m_questionManager.BeginInterview();
-
-                        break;
-                    }
-                case 3:
-                    {
-                        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.5f);
-                        break;
-                    }
-
-            }
-            if (m_chairchoice >= 3)
-            {
-                m_chairchoice = 0;
-            }
+            m_questionManager.BeginInterview();
         }
         else
         {

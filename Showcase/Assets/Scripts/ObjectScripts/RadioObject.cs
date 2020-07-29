@@ -27,13 +27,14 @@ public class RadioObject : InteractableObjectBase
         {
             case 1:
                 {
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Music/Chillstep", GetComponent<Transform>().position);
-                    //TODO - Add in FMOD code to play music here
+                    GetComponent<FMODUnity.StudioEventEmitter>().Play();
+                    Debug.Log("Is playing");
                     break;
                 }
             case 2:
                 {
-                   
+                    GetComponent<FMODUnity.StudioEventEmitter>().Stop();
+                    Debug.Log("Stop playing");
                     break;
                 }
         }

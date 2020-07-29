@@ -167,4 +167,16 @@ static public class ConversationStore
     /// <returns>how many times, up to 5 the player has looked away</returns>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static int GetLookedAway() => m_timesLookedAway;
+
+    /// <summary>
+    /// Reset values to deafult
+    /// </summary>
+    public static void Reset()
+    {
+        m_unlockedFlags = e_unlockFlag.NONE;
+        m_tips = e_tipCategories.NONE; // TODO check this
+        m_timesLookedAway = 0;
+        m_timesArrivedOnTime = 0;
+        m_playerResponses = new List<s_playerResponse>();
+    }
 }

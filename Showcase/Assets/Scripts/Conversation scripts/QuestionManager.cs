@@ -257,7 +257,7 @@ public class QuestionManager : MonoBehaviour
 
         TurnOffOptions();
         m_previous = e_rating.AWFUL;
-        PlayerWasSilent(m_questionBox.text);
+        PlayerWasSilent(m_questionBox.GetParsedText());
         m_responseID = m_questionForJob.Count + 1;
         m_processNextStep.Invoke();
     }

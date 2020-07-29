@@ -76,6 +76,7 @@ public class PageMoveObject : InteractableObjectBase
             {
                 // go back to the title screen
                 Debug.Log("Returning to TitleScreen");
+                ConversationStore.Reset();
                 LevelChange.ChangeLevel("TitleScreen");
             }
             

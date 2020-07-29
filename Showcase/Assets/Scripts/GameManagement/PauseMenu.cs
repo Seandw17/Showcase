@@ -50,7 +50,8 @@ public class PauseMenu : MonoBehaviour
     {
         // if the active scene is not the title screen
         if (!SceneManager.GetActiveScene().name.Equals("TItleScreen") &&
-            !SceneManager.GetActiveScene().name.Equals("PreLoad"))
+            !SceneManager.GetActiveScene().name.Equals("PreLoad") &&
+            !SceneManager.GetActiveScene().name.Equals("CharacterSelection"))
         {
             // If escape is pressed, toggle the pause meny and gametime
             if (Input.GetKeyDown(m_pauseButton))
@@ -78,7 +79,8 @@ public class PauseMenu : MonoBehaviour
 
                     m_pauseMenuObject.SetActive(m_isPaused);
 
-                    LevelChange.ChangeLevel(SceneManager.GetActiveScene().name);
+                    LevelChange.ChangeLevel("TItleScreen");
+                    ConversationStore.Reset();
                 }
             }
         }

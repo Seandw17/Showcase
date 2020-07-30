@@ -5,13 +5,14 @@ using UnityEngine;
 public class RadioObject : InteractableObjectBase
 {
 
-    int m_musicchoice = 0;
+    int m_musicchoice = 1;
 
     
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
+        GetComponent<FMODUnity.StudioEventEmitter>().Play();
     }
 
     // Update is called once per frame

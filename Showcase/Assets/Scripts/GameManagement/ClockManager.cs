@@ -11,6 +11,9 @@ public class ClockManager : MonoBehaviour
     private float m_hourStart;
     [SerializeField]
     private float m_waitTimer;
+    [SerializeField]
+    private float m_timefraction;
+    [SerializeField]
     private float m_generalTimer;
     [SerializeField]
     private bool m_tickTock;
@@ -61,10 +64,10 @@ public class ClockManager : MonoBehaviour
     void TimerInClock()
     {
         m_generalTimer -= Time.deltaTime;
-        m_minutes = Mathf.Floor(m_generalTimer / 60);
-        m_seconds = Mathf.RoundToInt(m_generalTimer % 60);
+        m_minutes = Mathf.Floor((m_generalTimer /m_timefraction)/ 60);
+        m_seconds = Mathf.RoundToInt((m_generalTimer / m_timefraction) % 60);
 
-        Vector3 _newRot = new Vector3(0, 90, (m_seconds * 360) / 60);
+        Vector3 _newRot = new Vector3(0, 90, (m_seconds* 360) / 60);
         ig_tinyClockHandle.transform.rotation = Quaternion.Euler(_newRot);
 
         Vector3 _newRotH = new Vector3(0, 90, (m_minutes * 360) / 60);

@@ -346,6 +346,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Window_Display_For_Caffee (3)
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 495844bb4b2ddfa468810ca88a7f67a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -415,11 +420,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.192569
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Window_Display_For_Caffee (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495844bb4b2ddfa468810ca88a7f67a2, type: 3}
@@ -2963,7 +2963,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c4758fae6c41e24b93f98e8c72c07dc, type: 2}
   ig_doorToCoffee: {fileID: 576537300}
   ig_interviewDoor: {fileID: 1184301363}
-  m_waitTimer: 70
+  m_waitTimer: 120
   m_hourStart: 10
   ig_Clock: {fileID: 741755762}
   ig_tinyClockHandle: {fileID: 741755761}
@@ -3241,6 +3241,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Window_Display_For_Caffee (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 495844bb4b2ddfa468810ca88a7f67a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3310,11 +3315,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.192569
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Window_Display_For_Caffee (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495844bb4b2ddfa468810ca88a7f67a2, type: 3}
@@ -4010,6 +4010,8 @@ MonoBehaviour:
   m_CheckTimer: 0
   m_hourStart: 0
   m_waitTimer: 0
+  m_timefraction: 1
+  m_generalTimer: 0
   m_tickTock: 0
   ig_tinyClockHandle: {fileID: 511540787}
   ig_normalClockHandle: {fileID: 511540786}
@@ -6388,6 +6390,8 @@ MonoBehaviour:
   m_CheckTimer: 0
   m_hourStart: 0
   m_waitTimer: 0
+  m_timefraction: 1
+  m_generalTimer: 0
   m_tickTock: 0
   ig_tinyClockHandle: {fileID: 741755761}
   ig_normalClockHandle: {fileID: 741755760}
@@ -6705,6 +6709,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Window_Display_For_Caffee
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 495844bb4b2ddfa468810ca88a7f67a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6774,11 +6783,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.192569
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Window_Display_For_Caffee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495844bb4b2ddfa468810ca88a7f67a2, type: 3}
@@ -11539,6 +11543,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Window_Display_For_Caffee (4)
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 495844bb4b2ddfa468810ca88a7f67a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11608,11 +11617,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.192569
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Window_Display_For_Caffee (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495844bb4b2ddfa468810ca88a7f67a2, type: 3}
@@ -11976,6 +11980,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Window_Display_For_Caffee (2)
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 495844bb4b2ddfa468810ca88a7f67a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12045,11 +12054,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.192569
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 495844bb4b2ddfa468810ca88a7f67a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Window_Display_For_Caffee (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495844bb4b2ddfa468810ca88a7f67a2, type: 3}
@@ -14005,6 +14009,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 603190834}
     m_Modifications:
+    - target: {fileID: 7816788552706556003, guid: c1e70fb706e080f4caf1d3fa204d9690,
+        type: 3}
+      propertyPath: m_Name
+      value: WaitingArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170467438749993003, guid: c1e70fb706e080f4caf1d3fa204d9690,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103818826288112888, guid: c1e70fb706e080f4caf1d3fa204d9690,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1636617657012528349, guid: c1e70fb706e080f4caf1d3fa204d9690,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14058,21 +14077,6 @@ PrefabInstance:
     - target: {fileID: 1636617657012528349, guid: c1e70fb706e080f4caf1d3fa204d9690,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816788552706556003, guid: c1e70fb706e080f4caf1d3fa204d9690,
-        type: 3}
-      propertyPath: m_Name
-      value: WaitingArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170467438749993003, guid: c1e70fb706e080f4caf1d3fa204d9690,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4103818826288112888, guid: c1e70fb706e080f4caf1d3fa204d9690,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7955433282511406817, guid: c1e70fb706e080f4caf1d3fa204d9690,

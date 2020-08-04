@@ -29,18 +29,18 @@ public class StartKey : MonoBehaviour
     private void Start()
     {
         // compose text for how to start
-        string setValue = "Press left mouse button";
+        string setValue = "Click here";
 
         if (!m_startKeyController.Equals(""))
         {
-            setValue += " or" + m_startKeyController.ToString();
+            setValue += " or press" + m_startKeyController.ToString();
         }
 
         setValue += " to begin";
 
         m_startText.text = (setValue);
 
-        setValue = "Press " + m_howToPlayKeyBoard.ToString();
+        setValue = "Click here, or press " + m_howToPlayKeyBoard.ToString();
         if (!m_howToPlayKeyController.Equals(""))
         {
             setValue += "or " + m_howToPlayKeyController.ToString(); 
@@ -62,19 +62,15 @@ public class StartKey : MonoBehaviour
         bool inputs;
         if (!m_startKeyController.Equals(""))
         {
-            inputs = Input.GetMouseButtonDown(0) ||
+            inputs = 
                 Input.GetButtonDown(m_startKeyController);
-        }
-        else
-        {
-            inputs = Input.GetMouseButtonDown(0);
-        }
 
-        // if true, change level
-        if (inputs)
-        {
-            Time.timeScale = 1;
-            ChangeLevel("CharacterSelection");
+            // if true, change level
+            if (inputs)
+            {
+                Time.timeScale = 1;
+                ChangeLevel("CharacterSelection");
+            }
         }
 
         // Inputs for the how to play screen

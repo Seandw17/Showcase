@@ -82,7 +82,6 @@ public class OptionData : InteractableObjectBase
         gameObject.SetActive(true);
         if (m_fadeRenderer != null) { StopCoroutine(m_fadeRenderer); }
         if (m_fadeText != null) { StopCoroutine(m_fadeText); }
-        // TODO remove this if statement once material is given
         if (m_isInteractible)
         {
             SetAlphaToZero(m_renderer.material);

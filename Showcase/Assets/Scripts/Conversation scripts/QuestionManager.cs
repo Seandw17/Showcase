@@ -112,6 +112,9 @@ public class QuestionManager : MonoBehaviour
             Init();
             BeginInterview();
             RegisterUnlockFlag(e_unlockFlag.FIRST);
+            RegisterUnlockFlag(e_unlockFlag.SECOND);
+            RegisterUnlockFlag(e_unlockFlag.THIRD);
+            RegisterUnlockFlag(e_unlockFlag.FOURTH);
         }
         else
         {
@@ -231,8 +234,8 @@ public class QuestionManager : MonoBehaviour
         m_interviewer.Expression(_chosenResponse.rating);
         TurnOffOptions();
         FadeOutQuestionText();
-        m_processNextStep.Invoke();
         m_responseID = _ID;
+        m_processNextStep.Invoke();
     }
 
     /// <summary>

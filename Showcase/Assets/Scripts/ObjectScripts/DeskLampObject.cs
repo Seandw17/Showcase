@@ -14,7 +14,7 @@ public class DeskLampObject : InteractableObjectBase
     void Start()
     {
         base.Start();
-        m_light = FindObjectOfType<Light>();
+        //m_light = FindObjectOfType<Light>();
        
 
     }

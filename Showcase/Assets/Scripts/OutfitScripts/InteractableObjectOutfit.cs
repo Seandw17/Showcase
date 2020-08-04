@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class InteractableObjectOutfit : InteractableObjectBase
@@ -8,7 +9,7 @@ public class InteractableObjectOutfit : InteractableObjectBase
     CursorController m_cmScript;
     OutfitManager m_omScript;
 
-    [SerializeField] GameObject m_outfitUIObject;
+    [SerializeField] GameObject m_outfitUIObject, m_noResearchDoneWarningUIObject;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,10 @@ public class InteractableObjectOutfit : InteractableObjectBase
         else
         {
             Debug.Log("Do Some Research");
+            GameManagerScript.SetNewHUD(m_noResearchDoneWarningUIObject);
+            StartCoroutine(FadeIn.AssetInOut(GameManagerScript
+                .ReturnCurrentHUD().GetComponentInChildren
+                <TextMeshProUGUI>(), 5, 2));
         }
     }
 }

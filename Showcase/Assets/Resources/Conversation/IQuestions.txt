@@ -33,7 +33,7 @@ end
 # How well do you work in a team?
 #
 i$4
-q$NONE|To start How well do you work in a team?,GREAT|Wow that's great! How well do you work in a team?,GOOD|Nice! I like that! How well do you work in a team?,OK|Ok so how well do you work in a team?,BAD|Right sounds good! How well do you work in a team?,AWFUL|Alright so How well do you work in a team?
+q$NONE|To start How well do you work in a team?,GREAT|Wow that's great! How well do you work in a team?,GOOD|Nice! I like that! How well do you work in a team?,OK|Ok so how well do you work in a team?,BAD|Right! How well do you work in a team?,AWFUL|Alright so How well do you work in a team?
 r$I prefer working not to rely on others|AWFUL|NONE,I'm ok in a team and I just go with the flow|OK|NONE,I don't often work in teams|BAD|NONE,I've worked on teams in the past in school|GOOD|SECOND,I'm great in teams and I take whatever role I need to fill|GOOD|FOURTH
 f$TEAMWORK
 end
@@ -49,7 +49,7 @@ end
 # What do you think are your best qualities
 #
 i$6
-q$NONE|So what do you think are your best qualities?,GREAT|Awesome! So what are your best qualities?,GOOD|Good. So what are your best qualities?,OK|Ok. What do you think are your best qualities?,BAD|Alright then. So what do you feel are your best qualities?,AWFUL|Sounds good. So what do you believe are your best qualities?
+q$NONE|So what do you think are your best qualities?,GREAT|Awesome! So what are your best qualities?,GOOD|Good. So what are your best qualities?,OK|Ok. What do you think are your best qualities?,BAD|Alright then. So what do you feel are your best qualities?,AWFUL|hrrrmmm. So what do you believe are your best qualities?
 r$I’m a very hard worker! I try to complete every task to the best of my ability|GREAT|NONE,I am very good at taking on criticism and improving upon myself|GOOD|NONE,I’m a great people person and get a long really well with my co workers|GOOD|NONE,I don't know|BAD|NONE, I don't really care|AWFUL|NONE
 f$HARDWORK
 end
@@ -73,7 +73,7 @@ end
 # A customer comes in a rush and are quite irate. What would do you?
 #
 i$9
-q$NONE|A customer comes in a rush and is quite irate. What would you do?,GREAT|Ok then A customer comes in a rush and is quite irate. What would you do?,GOOD|Alright! A customer comes in a rush and is quite irate. What would you do?,OK|Ok a customer comes in a rush and is quite irate. What would you do?,BAD|So then a customer comes in a rush and is quite irate. What would you do?,AWFUL|So A customer comes in a rush and is quite irate. What would you do?
+q$NONE|A customer is in a rush and is quite irate. What would you do?,GREAT|Ok then A customer comes in a rush and is quite irate. What would you do?,GOOD|Alright! A customer comes in a rush and is quite irate. What would you do?,OK|Ok a customer comes in a rush and is quite irate. What would you do?,BAD|Ok then a customer comes in a rush and is quite irate. What would you do?,AWFUL|A customer comes in a rush and is quite irate. What would you do?
 r$I would refuse them service|AWFUL|NONE,I'd take my time to make sure I get the order correct|OK|NONE,I aknowledge that they are in a rush and get to them as soon as I can|GOOD|NONE,I acknowledge there needs and attempt to prepare the order if it would take a long time|GREAT|FIRST,I serve them first because they are in a rush|OK|FIRST
 f$PROBLEM
 end
@@ -81,7 +81,7 @@ end
 # A customer complains to you about their coffee being cold. What do you do?
 #
 i$10
-q$NONE|Ok a customer complains to you about their coffee being cold. What do you do?,GREAT|Great! A customer complains to you about their coffee being cold. What do you do?,GOOD|Ok so a customer complains to you about their coffee being cold. What do you do?,OK|Alright. So a customer complains to you about their coffee being cold. What do you do?,BAD|Hrrrmm ok. A customer complains to you about their coffee being cold. What do you do?,AWFUL|That's interesting so a customer complains to you about their coffee being cold. What do you do?
+q$NONE|Ok a customer complains to you about their coffee being cold. What do you do?,GREAT|Great! A customer complains to you about their coffee being cold. What do you do?,GOOD|Ok so a customer complains to you about their coffee being cold. What do you do?,OK|Alright. So a customer complains to you about their coffee being cold. What do you do?,BAD|Hrrrmm ok. A customer complains to you about their coffee being cold. What do you do?,AWFUL|That's odd so a customer complains to you about their coffee being cold. What do you do?
 r$I would apologise and ask to know more about the situation so I can determine what the context is around the order|OK|NONE,I would promise to get them a new coffee|GOOD|NONE,I would find my supervisor and see how they would handle it|BAD|NONE,I would apologise first and ask if it was cold when they received it. I would then ask the barista if there was anything wrong with the machine or any other orders|OK|FIRST,I would take the coffee and see if it is actually cold|AWFUL|THIRD
 f$PROBLEM
 end

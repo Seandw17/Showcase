@@ -5,7 +5,7 @@ using UnityEngine;
 public class RadioObject : InteractableObjectBase
 {
 
-    int m_musicchoice = 1;
+    int m_musicchoice = 0;
 
     
     // Start is called before the first frame update
@@ -41,7 +41,7 @@ public class RadioObject : InteractableObjectBase
         }
         if (m_musicchoice >= 2)
         {
-            m_musicchoice = 1;
+            m_musicchoice = 0;
         }
         //TODO - Add code to put m_musicchoice back to the beginning
     }

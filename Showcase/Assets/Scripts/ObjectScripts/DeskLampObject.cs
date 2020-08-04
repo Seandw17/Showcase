@@ -6,6 +6,7 @@ public class DeskLampObject : InteractableObjectBase
 {
     [SerializeField]
     Light m_light;
+    
 
     bool m_lighton = false;
 
@@ -14,6 +15,7 @@ public class DeskLampObject : InteractableObjectBase
     {
         base.Start();
         m_light = FindObjectOfType<Light>();
+       
 
     }
 

@@ -25,33 +25,36 @@ static public class CSVLoader
         foreach (string lineRaw in lines)
         {
             string line = lineRaw.Replace("\n", "").Replace("\r", "");
-            if (!line[0].Equals('#') && !line.Equals(""))
+            if (!line.Equals("") && !line.Equals("\n"))
             {
-                if (line.Equals("end"))
+                if (!line[0].Equals('#'))
                 {
-                    returnValue.Add(temp);
-                    temp = new QuestionData();
-                }
-                else
-                {
-                    string[] check = line.Split('$');
-                    switch (check[0])
+                    if (line.Equals("end"))
                     {
-                        case "i":
-                            temp.ID = int.Parse(check[1]);
-                            break;
-                        case "q":
-                            temp.questions = ReadQuestions(check[1]);
-                            break;
-                        case "r":
-                            temp.options = ReadOptions(check[1]);
-                            break;
-                        case "f":
-                            temp.tip = (e_tipCategories)Enum.Parse(
-                            typeof(e_tipCategories), check[1]);
-                            break;
-                        case "":
-                            throw new Exception("Illegal index: " + check[0]);
+                        returnValue.Add(temp);
+                        temp = new QuestionData();
+                    }
+                    else
+                    {
+                        string[] check = line.Split('$');
+                        switch (check[0])
+                        {
+                            case "i":
+                                temp.ID = int.Parse(check[1]);
+                                break;
+                            case "q":
+                                temp.questions = ReadQuestions(check[1]);
+                                break;
+                            case "r":
+                                temp.options = ReadOptions(check[1]);
+                                break;
+                            case "f":
+                                temp.tip = (e_tipCategories)Enum.Parse(
+                                typeof(e_tipCategories), check[1]);
+                                break;
+                            case "":
+                                throw new Exception("Illegal index: " + check[0]);
+                        }
                     }
                 }
             }

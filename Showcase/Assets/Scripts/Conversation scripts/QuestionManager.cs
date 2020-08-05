@@ -66,6 +66,11 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     [SerializeField] bool m_forceInterviewToStart;
 
+    /// <summary>
+    /// If true, gives user all unlock flags when forcing to start
+    /// </summary>
+    [SerializeField] bool m_allUnlocks;
+
     Coroutine m_waitForAnswer, m_fadeText;
 
     // Start is called before the first frame update
@@ -112,9 +117,12 @@ public class QuestionManager : MonoBehaviour
             Init();
             BeginInterview();
             RegisterUnlockFlag(e_unlockFlag.FIRST);
-            RegisterUnlockFlag(e_unlockFlag.SECOND);
-            RegisterUnlockFlag(e_unlockFlag.THIRD);
-            RegisterUnlockFlag(e_unlockFlag.FOURTH);
+            if (m_allUnlocks)
+            {
+                RegisterUnlockFlag(e_unlockFlag.SECOND);
+                RegisterUnlockFlag(e_unlockFlag.THIRD);
+                RegisterUnlockFlag(e_unlockFlag.FOURTH);
+            }
         }
         else
         {

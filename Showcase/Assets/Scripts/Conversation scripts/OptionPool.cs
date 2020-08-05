@@ -9,6 +9,7 @@ using static ConversationStore;
 public class OptionPool
 {
     OptionData[] m_options;
+    InterviewUIPopUp m_popUp;
 
     public OptionPool(int _size, Vector3 _pos, QuestionManager _manager)
     {
@@ -18,7 +19,10 @@ public class OptionPool
             .GetComponentInChildren<OptionData>();
         Debug.Assert(temp, "Option was not loaded correctly");
 
-        OptionData.Register(_manager);
+        m_popUp = Object.Instantiate(Resources.Load<GameObject>
+            ("Prefabs/InterviewPopUp")).GetComponent<InterviewUIPopUp>();
+
+        OptionData.Register(_manager, m_popUp);
 
         // loop through and create appropriate amount of options
         Debug.Log("Creating options");
@@ -61,8 +65,6 @@ public class OptionPool
             m_options[index] = hold.GetComponentInChildren<OptionData>();
             Debug.Log("Created option " + (index + 1) + " of " +
                 m_options.Length);
-
-
         }
 
         Debug.Log("All options have been created");
@@ -76,11 +78,20 @@ public class OptionPool
     public void Set(List<Questionresponse> _response, QuestionData
         _question)
     {
+        bool lockedFlag = false;
+
         for (int index = 0; index < m_options.Length; index++)
         {
-            m_options[index].SetLocked(!CheckHasFlag(
-                _response[index].unlockCriteria));
+            bool locked = !CheckHasFlag(_response[index].unlockCriteria);
+            if (locked) { lockedFlag = true; }
+            m_options[index].SetLocked(locked);
             m_options[index].SetValue(_response[index], _question.tip);
+        }
+
+        if (lockedFlag)
+        {
+            m_popUp.Display("Some responses are locked due to a " +
+                "lack of research prior");
         }
     }
 
@@ -90,9 +101,13 @@ public class OptionPool
     /// <param name="_questions">questions player can ask</param>
     public void Set(List<PlayerQuestion> _questions)
     {
+        bool lockedFlag = false;
+
         for (int index = 0; index < m_options.Length; index++)
         {
-            m_options[index].SetLocked(!CheckHasFlag(_questions[index].flag));
+            bool locked = !CheckHasFlag(_questions[index].flag);
+            if (locked) { lockedFlag = true; }
+            m_options[index].SetLocked(locked);
             Questionresponse temp = new Questionresponse
             {
                 rating = e_rating.GREAT,
@@ -100,6 +115,12 @@ public class OptionPool
             };
             m_options[index].SetValue(temp, e_tipCategories.NOTASKING,
                 index);
+        }
+
+        if (lockedFlag)
+        {
+            m_popUp.Display("Some responses are locked due to a " +
+                "lack of research prior");
         }
     }
 

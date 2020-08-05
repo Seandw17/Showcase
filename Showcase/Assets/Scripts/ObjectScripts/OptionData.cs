@@ -18,6 +18,7 @@ public class OptionData : InteractableObjectBase
     MeshFilter m_meshFilter;
     Coroutine m_fadeText, m_fadeRenderer;
     int m_questionID;
+    static InterviewUIPopUp m_popUp;
 
     [SerializeField] Material m_matInactive, m_matActive;
     [SerializeField] Mesh m_Inactive, m_active;
@@ -38,9 +39,10 @@ public class OptionData : InteractableObjectBase
     /// Function to set the manager
     /// </summary>
     /// <param name="_questionManager"> the manager object </param>
-    static public void Register(QuestionManager _questionManager)
+    static public void Register(QuestionManager _questionManager, InterviewUIPopUp _popUp)
     {
         m_questionManager = _questionManager;
+        m_popUp = _popUp;
     }
 
     /// <summary>
@@ -104,6 +106,22 @@ public class OptionData : InteractableObjectBase
             m_questionManager.ProcessQuestionResult(m_responseForThisButton,
                 m_questionID);
             GetObjectOutline().enabled = false;
+
+            // TODO decide
+            if ((int)m_responseForThisButton.rating > 1)
+            {
+                // Good noise
+                //FMODUnity.RuntimeManager.PlayOneShot("sound", transform.position);
+            }
+            else
+            {
+                // Bad Noise
+                //FMODUnity.RuntimeManager.PlayOneShot("sound", transform.position);
+            }
+            m_popUp.Display("You chose a " +
+                m_responseForThisButton.rating +
+                " response which earned you " +
+                (int)m_responseForThisButton.rating + " points");
         }
     }
 

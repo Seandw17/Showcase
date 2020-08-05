@@ -160,16 +160,17 @@ public static class CSVWriter
             // parsing question line
             string questionLine = "q$";
             int externalIndex = 0;
-            foreach (e_rating rating in Enum.GetValues(typeof(e_rating)))
+            for (int index = 5; index >= 0; index--)
             {
-                questionLine += rating + "|" +
-                    question.questions[rating].Trim(illegalCharacters);
+                questionLine += (e_rating)index + "|" +
+                    question.questions[(e_rating) index].Trim(illegalCharacters);
                 if (externalIndex != question.questions.Count - 1)
                 {
                     questionLine += ",";
                 }
                 externalIndex++;
             }
+
             writer.WriteLine(questionLine);
             Debug.Log("Question Line: " + questionLine +  " written");
 
@@ -193,6 +194,7 @@ public static class CSVWriter
 
             // Parsing tip
             writer.WriteLine("f$" + question.tip.ToString());
+            writer.WriteLine("end");
             Debug.Log("Tip line: " + question.tip + " written");
         }
 

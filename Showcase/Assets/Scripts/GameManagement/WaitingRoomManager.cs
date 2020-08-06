@@ -47,6 +47,8 @@ public class WaitingRoomManager : MonoBehaviour
     private float m_seconds;
     [SerializeField]
     private DialogSO m_currentDialog;
+    [SerializeField]
+    private GameObject ig_chair;
 
 
     List<DialogSO> m_usedDialogs;
@@ -139,6 +141,7 @@ public class WaitingRoomManager : MonoBehaviour
             if(!m_setMoveAgain)
             {
                 m_playerscript.SetCanPlayerMove(true);
+                ig_chair.GetComponent<WaitingChair>().enabled = false;
                 m_gmScript.SetTaskTrue(6);
                 m_startTimerToGoToInterview = true;
                 ig_Clock.GetComponent<ClockManager>().SetTimers(m_hourStart, m_waitTimer);

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class LaptopObject : InteractableObjectBase
 {
-    [SerializeField] GameObject m_laptopPanelHome, m_websiteMain, m_websiteCommunity, m_websiteLooking, m_websiteProduct, m_websiteAbout;
-
-    bool m_openfirst, m_opensecond, m_openthird, _m_openfourth;
+    [SerializeField] GameObject m_laptopPanelHome, m_websiteMain, m_websiteCommunity, m_websiteLooking, m_websiteProduct, m_websiteAbout, m_websiteProductAnswer;
+    [SerializeField] Button m_unlockfour, m_unlocktwo, m_unlockthree;
+    
 
     
     // Start is called before the first frame update
@@ -58,68 +58,92 @@ public class LaptopObject : InteractableObjectBase
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
     }
 
-    public void Unlock1()
+    public void OpenProductPage()
     {
         GameManagerScript.SetNewHUD(m_websiteProduct);
-        if (m_openfirst.Equals(false))
-        {
-            ConversationStore.RegisterUnlockFlag(e_unlockFlag.FIRST);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
-            m_openfirst = true;
-            if (m_gmscript.m_objectiveboolarray[0].Equals(false))
-            {
-                m_gmscript.SetTaskTrue(0);
-            }
-        }
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
+    }
+
+    public void OpenAboutPage()
+    {
+        GameManagerScript.SetNewHUD(m_websiteAbout);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
+    }
+
+    public void OpenCommunityPage()
+    {
+        GameManagerScript.SetNewHUD(m_websiteCommunity);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
+    }
+
+    public void OpenLookingPage()
+    {
+        GameManagerScript.SetNewHUD(m_websiteLooking);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
+    }
+
+    public void OpenProductAnswerPage()
+    {
+        GameManagerScript.SetNewHUD(m_websiteProductAnswer);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
+        Unlock1();
+    }
+
+    public void Unlock1()
+    {
+       
+         ConversationStore.RegisterUnlockFlag(e_unlockFlag.FIRST);
+         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
+        
+         if (m_gmscript.m_objectiveboolarray[0].Equals(false))
+         {
+              m_gmscript.SetTaskTrue(0);
+         }
+        
     }
 
     public void Unlock2()
     {
-        GameManagerScript.SetNewHUD(m_websiteAbout);
-        if (m_opensecond.Equals(false))
-        {
+        
             ConversationStore.RegisterUnlockFlag(e_unlockFlag.SECOND);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
-            m_opensecond = true;
+           
             if (m_gmscript.m_objectiveboolarray[0].Equals(false))
             {
                 m_gmscript.SetTaskTrue(0);
             }
-        }
+        m_unlocktwo.gameObject.SetActive(false);
+        
     }
 
     public void Unlock3()
     {
-        GameManagerScript.SetNewHUD(m_websiteCommunity);
-        if (m_openthird.Equals(false))
-        {
-            ConversationStore.RegisterUnlockFlag(e_unlockFlag.THIRD);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
-            m_openthird = true;
-            if (m_gmscript.m_objectiveboolarray[0].Equals(false))
-            {
-                m_gmscript.SetTaskTrue(0);
-            }
-        }
+        
+        ConversationStore.RegisterUnlockFlag(e_unlockFlag.THIRD);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
+            
+       if (m_gmscript.m_objectiveboolarray[0].Equals(false))
+       {
+           m_gmscript.SetTaskTrue(0);
+       }
+        m_unlockthree.gameObject.SetActive(false);
+        
     }
 
     public void Unlock4()
     {
-        GameManagerScript.SetNewHUD(m_websiteLooking);
-        if (_m_openfourth.Equals(false))
-        {
-            ConversationStore.RegisterUnlockFlag(e_unlockFlag.FOURTH);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
-            _m_openfourth = true;
-            if (m_gmscript.m_objectiveboolarray[0].Equals(false))
-            {
-                m_gmscript.SetTaskTrue(0);
-            }
-        }
-        
+       ConversationStore.RegisterUnlockFlag(e_unlockFlag.FOURTH);
+       FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+       FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
+            
+       if (m_gmscript.m_objectiveboolarray[0].Equals(false))
+       {
+          m_gmscript.SetTaskTrue(0);
+       }     
+       m_unlockfour.gameObject.SetActive(false);
+
     }
 }

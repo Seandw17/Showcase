@@ -26,6 +26,12 @@ public class InteractableObjectOutfit : InteractableObjectBase
         
     }
 
+    IEnumerator DisplayWarning()
+    {
+        yield return new WaitForSeconds(2.0f);
+        GameManagerScript.SetHUDBack();
+    }
+
     // when the player interacts with the wardrobe
     public override void Interact()
     {
@@ -46,9 +52,7 @@ public class InteractableObjectOutfit : InteractableObjectBase
                 .ReturnCurrentHUD().GetComponentInChildren
                 <TextMeshProUGUI>(), 5, 2));
             // also waits the above seconds +1 before setting the hud back
-            StartCoroutine(m_gmscript.SetHUDBackDelay(6));
-            //GameManagerScript.SetHUDBack();
-            //GameManagerScript.SetNewHUD(m_omScript.);
+            StartCoroutine(DisplayWarning());
         }
     }
 }

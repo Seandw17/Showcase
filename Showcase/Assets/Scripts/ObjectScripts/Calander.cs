@@ -25,6 +25,7 @@ public class Calander : InteractableObjectBase
         m_playerscript.SetCanPlayerMove(false);
         m_playerscript.SetCanInteract(false);
         m_playerscript.SetCanCameraMove(false);
+        GameManagerScript.GetCursor().EnableCursor();
     }
 
     public void ReturnToPlayer()
@@ -33,6 +34,7 @@ public class Calander : InteractableObjectBase
         m_playerscript.SetCanPlayerMove(true);
         m_playerscript.SetCanInteract(true);
         m_playerscript.SetCanCameraMove(true);
+        GameManagerScript.GetCursor().DisableCursor();
     }
 
     public override void Interact()

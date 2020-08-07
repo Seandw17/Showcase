@@ -53,6 +53,12 @@ public class DoorObject : InteractableObjectBase
        
     }
 
+    IEnumerator DisplayWarning()
+    {
+        yield return new WaitForSeconds(2.0f);
+        GameManagerScript.SetHUDBack();
+    }
+
     public override void Interact()
     {
         // - play sound when doors are opening
@@ -75,6 +81,8 @@ public class DoorObject : InteractableObjectBase
                     StartCoroutine(FadeIn.AssetInOut(GameManagerScript
                         .ReturnCurrentHUD().GetComponentInChildren
                         <TextMeshProUGUI>(), 5, 2));
+                    StartCoroutine(DisplayWarning());
+
                 }
                 else if(ConversationStore.IsOnlyNoneFlag().Equals(false))
                 {
@@ -87,10 +95,11 @@ public class DoorObject : InteractableObjectBase
                     else
                     {
                         // Changed to call coroutine
-                        GameManagerScript.SetNewHUD(m_outfitWarning);
+                         GameManagerScript.SetNewHUD(m_outfitWarning);
                         StartCoroutine(FadeIn.AssetInOut(GameManagerScript
                             .ReturnCurrentHUD().GetComponentInChildren
                             <TextMeshProUGUI>(), 5, 2));
+                        StartCoroutine(DisplayWarning());
                     }
                 }
             }

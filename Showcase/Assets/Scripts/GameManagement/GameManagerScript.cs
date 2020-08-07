@@ -36,9 +36,6 @@ public class GameManagerScript : MonoBehaviour
     //Array of bools to check what race was chosen 0 = race1, 1 = race2, 2 = race3
     public bool[] m_playerracechoicebool;
 
-    // timer for the hud delay
-    [SerializeField] public float m_currentWaitTime = 0.0f;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -114,27 +111,6 @@ public class GameManagerScript : MonoBehaviour
         }
         ig_currenthud = m_playerPanel;
         ig_currenthud.SetActive(true);
-    }
-
-    // trying to get it to delay and set the hud back
-    public IEnumerator SetHUDBackDelay(float _time)
-    {
-        m_currentWaitTime += Time.deltaTime;
-        int seconds = Mathf.RoundToInt(m_currentWaitTime % 60.0f);
-        if (seconds == _time)
-        {
-            if (ig_currenthud != null && ig_currenthud != m_playerPanel)
-            {
-                ig_currenthud.SetActive(false);
-                ig_currenthud.transform.parent = null;
-                SceneManager.MoveGameObjectToScene(ig_currenthud,
-                    SceneManager.GetActiveScene());
-            }
-            ig_currenthud = m_playerPanel;
-            ig_currenthud.SetActive(true);
-            yield return null;
-        }
-        yield return new WaitForSecondsRealtime(1);
     }
 
     static public GameObject ReturnCurrentHUD() => ig_currenthud;

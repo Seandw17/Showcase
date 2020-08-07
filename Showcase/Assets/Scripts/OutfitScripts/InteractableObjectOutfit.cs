@@ -41,14 +41,9 @@ public class InteractableObjectOutfit : InteractableObjectBase
         {
             Debug.Log("Do Some Research");
             GameManagerScript.SetNewHUD(m_noResearchDoneWarningUIObject);
-            // fades in text over the "5" seconds
             StartCoroutine(FadeIn.AssetInOut(GameManagerScript
                 .ReturnCurrentHUD().GetComponentInChildren
                 <TextMeshProUGUI>(), 5, 2));
-            // also waits the above seconds +1 before setting the hud back
-            StartCoroutine(m_gmscript.SetHUDBackDelay(6));
-            //GameManagerScript.SetHUDBack();
-            //GameManagerScript.SetNewHUD(m_omScript.);
         }
     }
 }

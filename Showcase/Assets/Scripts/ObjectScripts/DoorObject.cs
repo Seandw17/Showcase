@@ -81,6 +81,7 @@ public class DoorObject : InteractableObjectBase
                     if (OutfitManager.GetOutfitScore() != 0)
                     {
                         LevelChange.ChangeLevel(m_levelname);
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/door_close");
                         m_gmscript.SetTaskTrue(2);
                     }
                     else

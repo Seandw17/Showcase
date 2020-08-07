@@ -42,13 +42,14 @@ public class CharacterSelectionManager : MonoBehaviour
     public void ReturnToCharacterSexSelection()
     {
         GameManagerScript.SetNewHUD(m_playersexPanel);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
     }
 
     public void SetPlayerMeshMale()
     {
         m_pcScript.SetPlayerMeshModel(m_malemesh);
         m_gmScript.m_isplayerSexchoiceone = true;
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
         GameManagerScript.SetNewHUD(m_playermaleracePanel);
     }
 
@@ -56,7 +57,7 @@ public class CharacterSelectionManager : MonoBehaviour
     {
         m_pcScript.SetPlayerMeshModel(m_femalemesh);
         m_gmScript.m_isplayerSexchoiceone = false;
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
         GameManagerScript.SetNewHUD(m_playerfemaleracePanel);
     }
 
@@ -71,6 +72,7 @@ public class CharacterSelectionManager : MonoBehaviour
             m_pcScript.SetPlayerMaterial(m_playerracechoice[3]);
         }
         m_gmScript.m_playerracechoicebool[0] = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
         LevelChange.ChangeLevel("ChooseOutfit");
     }
 
@@ -85,6 +87,7 @@ public class CharacterSelectionManager : MonoBehaviour
             m_pcScript.SetPlayerMaterial(m_playerracechoice[4]);
         }
         m_gmScript.m_playerracechoicebool[1] = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
         LevelChange.ChangeLevel("ChooseOutfit");
     }
 
@@ -99,6 +102,7 @@ public class CharacterSelectionManager : MonoBehaviour
             m_pcScript.SetPlayerMaterial(m_playerracechoice[5]);
         }
         m_gmScript.m_playerracechoicebool[2] = true;
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
         LevelChange.ChangeLevel("ChooseOutfit");
     }
 }

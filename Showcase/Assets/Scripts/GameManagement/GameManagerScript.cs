@@ -9,11 +9,12 @@ public class GameManagerScript : MonoBehaviour
     //All of the HUDS should be added here so that they can be accessed in the editor
     [SerializeField] private GameObject ig_PlayerPanel; // KEEP
     [SerializeField] private GameObject ig_UIParent;
+    
 
 
     static GameObject m_playerPanel, m_UIParent;
 
-    [SerializeField] Text m_objectivetext;
+    [SerializeField] Text m_objectivetext, m_objectivepanelupdatetext;
 
     //This is the HUD that is displayed to the screen at all times
     static GameObject ig_currenthud;
@@ -117,6 +118,7 @@ public class GameManagerScript : MonoBehaviour
     void DisplayObjectiveText()
     {
        m_objectivetext.text = m_objectivetextarray[m_objectiveindex];
+       
     }
 
     public void SetTaskTrue(int _taskindex)
@@ -125,11 +127,20 @@ public class GameManagerScript : MonoBehaviour
         IncrementObjectiveIndex();
     }
 
-     public void IncrementObjectiveIndex()
-     {
+    public void IncrementObjectiveIndex()
+    {
         m_objectiveindex++;
         DisplayObjectiveText();
-     }
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+        StartCoroutine(DisplayNewObjectivePanel());
+    }
+
+    IEnumerator DisplayNewObjectivePanel()
+    {
+        m_objectivepanelupdatetext.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2.0f);
+        m_objectivepanelupdatetext.gameObject.SetActive(false);
+    }
 
     void CreateTaskText()
     {

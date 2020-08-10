@@ -9,7 +9,8 @@ public class TitleScreenButton : MonoBehaviour
     enum action
     {
         START,
-        HOWTO,
+        DISPLAY,
+        BACK,
         QUIT
     }
 
@@ -31,12 +32,12 @@ public class TitleScreenButton : MonoBehaviour
     {
         switch (m_onClickAction)
         {
-            case action.HOWTO:
+            case action.DISPLAY:
                 Time.timeScale = 0;
                 Debug.Assert(m_howToPlay != null,
                     "Set the gameobject for how to play");
                 m_howToPlay.SetActive(true);
-                break;
+                return;
             case action.QUIT:
                 Application.Quit();
                 break;
@@ -44,6 +45,12 @@ public class TitleScreenButton : MonoBehaviour
                 Time.timeScale = 1;
                 ChangeLevel("CharacterSelection");
                 break;
+            case action.BACK:
+                Debug.Assert(m_howToPlay != null,
+                    "Set GameObject for how to play");
+                m_howToPlay.SetActive(false);
+                Time.timeScale = 1;
+                return;
         }
 
         Cursor.visible = false;

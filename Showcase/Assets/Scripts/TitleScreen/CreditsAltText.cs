@@ -13,9 +13,13 @@ public class CreditsAltText : MonoBehaviour
         {
             if (!m_bert.activeSelf)
             {
-                // TODO alt credit text
                 Debug.Log("Secret credits, big oof");
-                GetComponent<Text>().text = "BIG OOF";
+                GetComponent<Text>().text = "BIG OOF\n Rita Rosa" +
+                    " - unwilling participant " +
+                    "\n Alec Lauder - permanent caffeine high\n " +
+                    "Bobbert420UpInThis - Destroyer of Popchips\n Big Lee - " +
+                    "Straight up gangsta \n Sean Docherty - The Lord \n " +
+                    "Lord Aswell - known head";
                 m_bert.SetActive(true);
             }
         }   

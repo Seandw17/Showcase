@@ -79,7 +79,7 @@ public class PauseMenu : MonoBehaviour
 
                     m_pauseMenuObject.SetActive(m_isPaused);
 
-                    LevelChange.ChangeLevel("TItleScreen");
+                    SceneManager.LoadScene("PreLoad", LoadSceneMode.Single);
                     ConversationStore.Reset();
                 }
             }

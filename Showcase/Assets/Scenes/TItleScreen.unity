@@ -1637,8 +1637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 2.32}
-  m_SizeDelta: {x: 535.7, y: 197.12}
+  m_AnchoredPosition: {x: -0, y: -3.69}
+  m_SizeDelta: {x: 535.7, y: 243.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021771132
 MonoBehaviour:
@@ -1665,7 +1665,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1673,7 +1673,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: INSERT CREDITS HERE
+  m_Text: "Lee Fairweather - Producer\nAdam Gray - Producer\n\nJohn Greer - 2d Character
+    & UI Artist / Lead Artist\nRachael Lampard-France - 2D Character Artist\nTabbie
+    Marshall - 3D Environment artist\nSara Qu\xE9nel - 3D Artist\n\nRobert Clark -
+    Audio Designer\nMiroslaw Sienkiewicz - Sound Designer\n\nSean Docherty - Coder\nAlec
+    Lauder - Coder\nRita Rosa - Lead Coder / Coder\nSean Walker - Coder"
 --- !u!222 &1021771133
 CanvasRenderer:
   m_ObjectHideFlags: 0

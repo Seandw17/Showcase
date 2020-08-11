@@ -8,7 +8,7 @@
 [WRN] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001CEC1C8E818 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001CF0B228E28 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -16,45 +16,6 @@
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
-[LOG] SoundI::release                          :  (000001CEB081D4D8)
-[LOG] SoundI::release                          :     amb_waiting_room (000001CEC1172BC8)
-[LOG] SoundI::release                          :  (000001CEB0819E38)
-[LOG] SoundI::release                          :     amb_coffee_01 (000001CEAFE007F8)
-[LOG] SoundI::release                          :  (000001CEB081CDA8)
-[LOG] SoundI::release                          :     amb_coffee_02 (000001CEC1172A28)
-[LOG] SoundI::release                          :  (000001CEB081AE08)
-[LOG] SoundI::release                          :     amb_coffee_03 (000001CEC1172068)
-[LOG] SoundI::release                          :  (000001CEB081C508)
-[LOG] SoundI::release                          :     amb_coffee_04 (000001CEC1172548)
-[LOG] SoundI::release                          :  (000001CEB0819CC8)
-[LOG] SoundI::release                          :     amb_coffee_05 (000001CEC11723A8)
-[LOG] SoundI::release                          : amb_street (000001CEA3CD6838)
-[LOG] SoundI::release                          :     amb_street (000001CEAF9CD0D8)
-[LOG] SoundI::release                          :     amb_street (000001CEC1243F08)
-[LOG] SoundI::release                          : waiting_room_music (000001CEA53B6868)
-[LOG] SoundI::release                          :     waiting_room_music (000001CEAF9CCF38)
-[LOG] SoundI::release                          :     waiting_room_music (000001CEA3CD53F8)
-[LOG] SoundI::release                          : amb_coffee_bar (000001CEA53B70D8)
-[LOG] SoundI::release                          :     amb_coffee_bar (000001CEAF9CC578)
-[LOG] SoundI::release                          :     amb_coffee_bar (000001CEC1243D58)
-[LOG] SoundI::release                          :  (000001CEB081C678)
-[LOG] SoundI::release                          :     amb_coffee_06 (000001CEC1172208)
-[LOG] SoundI::release                          :  (000001CEB081A568)
-[LOG] SoundI::release                          :     clock_timer (000001CEC11726E8)
-[LOG] SoundI::release                          :  (000001CEB081CF18)
-[LOG] SoundI::release                          :     hi how may i help (000001CEC1172888)
-[LOG] SoundI::release                          :  (000001CEB081D648)
-[LOG] SoundI::release                          :     hi how may i help2 (000001CEAFE004B8)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
@@ -346,12 +307,3 @@
 [WRN] PostLoad::initPluginEffects              : Creating stub DSP plugin model and continuing.
 [WRN] EffectInstanceFactory::create            : Creating stub DSP for plugin 'Resonance Audio Listener'
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
-[LOG] SystemI::close                           : Closed.

@@ -81,6 +81,7 @@ public class PauseMenu : MonoBehaviour
 
                     SceneManager.LoadScene("PreLoad", LoadSceneMode.Single);
                     ConversationStore.Reset();
+                    Cursor.lockState = CursorLockMode.None;
                 }
             }
         }

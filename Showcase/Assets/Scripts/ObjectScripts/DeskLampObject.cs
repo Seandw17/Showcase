@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeskLampObject : InteractableObjectBase
 {
     [SerializeField]
-    Light m_light;
+    List<Light> m_light;
     
 
     bool m_lighton = false;
@@ -15,7 +15,7 @@ public class DeskLampObject : InteractableObjectBase
     {
         base.Start();
         //m_light = FindObjectOfType<Light>();
-       
+
 
     }
 
@@ -30,14 +30,21 @@ public class DeskLampObject : InteractableObjectBase
         m_lighton = !m_lighton;
         if (m_lighton == false)
         {
-            m_light.enabled = true;
+            for (int i = 0; i < m_light.Count; i++)
+            {
+                m_light[i].enabled = true;
+            }
+            
 
             FMODUnity.RuntimeManager.PlayOneShot("event:/lamp_switch", GetComponent<Transform>().position);
             GetComponent<FMODUnity.StudioEventEmitter>().Play();
         }
         else
         {
-            m_light.enabled = false;
+            for (int i = 0; i < m_light.Count; i++)
+            {
+                m_light[i].enabled = false;
+            }
 
             FMODUnity.RuntimeManager.PlayOneShot("event:/lamp_switch", GetComponent<Transform>().position);
             GetComponent<FMODUnity.StudioEventEmitter>().Stop();

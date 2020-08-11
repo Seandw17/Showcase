@@ -111,12 +111,13 @@ public class WaitingRoomManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         ig_doorToCoffee.GetComponent<DoorObject>().SetM_lockDoor(true);
+        m_activeChat = true;
     }
 
     public void UnlockDoor()
     {
         ig_doorToCoffee.GetComponent<DoorObject>().SetM_lockDoor(false);
-        m_activeChat = true;
+        
     }
 
 
@@ -176,6 +177,7 @@ public class WaitingRoomManager : MonoBehaviour
     IEnumerator NextText()
     {
         ig_nextText.SetActive(true);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Dialogue/Interviewer/Extras/next_please", GetComponent<Transform>().position);
         yield return new WaitForSeconds(2);
         ig_nextText.SetActive(false);
     }
@@ -255,7 +257,7 @@ public class WaitingRoomManager : MonoBehaviour
         }
         else
         {
-            ig_textBox.SetActive(true);
+           // ig_textBox.SetActive(true);
             m_audio.PlayEvent(m_currentDialog.m_conversationID, m_currentDialog.sentences[m_currentSentence].m_sentenceID);
             UpdateTextDisplay(m_currentDialog.sentences[m_currentSentence].text);
             m_dialogTimer = 1;

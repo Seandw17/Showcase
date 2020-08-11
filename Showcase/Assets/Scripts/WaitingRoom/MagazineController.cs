@@ -64,12 +64,14 @@ public class MagazineController : MonoBehaviour
 
     public void NextPageButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/paper_magazine_collect", GetComponent<Transform>().position);
         m_currentPage += 1;
         UpdatePage();
     }
 
     public void PreviousPageButton()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/paper_magazine_collect", GetComponent<Transform>().position);
         m_currentPage -= 1;
         UpdatePage();
     }

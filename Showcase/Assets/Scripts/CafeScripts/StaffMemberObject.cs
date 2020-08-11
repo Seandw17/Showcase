@@ -22,11 +22,14 @@ public class StaffMemberObject : InteractableObjectBase
     private float m_currentWaitTime = 0.0f;
     public float m_maxWaitTimer = 0.0f;
     private int m_rotationSpeed = 5;
+    private bool talked = false;
+    private bool arrivedMessage = false;
 
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Dialogue/barista/how_may_i_help", GetComponent<Transform>().position);
         ig_staffAgent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
         ig_staffAgent.updateRotation = false;
         ig_staffAgent.updatePosition = true;
@@ -37,6 +40,11 @@ public class StaffMemberObject : InteractableObjectBase
     {
         if (m_staffMemberTriggered && !m_staffMemberMoving)
         {
+            if(!talked)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Dialogue/barista/youre_here_for_the_interview", GetComponent<Transform>().position);
+                talked = true;
+            }
             // show the text above the staff member then procede to wait a few seconds before starting the pathfinding.
             m_currentWaitTime += Time.deltaTime;
             int seconds = Mathf.RoundToInt(m_currentWaitTime % 60.0f);
@@ -104,6 +112,12 @@ public class StaffMemberObject : InteractableObjectBase
                 Vector3 m_rotationVector = ig_staffAgent.transform.rotation.eulerAngles;
                 m_rotationVector.y = m_rotationVector.y + 180;
                 ig_staffAgent.transform.rotation = Quaternion.Euler(m_rotationVector);
+
+                if(!arrivedMessage)
+                {
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Dialogue/barista/please_enter", GetComponent<Transform>().position);
+                    arrivedMessage = true;
+                }
             }
         }        
     }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LaptopObject : InteractableObjectBase
 {
     [SerializeField] GameObject m_laptopPanelHome, m_websiteMain, m_websiteCommunity, m_websiteLooking, m_websiteProduct, m_websiteAbout, m_websiteProductAnswer;
+    [SerializeField] List<GameObject> blockouts;
     [SerializeField] Button m_unlockfour, m_unlocktwo, m_unlockthree;
     
 
@@ -93,7 +94,8 @@ public class LaptopObject : InteractableObjectBase
     {
        
          ConversationStore.RegisterUnlockFlag(e_unlockFlag.FIRST);
-         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+       
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
          FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
         
          if (m_gmscript.m_objectiveboolarray[0].Equals(false))
@@ -107,7 +109,8 @@ public class LaptopObject : InteractableObjectBase
     {
         
             ConversationStore.RegisterUnlockFlag(e_unlockFlag.SECOND);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
+        blockouts[1].SetActive(false);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
             FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
            
             if (m_gmscript.m_objectiveboolarray[0].Equals(false))
@@ -122,6 +125,7 @@ public class LaptopObject : InteractableObjectBase
     {
         
         ConversationStore.RegisterUnlockFlag(e_unlockFlag.THIRD);
+        blockouts[2].SetActive(false);
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
             
@@ -136,6 +140,7 @@ public class LaptopObject : InteractableObjectBase
     public void Unlock4()
     {
        ConversationStore.RegisterUnlockFlag(e_unlockFlag.FOURTH);
+       blockouts[3].SetActive(false);
        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/clue_found", GetComponent<Transform>().position);
        FMODUnity.RuntimeManager.PlayOneShot("event:/UI/mouse_click", GetComponent<Transform>().position);
             

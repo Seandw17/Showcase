@@ -27,6 +27,7 @@ public class MagazineInteract : InteractableObjectBase
     {
         //SetCurrentHUD(ReturnPanel(e_PanelTypes.MAGAZINE));
         SetNewHUD(panel);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/paper_magazine_collect", GetComponent<Transform>().position);
         m_playerscript.SetCanCameraMove(false);
         GetCursor().EnableCursor();
         m_playerscript.SetCanInteract(false);

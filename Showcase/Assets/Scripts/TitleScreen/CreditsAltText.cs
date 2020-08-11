@@ -17,11 +17,11 @@ public class CreditsAltText : MonoBehaviour
             {
                 if (timer > 0)
                 {
-                    timer -= Time.deltaTime;
+                    Debug.Log(timer);
+                    timer -= 0.05f;
                 }
                 else
                 {
-                
                     Debug.Log("Secret credits, big oof");
                         GetComponent<Text>().text = "BIG OOF\n Sean Lauder " +
                         "- permanent caffeine high \n" +

@@ -79,9 +79,9 @@ public class PauseMenu : MonoBehaviour
 
                     m_pauseMenuObject.SetActive(m_isPaused);
 
-                    SceneManager.LoadScene("PreLoad", LoadSceneMode.Single);
                     ConversationStore.Reset();
                     Cursor.lockState = CursorLockMode.None;
+                    SceneManager.LoadScene("PreLoad", LoadSceneMode.Single);
                 }
             }
         }

@@ -79,9 +79,7 @@ public class PauseMenu : MonoBehaviour
 
                     m_pauseMenuObject.SetActive(m_isPaused);
 
-                    ConversationStore.Reset();
-                    Cursor.lockState = CursorLockMode.None;
-                    SceneManager.LoadScene("PreLoad", LoadSceneMode.Single);
+                    ResetGame();
                 }
             }
         }
@@ -92,4 +90,14 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     /// <returns> is game paused? </returns>
     static public bool IsPaused() { return m_isPaused; }
+
+    /// <summary>
+    /// Hard reset values of game
+    /// </summary>
+    static public void ResetGame()
+    {
+        ConversationStore.Reset();
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("PreLoad", LoadSceneMode.Single);
+    }
 }

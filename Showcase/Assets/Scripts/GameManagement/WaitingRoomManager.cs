@@ -26,6 +26,8 @@ public class WaitingRoomManager : MonoBehaviour
     [SerializeField]
     private GameObject ig_Clock;
     [SerializeField]
+    private GameObject ig_ExtraClock;
+    [SerializeField]
     private GameObject ig_tinyClockHandle;
     [SerializeField]
     private GameObject ig_normalClockHandle;
@@ -146,6 +148,7 @@ public class WaitingRoomManager : MonoBehaviour
                 m_gmScript.SetTaskTrue(6);
                 m_startTimerToGoToInterview = true;
                 ig_Clock.GetComponent<ClockManager>().SetTimers(m_hourStart, m_waitTimer);
+                //ig_ExtraClock.GetComponent<ClockManager>().SetTimers(m_hourStart, m_waitTimer);
                 ig_interviewDoor.GetComponent<InteractableObjectBase>().enabled = true;
                
                 if (!m_IsSited)

@@ -17,6 +17,8 @@ public class ClockManager : MonoBehaviour
     private float m_generalTimer;
     [SerializeField]
     private bool m_tickTock;
+    [SerializeField]
+    private bool reverse;
 
 
     [SerializeField]
@@ -34,7 +36,16 @@ public class ClockManager : MonoBehaviour
     {
         if(m_tickTock)
         {
-            m_rotHour = new Vector3(0, 0, (m_hourStart * 360) / 60);
+            if(!reverse)
+            {
+                m_rotHour = new Vector3(0, 0, (m_hourStart * 360) / 60);
+            }
+            else
+            {
+                m_rotHour = new Vector3(0, 0, -(m_hourStart * 360) / 60);
+
+            }
+            
         }
         
     }
@@ -67,11 +78,23 @@ public class ClockManager : MonoBehaviour
         m_minutes = Mathf.Floor((m_generalTimer /m_timefraction)/ 60);
         m_seconds = Mathf.RoundToInt((m_generalTimer / m_timefraction) % 60);
 
-        Vector3 _newRot = new Vector3(0, 90, (m_seconds* 360) / 60);
-        ig_tinyClockHandle.transform.rotation = Quaternion.Euler(_newRot);
+        if(!reverse)
+        {
+            Vector3 _newRot = new Vector3(0, 90, (m_seconds * 360) / 60);
+            ig_tinyClockHandle.transform.rotation = Quaternion.Euler(_newRot);
 
-        Vector3 _newRotH = new Vector3(0, 90, (m_minutes * 360) / 60);
-        ig_normalClockHandle.transform.rotation = Quaternion.Euler(m_rotHour + _newRotH);
+            Vector3 _newRotH = new Vector3(0, 90, (m_minutes * 360) / 60);
+            ig_normalClockHandle.transform.rotation = Quaternion.Euler(m_rotHour + _newRotH);
+        }
+        else
+        {
+            Vector3 _newRot = new Vector3(0, 90, -(m_seconds * 360) / 60);
+            ig_tinyClockHandle.transform.rotation = Quaternion.Euler(_newRot);
+
+            Vector3 _newRotH = new Vector3(0, 90,-(m_minutes * 360) / 60);
+            ig_normalClockHandle.transform.rotation = Quaternion.Euler(m_rotHour + _newRotH);
+        }
+        
     }
 
 
@@ -79,7 +102,6 @@ public class ClockManager : MonoBehaviour
     {
         m_hourStart = _hour;
         m_rotHour = new Vector3(0, 0, (m_hourStart * 360) / 60);
-
         m_generalTimer = _min;
         m_tickTock = true;
     }

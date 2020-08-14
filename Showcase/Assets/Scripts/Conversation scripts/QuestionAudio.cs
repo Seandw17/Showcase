@@ -60,7 +60,6 @@ public class QuestionAudio
             + _event;
 
         LookUpAndPlay("event " + _event);
-        
     }
 
     /// <summary>
@@ -138,6 +137,10 @@ public class QuestionAudio
 
     void CheckIfDone()
     {
+        if (PauseMenu.IsPaused())
+        {
+
+        }
         if (!IsDonePlaying())
         {
             Debug.LogWarning("Audio was playing when this was called");

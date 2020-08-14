@@ -79,7 +79,8 @@ public class GameManagerScript : MonoBehaviour
             ig_currenthud.SetActive(false);
         }
         ig_currenthud = _new;
-        ig_currenthud.transform.parent = m_UIParent.transform;
+        ig_currenthud.transform.SetParent(m_UIParent.transform, false);
+        //ig_currenthud.transform.parent = m_UIParent.transform;
         ig_currenthud.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         ig_currenthud.SetActive(true);
     }

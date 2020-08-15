@@ -1284,7 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_alternateGlowObject: {fileID: 204333574}
-  panel: {fileID: 490188715}
+  m_panel: {fileID: 490188715}
 --- !u!65 &204333577
 BoxCollider:
   m_ObjectHideFlags: 0

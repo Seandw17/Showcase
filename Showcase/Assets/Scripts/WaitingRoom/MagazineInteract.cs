@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class MagazineInteract : InteractableObjectBase
 {
-    [SerializeField] GameObject panel;
+    [SerializeField] GameObject m_panel;
+
+    Vector3 m_startingScalers;
 
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
+
+        m_startingScalers = m_panel.transform.localScale;
     }
 
     // Update is called once per frame
@@ -25,8 +29,9 @@ public class MagazineInteract : InteractableObjectBase
 
     public override void Interact()
     {
+        m_panel.transform.localScale = m_startingScalers;
         //SetCurrentHUD(ReturnPanel(e_PanelTypes.MAGAZINE));
-        SetNewHUD(panel);
+        SetNewHUD(m_panel);
         FMODUnity.RuntimeManager.PlayOneShot("event:/SpotEffects/paper_magazine_collect", GetComponent<Transform>().position);
         m_playerscript.SetCanCameraMove(false);
         GetCursor().EnableCursor();

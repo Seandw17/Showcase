@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 469069140}
   - component: {fileID: 469069139}
   - component: {fileID: 469069137}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Outcome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 779399724}
   - component: {fileID: 779399723}
   - component: {fileID: 779399722}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 1460152199}
   - component: {fileID: 1460152198}
   - component: {fileID: 1460152196}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Percent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 1760850275}
   - component: {fileID: 1760850274}
   - component: {fileID: 1760850272}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,85 +822,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
---- !u!320 &617301350033344532
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555031891818708318}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 6d32132e9794a9b42a6cb2ceb9ad5733, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -2441971639027441112, guid: 6d32132e9794a9b42a6cb2ceb9ad5733, type: 2}
-    value: {fileID: 617301350033344533}
-  - key: {fileID: 4762021851543091886, guid: 6d32132e9794a9b42a6cb2ceb9ad5733, type: 2}
-    value: {fileID: 617301350678898459}
-  - key: {fileID: 4413916689649898445, guid: 6d32132e9794a9b42a6cb2ceb9ad5733, type: 2}
-    value: {fileID: 617301350099882729}
-  m_ExposedReferences:
-    m_References: []
---- !u!95 &617301350033344533
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555031891818708318}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1750782742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555031891818708318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a687e2890a7f24d20a26b200c062da0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_finalScore: {fileID: 1760850272}
-  m_outcomeText: {fileID: 469069137}
-  m_amountNeededToPassPercent: 75
-  m_finalPercentText: {fileID: 1460152196}
-  m_passText: Congratulations, You have got the job!
-  m_failText: I'm sorry you have failed the interview
---- !u!95 &617301350678898459
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758336112131988653}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4640510408543269497
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,6 +913,66 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!320 &617301350033344532
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555031891818708318}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 6d32132e9794a9b42a6cb2ceb9ad5733, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -2441971639027441112, guid: 6d32132e9794a9b42a6cb2ceb9ad5733, type: 2}
+    value: {fileID: 617301350033344533}
+  - key: {fileID: 4762021851543091886, guid: 6d32132e9794a9b42a6cb2ceb9ad5733, type: 2}
+    value: {fileID: 617301350678898459}
+  - key: {fileID: 4413916689649898445, guid: 6d32132e9794a9b42a6cb2ceb9ad5733, type: 2}
+    value: {fileID: 617301350099882729}
+  m_ExposedReferences:
+    m_References: []
+--- !u!95 &617301350033344533
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555031891818708318}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1750782742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555031891818708318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a687e2890a7f24d20a26b200c062da0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_finalScore: {fileID: 1760850272}
+  m_outcomeText: {fileID: 469069137}
+  m_amountNeededToPassPercent: 75
+  m_finalPercentText: {fileID: 1460152196}
+  m_passText: Congratulations, You have got the job!
+  m_failText: I'm sorry you have failed the interview
 --- !u!95 &617301350099882729
 Animator:
   serializedVersion: 3
@@ -1000,6 +981,25 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7666116896601059192}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &617301350678898459
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758336112131988653}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
@@ -1029,6 +1029,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f6e378431989f25448632b129aa1ec42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6993607305177330897, guid: f6e378431989f25448632b129aa1ec42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -1372209313496631046, guid: f6e378431989f25448632b129aa1ec42,
         type: 3}
       propertyPath: m_Layer
       value: 10

@@ -38,6 +38,7 @@ public class MagazineInteract : InteractableObjectBase
     public void ResetMagazineView()
     {
         //SetCurrentHUD(ReturnPanel(e_PanelTypes.PLAYER));
+        Debug.Log(" exit pls");
         SetHUDBack();
         m_playerscript.SetCanCameraMove(true);
         GetCursor().DisableCursor();

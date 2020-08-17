@@ -35,6 +35,8 @@ public class FinalResult : Page
     /// </summary>
     [SerializeField] string m_failText;
 
+    bool? m_passed;
+
     /// <summary>
     /// set the value of the page
     /// </summary>
@@ -46,10 +48,35 @@ public class FinalResult : Page
         if (CalculatePass(CalculatePassingGrade(questionsAsked, 0.6f), _score))
         {
             m_outcomeText.SetText(m_passText);
+            m_passed = true;
         }
         else
         {
             m_outcomeText.SetText(m_failText);
+            m_passed = false;
+        }
+    }
+
+    private void OnEnable()
+    {
+        // if they've passed or failed, play sound
+        if (m_passed != null)
+        {
+            if (m_passed == true)
+            {
+                //pass
+                FMODUnity.RuntimeManager.PlayOneShot("event:/UI/pass_grade",
+                    GetComponent<Transform>().position);
+                Debug.Log("Pass noise");
+            }
+            else
+            {
+                // fail
+                FMODUnity.RuntimeManager.PlayOneShot("event:/UI/fail_grade",
+                    GetComponent<Transform>().position);
+                Debug.Log("fail noise");
+
+            }
         }
     }
 

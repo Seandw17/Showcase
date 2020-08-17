@@ -71,6 +71,7 @@ public class StaffMemberObject : InteractableObjectBase
             ig_staffMemberText.GetComponentInChildren<TextMeshPro>().text = "Ah you're here for the interview. This way please.";
 
             m_gmscript.SetTaskTrue(3);
+            SetShouldGlow(false);
         }
     }
 

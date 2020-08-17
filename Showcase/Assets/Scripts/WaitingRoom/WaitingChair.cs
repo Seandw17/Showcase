@@ -34,6 +34,8 @@ public class WaitingChair : InteractableObjectBase
             m_gmscript.SetTaskTrue(5);
             canInteract = false;
 
+            SetShouldGlow(false);
+
         }
         
        

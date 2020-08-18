@@ -2552,7 +2552,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Hi, how may we help you?
+  m_text: Hi, how may I help you?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2621,7 +2621,7 @@ MonoBehaviour:
   m_margin: {x: 9.525602, y: 2.5933633, z: 9.521785, w: 2.5930324}
   m_textInfo:
     textComponent: {fileID: 392033777}
-    characterCount: 24
+    characterCount: 23
     spriteCount: 0
     spaceCount: 5
     wordCount: 6

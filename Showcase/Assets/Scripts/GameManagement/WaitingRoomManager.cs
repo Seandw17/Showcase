@@ -135,7 +135,8 @@ public class WaitingRoomManager : MonoBehaviour
         }
         else
         {
-            if(!m_nextTextShown)
+            
+            if (!m_nextTextShown)
             {
                 StartCoroutine(NextText());
                 m_nextTextShown = true;
@@ -154,6 +155,7 @@ public class WaitingRoomManager : MonoBehaviour
                 if (!m_IsSited)
                 {
                     ConversationStore.DidntArrivedInWaitingAreaOnTime();//wasnt sitted on chair when timer ran off
+                    ig_chair.GetComponent<WaitingChair>().LateAlready();
                 }
                 m_setMoveAgain = true;
             }

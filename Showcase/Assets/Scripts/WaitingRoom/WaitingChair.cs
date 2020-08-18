@@ -37,11 +37,13 @@ public class WaitingChair : InteractableObjectBase
             SetShouldGlow(false);
 
         }
-        
-       
+    }
+    
 
-
-
+    public void LateAlready()
+    {
+        canInteract = false;
+        SetShouldGlow(false);
     }
 
 }
